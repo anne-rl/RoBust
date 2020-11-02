@@ -18,3 +18,10 @@ class UserReservationView(View):
   
   def post(self, request):
     return render(request, 'user/userReservation.html')
+  
+class UserHistoryView(View):
+  def get(self, request):
+    return render(request, 'user/userHistory.html')
+  
+  def post(self, request):
+    return render(request, 'user/userHistory.html')

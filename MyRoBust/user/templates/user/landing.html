@@ -142,41 +142,41 @@
                     </div>
                   </div>
                   <br>
-                  <input type="text" name="user-id" hidden>
+                  <input type="text" name="id" hidden>
                   <div class="row">
                     <div class="col-md-4 mb-3">
                       <label for="firstName" style="color: white">First Name</label>
-                      <input type="text" class="form-control" id="id-firstName" name="user-firstName" placeholder="First Name" required minlength="1" maxlength="20">
+                      <input type="text" class="form-control" id="id-firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20">
                     </div>
                     <div class="col-md-4 mb-3">
                       <label for="middleName" style="color: white">Middle Name</label>
-                      <input type="text" class="form-control" id="id-middleName" name="user-middleName" placeholder="Middle Name" minlength="1" maxlength="20">
+                      <input type="text" class="form-control" id="id-middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20">
                     </div>
                     <div class="col-md-4 mb-3">
                       <label for="lastName" style="color: white">Last Name</label>
-                      <input type="text" class="form-control" id="id-lastName" name="user-lastName" placeholder="Last Name" required minlength="1" maxlength="20">
+                      <input type="text" class="form-control" id="id-lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <label for="email" style="color: white">Email</label>
-                      <input type="email" class="form-control" id="id-email" name="user-email" placeholder="Email" required minlength="1" maxlength="50">
+                      <input type="email" class="form-control" id="id-email" name="email" placeholder="Email" required minlength="1" maxlength="50">
                     </div>
                     <div class="col-md-6 mb-3">
                       <label for="password" style="color: white">Password</label>
-                      <input type="password" class="form-control" id="id-password" name="user-password" placeholder="Password" required minlength="8" maxlength="16">
+                      <input type="password" class="form-control" id="id-password" name="password" placeholder="Password" required minlength="8" maxlength="16">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-4 mb-3">
                       <label for="number" style="color: white">Contact No.</label>
-                      <input type="number" class="form-control" id="id-Number" name="user-Number" placeholder="Contact No." required minlength="11" maxlength="11">
+                      <input type="number" class="form-control" id="id-number" name="number" placeholder="Contact No." required minlength="11" maxlength="11">
                     </div>
                     <div class="col-md-3 mb-1">
                       <label for="status" style="color: white">Department</label>
-                      <select class="form-control-lg" style="border-color: lightgrey; height: 38px; font-size: 15px" id="id-status" name="user-status" required>
-                        <option value="High-School"></option>
-                        <option value="High-School">Elementary</option>
+                      <select class="form-control-lg" style="border-color: lightgrey; height: 38px; font-size: 15px" id="id-status" name="status" required>
+                        <option value=""></option>
+                        <option value="Elementary">Elementary</option>
                         <option value="High-School">High-School</option>
                         <option value="College">College</option>
                       </select>
@@ -186,11 +186,11 @@
                       <div class="form-check-inline text-right" style="color: white">
                         <label class="form-check-label ">
                           {% if user.gender == 'Male' %}
-                          <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="user-gender" value="Male" checked="checked">Male
-                          <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="user-gender" value="Female">Female
+                          <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Male" checked="checked">Male
+                          <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Female">Female
                           {% else %}
-                          <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="user-gender" value="Male">Male
-                          <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="user-gender" value="Female" checked="checked">Female
+                          <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Male">Male
+                          <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Female" checked="checked">Female
                           {% endif %}
                         </label>
                       </div>
