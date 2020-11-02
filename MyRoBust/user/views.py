@@ -11,3 +11,10 @@ class LandingIndexView(View):
   
   def post(self, request):
     return render(request, 'user/landing.html')
+  
+class UserReservationView(View):
+  def get(self, request):
+    return render(request, 'user/userReservation.html')
+  
+  def post(self, request):
+    return render(request, 'user/userReservation.html')

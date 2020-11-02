@@ -7,4 +7,5 @@ app_name = 'user'
 
 urlpatterns = [
 	path('landing', views.LandingIndexView.as_view(), name="landing_view"),
+    path('userReservation', views.UserReservationView.as_view(), name="userReservation_view")
 ]
