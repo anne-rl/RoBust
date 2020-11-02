@@ -21,12 +21,7 @@ body {
   text-decoration: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6 {
   font-family: Roboto-Regular, 'Helvetica Neue', Helvetica, Tahoma, Arial, Sans-serif;
 }
 
@@ -95,9 +90,8 @@ h6 {
   border-radius: 2rem;
 }
 
-/*
- * Login DropDown
- */
+/* Login Dropdown
+-------------------------------------------------- */
 #login-dp {
   min-width: 250px;
   padding: 14px 14px 0;
@@ -141,10 +135,8 @@ h6 {
 }
 
 
-/*
- * Icon Hover
- */
-
+/* Icons
+-------------------------------------------------- */
 #icon {
   margin-top: 0;
 }
@@ -154,12 +146,8 @@ text-decoration: none;
 background: #e0e0e0;
 }
 
-
-
-
-/*
- * Footer
- */
+/* Footer
+-------------------------------------------------- */
 .blog-footer {
   padding: 2.5rem 0;
   color: #999;
