@@ -103,13 +103,16 @@
 <!-- Nav Bar Modal -->
 <div style="background-color: #2c353c; border-bottom-color: #a83332; border-bottom-style: solid">
 
-  
+
   <!-- Booking -->
+  <!--
   <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
     Booking
   </button>
+-->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-history" href="{% url 'user:userReservation_view' %}">Booking</a>
 
-  
+
   <!-- Change Reservation -->
   <button type="button" class="btn btn1" data-toggle="modal" data-target="#change" style="color: white; position: relative; left: 130px">
     Change Reservation
@@ -152,11 +155,32 @@
     </div>
   </div>
 
-  
+
   <!-- Booking History -->
+  <!--
   <button type="button" class="btn btn1" data-toggle="modal" data-target="#change" style="color: white; position: relative; left: 130px">
     Booking History
   </button>
+-->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-history" href="{% url 'user:userHistory_view' %}">Booking History</a>
+
+
+  <!-- Dashboard -->
+<!--
+  <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
+    Dashboard
+  </button>
+-->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-history" href="{% url 'user:userDashboard_view' %}">Dashboard</a>
+
+  
+  <!-- E-Ticket -->
+  <!--
+  <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
+    E-Ticket
+  </button>
+-->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-history" href="{% url 'user:userEticket_view' %}">E-Ticket</a>
 </div>
 
 <br>

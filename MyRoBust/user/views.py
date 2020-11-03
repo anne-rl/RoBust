@@ -25,3 +25,17 @@ class UserHistoryView(View):
   
   def post(self, request):
     return render(request, 'user/userHistory.html')
+  
+class UserDashboardView(View):
+  def get(self, request):
+    return render(request, 'user/userDashboard.html')
+  
+  def post(self, request):
+    return render(request, 'user/userDashboard.html')
+
+class UserEticketView(View):
+  def get(self, request):
+    return render(request, 'user/userEticket.html')
+  
+  def post(self, request):
+    return render(request, 'user/userEticket.html')

@@ -114,13 +114,12 @@
 
 
   <!-- Booking -->
-  <!--
+<!--
   <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
     Booking
   </button>
 -->
-  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-history" href="{% url 'user:userReservation_view' %}">Booking</a>
-
+<a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-history" href="{% url 'user:userReservation_view' %}">Booking</a>
 
   <!-- Change Reservation -->
   <button type="button" class="btn btn1" data-toggle="modal" data-target="#change" style="color: white; position: relative; left: 130px">
@@ -183,7 +182,6 @@
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-history" href="{% url 'user:userDashboard_view' %}">Dashboard</a>
 
 
-
   <!-- E-Ticket -->
   <!--
   <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
@@ -195,11 +193,11 @@
 <br>
 
 <div class="container">
-  <!-- DataTable of Booking History-->
+  <!-- E-Ticket DataTable-->
   <div class="container-fluid" style="width:100%">
     <div class="card shadow mb-4">
       <div class="card-header py-2">
-        <p style="color: #a83332; font-size: 22px; font-weight: 700"><b>BOOKING HISTORY</b></p>
+        <p style="color: #a83332; font-size: 22px; font-weight: 700"><b>E-TICKET</b></p>
       </div>
       <div class="card-body">
         <div class="container">
@@ -219,10 +217,10 @@
             <thead class="thead-light">
               <tr>
                 <th style="text-align:center">Date</th>
-                <th style="text-align:center">ID</th>
                 <th style="text-align:center">Time Departure</th>
                 <th style="text-align:center">Destination</th>
                 <th style="text-align:center">Seat No.</th>
+                <th style="text-align:center">Total Fare</th>
                 <th style="text-align:center;">Action</th>
               </tr>
             </thead>
