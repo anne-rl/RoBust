@@ -1,0 +1,336 @@
+{% load static %}
+
+{% block headerinclude %}
+<title>RoBust</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="{% static 'images/w1.png' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/landing.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}">
+<link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
+{% endblock headerinclude %}
+
+{% block content %}
+<header style="background-color: #fbfbfb">
+  <div class="container">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+
+      <!-- Robust Logo -->
+      <div class="col-5 d-flex justify-content-end align-items-center">
+        <div class="text-center mb-2">
+          <img src="{% static 'media/RoBust.png' %}" width="505" height="130">
+        </div>
+      </div>
+
+      <!-- RoBust Nav Bar Operations-->
+      <div class="col-8 d-flex justify-content-end">
+
+        <!-- RoBust Icons-->
+        <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; height: 50px; border-radius: 5px; font-size: 14px; width: 160px">
+              <i class="fa fa-map-marker" aria-hidden="true" style="color: #a83332"></i><span class="caret"></span></a>
+            <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #e1e1e1">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="text-black">N. Bacalso Avenue, Cebu City</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; height: 50px; border-radius: 5px; font-size: 14px; width: 160px">
+              <i class="fa fa-envelope" aria-hidden="true" style="color: #a83332"></i><span class="caret"></span></a>
+            <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #e1e1e1">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <ul class="info-list">
+                      <li><span class="siteinfo-name" style="font-weight: 700">General Inquiries:</span>
+                        <a href="mailto:info@cit.edu" style="color: #a83332">info@cit.edu</a>
+                      </li>
+                      <li>
+                        <span class="siteinfo-name" style="font-weight: 700">Admissions:</span>
+                        <a href="mailto:admission@cit.edu" style="color: #a83332">admission@cit.edu</a>
+                        <p></p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; height: 50px; border-radius: 5px; font-size: 14px">
+              <i class="fa fa-phone" aria-hidden="true" style="color: #a83332"></i><span class="caret"></span></a>
+            <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #e1e1e1">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="text-black"><b>PLDT Trunk Line:</b> +63322617741</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- RoBust Login-->
+        <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; background-color: #a83332; height: 50px; border-radius: 5px; font-size: 14px; width: 160px">
+              <i class="fa fa-lock" aria-hidden="true"></i> LOG IN<span class="caret"></span></a>
+            <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #2c353c">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+
+                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                      <div class="form-group">
+                        <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                      </div>
+                      <div class="form-group">
+                        <label class="sr-only" for="exampleInputPassword2"><i class="fa fa-lock" aria-hidden="true"></i>Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block" style="background-color: #a83332">></button>
+                      </div>
+
+                      <div class="col text-center">
+                        <p style="text-align:center; color: white; font: 8px"> Not yet registered?
+                          <button type="button" class="btn btn1" data-toggle="modal" data-target="#register" style="color: white; text-align: center; font-weight: 700">
+                            Click Here
+                          </button></p>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- RoBust Registration Modal -->
+        <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content" style="background-color:#2c353c">
+              <div class="modal-header" style="background-color:#2c353c">
+                <h5 class="modal-title font-weight-bold" style="color:white">Registration</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color:white">&times;</span>
+                </button>
+              </div>
+
+              <form id="register_form" method="POST" autocomplete="off" enctype="multipart/form-data">
+                <div class="modal-body">
+                  {% csrf_token %}
+                  <div class="container">
+                    <div class="picture-container">
+                      <div class="picture">
+                        <img src="{% static 'media/user.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
+                        <input type="file" id="profilePicture" name="profilePicture" class="" required>
+                      </div>
+                      <h6 class="" style="color: white">Choose Picture</h6>
+                    </div>
+                  </div>
+                  <br>
+                  <input type="text" name="id" hidden>
+                  <div class="row">
+                    <div class="col-md-4 mb-3">
+                      <label for="firstName" style="color: white">First Name</label>
+                      <input type="text" class="form-control" id="id-firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="middleName" style="color: white">Middle Name</label>
+                      <input type="text" class="form-control" id="id-middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="lastName" style="color: white">Last Name</label>
+                      <input type="text" class="form-control" id="id-lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="email" style="color: white">Email</label>
+                      <input type="email" class="form-control" id="id-email" name="email" placeholder="Email" required minlength="1" maxlength="50">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="password" style="color: white">Password</label>
+                      <input type="password" class="form-control" id="id-password" name="password" placeholder="Password" required minlength="8" maxlength="16">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-3">
+                      <label for="number" style="color: white">Contact No.</label>
+                      <input type="number" class="form-control" id="id-number" name="number" placeholder="Contact No." required minlength="11" maxlength="11">
+                    </div>
+                    <div class="col-md-3 mb-1">
+                      <label for="status" style="color: white">Department</label>
+                      <select class="form-control-lg" style="border-color: lightgrey; height: 38px; font-size: 15px" id="id-status" name="status" required>
+                        <option value=""></option>
+                        <option value="Elementary">Elementary</option>
+                        <option value="High-School">High-School</option>
+                        <option value="College">College</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                      <label for="gender" style="color: white">Gender</label> <br>
+                      <div class="form-check-inline text-right" style="color: white">
+                        <label class="form-check-label ">
+                          {% if user.gender == 'Male' %}
+                          <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Male" checked="checked">Male
+                          <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Female">Female
+                          {% else %}
+                          <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Male">Male
+                          <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Female" checked="checked">Female
+                          {% endif %}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="modal-footer" style="background-color:#2c353c;height: 35px">
+                    <button type="button" class="btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>
+                    
+                    <!--                    <button type="submit" id="btnRegister" name="btnRegister" class="btn" style="background-color: #a83332; color: white">REGISTER</button>-->
+                    <a type="button" class="btn btn1" style="background-color: #a83332; color: white" id="id-register" href="{% url 'user:userReservation_view' %}">REGISTER</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Nav Bar: About Us Modal -->
+<div style="background-color: #2c353c; border-bottom-color: #a83332; border-bottom-style: solid">
+  <button type="button" class="btn btn1" data-toggle="modal" data-target="#about" style="color: white; position: relative; left: 130px">
+    About Us
+  </button>
+
+  <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" style="background-color:beige">
+        <div class="modal-header">
+          <h5 class="modal-title" id="aboutLongTitle">About Us</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="text-black" style="align=justify"> &nbsp;&nbsp;&nbsp;&nbsp; HatudTeknoy is a web application that allows CIT – U passengers to select and reserve a bus seat by themselves. With this, the CIT – U passengers could reserve a seat without physically going to the IMDC office to check its availability. Aside from that, the application allows these passengers to check the latest update on scheduled time departure of the bus, information and tickets in a particular day and time, allowing them to experience a convenient bus seat reservation ahead of time. The goal of this system is to reduce the conventional paper ticketing method and to provide a new way for bus ticketing via virtual process. However, this system is not limited to over-the-counter walk-in passengers.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn default" data-dismiss="modal" style="background-color: #a83332; color: white">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% block footerinclude %}
+<!-- Footer -->
+<!--
+<footer class="page-footer font-small mdb-color pt-15">
+  <div class="container text-center text-md-left">
+    <div class="row text-center text-md-left mt-5">
+      <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold text-white">Vision</h6>
+        <p class="text-white">To cultivate an environment that promotes the safe, efficient and cost-effective use of medications.</p>
+      </div>
+
+      <hr class="w-100 clearfix d-md-none">
+
+      <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold text-white">Mission</h6>
+        <p class="text-white">We dedicate ourselves to serving the nation by undertaking sustainable health and education-focused programs.</p>
+      </div>
+
+      <hr class="w-100 clearfix d-md-none">
+
+      <div class="col-md-3 col-lg-0 col-xl-0 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold text-white">Social Media</h6>
+        <p class="text-white">
+          <i class="fa fa-facebook" aria-hidden="true"></i> Wellocity Pharmacy</p>
+        <p class="text-white">
+          <i class="fa fa-instagram" aria-hidden="true"></i> @wellocitypahrmacy </p>
+        <p class="text-white">
+          <i class="fa fa-twitter" aria-hidden="true"></i> @thewellocitypharmacy </p>
+        <p class="text-white">
+          <i class="fa fa-youtube" aria-hidden="true"></i> Wellocity Pharmacy </p>
+      </div>
+
+      <hr class="w-100 clearfix d-md-none">
+
+      <div class="col-md-3 col-lg-0 col-xl-3 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold text-white">Contact Us</h6>
+        <p class="text-white">
+          <i class="fa fa-map-marker text-white" aria-hidden="true"></i> Diaz Bldg. Cor. Avila St., Cebu City</p>
+        <p class="text-white">
+          <i class="fa fa-envelope text-white" aria-hidden="true"></i> wellocity@gmail.com</p>
+        <p class="text-white">
+          <i class="fa fa-mobile" aria-hidden="true"></i> +639 651 984 052</p>
+        <p class="text-white">
+          <i class="fa fa-phone" aria-hidden="true"></i> 323 255 2746</p>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row d-flex align-items-center ">
+      <div class="col-md-7 col-lg-8 ">
+        <p class="text-center text-md-left text-white">© EST 2020 Copyright: Wellocity Pharmacy</p>
+      </div>
+      <div class="col-md-5 col-lg-4 ml-lg-0">
+
+        <div class="text-center text-md-right ">
+          <ul class="list-unstyled list-inline ">
+            <li class="list-inline-item ">
+              <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                <i class="fa fa-facebook-official text-white" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                <i class="fa fa-instagram text-white" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                <i class="fa fa-twitter text-white" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                <i class="fa fa-youtube text-white" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+-->
+<!-- Footer -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<script src="{% static 'js/landing.js' %}"></script>
+<script src="{% static 'js/registration.js' %}"></script>
+{% endblock footerinclude %}
+{% endblock content %}
