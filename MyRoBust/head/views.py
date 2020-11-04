@@ -12,6 +12,13 @@ class HeadHistoryView(View):
   def post(self, request):
     return render(request, 'head/headHistory.html')
   
+class HeadSummaryView(View):
+  def get(self, request):
+    return render(request, 'head/headSummary.html')
+  
+  def post(self, request):
+    return render(request, 'head/headSummary.html')
+  
 class HeadDashboardView(View):
   def get(self, request):
     return render(request, 'head/headDashboard.html')
