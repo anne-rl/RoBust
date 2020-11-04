@@ -9,6 +9,5 @@ urlpatterns = [
 	path('landing', views.LandingIndexView.as_view(), name="landing_view"),
     path('userReservation', views.UserReservationView.as_view(), name="userReservation_view"),
     path('userHistory', views.UserHistoryView.as_view(), name="userHistory_view"),
-    path('userDashboard', views.UserDashboardView.as_view(), name="userDashboard_view"),
-    path('userEticket', views.UserEticketView.as_view(), name="userEticket_view")
+    path('userDashboard', views.UserDashboardView.as_view(), name="userDashboard_view")
 ]
