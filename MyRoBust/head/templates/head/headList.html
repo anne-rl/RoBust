@@ -8,6 +8,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/reservation.css' %}">
 <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
 
+
+
 <!-- Booking History DataTable Links -->
 <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
 <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
@@ -185,7 +187,7 @@
             <tbody>
               <!--                {% for customer in customers %}-->
               <tr>
-                <td style="text-align:center">d</td>
+                <td style="text-align:center"></td>
                 <td style="text-align:center"> </td>
                 <td></td>
                 <td> </td>
@@ -193,16 +195,16 @@
                 <td style="text-align:center">
                   <div class="text-center">
                     <!-- View Button-->
-                    <a type="button" class="btn btn-default btn-sm" style="width:55px" href="#" data-toggle="modal" data-target="#viewModal"><span class="glyphicon glyphicon-eye-open" style="color:black"></span></a>
-                    
+                    <a type="button" class="btn btn-default btn-sm" style="width:35px" href="#" data-toggle="modal" data-target="#viewModal"><span class="glyphicon glyphicon-eye-open" style="color:black"></span></a>
+
                     <!-- Delete Button-->
-                    <button type="button" class="btn btn-default btn-sm" style="width:55px" data-toggle="modal" data-target="#deleteModal">
+                    <button type="button" class="btn btn-default btn-sm" style="width:35px" data-toggle="modal" data-target="#deleteModal">
                       <span class="glyphicon glyphicon-trash"></span>
                     </button>
-                    
-                    <!-- E-Wallet Button-->
-                    <button type="button" class="btn btn-default btn-sm" style="width:55px" data-toggle="modal" data-target="#cashModal">
-                      <i class="fa fa-money" aria-hidden="true"></i>
+
+                    <!-- Cash-in Button-->
+                    <button type="button" class="btn btn-default btn-sm" style="width:35px" data-toggle="modal" data-target="#cashModal">
+                      <i class="glyphicon glyphicon-credit-card" aria-hidden="true" style="font-size: 13px"></i>
                     </button>
                   </div>
                 </td>
