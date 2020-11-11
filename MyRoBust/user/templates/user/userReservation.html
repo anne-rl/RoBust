@@ -170,7 +170,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content" style="background-color: #2c353c">
         <div class="modal-header">
-          <h5 class="modal-title" id="aboutLongTitle" style="color: white">Update Destination</h5>
+          <h5 class="modal-title" id="aboutLongTitle" style="color: white">Change Reservation</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true" style="color: white">&times;</span>
           </button>
@@ -228,7 +228,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content" style="background-color: #e7c51d">
         <div class="modal-header">
-          <h5 class="modal-title" id="aboutLongTitle">E-Wallet</h5>
+          <h5 class="modal-title" id="walletLongTitle">E-Wallet</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -248,29 +248,58 @@
 <!------------ Booking Page Body ------------>
 <div class="container" style="position: relative; left: -30px">
   <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 1180px; border-bottom-color: #a83332; border-bottom-style: solid">
-    <h6><b>Select a Seat</b></h6>
+    <h6><b>Booking</b></h6>
   </div>
   <br>
   <form id="regiter_form" method="POST" autocomplete="off" enctype="multipart/form-data">
     {% csrf_token %}
-    <img src="{% static 'media/RoBustSeats.jpg' %}" width="1165" height="442">
     <div class="row">
+      <div class="col-md-2 mb-3">
+        <input type="text" class="form-control" id="id-quantity" name="quantity" placeholder="No. of Seats" value="" pattern="[0-9]{1,2}" style="background-color: #2c353c; color: white" required>
+      </div>
+      <div class="col-md-2 mb-3">
+      <!-- Seat Boking Button-->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#seatsModalCenter" style="background-color: #2c353c; color: white; border-color: #2c353c; height: 38px; width: 150px">
+        Select Seat
+      </button>
+
+      <!-- Seat Boking Modal -->
+      <div class="modal fade" id="seatsModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="seatsModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
       <div class="form-group col-md-3 mb-3">
-        <label for="country">Destination</label>
         <p>
           <select class="form-control w-100" id="id-destination" name="destination" required style="background-color: #2c353c; color: white;">
             <option value="Destination">Select Destination</option>
+            <option value="Mambaling">Mambaling</option>
+            <option value="Basak">Basak</option>
             <option value="Pardo">Pardo</option>
             <option value="Bulacao">Bulacao</option>
             <option value="Tabunok">Tabunok</option>
             <option value="Lawaan">Lawaan</option>
+            <option value="Lipata">Lipata</option>
             <option value="Minglanilla">Minglanilla</option>
+            <option value="Lungsod">Lungsod</option>
+            <option value="Tungkop">Tungkop</option>
           </select>
         </p>
-      </div>
-      <div class="col-md-2 mb-3">
-        <label for="quantity">Quantity</label>
-        <input type="text" class="form-control" id="id-quantity" name="quantity" placeholder="No. of Seats" value="" pattern="[0-9]{1,2}" style="background-color: #2c353c; color: white" required readonly>
       </div>
     </div>
     <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 1180px; border-bottom-color: #a83332; border-bottom-style: solid">
