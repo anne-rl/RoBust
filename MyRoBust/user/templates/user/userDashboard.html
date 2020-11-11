@@ -357,10 +357,6 @@
 
              <label for="number">Date</label>
             <input type="text" class="form-control" id="id-date" name="date" value="" required minlength="1" maxlength="52" readonly>
-
-            
-
-
           </div>
         </div>
       </div>
@@ -368,6 +364,48 @@
   </div>
 </div>
 <br>
+
+
+<!------------ Dashboard Body ------------>
+<div class="container">
+  <!-- Booking History DataTable-->
+  <div class="container-fluid" style="width:100%">
+    <div class="card shadow mb-4">
+      <div class="card-header py-2">
+        <p style="color: #a83332; font-size: 22px; font-weight: 700"><b>Dashboard</b></p>
+      </div>
+      <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-2">
+              <p><b>FROM</b>
+                <input id="min" class="form-control" name="min" type="text" style="width: 150px;"></p>
+            </div>
+            <div class="col-xs-2">
+              <p><b>TO</b>
+                <input id="max" class="form-control" name="max" type="text" style="width: 150px;"></p>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered" id="myHistoryTable" width="100%" cellspacing="0">
+            <thead class="thead-light">
+              <tr>
+                <th style="text-align:center">Date Booked</th>
+                <th style="text-align:center">ID</th>
+                <th style="text-align:center">Time Departure</th>
+                <th style="text-align:center">Destination</th>
+                <th style="text-align:center">Seat No.</th>
+                <th style="text-align:center;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+
+
+
+
+
+
 
 {% block footerinclude %}
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
