@@ -207,6 +207,7 @@
                   </div>
                 </td>
               </tr>
+
               <!-- Modal VIEW-->
               <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
@@ -271,7 +272,14 @@
                     <div class="modal-body">
                       <form id="cashForm" method='POST'>
                         {% csrf_token %}
-                        <!--                        <input type="text" name="ccustomer-id" value={{customer.id}} hidden>-->
+                        <!--     <input type="text" name="ccustomer-id" value={{customer.id}} hidden>-->
+                        
+                          <p style="color: #ffffff; font-size: 10px; font-weight: 700">Input amount</p>
+                          <input type="text" name="ccustomer-id" value="">
+
+                         <br>
+                         <br>
+
 
                         <div class="modal-footer" style="background-color: #2c353c">
                           <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Cancel</button>
