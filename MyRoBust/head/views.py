@@ -5,12 +5,6 @@ from django.http import HttpResponse
 from django.contrib import messages
 
   
-class HeadHistoryView(View):
-  def get(self, request):
-    return render(request, 'head/headHistory.html')
-  
-  def post(self, request):
-    return render(request, 'head/headHistory.html')
   
 class HeadSummaryView(View):
   def get(self, request):
@@ -18,6 +12,13 @@ class HeadSummaryView(View):
   
   def post(self, request):
     return render(request, 'head/headSummary.html')
+
+class HeadListView(View):
+  def get(self, request):
+    return render(request, 'head/headList.html')
+  
+  def post(self, request):
+    return render(request, 'head/headList.html')
   
 class HeadDashboardView(View):
   def get(self, request):
