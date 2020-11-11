@@ -6,7 +6,7 @@ from django.conf import settings
 app_name = 'head'
 
 urlpatterns = [
-    path('headHistory', views.HeadHistoryView.as_view(), name="headHistory_view"),
     path('headSummary', views.HeadSummaryView.as_view(), name="headSummary_view"),
+    path('headList', views.HeadListView.as_view(), name="headList_view"),
     path('headDashboard', views.HeadDashboardView.as_view(), name="headDashboard_view")
 ]
