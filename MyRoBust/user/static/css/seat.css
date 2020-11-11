@@ -1,75 +1,7 @@
-*,
-    *:before,
-    *:after {
-      box-sizing: border-box;
-    }
 
-    html {
-      font-size: 16px;
-    }
-
-    .plane {
+    .bus {
       margin: 20px auto;
       max-width: 300px;
-    }
-
-    .cockpit {
-      height: 250px;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      border-bottom: 5px solid #d8d8d8;
-    }
-
-    .cockpit:before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 500px;
-      width: 100%;
-      border-radius: 50%;
-      border-right: 5px solid #d8d8d8;
-      border-left: 5px solid #d8d8d8;
-    }
-
-    .cockpit h1 {
-      width: 60%;
-      margin: 100px auto 35px auto;
-    }
-
-    .exit {
-      position: relative;
-      height: 50px;
-    }
-
-    .exit:before,
-    .exit:after {
-      content: "EXIT";
-      font-size: 14px;
-      line-height: 18px;
-      padding: 0px 2px;
-      font-family: "Arial Narrow", Arial, sans-serif;
-      display: block;
-      position: absolute;
-      background: green;
-      color: white;
-      top: 50%;
-      transform: translate(0, -50%);
-    }
-
-    .exit:before {
-      left: 0;
-    }
-
-    .exit:after {
-      right: 0;
-    }
-
-    .fuselage {
-      border-right: 5px solid #d8d8d8;
-      border-left: 5px solid #d8d8d8;
     }
 
     ol {
@@ -77,7 +9,6 @@
       padding: 0;
       margin: 0;
     }
-
 
     .seats {
       display: flex;
@@ -91,6 +22,17 @@
       flex: 0 0 14.28571428571429%;
       padding: 5px;
       position: relative;
+
+      width: 39.6px;
+      height: 44px;
+      border-radius: 4px 4px 8px 8px;
+      background: #a83332;
+      background: linear-gradient(#a83332 0%, #a83332 70%, #000 70%, #a83332 77%);
+      position: relative;
+      border: 1px solid #000;
+      margin: 5px;
+      display: inline-block;
+      color: white;
     }
 
     .seat:nth-child(3) {
@@ -134,19 +76,6 @@
     .seat label:hover {
       cursor: pointer;
       box-shadow: 0 0 0px 2px #e7c51d;
-    }
-
-    .seat {
-      width: 39.6px;
-      height: 44px;
-      border-radius: 4px 4px 8px 8px;
-      background: #a83332;
-      background: linear-gradient(#a83332 0%, #a83332 70%, #000 70%, #a83332 77%);
-      position: relative;
-      border: 1px solid #000;
-      margin: 5px;
-      display: inline-block;
-      color: white;
     }
 
     .seat:after,
