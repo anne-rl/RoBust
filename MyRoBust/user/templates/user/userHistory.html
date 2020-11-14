@@ -242,23 +242,23 @@
 
 
 <!-- RoBust E-Ticket Modal -->
-<div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketlabel" aria-hidden="true">
+<div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" style="background-color:#e7c51d">
-      <div class="modal-header" style="background-color:#e7c51d">
-        <h5 class="modal-title font-weight-bold" style="color:black">E-Ticket</h5>
+    <div class="modal-content" style="background-color:#2c353c">
+      <div class="modal-header" style="background-color:#2c353c">
+        <h5 class="modal-title font-weight-bold" style="color:white">E-Ticket</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true" style="color:white">&times;</span>
         </button>
       </div>
 
       <form id="register_form" method="POST" autocomplete="off" enctype="multipart/form-data">
-        <div class="modal-body">
-          <li style="list-style:none">Seat Number: </li>
-          <li style="list-style:none">Date: </li>
-          <li style="list-style:none">Time Departure: </li>
-          <li style="list-style:none">Destination: </li>
-          <li style="list-style:none">Quantity: </li>
+        <div class="modal-body" >
+          <li style="list-style:none; color:white">Seat Number: </li>
+          <li style="list-style:none; color:white">Date: </li>
+          <li style="list-style:none; color:white">Time Departure: </li>
+          <li style="list-style:none; color:white">Destination: </li>
+          <li style="list-style:none; color:white">Quantity: </li>
           <div class="modal-footer" style="height: 35px">
             <button type="submit" id="btnRegister" name="btnDownload" class="btn" style="background-color: #a83332; color: white; width: 100px">Download</button>
             <button type="submit" id="btnRegister" name="btnPrint" class="btn" style="background-color: #a83332; color: white; width: 100px">Print</button>
@@ -348,23 +348,23 @@
     E-Wallet
   </button>
 
-  <div class="modal fade" id="wallet" tabindex="-1" role="dialog" aria-labelledby="aboutCenterTitle" aria-hidden="true">
+ <div class="modal fade" id="wallet" tabindex="-1" role="dialog" aria-labelledby="aboutCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content" style="background-color: #e7c51d">
-        <div class="modal-header">
-          <h5 class="modal-title" id="walletLongTitle">E-Wallet</h5>
+      <div class="modal-content" style="background-color: #2c353c">
+        <div class="modal-header" style="background-color: #2c353c">
+          <h5 class="modal-title" id="walletLongTitle" style="color: white">E-Wallet</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true" style="color: white">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <div class="container">
+          <div class="container" style="color: white">
             <label for="number">Available Balance</label>
-            <input type="text" class="form-control" id="id-balance" name="balance" value="" required minlength="1" maxlength="52" readonly>
+            <input type="text" class="form-control" id="balance" name="balance" value="" required minlength="1" maxlength="52" readonly>
             <label for="number">Consumed</label>
-            <input type="text" class="form-control" id="id-consumed" name="consumed" value="" required minlength="1" maxlength="52" readonly>
+            <input type="text" class="form-control" id="consumed" name="consumed" value="" required minlength="1" maxlength="52" readonly>
             <label for="number">Date</label>
-            <input type="text" class="form-control" id="id-date" name="date" value="" required minlength="1" maxlength="52" readonly>
+            <input type="text" class="form-control" id="date" name="date" value="" required minlength="1" maxlength="52" readonly>
           </div>
         </div>
       </div>
