@@ -283,26 +283,30 @@
 
 
 <!------------ Dashboard Page Body ------------>
-
-
 <div class="container">
-  Booking History DataTable
   <div class="container-fluid" style="width:100%">
     <div class="card shadow mb-4">
       <div class="card-header py-2">
         <p style="color: #a83332; font-size: 22px; font-weight: 700"><b>DASHBOARD</b></p>
         <div class="text-left">
-          <a tabindex="5" class="week" style="color: #a83332">Week</a>&nbsp;
+          <a tabindex="5" class="week" style="color:#a83332">Week</a>&nbsp;
           <a tabindex="5" class="month" style="color: black">Month</a>
         </div>
       </div>
       <div class="card-body">
+<!--          <div id="piechart"></div>-->
+            <table>
+              <tr>
+                <td><div id="Sarah_chart_div"></div></td>
+                <td><div id="Anthony_chart_div"></div></td>
+              </tr>
+            </table>
       </div>
     </div>
   </div>
 </div>
 
-<div id="piechart"></div>
+
 
 
 
@@ -314,39 +318,104 @@
 <script src="{% static 'js/landing.js' %}"></script>
 <script src="{% static 'js/registration.js' %}"></script>
 
+<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-<script type="text/javascript">
-  // Load google charts
-  google.charts.load('current', {
-    'packages': ['corechart']
-  });
-  google.charts.setOnLoadCallback(drawChart);
+<script>
+      // Load Charts and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
 
-  // Draw the chart and set the chart values
-  function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Task', 'Hours per Day'],
-      ['Work', 8],
-      ['Eat', 2],
-      ['TV', 4],
-      ['Gym', 2],
-      ['Sleep', 8]
-    ]);
+      // Draw the pie chart for Sarah's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(drawSarahChart);
 
-    // Optional; add a title and set the width and height of the chart
-    var options = {
-      'title': 'My Average Day',
-      'width': 550,
-      'height': 400
-    };
+      // Draw the pie chart for the Anthony's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(drawAnthonyChart);
 
-    // Display the chart inside the <div> element with id="piechart"
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-    chart.draw(data, options);
-  }
+      // Callback that draws the pie chart for Sarah's pizza.
+      function drawSarahChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Preferred Seat', 'No. of CIT-U Passengers'],
+          ['1A', 8],
+          ['1B', 2],
+          ['1C', 4]
+        ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = {
+          'title': 'TIME DEPARTURE',
+          'width': 400,
+          'height': 300,
+          slices: {0: {color: '#B84B48'}, 1:{color: '#F6C103'}, 2:{color: '#2C353C'}, 3: {color: 'red'}, 4:{color: 'grey'}}
+        };
+
+        // Instantiate and draw the chart for Sarah's pizza.
+        var chart = new google.visualization.PieChart(document.getElementById('Sarah_chart_div'));
+        chart.draw(data, options);
+      }
+
+      // Callback that draws the pie chart for Anthony's pizza.
+     function drawAnthonyChart() {
+
+     var data = google.visualization.arrayToDataTable([
+        ["Preferred Time", "No. of CIT-U Passengers", { role: "style" } ],
+        ["5:30", 8, "#B84B48"],
+        ["6:30", 2, "#F6C103"],
+        ["7:30", 4, "#2C353C"],
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "TIME DEPARTURE",
+        width: 400,
+        height: 300,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.BarChart(document.getElementById("Anthony_chart_div"));
+      chart.draw(view, options);
+      }   
 </script>
 
-
+<!--
+ <div id="container" style="width: 50%; height: 50%"></div>
+    <script>
+      anychart.onDocumentReady(function() {
+ 
+        // set the data
+        var data = {
+            header: ["Name", "Death toll"],
+            rows: [
+              ["San-Francisco (1906)", 1500],
+              ["Messina (1908)", 87000],
+              ["Ashgabat (1948)", 175000],
+              ["Chile (1960)", 10000],
+              ["Tian Shan (1976)", 242000],
+              ["Armenia (1988)", 25000],
+              ["Iran (1990)", 50000]
+        ]};
+ 
+        // create the chart
+        var chart = anychart.bar();
+ 
+        // add the data
+        chart.data(data);
+ 
+        // set the chart title
+        chart.title("The deadliest earthquakes in the XXth century");
+ 
+        // draw
+        chart.container("container");
+        chart.draw();
+      });
+    </script>
+-->
 {% endblock footerinclude %}
 {% endblock content %}
