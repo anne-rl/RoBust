@@ -404,6 +404,26 @@
                       {% csrf_token %}
                       <div class="modal-body">
                         <div class="row">
+                          <div class="col-md-4 mb-2">
+                            <label for="passengerID" style="color: white">ID :</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 mb-3">
+                            <label for="firstName" style="color: white">First Name</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20" readonly>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="middleName" style="color: white">Middle Name</label>
+                            <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20" readonly>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="lastName" style="color: white">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20" readonly>
+                          </div>
+                        </div>
+                        <hr style="background-color:  color: white">
+                        <div class="row">
                           <div class="col-md-4 mb-3">
                             <label for="busName" style="color: white">Bus Name</label>
                             <input type="text" class="form-control" id="busName" name="busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
@@ -413,14 +433,14 @@
                             <input type="text" class="form-control" id="busNumber" name="busNumber" placeholder="Plate Number" minlength="1" maxlength="20" readonly>
                           </div>
                           <div class="col-md-4 mb-3">
-                            <label for="tripDate" style="color: white">Date</label>
-                            <input type="date" class="form-control" id="tripDate" name="tripDate" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required readonly>
+                            <label for="destination" style="color: white">Destination</label>
+                            <input type="text" class="form-control" id="destination" name="destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-4 mb-3">
-                            <label for="destination" style="color: white">Destination</label>
-                            <input type="text" class="form-control" id="destination" name="destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
+                            <label for="tripDate" style="color: white">Date</label>
+                            <input type="date" class="form-control" id="tripDate" name="tripDate" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required readonly>
                           </div>
                           <div class="col-md-3 mb-3">
                             <label for="tripTime" style="color: white">Time Departure</label>
@@ -505,6 +525,26 @@
                       {% csrf_token %}
                       <div class="modal-body">
                         <div class="row">
+                          <div class="col-md-4 mb-2">
+                            <label for="passengerID" style="color: white">ID :</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 mb-3">
+                            <label for="firstName" style="color: white">First Name</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20" readonly>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="middleName" style="color: white">Middle Name</label>
+                            <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20" readonly>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="lastName" style="color: white">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20" readonly>
+                          </div>
+                        </div>
+                        <hr style="background-color:  color: white">
+                        <div class="row">
                           <div class="col-md-4 mb-3">
                             <label for="busName" style="color: white">Bus Name</label>
                             <input type="text" class="form-control" id="busName" name="busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
@@ -514,14 +554,14 @@
                             <input type="text" class="form-control" id="busNumber" name="busNumber" placeholder="Plate Number" minlength="1" maxlength="20" readonly>
                           </div>
                           <div class="col-md-4 mb-3">
-                            <label for="tripDate" style="color: white">Date</label>
-                            <input type="date" class="form-control" id="tripDate" name="tripDate" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required readonly>
+                            <label for="destination" style="color: white">Destination</label>
+                            <input type="text" class="form-control" id="destination" name="destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-4 mb-3">
-                            <label for="destination" style="color: white">Destination</label>
-                            <input type="text" class="form-control" id="destination" name="destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
+                            <label for="tripDate" style="color: white">Date</label>
+                            <input type="date" class="form-control" id="tripDate" name="tripDate" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required readonly>
                           </div>
                           <div class="col-md-3 mb-3">
                             <label for="tripTime" style="color: white">Time Departure</label>
