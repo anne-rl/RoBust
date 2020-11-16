@@ -249,7 +249,7 @@
     Dashboard
   </button>
 -->
-  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'user:userDashboard_view' %}">Dashboard</a>
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'user:userDashboard_weekly'%}">Dashboard</a>
 
   <!-- E-Wallet-->
   <button type="button" class="btn btn1" data-toggle="modal" data-target="#wallet" style="color: white; position: relative; left: 130px">
@@ -281,7 +281,6 @@
 </div>
 <br>
 
-
 <!------------ Dashboard Page Body ------------>
 <div class="container">
   <div class="container-fluid" style="width:100%">
@@ -289,26 +288,22 @@
       <div class="card-header py-2">
         <p style="color: #a83332; font-size: 22px; font-weight: 700"><b>DASHBOARD</b></p>
         <div class="text-left">
-          <a tabindex="5" class="week" style="color:#a83332">Week</a>&nbsp;
-          <a tabindex="5" class="month" style="color: black">Month</a>
+          <a tabindex="5" class="week" style="color: black">Week</a>&nbsp;
+          <a tabindex="5" class="month" style="color: black" href="{% url 'user:userDashboard_monthly' %}">Month</a>
         </div>
       </div>
       <div class="card-body">
 <!--          <div id="piechart"></div>-->
             <table>
               <tr>
-                <td><div id="Sarah_chart_div"></div></td>
-                <td><div id="Anthony_chart_div"></div></td>
+                <td><div id="seat_PieChart"></div></td>
+                <td><div id="timeDep_BarChart"></div></td>
               </tr>
             </table>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
 
 {% block footerinclude %}
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -326,13 +321,13 @@
       google.charts.load('current', {'packages':['corechart']});
 
       // Draw the pie chart for Sarah's pizza when Charts is loaded.
-      google.charts.setOnLoadCallback(drawSarahChart);
+      google.charts.setOnLoadCallback(seat_PieChart);
 
       // Draw the pie chart for the Anthony's pizza when Charts is loaded.
-      google.charts.setOnLoadCallback(drawAnthonyChart);
+      google.charts.setOnLoadCallback(timeDep_BarChart);
 
       // Callback that draws the pie chart for Sarah's pizza.
-      function drawSarahChart() {
+      function seat_PieChart() {
 
         var data = google.visualization.arrayToDataTable([
           ['Preferred Seat', 'No. of CIT-U Passengers'],
@@ -343,28 +338,28 @@
 
         // Optional; add a title and set the width and height of the chart
         var options = {
-          'title': 'TIME DEPARTURE',
+          'title': 'PREFFERED SEAT',
           'width': 400,
           'height': 300,
           slices: {0: {color: '#B84B48'}, 1:{color: '#F6C103'}, 2:{color: '#2C353C'}, 3: {color: 'red'}, 4:{color: 'grey'}}
         };
 
         // Instantiate and draw the chart for Sarah's pizza.
-        var chart = new google.visualization.PieChart(document.getElementById('Sarah_chart_div'));
+        var chart = new google.visualization.PieChart(document.getElementById("seat_PieChart"));
         chart.draw(data, options);
       }
 
       // Callback that draws the pie chart for Anthony's pizza.
-     function drawAnthonyChart() {
+     function timeDep_BarChart() {
 
      var data = google.visualization.arrayToDataTable([
-        ["Preferred Time", "No. of CIT-U Passengers", { role: "style" } ],
-        ["5:30", 8, "#B84B48"],
-        ["6:30", 2, "#F6C103"],
-        ["7:30", 4, "#2C353C"],
-      ]);
+         ["Preferred Time", "No. of CIT-U Passengers", { role: "style" } ],
+         ["5:30", 8, "#B84B48"],
+         ["6:30", 2, "#F6C103"],
+         ["7:30", 4, "#2C353C"],
+       ]);
 
-      var view = new google.visualization.DataView(data);
+     var view = new google.visualization.DataView(data);
       view.setColumns([0, 1,
                        { calc: "stringify",
                          sourceColumn: 1,
@@ -372,14 +367,14 @@
                          role: "annotation" },
                        2]);
 
-      var options = {
+     var options = {
         title: "TIME DEPARTURE",
         width: 400,
         height: 300,
         bar: {groupWidth: "95%"},
         legend: { position: "none" },
       };
-      var chart = new google.visualization.BarChart(document.getElementById("Anthony_chart_div"));
+     var chart = new google.visualization.BarChart(document.getElementById("timeDep_BarChart"));
       chart.draw(view, options);
       }   
 </script>

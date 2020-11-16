@@ -26,9 +26,16 @@ class UserReviewView(View):
   def post(self, request):
     return render(request, 'user/userReview.html')
   
-class UserDashboardView(View):
+class UserDashboardViewWeekly(View):
   def get(self, request):
-    return render(request, 'user/userDashboard.html')
+    return render(request, 'user/userDashboardWeekly.html')
   
   def post(self, request):
-    return render(request, 'user/userDashboard.html')
+    return render(request, 'user/userDashboardWeekly.html')
+
+class UserDashboardViewMonthly(View):
+  def get(self, request):
+    return render(request, 'user/userDashboardMonthly.html')
+  
+  def post(self, request):
+    return render(request, 'user/userDashboardMonthly.html')

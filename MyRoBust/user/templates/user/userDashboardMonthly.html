@@ -8,14 +8,6 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/reservation.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}">
 <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
-
-<!-- Booking History DataTable Links -->
-<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
-<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
 {% endblock headerinclude %}
 
 {% block content %}
@@ -232,7 +224,6 @@
   </div>
 </div>
 
-
 <!------------ Nav Bar Buttons ------------>
 <div style="background-color: #2c353c; border-bottom-color: #a83332; border-bottom-style: solid">
 
@@ -243,7 +234,6 @@
   </button>
 -->
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-booking" href="{% url 'user:userReservation_view' %}">Booking</a>
-
 
   <!-- Booking Review -->
   <!--
@@ -259,7 +249,7 @@
     Dashboard
   </button>
 -->
-  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'user:userDashboard_weekly' %}">Dashboard</a>
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'user:userDashboard_monthly' %}">Dashboard</a>
 
   <!-- E-Wallet-->
   <button type="button" class="btn btn1" data-toggle="modal" data-target="#wallet" style="color: white; position: relative; left: 130px">
@@ -291,286 +281,137 @@
 </div>
 <br>
 
-<!------------ Booking Review Body ------------>
+
+<!------------ Dashboard Page Body ------------>
 <div class="container">
-  <!-- Booking Review DataTable-->
   <div class="container-fluid" style="width:100%">
     <div class="card shadow mb-4">
       <div class="card-header py-2">
-        <p style="color: #a83332; font-size: 22px; font-weight: 700"><b>BOOKING REVIEW</b></p>
+        <p style="color: #a83332; font-size: 22px; font-weight: 700"><b>DASHBOARD</b></p>
+        <div class="text-left">
+          <a tabindex="5" class="week" style="color: black" href="{% url 'user:userDashboard_weekly' %}">Week</a>&nbsp;
+          <a tabindex="5" class="month" style="color: black" >Month</a>
+        </div>
       </div>
       <div class="card-body">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-2">
-              <p><b>FROM</b>
-                <input id="min" class="form-control" name="min" type="text" style="width: 150px;"></p>
-            </div>
-            <div class="col-xs-2">
-              <p><b>TO</b>
-                <input id="max" class="form-control" name="max" type="text" style="width: 150px;"></p>
-            </div>
-          </div>
-        </div>
-        <div class="table-responsive">
-          <table class="table table-bordered" id="myHistoryTable" width="100%" cellspacing="0">
-            <thead class="thead-light">
+          <div id="piechart"></div>
+            <table>
               <tr>
-                <th style="text-align:center">Date Booked</th>
-                <th style="text-align:center">Ticket ID</th>
-                <th style="text-align:center">ID</th>
-                <th style="text-align:center">Time Departure</th>
-                <th style="text-align:center">Destination</th>
-                <th style="text-align:center">Seat No.</th>
-                <th style="text-align:center;">Action</th>
+                <td><div id="seat_PieChart"></div></td>
+                <td><div id="timeDep_BarChart"></div></td>
               </tr>
-
-              <!-------------- Fake Data -------------->
-              <tr style="background-color: white">
-                <td style="text-align:center"> 11/02/20</td>
-                <td style="text-align:center">RoBust - 1</td>
-                <td style="text-align:center">183694842</td>
-                <td>Monday - 5:45p.m.</td>
-                <td>Lawaan</td>
-                <td style="text-align:center">Seat43</td>
-                <td style="text-align:center">
-                  <div class="text-center">
-                    <a type="button" class="btn btn-default btn-sm" style="width:55px" href="#" data-toggle="modal" data-target="#viewModal"><span class="fa fa-eye" style="color:black"></span></a>
-
-                    <button type="button" class="btn btn-default btn-sm" style="width:55px" data-toggle="modal" data-target="#ticketModal">
-                      <span class="fa fa-ticket"></span>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-
-              <!-- Modal VIEW-->
-              <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content" style="background-color: #2c353c">
-                    <div class="modal-header" style="background-color: #2c353c">
-                      <h5 class="modal-title font-weight-bold" style="color:white">VIEW DETAILS</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" style="color: white">&times;</span>
-                      </button>
-                    </div>
-                    <form id="updateForm" method='POST'>
-                      {% csrf_token %}
-                      <div class="modal-body">
-                        ..
-
-
-                        <div class="modal-footer" style="height: 40px; padding-top: 5px">
-                          <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>
-                          <button type="submit" id="btnUpdate1" name="btnUpdate1" class="btn btn" style="background-color: #a83332; color: white">UPDATE</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Modal E-TICKET -->
-              <div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content" style="background-color:#2c353c">
-                    <div class="modal-header" style="background-color:#2c353c">
-                      <h5 class="modal-title font-weight-bold" style="color:white">E-Ticket</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" style="color:white">&times;</span>
-                      </button>
-                    </div>
-
-                    <form id="register_form" method="POST" autocomplete="off" enctype="multipart/form-data">
-                      <div class="modal-body">
-                        <li style="list-style:none; color:white">Seat Number: </li>
-                        <li style="list-style:none; color:white">Date: </li>
-                        <li style="list-style:none; color:white">Time Departure: </li>
-                        <li style="list-style:none; color:white">Destination: </li>
-                        <li style="list-style:none; color:white">Quantity: </li>
-                        <div class="modal-footer" style="height: 40px; padding-top: 5px">
-                          <button type="submit" id="btnRegister" name="btnDownload" class="btn" style="background-color: #a83332; color: white; width: 100px">Download</button>
-                          <button type="submit" id="btnRegister" name="btnPrint" class="btn" style="background-color: #a83332; color: white; width: 100px">Print</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <!-------------- Fake Data -------------->
-
-            </thead>
-            <tbody>
-              <!--                {% for customer in customers %}-->
-              <tr>
-                <td style="text-align:center"></td>
-                <td style="text-align:center"> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td style="text-align:center"> </td>
-                <td style="text-align:center">
-                  <div class="text-center">
-                    <a type="button" class="btn btn-default btn-sm" style="width:55px" href="#" data-toggle="modal" data-target="#viewModal"><span class="fa fa-eye" style="color:black"></span></a>
-
-                    <button type="button" class="btn btn-default btn-sm" style="width:55px" data-toggle="modal" data-target="#ticketModal">
-                      <span class="fa fa-ticket"></span>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-
-              <!-- Modal VIEW-->
-              <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content" style="background-color: #2c353c">
-                    <div class="modal-header" style="background-color: #2c353c">
-                      <h5 class="modal-title font-weight-bold" style="color:white">VIEW DETAILS</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" style="color: white">&times;</span>
-                      </button>
-                    </div>
-                    <form id="updateForm" method='POST'>
-                      {% csrf_token %}
-                      <div class="modal-body">
-                        ..
-
-
-                        <div class="modal-footer" style="height: 40px; padding-top: 5px">
-                          <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>
-                          <button type="submit" id="btnUpdate1" name="btnUpdate1" class="btn btn" style="background-color: #a83332; color: white">UPDATE</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Modal E-TICKET -->
-              <div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content" style="background-color:#2c353c">
-                    <div class="modal-header" style="background-color:#2c353c">
-                      <h5 class="modal-title font-weight-bold" style="color:white">E-Ticket</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" style="color:white">&times;</span>
-                      </button>
-                    </div>
-
-                    <form id="register_form" method="POST" autocomplete="off" enctype="multipart/form-data">
-                      <div class="modal-body">
-                        <li style="list-style:none; color:white">Seat Number: </li>
-                        <li style="list-style:none; color:white">Date: </li>
-                        <li style="list-style:none; color:white">Time Departure: </li>
-                        <li style="list-style:none; color:white">Destination: </li>
-                        <li style="list-style:none; color:white">Quantity: </li>
-                        <div class="modal-footer" style="height: 40px; padding-top: 5px">
-                          <button type="submit" id="btnRegister" name="btnDownload" class="btn" style="background-color: #a83332; color: white; width: 100px">Download</button>
-                          <button type="submit" id="btnRegister" name="btnPrint" class="btn" style="background-color: #a83332; color: white; width: 100px">Print</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
+            </table>
       </div>
     </div>
   </div>
 </div>
 
 {% block footerinclude %}
-<!-- Footer -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-<!-- Booking History DataTable Scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
-
 <script src="{% static 'js/landing.js' %}"></script>
 <script src="{% static 'js/registration.js' %}"></script>
+
+<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 <script>
-  $(document).ready(function() {
-    let initialTableSettings = {
-      "pageLength": 10,
-      "lengthMenu": [
-        [10, 20, 30, -1],
-        [10, 20, 30, "All"]
-      ],
-      dom: 'flrtBi<"posR"p>',
-      buttons: [
-        'copy',
-        'excel'
-      ]
-    }
+      // Load Charts and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
 
-    $.fn.dataTable.ext.search.push(
-      function(settings, data, dataIndex) {
-        var min = $('#min').datepicker("getDate");
-        var max = $('#max').datepicker("getDate");
-        // need to change str order before making  date obect since it uses a new Date("mm/dd/yyyy") format for short date.
-        var startDate = new Date(data[0])
-        if (min == null && max == null) {
-          return true;
-        }
-        if (min == null && startDate <= max) {
-          return true;
-        }
-        if (max == null && startDate >= min) {
-          return true;
-        }
-        if (startDate <= max && startDate >= min) {
-          return true;
-        }
-        return false;
+      // Draw the pie chart for Sarah's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(seat_PieChart);
+
+      // Draw the pie chart for the Anthony's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(timeDep_BarChart);
+
+      // Callback that draws the pie chart for Sarah's pizza.
+      function seat_PieChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Preferred Seat', 'No. of CIT-U Passengers'],
+          ['1A', 20],
+          ['1B', 5],
+          ['1C', 4]
+        ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = {
+          'title': 'PREFFERED SEAT',
+          'width': 400,
+          'height': 300,
+          slices: {0: {color: '#B84B48'}, 1:{color: '#F6C103'}, 2:{color: '#2C353C'}, 3: {color: 'red'}, 4:{color: 'grey'}}
+        };
+
+        // Instantiate and draw the chart for Sarah's pizza.
+        var chart = new google.visualization.PieChart(document.getElementById("seat_PieChart"));
+        chart.draw(data, options);
       }
-    );
 
-    $("#min").datepicker({
-      onSelect: function() {
-        table.draw();
-      },
-      changeMonth: true,
-      changeYear: true,
-      dateFormat: "dd/mm/yy"
-    });
-    $("#max").datepicker({
-      onSelect: function() {
-        table.draw();
-      },
-      changeMonth: true,
-      changeYear: true,
-      dateFormat: "dd/mm/yy"
-    });
-    var table = $('#myHistoryTable').DataTable(initialTableSettings);
+      // Callback that draws the pie chart for Anthony's pizza.
+     function timeDep_BarChart() {
 
-    // Event listener to the two range filtering inputs to redraw on input
-    $('#min, #max').change(function() {
-      table.draw();
-    });
+     var data = google.visualization.arrayToDataTable([
+         ["Preferred Time", "No. of CIT-U Passengers", { role: "style" } ],
+         ["5:30", 20, "#B84B48"],
+         ["6:30", 5, "#F6C103"],
+         ["7:30", 4, "#2C353C"],
+       ]);
 
-  });
+     var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
 
-  $(document).ready(function() {
-    //Activate tooltip
-    $('[data-toggle="tooltip"]').tooltip();
-  });
+     var options = {
+        title: "TIME DEPARTURE",
+        width: 400,
+        height: 300,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+     var chart = new google.visualization.BarChart(document.getElementById("timeDep_BarChart"));
+      chart.draw(view, options);
+      }   
 </script>
+
+<!--
+ <div id="container" style="width: 50%; height: 50%"></div>
+    <script>
+      anychart.onDocumentReady(function() {
+ 
+        // set the data
+        var data = {
+            header: ["Name", "Death toll"],
+            rows: [
+              ["San-Francisco (1906)", 1500],
+              ["Messina (1908)", 87000],
+              ["Ashgabat (1948)", 175000],
+              ["Chile (1960)", 10000],
+              ["Tian Shan (1976)", 242000],
+              ["Armenia (1988)", 25000],
+              ["Iran (1990)", 50000]
+        ]};
+ 
+        // create the chart
+        var chart = anychart.bar();
+ 
+        // add the data
+        chart.data(data);
+ 
+        // set the chart title
+        chart.title("The deadliest earthquakes in the XXth century");
+ 
+        // draw
+        chart.container("container");
+        chart.draw();
+      });
+    </script>
+-->
 {% endblock footerinclude %}
 {% endblock content %}
