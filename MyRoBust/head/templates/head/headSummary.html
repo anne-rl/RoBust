@@ -403,8 +403,38 @@
                     <form id="updateForm" method='POST'>
                       {% csrf_token %}
                       <div class="modal-body">
-                        ..
-
+                        <div class="row">
+                          <div class="col-md-4 mb-3">
+                            <label for="busName" style="color: white">Bus Name</label>
+                            <input type="text" class="form-control" id="busName" name="busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="busNumber" style="color: white">Plate Number</label>
+                            <input type="text" class="form-control" id="busNumber" name="busNumber" placeholder="Plate Number" minlength="1" maxlength="20" readonly>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="tripDate" style="color: white">Date</label>
+                            <input type="date" class="form-control" id="tripDate" name="tripDate" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required readonly>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 mb-3">
+                            <label for="destination" style="color: white">Destination</label>
+                            <input type="text" class="form-control" id="destination" name="destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
+                          </div>
+                          <div class="col-md-3 mb-3">
+                            <label for="tripTime" style="color: white">Time Departure</label>
+                            <input type="text" class="form-control" id="tripTime" name="tripTime" placeholder="Time Departure" minlength="1" maxlength="20" readonly>
+                          </div>
+                          <div class="col-md-3 mb-3">
+                            <label for="ticketNumber" style="color: white">Ticket No.</label>
+                            <input type="text" class="form-control" id="ticketNumber" name="ticketNumber" placeholder="Ticket No." minlength="1" maxlength="20" readonly>
+                          </div>
+                          <div class="col-md-2 mb-3">
+                            <label for="seatNumber" style="color: white">Seat No.</label>
+                            <input type="text" class="form-control" id="seatNumber" name="seatNumber" placeholder="Seat No." minlength="1" maxlength="20" readonly>
+                          </div>
+                        </div>
                         <div class="modal-footer" style="height: 40px; padding-top: 5px">
                           <button type="submit" id="btnClose" name="btnClose" class="btn btn" style="background-color: #a83332; color: white">CLOSE</button>
                         </div>
@@ -474,8 +504,38 @@
                     <form id="updateForm" method='POST'>
                       {% csrf_token %}
                       <div class="modal-body">
-                        ..
-
+                        <div class="row">
+                          <div class="col-md-4 mb-3">
+                            <label for="busName" style="color: white">Bus Name</label>
+                            <input type="text" class="form-control" id="busName" name="busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="busNumber" style="color: white">Plate Number</label>
+                            <input type="text" class="form-control" id="busNumber" name="busNumber" placeholder="Plate Number" minlength="1" maxlength="20" readonly>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="tripDate" style="color: white">Date</label>
+                            <input type="date" class="form-control" id="tripDate" name="tripDate" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required readonly>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 mb-3">
+                            <label for="destination" style="color: white">Destination</label>
+                            <input type="text" class="form-control" id="destination" name="destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
+                          </div>
+                          <div class="col-md-3 mb-3">
+                            <label for="tripTime" style="color: white">Time Departure</label>
+                            <input type="text" class="form-control" id="tripTime" name="tripTime" placeholder="Time Departure" minlength="1" maxlength="20" readonly>
+                          </div>
+                          <div class="col-md-3 mb-3">
+                            <label for="ticketNumber" style="color: white">Ticket No.</label>
+                            <input type="text" class="form-control" id="ticketNumber" name="ticketNumber" placeholder="Ticket No." minlength="1" maxlength="20" readonly>
+                          </div>
+                          <div class="col-md-2 mb-3">
+                            <label for="seatNumber" style="color: white">Seat No.</label>
+                            <input type="text" class="form-control" id="seatNumber" name="seatNumber" placeholder="Seat No." minlength="1" maxlength="20" readonly>
+                          </div>
+                        </div>
                         <div class="modal-footer" style="height: 40px; padding-top: 5px">
                           <button type="submit" id="btnClose" name="btnClose" class="btn btn" style="background-color: #a83332; color: white">CLOSE</button>
                         </div>
