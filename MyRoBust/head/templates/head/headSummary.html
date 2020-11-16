@@ -101,7 +101,7 @@
         </ul>
 
 
-<!-- RoBust Profile-->
+        <!-- RoBust Login-->
         <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; background-color: #a83332; height: 50px; border-radius: 5px; font-size: 14px; width: 200px">
@@ -110,24 +110,6 @@
               <li>
                 <div class="row">
                   <div class="col-md-12">
-                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-
-                      <div class="form-group">
-                        <div class="row">
-                          <div class="col-lg-12">
-                            <div class="text-left">
-                              <a href="" tabindex="5" class="profileInformation" class="btn btn1" data-toggle="modal" data-target="#updateProfile" style="color: white">Profile Information</a>
-                            </div>
-                            <div class="dropdown-divider" role="presentation">
-                              <span class="filler">&nbsp;</span></div>
-                            <div class="text-left">
-                              <a tabindex="5" class="logout" style="color: white" href="{% url 'user:landing_view' %}">Logout</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </form>
                   </div>
                 </div>
               </li>
@@ -138,98 +120,6 @@
     </div>
   </div>
 </header>
-
-<!-- RoBust Profile Information Modal -->
-<div class="modal fade" id="updateProfile" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content" style="background-color:#2c353c">
-      <div class="modal-header" style="background-color:#2c353c">
-        <h5 class="modal-title font-weight-bold" style="color:white">Profile Information</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:white">&times;</span>
-        </button>
-      </div>
-
-      <form id="register_form" method="POST" autocomplete="off" enctype="multipart/form-data">
-        <div class="modal-body">
-          {% csrf_token %}
-          <div class="container">
-            <div class="picture-container">
-              <div class="picture">
-                <img src="{% static 'media/user.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
-                <input type="file" id="profilePicture" name="profilePicture" class="" required>
-              </div>
-              <h6 class="" style="color: white">Choose Picture</h6>
-            </div>
-          </div>
-          <br>
-          <input type="text" name="id" hidden>
-          <div class="row">
-            <div class="col-md-4 mb-3">
-              <label for="firstName" style="color: white">First Name</label>
-              <input type="text" class="form-control" id="id-firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20">
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="middleName" style="color: white">Middle Name</label>
-              <input type="text" class="form-control" id="id-middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20">
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="lastName" style="color: white">Last Name</label>
-              <input type="text" class="form-control" id="id-lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="email" style="color: white">Email</label>
-              <input type="email" class="form-control" id="id-email" name="email" placeholder="Email" required minlength="1" maxlength="50">
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="password" style="color: white">Password</label>
-              <input type="password" class="form-control" id="id-password" name="password" placeholder="Password" required minlength="8" maxlength="16">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 mb-3">
-              <label for="number" style="color: white">Contact No.</label>
-              <input type="number" class="form-control" id="id-number" name="number" placeholder="Contact No." required minlength="11" maxlength="11">
-            </div>
-            <div class="col-md-3 mb-1">
-              <label for="status" style="color: white">Department</label>
-              <select class="form-control-lg" style="border-color: lightgrey; height: 38px; font-size: 15px" id="id-status" name="status" required>
-                <option value=""></option>
-                <option value="Elementary">Elementary</option>
-                <option value="High-School">High-School</option>
-                <option value="College">College</option>
-              </select>
-            </div>
-            <div class="col-md-3 mb-2">
-              <label for="gender" style="color: white">Gender</label> <br>
-              <div class="form-check-inline text-right" style="color: white">
-                <label class="form-check-label ">
-                  {% if user.gender == 'Male' %}
-                  <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Male" checked="checked">Male
-                  <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Female">Female
-                  {% else %}
-                  <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Male">Male
-                  <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Female" checked="checked">Female
-                  {% endif %}
-                </label>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="modal-footer" style="background-color:#2c353c;height: 35px">
-            <button type="button" class="btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>
-
-            <!--                    <button type="submit" id="btnRegister" name="btnRegister" class="btn" style="background-color: #a83332; color: white">REGISTER</button>-->
-            <a type="button" class="btn btn1" style="background-color: #a83332; color: white" id="id-register" href="{% url 'user:userReservation_view' %}">UPDATE</a>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
 
 <!------------ Nav Bar Buttons ------------>
 <div style="background-color: #2c353c; border-bottom-color: #a83332; border-bottom-style: solid">
@@ -250,6 +140,14 @@
 -->
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-summary" href="{% url 'head:headSummary_view' %}">Customer Report Summary</a>
 
+  <!-- Trip -->
+  <!--
+  <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
+    Trip
+  </button>
+-->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-summary" href="{% url 'head:headTrip_view' %}">Trip</a>
+
   <!-- Dashboard -->
   <!--
   <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
@@ -260,9 +158,9 @@
 </div>
 <br>
 
-<!------------ Booking History Body ------------>
+<!------------ Customer Report Summary Body ------------>
 <div class="container">
-  <!-- Booking History DataTable-->
+  <!-- Customer Report Summary DataTable-->
   <div class="container-fluid" style="width:100%">
     <div class="card shadow mb-4">
       <div class="card-header py-2">
@@ -287,15 +185,17 @@
               <tr>
                 <th style="text-align:center; width: 15%">ID</th>
                 <th style="text-align:center; width: 30%">Name</th>
+                <th style="text-align:center">Ticket No.</th>
                 <th style="text-align:center">Seat No.</th>
                 <th style="text-align:center">Destination</th>
                 <th style="text-align:center">Actions</th>
               </tr>
-              
+
               <!-------------- Fake Data -------------->
               <tr style="background-color: white">
                 <td style="text-align:center">183694842</td>
                 <td>Kenneth Mae Gomez Verdida</td>
+                <td style="text-align:center">RoBust - 1</td>
                 <td style="text-align:center">Seat43</td>
                 <td>Lawaan</td>
                 <td style="text-align:center">
@@ -309,7 +209,7 @@
                   </div>
                 </td>
               </tr>
-              
+
               <!-- Modal VIEW-->
               <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
@@ -360,17 +260,14 @@
                 </div>
               </div>
               <!-------------- Fake Data -------------->
-              
+
             </thead>
             <tbody>
               <!--                {% for customer in customers %}-->
               <tr>
                 <td style="text-align:center"></td>
-                <td style="text-align:center"></td>
-                <td></td>
                 <td></td>
                 <td style="text-align:center"> </td>
-                <td> </td>
                 <td style="text-align:center"></td>
                 <td> </td>
                 <td style="text-align:center">
@@ -532,7 +429,6 @@
     //Activate tooltip
     $('[data-toggle="tooltip"]').tooltip();
   });
-
 </script>
 {% endblock footerinclude %}
 {% endblock content %}

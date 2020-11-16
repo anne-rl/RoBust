@@ -8,8 +8,6 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/reservation.css' %}">
 <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
 
-
-
 <!-- Booking History DataTable Links -->
 <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
 <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
@@ -160,13 +158,13 @@
 </div>
 <br>
 
-<!------------ Booking History Body ------------>
+<!------------ Trip Body ------------>
 <div class="container">
-  <!-- Booking History DataTable-->
+  <!-- Trip DataTable-->
   <div class="container-fluid" style="width:100%">
     <div class="card shadow mb-4">
       <div class="card-header py-2">
-        <p style="color: #a83332; font-size: 22px; font-weight: 700"><b>CUSTOMER MASTER LIST</b></p>
+        <p style="color: #a83332; font-size: 22px; font-weight: 700"><b>Trip</b></p>
       </div>
       <div class="card-body">
         <div class="container">
@@ -187,8 +185,9 @@
               <tr>
                 <th style="text-align:center; width: 15%">ID</th>
                 <th style="text-align:center; width: 30%">Name</th>
-                <th style="text-align:center">Contact No.</th>
-                <th style="text-align:center">Department</th>
+                <th style="text-align:center">Ticket No.</th>
+                <th style="text-align:center">Seat No.</th>
+                <th style="text-align:center">Destination</th>
                 <th style="text-align:center">Actions</th>
               </tr>
 
@@ -196,21 +195,16 @@
               <tr style="background-color: white">
                 <td style="text-align:center">183694842</td>
                 <td>Kenneth Mae Gomez Verdida</td>
-                <td style="text-align:center">09273561425</td>
-                <td>College of Computer Studies</td>
+                <td style="text-align:center">RoBust - 1</td>
+                <td style="text-align:center">Seat43</td>
+                <td>Lawaan</td>
                 <td style="text-align:center">
                   <div class="text-center">
                     <!-- View Button-->
-                    <a type="button" class="btn btn-default btn-sm" style="width:35px" href="#" data-toggle="modal" data-target="#viewModal"><span class="fa fa-eye" style="color:black"></span></a>
-
+                    <a type="button" class="btn btn-default btn-sm" style="width:55px" href="#" data-toggle="modal" data-target="#viewModal"><span class="fa fa-eye" style="color:black"></span></a>
                     <!-- Delete Button-->
-                    <button type="button" class="btn btn-default btn-sm" style="width:35px" data-toggle="modal" data-target="#deleteModal">
+                    <button type="button" class="btn btn-default btn-sm" style="width:55px" data-toggle="modal" data-target="#deleteModal">
                       <span class="fa fa-trash"></span>
-                    </button>
-
-                    <!-- E-Wallet Button-->
-                    <button type="button" class="btn btn-default btn-sm" style="width:35px" data-toggle="modal" data-target="#cashModal">
-                      <i class="fa fa-credit-card" aria-hidden="true" style="font-size: 13px"></i>
                     </button>
                   </div>
                 </td>
@@ -230,7 +224,6 @@
                       {% csrf_token %}
                       <div class="modal-body">
                         ..
-
 
                         <div class="modal-footer" style="height: 40px; padding-top: 5px">
                           <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>
@@ -260,36 +253,6 @@
                         <div class="modal-footer" style="height: 40px; padding-top: 5px">
                           <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">NO</button>
                           <button type="SUBMIT" class="btn btn" id="btnDelete1" name="btnDelete1" style="background-color: #a83332; color: white">YES</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Modal CASH-IN -->
-              <div class="modal fade" id="cashModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content" style="background-color: #2c353c">
-                    <div class="modal-header" style="background-color: #2c353c">
-                      <h5 class="modal-title" id="deleteModalLabel" style="color: white"><strong>CASH-IN</strong></h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" style="color: white">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <form id="cashForm" method='POST'>
-                        {% csrf_token %}
-                        <!--     <input type="text" name="ccustomer-id" value={{customer.id}} hidden>-->
-
-                        <div class="col-md-8 mb-3">
-                          <label for="amount" style="color: white">Input Amount</label>
-                          <input type="number" class="form-control" id="amount" name="amount" placeholder="" required minlength="11" maxlength="11">
-                        </div>
-
-                        <div class="modal-footer" style="height: 40px; padding-top: 5px">
-                          <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Cancel</button>
-                          <button type="SUBMIT" class="btn btn" id="btnDelete1" name="btnDelete1" style="background-color: #a83332; color: white">Continue</button>
                         </div>
                       </form>
                     </div>
@@ -305,19 +268,15 @@
                 <td style="text-align:center"></td>
                 <td></td>
                 <td style="text-align:center"> </td>
-                <td>
+                <td style="text-align:center"></td>
+                <td> </td>
+                <td style="text-align:center">
                   <div class="text-center">
                     <!-- View Button-->
-                    <a type="button" class="btn btn-default btn-sm" style="width:35px" href="#" data-toggle="modal" data-target="#viewModal"><span class="fa fa-eye" style="color:black"></span></a>
-
+                    <a type="button" class="btn btn-default btn-sm" style="width:55px" href="#" data-toggle="modal" data-target="#viewModal"><span class="fa fa-eye" style="color:black"></span></a>
                     <!-- Delete Button-->
-                    <button type="button" class="btn btn-default btn-sm" style="width:35px" data-toggle="modal" data-target="#deleteModal">
+                    <button type="button" class="btn btn-default btn-sm" style="width:55px" data-toggle="modal" data-target="#deleteModal">
                       <span class="fa fa-trash"></span>
-                    </button>
-
-                    <!-- E-Wallet Button-->
-                    <button type="button" class="btn btn-default btn-sm" style="width:35px" data-toggle="modal" data-target="#cashModal">
-                      <i class="fa fa-credit-card" aria-hidden="true" style="font-size: 13px"></i>
                     </button>
                   </div>
                 </td>
@@ -337,7 +296,6 @@
                       {% csrf_token %}
                       <div class="modal-body">
                         ..
-
 
                         <div class="modal-footer" style="height: 40px; padding-top: 5px">
                           <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>
@@ -373,33 +331,6 @@
                   </div>
                 </div>
               </div>
-
-              <!-- Modal CASH-IN -->
-              <div class="modal fade" id="cashModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content" style="background-color: #2c353c">
-                    <div class="modal-header" style="background-color: #2c353c">
-                      <h5 class="modal-title" id="deleteModalLabel" style="color: white"><strong>CASH-IN</strong></h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <form id="cashForm" method='POST'>
-                        {% csrf_token %}
-                        <!--                        <input type="text" name="ccustomer-id" value={{customer.id}} hidden>-->
-
-                        <div class="modal-footer" style="background-color: #2c353c">
-                          <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Cancel</button>
-                          <button type="SUBMIT" class="btn btn" id="btnDelete1" name="btnDelete1" style="background-color: #a83332; color: white">Continue</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
               {% endfor %}
             </tbody>
           </table>
