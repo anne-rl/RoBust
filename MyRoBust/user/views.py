@@ -19,12 +19,12 @@ class UserReservationView(View):
   def post(self, request):
     return render(request, 'user/userReservation.html')
   
-class UserHistoryView(View):
+class UserReviewView(View):
   def get(self, request):
-    return render(request, 'user/userHistory.html')
+    return render(request, 'user/userReview.html')
   
   def post(self, request):
-    return render(request, 'user/userHistory.html')
+    return render(request, 'user/userReview.html')
   
 class UserDashboardView(View):
   def get(self, request):

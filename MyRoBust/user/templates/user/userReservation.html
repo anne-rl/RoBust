@@ -3340,67 +3340,13 @@
 -->
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-reservation" href="{% url 'user:userReservation_view' %}">Booking</a>
 
-  <!-- Change Reservation -->
-  <!--
-  <button type="button" class="btn btn1" data-toggle="modal" data-target="#change" style="color: white; position: relative; left: 130px">
-    Change Reservation
-  </button>
--->
-
-  <!--
-  <div class="modal fade" id="change" tabindex="-1" role="dialog" aria-labelledby="aboutCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content" style="background-color: #2c353c">
-        <div class="modal-header">
-          <h5 class="modal-title" id="aboutLongTitle" style="color: white">Change Reservation</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" style="color: white">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-3 mb-3">
-              <label for="number" style="color: white">Seat No.</label>
-              <input type="text" class="form-control" id="id-number" name="number" value="" required minlength="1" maxlength="52" style="background-color: transparent; border-color: transparent" readonly>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="number" style="color: white">Select Seat</label>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#seatsModalCenter" style="background-color: white; border-color: white; height: 38px; width: 100px; color: black">Seat</button>
-            </div>
-            <div class="form-group col-md-5 mb-3">
-              <label for="country" style="color: white">Select Destination</label>
-              <p>
-                <select class="form-control w-100" id="id-destination" name="destination" required>
-                  <option value="Destination">Destination</option>
-                  <option value="Mambaling">Mambaling</option>
-                  <option value="Basak">Basak</option>
-                  <option value="Pardo">Pardo</option>
-                  <option value="Bulacao">Bulacao</option>
-                  <option value="Tabunok">Tabunok</option>
-                  <option value="Lawaan">Lawaan</option>
-                  <option value="Lipata">Lipata</option>
-                  <option value="Minglanilla">Minglanilla Lungsod</option>
-                  <option value="Tungkop">Tungkop</option>
-                </select>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn default" data-dismiss="modal" style="background-color: #a83332; color: white">Update</button>
-        </div>
-      </div>
-    </div>
-  </div>
--->
-
-  <!-- Booking History -->
+  <!-- Booking Review -->
   <!--
   <button type="button" class="btn btn1" data-toggle="modal" data-target="#change" style="color: white; position: relative; left: 130px">
     Booking History
   </button>
 -->
-  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-history" href="{% url 'user:userHistory_view' %}">Booking History</a>
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-history" href="{% url 'user:userReview_view' %}">Booking Review</a>
 
   <!-- Dashboard -->
   <!--
@@ -3524,7 +3470,7 @@
       <div class="col-md-6 mb-1">
         <form id="submit_form" method="POST">
           {% csrf_token %}
-          <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px" id="id-Cancel" href="{% url 'user:userHistory_view' %}">BOOK</a>
+          <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px" id="id-Cancel" href="{% url 'user:userReview_view' %}">BOOK</a>
           <!--          <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: blue; height: 45px"> Continue </button>-->
         </form>
       </div>
