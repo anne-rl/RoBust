@@ -102,7 +102,7 @@
         <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; background-color: #a83332; height: 50px; border-radius: 5px; font-size: 14px; width: 200px">
-              <i class="fa fa-lock" aria-hidden="true"></i> KENNETH <span class="caret"></span></a>
+              <i class="fa fa-user" aria-hidden="true"></i> KENNETH <span class="caret"></span></a>
             <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #2c353c">
               <li>
                 <div class="row">
@@ -221,35 +221,6 @@
 
             <!--                    <button type="submit" id="btnRegister" name="btnRegister" class="btn" style="background-color: #a83332; color: white">REGISTER</button>-->
             <a type="button" class="btn btn1" style="background-color: #a83332; color: white" id="id-register" href="{% url 'user:userReservation_view' %}">UPDATE</a>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-
-<!-- RoBust E-Ticket Modal -->
-<div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" style="background-color:#2c353c">
-      <div class="modal-header" style="background-color:#2c353c">
-        <h5 class="modal-title font-weight-bold" style="color:white">E-Ticket</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:white">&times;</span>
-        </button>
-      </div>
-
-      <form id="register_form" method="POST" autocomplete="off" enctype="multipart/form-data">
-        <div class="modal-body" >
-          <li style="list-style:none; color:white">Seat Number: </li>
-          <li style="list-style:none; color:white">Date: </li>
-          <li style="list-style:none; color:white">Time Departure: </li>
-          <li style="list-style:none; color:white">Destination: </li>
-          <li style="list-style:none; color:white">Quantity: </li>
-          <div class="modal-footer" style="height: 35px">
-            <button type="submit" id="btnRegister" name="btnDownload" class="btn" style="background-color: #a83332; color: white; width: 100px">Download</button>
-            <button type="submit" id="btnRegister" name="btnPrint" class="btn" style="background-color: #a83332; color: white; width: 100px">Print</button>
           </div>
         </div>
       </form>
