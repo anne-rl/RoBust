@@ -10,5 +10,5 @@ urlpatterns = [
     path('userReservation', views.UserReservationView.as_view(), name="userReservation_view"),
     path('userReview', views.UserReviewView.as_view(), name="userReview_view"),
     path('userDashboardWeekly', views.UserDashboardViewWeekly.as_view(), name="userDashboard_weekly"),
-    path('userDashboardMonthly', views.UserDashboardViewMonthly.as_view(), name="userDashboard_monthly"),
+    path('userDashboardMonthly', views.UserDashboardViewMonthly.as_view(), name="userDashboard_monthly")
 ]
