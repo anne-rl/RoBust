@@ -88,7 +88,7 @@
       width: 7.3333333333px;
       height: 24.4444444444px;
       position: absolute;
-      background: #a83332;
+      background: #000000;
       border-radius: 4px;
       border: 1px solid #000;
       bottom: 5.5px;
@@ -198,7 +198,7 @@
       width: 7.3333333333px;
       height: 24.4444444444px;
       position: absolute;
-      background: #a83332;
+      background: #000000;
       border-radius: 4px;
       border: 1px solid #000;
       bottom: 5.5px;
@@ -336,7 +336,7 @@
 
 
     .seatdriver input[type=checkbox]:disabled+label {
-      background: #dddddd;
+      background: #B84B48;
       text-indent: -9999px;
       overflow: hidden;
     }
@@ -363,7 +363,7 @@
       width: 7.3333333333px;
       height: 24.4444444444px;
       position: absolute;
-      background: #a83332;
+      background: #000000;
       border-radius: 4px;
       border: 1px solid #000;
       bottom: 5.5px;
@@ -389,6 +389,197 @@
     }
 
     .seatdriver label:after {
+      filter: alpha(opacity=0);
+      opacity: 0;
+      content: '';
+      position: absolute;
+      width: 30px;
+      border-radius: 5px;
+      height: 25px;
+      background: #ff9800;
+      top: 0;
+      left: 2px;
+    }
+
+/*seat legend selected*/
+
+    .seatlegend {
+      display: flex;
+      flex: 0 0 14.28571428571429%;
+      padding: 10px;
+      position: relative;
+
+      width: 42px;
+      height: 50px;
+      border-radius: 4px 4px 8px 8px;
+      background: #a83332;
+      background: linear-gradient(#a83332 0%, #a83332 70%, #000 70%, #a83332 77%);
+      position: relative;
+      border: 1px solid #000;
+      margin: 5px;
+      display: inline-block;
+      color: white;
+    }
+
+
+    .seatlegend input[type=checkbox] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .seatlegend input[type=checkbox]:checked+label {
+      background: #e7c51d;
+      color: black;
+      -webkit-animation-name: rubberBand;
+      animation-name: rubberBand;
+      animation-duration: 300ms;
+      animation-fill-mode: both;
+    }
+
+    .seatlegend input[type=checkbox]:disabled+label {
+      background: #F6C103;
+      text-indent: -9999px;
+      overflow: hidden;
+    }
+
+    .seatlegend input[type=checkbox]:disabled+label:after {
+      content: "X";
+      text-indent: 0;
+      position: absolute;
+      top: 4px;
+      left: 50%;
+      transform: translate(-50%, 0%);
+    }
+
+
+    .seatlegend:after,
+    .seatlegend:before {
+      content: '';
+      display: block;
+      width: 7.3333333333px;
+      height: 24.4444444444px;
+      position: absolute;
+      background: #000000;
+      border-radius: 4px;
+      border: 1px solid #000;
+      bottom: 5.5px;
+    }
+
+    .seatlegend:before {
+      left: -4.4px;
+    }
+
+    .seatlegend:after {
+      right: -4.4px;
+    }
+
+    .seatlegend label {
+      cursor: pointer;
+      position: absolute;
+      background: #f1f1f100;
+      border-radius: 0px 0px 5px 5px;
+      width: 40px;
+      height: 40px;
+      left: 2px;
+      top: 3px;
+    }
+
+    .seatlegend label:after {
+      filter: alpha(opacity=0);
+      opacity: 0;
+      content: '';
+      position: absolute;
+      width: 30px;
+      border-radius: 5px;
+      height: 25px;
+      background: #ff9800;
+      top: 0;
+      left: 2px;
+    }
+
+/*seat legend driver */
+    .seatlegenddriver {
+      display: flex;
+      flex: 0 0 14.28571428571429%;
+      padding: 10px;
+      position: relative;
+
+      width: 42px;
+      height: 50px;
+      border-radius: 4px 4px 8px 8px;
+      background: #a83332;
+      background: linear-gradient(#a83332 0%, #a83332 70%, #000 70%, #a83332 77%);
+      position: relative;
+      border: 1px solid #000;
+      margin: 5px;
+      display: inline-block;
+      color: white;
+    }
+
+
+    .seatlegenddriver input[type=checkbox] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .seatlegenddriver input[type=checkbox]:checked+label {
+      background: #e7c51d;
+      color: black;
+      -webkit-animation-name: rubberBand;
+      animation-name: rubberBand;
+      animation-duration: 300ms;
+      animation-fill-mode: both;
+    }
+
+    .seatlegenddriver input[type=checkbox]:disabled+label {
+      background: #B84B48;
+      text-indent: -9999px;
+      overflow: hidden;
+    }
+
+    .seatlegenddriver input[type=checkbox]:disabled+label:after {
+      content: "X";
+      text-indent: 0;
+      position: absolute;
+      top: 4px;
+      left: 50%;
+      transform: translate(-50%, 0%);
+    }
+
+
+    .seatlegenddriver:after,
+    .seatlegenddriver:before {
+      content: '';
+      display: block;
+      width: 7.3333333333px;
+      height: 24.4444444444px;
+      position: absolute;
+      background: #000000;
+      border-radius: 4px;
+      border: 1px solid #000;
+      bottom: 5.5px;
+    }
+
+    .seatlegenddriver:before {
+      left: -4.4px;
+    }
+
+    .seatlegenddriver:after {
+      right: -4.4px;
+    }
+
+    .seatlegenddriver label {
+      cursor: pointer;
+      position: absolute;
+      background: #f1f1f100;
+      border-radius: 0px 0px 5px 5px;
+      width: 40px;
+      height: 40px;
+      left: 2px;
+      top: 3px;
+    }
+
+    .seatlegenddriver label:after {
       filter: alpha(opacity=0);
       opacity: 0;
       content: '';
