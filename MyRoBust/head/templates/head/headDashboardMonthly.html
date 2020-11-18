@@ -347,13 +347,82 @@
         </div>
       </div>
       <div class="card-body">
-          <div id="piechart"></div>
+            <div class="row">
+                <!-- Bus -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#B84B48;">Bus</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-bus fa-2x text-black-300" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Earnings -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#F6C103;">Earnings</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">             ₱ 69,000</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-money fa-2x text-black-300" aria-hidden="true"></i>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- User -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#ff7304;">Users</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">300</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-user fa-2x text-black-300" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+                <!-- Purchased Tickets -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#ae3e07;">Purchased Tickets</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">2,760</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-ticket fa-2x text-black-300" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Preferred Seats and Time Departure -->
+<!--
             <table>
               <tr>
                 <td><div id="seat_PieChart"></div></td>
                 <td><div id="timeDep_BarChart"></div></td>
               </tr>
             </table>
+-->
       </div>
     </div>
   </div>
@@ -367,20 +436,23 @@
 <script src="{% static 'js/landing.js' %}"></script>
 <script src="{% static 'js/registration.js' %}"></script>
 
+<!--
 <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+-->
 
+<!--
 <script>
       // Load Charts and the corechart package.
       google.charts.load('current', {'packages':['corechart']});
 
-      // Draw the pie chart for Sarah's pizza when Charts is loaded.
+      // Draw the pie chart for seat_PieChart.
       google.charts.setOnLoadCallback(seat_PieChart);
 
-      // Draw the pie chart for the Anthony's pizza when Charts is loaded.
+      // Draw the pie chart for timeDep_BarChart.
       google.charts.setOnLoadCallback(timeDep_BarChart);
 
-      // Callback that draws the pie chart for Sarah's pizza.
+      // Callback that draws the pie chart for seat_PieChart.
       function seat_PieChart() {
 
         var data = google.visualization.arrayToDataTable([
@@ -393,24 +465,25 @@
         // Optional; add a title and set the width and height of the chart
         var options = {
           'title': 'PREFFERED SEAT',
-          'width': 400,
-          'height': 300,
+          'fontSize': 16,
+          'width': 500,
+          'height': 400,
           slices: {0: {color: '#B84B48'}, 1:{color: '#F6C103'}, 2:{color: '#2C353C'}, 3: {color: 'red'}, 4:{color: 'grey'}}
         };
 
-        // Instantiate and draw the chart for Sarah's pizza.
+        // Instantiate and draw the chart for seat_PieChart.
         var chart = new google.visualization.PieChart(document.getElementById("seat_PieChart"));
         chart.draw(data, options);
       }
 
-      // Callback that draws the pie chart for Anthony's pizza.
+      // Callback that draws the pie chart for timeDep_BarChart.
      function timeDep_BarChart() {
 
      var data = google.visualization.arrayToDataTable([
          ["Preferred Time", "Bookings", { role: "style" } ],
-         ["5:30", 500, "#B84B48"],
-         ["6:30", 400, "#F6C103"],
-         ["7:30", 300, "#2C353C"],
+         ["5:30", 920, "#B84B48"],
+         ["6:30", 800, "#F6C103"],
+         ["7:30", 700, "#2C353C"],
        ]);
 
      var view = new google.visualization.DataView(data);
@@ -423,8 +496,9 @@
 
      var options = {
         title: "TIME DEPARTURE",
-        width: 400,
-        height: 300,
+        width: 500,
+        fontSize: 16, 
+        height: 400,
         bar: {groupWidth: "95%"},
         legend: { position: "none" },
       };
@@ -432,5 +506,6 @@
       chart.draw(view, options);
       }   
 </script>
+-->
 {% endblock footerinclude %}
 {% endblock content %}

@@ -371,7 +371,7 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#F6C103;">Earnings</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">      ₱ 21,000</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">              ₱ 17,250</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fa fa-money fa-2x text-black-300" aria-hidden="true"></i>
@@ -388,7 +388,7 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#ff7304;">Users</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">100</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fa fa-user fa-2x text-black-300" aria-hidden="true"></i>
@@ -404,7 +404,7 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#ae3e07;">Purchased Tickets</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">1,050</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">690</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fa fa-ticket fa-2x text-black-300" aria-hidden="true"></i>
@@ -415,12 +415,14 @@
                 </div>
             </div>
             <!-- Preferred Seats and Time Departure -->
+<!--
             <table>
               <tr>
                 <td><div id="seat_PieChart"></div></td>
                 <td><div id="timeDep_BarChart"></div></td>
               </tr>
             </table>
+-->
       </div>
     </div>
   </div>
@@ -434,6 +436,7 @@
 <script src="{% static 'js/landing.js' %}"></script>
 <script src="{% static 'js/registration.js' %}"></script>
 
+<!--
 <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -441,13 +444,13 @@
       // Load Charts and the corechart package.
       google.charts.load('current', {'packages':['corechart']});
 
-      // Draw the pie chart for Sarah's pizza when Charts is loaded.
+      // Draw the pie chart for seat_PieChart.
       google.charts.setOnLoadCallback(seat_PieChart);
 
-      // Draw the pie chart for the Anthony's pizza when Charts is loaded.
+      // Draw the pie chart for timeDep_BarChart.
       google.charts.setOnLoadCallback(timeDep_BarChart);
 
-      // Callback that draws the pie chart for Sarah's pizza.
+      // Callback that draws the seat_PieChart.
       function seat_PieChart() {
 
         var data = google.visualization.arrayToDataTable([
@@ -466,19 +469,19 @@
           slices: {0: {color: '#B84B48'}, 1:{color: '#F6C103'}, 2:{color: '#2C353C'}, 3: {color: 'red'}, 4:{color: 'grey'}}
         };
 
-        // Instantiate and draw the chart for Sarah's pizza.
+        // Instantiate and draw the chart for seat_PieChart.
         var chart = new google.visualization.PieChart(document.getElementById("seat_PieChart"));
         chart.draw(data, options);
       }
 
-      // Callback that draws the pie chart for Anthony's pizza.
+      // Callback that draws the pie chart for timeDep_BarChart.
      function timeDep_BarChart() {
 
      var data = google.visualization.arrayToDataTable([
          ["Preferred Time", "Bookings", { role: "style" } ],
-         ["5:30", 50, "#B84B48"],
-         ["6:30", 100, "#F6C103"],
-         ["7:30", 50, "#2C353C"],
+         ["5:30", 300, "#B84B48"],
+         ["6:30", 250, "#F6C103"],
+         ["7:30", 140, "#2C353C"],
        ]);
 
      var view = new google.visualization.DataView(data);
@@ -501,5 +504,6 @@
       chart.draw(view, options);
       }   
 </script>
+-->
 {% endblock footerinclude %}
 {% endblock content %}
