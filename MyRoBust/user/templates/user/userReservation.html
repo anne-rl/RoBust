@@ -232,8 +232,8 @@
 <!-- Bus1 Booking Modal -->
 <div class="modal fade" id="bus1Modal" tabindex="-1" role="dialog" aria-labelledby="bus1Label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" style="background-color:#2c353c">
-      <div class="modal-header" style="background-color:#2c353c">
+    <div class="modal-content" style="background-color:#353E45">
+      <div class="modal-header" style="background-color:#353E45">
         <h5 class="modal-title" id="seatsModal1" style="color: white">Booking</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" style="color: white">&times;</span>
@@ -292,9 +292,6 @@
                   </div>
                   <div class="modal-body">
                     <div class="bus">
-                      <div style="text-align: center">
-                        <!-- <h4 style="color: white">Please select a seat</h4> -->
-                      </div>
                        <li class="row row--0">
                           <ol class="A">
                             <li class="seatdriver">
@@ -322,7 +319,7 @@
                               <label for="1-1D">1D</label>
                             </li>
                             <li class="seat">
-                              <input type="checkbox" id="1-1E" />
+                              <input type="checkbox" disabled id="1-1E" />
                               <label for="1-1E">1E</label>
                             </li>
                           
@@ -531,9 +528,26 @@
                           </ol>
                         </li>
                       </ol>
-                      <div>
-                      </div>
                     </div>
+                  </div>
+                  <div style="text-align: center">
+                        <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
+                            &nbsp;
+                            <li class="seatlegend">
+                              <input type="checkbox" id="legend-vacant" />
+                            </li>&nbsp;&nbsp;
+                            <li class="seatnospace">
+                              <input type="checkbox" disabled id="legend-occupied" />
+                              <label for="legend-occupied"></label>
+                            </li>&nbsp;&nbsp;&nbsp;
+                            <li class="seatlegend">
+                              <input type="checkbox" disabled id="legend-selected" />
+                              <label for="legend-selected"></label>
+                            </li>&nbsp;&nbsp;
+                            <li class="seatlegenddriver">
+                              <input type="checkbox" disabled id="legend-driver" />
+                              <label for="legend-driver"></label>
+                            </li>    
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Close</button>
@@ -806,6 +820,25 @@
                       </div>
                     </div>
                   </div>
+                 <div style="text-align: center">
+                        <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
+                            <li class="seatlegend">
+                              <input type="checkbox" id="legend-vacant" />
+                            </li>&nbsp;&nbsp;
+                            <li class="seatnospace">
+                              <input type="checkbox" disabled id="legend-occupied" />
+                              <label for="legend-occupied"></label>
+                            </li>&nbsp;&nbsp;&nbsp;
+                            <li class="seatlegend">
+                              <input type="checkbox" disabled id="legend-selected" />
+                              <label for="legend-selected"></label>
+                            </li>&nbsp;&nbsp;
+                            <li class="seatlegenddriver">
+                              <input type="checkbox" disabled id="legend-driver" />
+                              <label for="legend-driver"></label>
+                            </li>    
+                  </div>
+
                   <div class="modal-footer">
                     <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Close</button>
                     <button type="button" class="btn btn" style="background-color: #a83332; color: white">Save changes</button>
@@ -1074,6 +1107,24 @@
                       <div>
                       </div>
                     </div>
+                  </div>
+                  <div style="text-align: center">
+                        <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
+                            <li class="seatlegend">
+                              <input type="checkbox" id="legend-vacant" />
+                            </li>&nbsp;&nbsp;
+                            <li class="seatnospace">
+                              <input type="checkbox" disabled id="legend-occupied" />
+                              <label for="legend-occupied"></label>
+                            </li>&nbsp;&nbsp;&nbsp;
+                            <li class="seatlegend">
+                              <input type="checkbox" disabled id="legend-selected" />
+                              <label for="legend-selected"></label>
+                            </li>&nbsp;&nbsp;
+                            <li class="seatlegenddriver">
+                              <input type="checkbox" disabled id="legend-driver" />
+                              <label for="legend-driver"></label>
+                            </li>    
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Close</button>
@@ -1394,6 +1445,25 @@
                       </div>
                     </div>
                   </div>
+                 <div style="text-align: center">
+                        <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
+                            <li class="seatlegend">
+                              <input type="checkbox" id="legend-vacant" />
+                            </li>&nbsp;&nbsp;
+                            <li class="seatnospace">
+                              <input type="checkbox" disabled id="legend-occupied" />
+                              <label for="legend-occupied"></label>
+                            </li>&nbsp;&nbsp;&nbsp;
+                            <li class="seatlegend">
+                              <input type="checkbox" disabled id="legend-selected" />
+                              <label for="legend-selected"></label>
+                            </li>&nbsp;&nbsp;
+                            <li class="seatlegenddriver">
+                              <input type="checkbox" disabled id="legend-driver" />
+                              <label for="legend-driver"></label>
+                            </li>    
+                  </div>
+
                   <div class="modal-footer">
                     <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Close</button>
                     <button type="button" class="btn btn" style="background-color: #a83332; color: white">Save changes</button>
@@ -1657,6 +1727,25 @@
                       </div>
                     </div>
                   </div>
+                  <div style="text-align: center">
+                        <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
+                            <li class="seatlegend">
+                              <input type="checkbox" id="legend-vacant" />
+                            </li>&nbsp;&nbsp;
+                            <li class="seatnospace">
+                              <input type="checkbox" disabled id="legend-occupied" />
+                              <label for="legend-occupied"></label>
+                            </li>&nbsp;&nbsp;&nbsp;
+                            <li class="seatlegend">
+                              <input type="checkbox" disabled id="legend-selected" />
+                              <label for="legend-selected"></label>
+                            </li>&nbsp;&nbsp;
+                            <li class="seatlegenddriver">
+                              <input type="checkbox" disabled id="legend-driver" />
+                              <label for="legend-driver"></label>
+                            </li>    
+                  </div>
+
                   <div class="modal-footer">
                     <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Close</button>
                     <button type="button" class="btn btn" style="background-color: #a83332; color: white">Save changes</button>
@@ -1920,6 +2009,25 @@
                       </div>
                     </div>
                   </div>
+                  <div style="text-align: center">
+                        <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
+                            <li class="seatlegend">
+                              <input type="checkbox" id="legend-vacant" />
+                            </li>&nbsp;&nbsp;
+                            <li class="seatnospace">
+                              <input type="checkbox" disabled id="legend-occupied" />
+                              <label for="legend-occupied"></label>
+                            </li>&nbsp;&nbsp;&nbsp;
+                            <li class="seatlegend">
+                              <input type="checkbox" disabled id="legend-selected" />
+                              <label for="legend-selected"></label>
+                            </li>&nbsp;&nbsp;
+                            <li class="seatlegenddriver">
+                              <input type="checkbox" disabled id="legend-driver" />
+                              <label for="legend-driver"></label>
+                            </li>    
+                  </div>
+
                   <div class="modal-footer">
                     <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Close</button>
                     <button type="button" class="btn btn" style="background-color: #a83332; color: white">Save changes</button>
@@ -2238,6 +2346,25 @@
                       </div>
                     </div>
                   </div>
+                  <!-- LEGEND -->
+                 <div style="text-align: center">
+                        <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
+                            <li class="seatlegend">
+                              <input type="checkbox" id="legend-vacant" />
+                            </li>&nbsp;&nbsp;
+                            <li class="seatnospace">
+                              <input type="checkbox" disabled id="legend-occupied" />
+                              <label for="legend-occupied"></label>
+                            </li>&nbsp;&nbsp;&nbsp;
+                            <li class="seatlegend">
+                              <input type="checkbox" disabled id="legend-selected" />
+                              <label for="legend-selected"></label>
+                            </li>&nbsp;&nbsp;
+                            <li class="seatlegenddriver">
+                              <input type="checkbox" disabled id="legend-driver" />
+                              <label for="legend-driver"></label>
+                            </li>    
+                  </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Close</button>
                     <button type="button" class="btn btn" style="background-color: #a83332; color: white">Save changes</button>
@@ -2501,6 +2628,25 @@
                       </div>
                     </div>
                   </div>
+                 <div style="text-align: center">
+                        <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
+                            <li class="seatlegend">
+                              <input type="checkbox" id="legend-vacant" />
+                            </li>&nbsp;&nbsp;
+                            <li class="seatnospace">
+                              <input type="checkbox" disabled id="legend-occupied" />
+                              <label for="legend-occupied"></label>
+                            </li>&nbsp;&nbsp;&nbsp;
+                            <li class="seatlegend">
+                              <input type="checkbox" disabled id="legend-selected" />
+                              <label for="legend-selected"></label>
+                            </li>&nbsp;&nbsp;
+                            <li class="seatlegenddriver">
+                              <input type="checkbox" disabled id="legend-driver" />
+                              <label for="legend-driver"></label>
+                            </li>    
+                  </div>
+
                   <div class="modal-footer">
                     <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Close</button>
                     <button type="button" class="btn btn" style="background-color: #a83332; color: white">Save changes</button>
@@ -2764,9 +2910,24 @@
                       </div>
                     </div>
                   </div>
-
-
-
+                 <div style="text-align: center">
+                        <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
+                            <li class="seatlegend">
+                              <input type="checkbox" id="legend-vacant" />
+                            </li>&nbsp;&nbsp;
+                            <li class="seatnospace">
+                              <input type="checkbox" disabled id="legend-occupied" />
+                              <label for="legend-occupied"></label>
+                            </li>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <li class="seatlegend">
+                              <input type="checkbox" disabled id="legend-selected" />
+                              <label for="legend-selected"></label>
+                            </li>&nbsp;&nbsp;
+                            <li class="seatlegenddriver">
+                              <input type="checkbox" disabled id="legend-driver" />
+                              <label for="legend-driver"></label>
+                            </li>    
+                  </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Close</button>
                     <button type="button" class="btn btn" style="background-color: #a83332; color: white">Save changes</button>
