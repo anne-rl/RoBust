@@ -186,18 +186,20 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4 mb-3">
-              <label for="contactNumber" style="color: white">Contact No.</label>
-              <input type="number" class="form-control" id="contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11">
-            </div>
-            <div class="col-md-3 mb-1">
-              <label for="department" style="color: white">Department</label>
-              <select class="form-control-lg" style="border-color: lightgrey; height: 38px; font-size: 15px" id="department" name="department" required>
+            <div class="col-md-12 mb-1">
+              <label for="department" style="color: white">Department</label><br>
+              <select class="form-control-lg" style="border-color: lightgrey; height: 38px; font-size: 15px; width: 767px" id="department" name="department" required>
                 <option value=""></option>
                 <option value="Elementary">Elementary</option>
                 <option value="High-School">High-School</option>
                 <option value="College">College</option>
               </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="contactNumber" style="color: white">Contact No.</label>
+              <input type="number" class="form-control" id="contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11">
             </div>
             <div class="col-md-3 mb-2">
               <label for="gender" style="color: white">Gender</label> <br>
@@ -266,14 +268,14 @@
             <input type="text" class="form-control" id="id-fare" name="fare" placeholder="25.00" value="" required>
           </div>
           <div class="col-md-6 mb-3">
-              <label for="driver" style="color: white">Driver</label>
-              <input type="text" class="form-control" id="id-driver" name="driver" placeholder="Driver's Name" required>
+            <label for="driver" style="color: white">Driver</label>
+            <input type="text" class="form-control" id="id-driver" name="driver" placeholder="Driver's Name" required>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
-              <label for="date" style="color: white">Select Date</label>
-              <input type="date" class="form-control" id="id-date" name="date" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
+            <label for="date" style="color: white">Select Date</label>
+            <input type="date" class="form-control" id="id-date" name="date" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
           </div>
           <div class="col-md-6 mb-3">
             <label for="destination" style="color: white">Time Departure :</label>
@@ -294,13 +296,13 @@
                   </div>
                   <div class="modal-body">
                     <div class="bus">
-                       <li class="row row--0">
-                          <ol class="A">
-                            <li class="seatdriver">
-                              <input type="checkbox" disabled id="id-driver" />
-                              <label for="id-driver">Occupied</label>
-                         </ol>
-                       </li>
+                      <li class="row row--0">
+                        <ol class="A">
+                          <li class="seatdriver">
+                            <input type="checkbox" disabled id="id-driver" />
+                            <label for="id-driver">Occupied</label>
+                        </ol>
+                      </li>
                       <ol>
                         <li class="row row--1">
                           <ol class="seats" type="A">
@@ -324,7 +326,7 @@
                               <input type="checkbox" disabled id="1-1E" />
                               <label for="1-1E">1E</label>
                             </li>
-                          
+
                           </ol>
                         </li>
                         <li class="row row--2">
@@ -498,7 +500,7 @@
                               <input type="checkbox" id="1-8E" />
                               <label for="1-8E">8E</label>
                             </li>
- 
+
                           </ol>
                         </li>
                         <li class="row row--9">
@@ -523,7 +525,7 @@
                               <input type="checkbox" id="1-9E" />
                               <label for="1-9E">9E</label>
                             </li>
- 
+
                           </ol>
                         </li>
                         <li class="row row--10">
@@ -559,23 +561,23 @@
                   </div>
 
                   <div style="text-align: center">
-                        <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
-                            &nbsp;
-                            <li class="seatlegend">
-                              <input type="checkbox" id="legend-vacant" />
-                            </li>&nbsp;&nbsp;
-                            <li class="seatnospace">
-                              <input type="checkbox" disabled id="legend-occupied" />
-                              <label for="legend-occupied"></label>
-                            </li>&nbsp;&nbsp;&nbsp;
-                            <li class="seatlegend">
-                              <input type="checkbox" disabled id="legend-selected" />
-                              <label for="legend-selected"></label>
-                            </li>&nbsp;&nbsp;
-                            <li class="seatlegenddriver">
-                              <input type="checkbox" disabled id="legend-driver" />
-                              <label for="legend-driver"></label>
-                            </li>    
+                    <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
+                    &nbsp;
+                    <li class="seatlegend">
+                      <input type="checkbox" id="legend-vacant" />
+                    </li>&nbsp;&nbsp;
+                    <li class="seatnospace">
+                      <input type="checkbox" disabled id="legend-occupied" />
+                      <label for="legend-occupied"></label>
+                    </li>&nbsp;&nbsp;&nbsp;
+                    <li class="seatlegend">
+                      <input type="checkbox" disabled id="legend-selected" />
+                      <label for="legend-selected"></label>
+                    </li>&nbsp;&nbsp;
+                    <li class="seatlegenddriver">
+                      <input type="checkbox" disabled id="legend-driver" />
+                      <label for="legend-driver"></label>
+                    </li>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Close</button>
@@ -585,8 +587,8 @@
               </div>
             </div>
           </div>
-          </div>
         </div>
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Close</button>
         <button type="button" class="btn btn" style="background-color: #a83332; color: white">Save</button>
@@ -632,14 +634,14 @@
             <input type="text" class="form-control" id="id-fare" name="fare" placeholder="25.00" value="" required>
           </div>
           <div class="col-md-6 mb-3">
-              <label for="driver" style="color: white">Driver</label>
-              <input type="text" class="form-control" id="id-driver" name="driver" placeholder="Driver's Name" required>
+            <label for="driver" style="color: white">Driver</label>
+            <input type="text" class="form-control" id="id-driver" name="driver" placeholder="Driver's Name" required>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
-              <label for="date" style="color: white">Select Date</label>
-              <input type="date" class="form-control" id="id-date" name="date" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
+            <label for="date" style="color: white">Select Date</label>
+            <input type="date" class="form-control" id="id-date" name="date" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
           </div>
           <div class="col-md-6 mb-3">
             <label for="destination" style="color: white">Time Departure :</label>
@@ -662,14 +664,14 @@
                     <div class="bus">
                       <div style="text-align: center">
                       </div>
-                        <li class="row row--0">
-                          <ol class="A">
-                            <li class="seatdriver">
-                              <input type="checkbox" disabled id="id-driver" />
-                              <label for="id-driver">Occupied</label>
-                            </li>
-                         </ol>
-                       </li>
+                      <li class="row row--0">
+                        <ol class="A">
+                          <li class="seatdriver">
+                            <input type="checkbox" disabled id="id-driver" />
+                            <label for="id-driver">Occupied</label>
+                          </li>
+                        </ol>
+                      </li>
                       <ol>
                         <li class="row row--1">
                           <ol class="seats" type="A">
@@ -863,7 +865,7 @@
                             </li>
                           </ol>
                         </li>
-                         <li class="row row--9">
+                        <li class="row row--9">
                           <ol class="seats" type="A">
                             <li class="seat">
                               <input type="checkbox" id="2-9A" />
@@ -921,23 +923,23 @@
                       </div>
                     </div>
                   </div>
-                 <div style="text-align: center">
-                        <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
-                            <li class="seatlegend">
-                              <input type="checkbox" id="legend-vacant" />
-                            </li>&nbsp;&nbsp;
-                            <li class="seatnospace">
-                              <input type="checkbox" disabled id="legend-occupied" />
-                              <label for="legend-occupied"></label>
-                            </li>&nbsp;&nbsp;&nbsp;
-                            <li class="seatlegend">
-                              <input type="checkbox" disabled id="legend-selected" />
-                              <label for="legend-selected"></label>
-                            </li>&nbsp;&nbsp;
-                            <li class="seatlegenddriver">
-                              <input type="checkbox" disabled id="legend-driver" />
-                              <label for="legend-driver"></label>
-                            </li>    
+                  <div style="text-align: center">
+                    <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
+                    <li class="seatlegend">
+                      <input type="checkbox" id="legend-vacant" />
+                    </li>&nbsp;&nbsp;
+                    <li class="seatnospace">
+                      <input type="checkbox" disabled id="legend-occupied" />
+                      <label for="legend-occupied"></label>
+                    </li>&nbsp;&nbsp;&nbsp;
+                    <li class="seatlegend">
+                      <input type="checkbox" disabled id="legend-selected" />
+                      <label for="legend-selected"></label>
+                    </li>&nbsp;&nbsp;
+                    <li class="seatlegenddriver">
+                      <input type="checkbox" disabled id="legend-driver" />
+                      <label for="legend-driver"></label>
+                    </li>
                   </div>
 
                   <div class="modal-footer">
@@ -995,14 +997,14 @@
             <input type="text" class="form-control" id="id-fare" name="fare" placeholder="25.00" value="" required>
           </div>
           <div class="col-md-6 mb-3">
-              <label for="driver" style="color: white">Driver</label>
-              <input type="text" class="form-control" id="id-driver" name="driver" placeholder="Driver's Name" required>
+            <label for="driver" style="color: white">Driver</label>
+            <input type="text" class="form-control" id="id-driver" name="driver" placeholder="Driver's Name" required>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
-              <label for="date" style="color: white">Select Date</label>
-              <input type="date" class="form-control" id="id-date" name="date" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
+            <label for="date" style="color: white">Select Date</label>
+            <input type="date" class="form-control" id="id-date" name="date" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
           </div>
           <div class="col-md-6 mb-3">
             <label for="destination" style="color: white">Time Departure :</label>
@@ -1026,13 +1028,13 @@
                       <div style="text-align: center">
                       </div>
                       <li class="row row--0">
-                          <ol class="A">
-                            <li class="seatdriver">
-                              <input type="checkbox" disabled id="id-driver" />
-                              <label for="id-driver">Occupied</label>
-                            </li>
-                         </ol>
-                       </li>
+                        <ol class="A">
+                          <li class="seatdriver">
+                            <input type="checkbox" disabled id="id-driver" />
+                            <label for="id-driver">Occupied</label>
+                          </li>
+                        </ol>
+                      </li>
                       <ol>
                         <li class="row row--1">
                           <ol class="seats" type="A">
@@ -1284,23 +1286,23 @@
                     </div>
                   </div>
                   <!-- LEGEND -->
-                 <div style="text-align: center">
-                        <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
-                            <li class="seatlegend">
-                              <input type="checkbox" id="legend-vacant" />
-                            </li>&nbsp;&nbsp;
-                            <li class="seatnospace">
-                              <input type="checkbox" disabled id="legend-occupied" />
-                              <label for="legend-occupied"></label>
-                            </li>&nbsp;&nbsp;&nbsp;
-                            <li class="seatlegend">
-                              <input type="checkbox" disabled id="legend-selected" />
-                              <label for="legend-selected"></label>
-                            </li>&nbsp;&nbsp;
-                            <li class="seatlegenddriver">
-                              <input type="checkbox" disabled id="legend-driver" />
-                              <label for="legend-driver"></label>
-                            </li>    
+                  <div style="text-align: center">
+                    <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
+                    <li class="seatlegend">
+                      <input type="checkbox" id="legend-vacant" />
+                    </li>&nbsp;&nbsp;
+                    <li class="seatnospace">
+                      <input type="checkbox" disabled id="legend-occupied" />
+                      <label for="legend-occupied"></label>
+                    </li>&nbsp;&nbsp;&nbsp;
+                    <li class="seatlegend">
+                      <input type="checkbox" disabled id="legend-selected" />
+                      <label for="legend-selected"></label>
+                    </li>&nbsp;&nbsp;
+                    <li class="seatlegenddriver">
+                      <input type="checkbox" disabled id="legend-driver" />
+                      <label for="legend-driver"></label>
+                    </li>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">Close</button>
@@ -1428,7 +1430,7 @@
       </div>
     </div>
     <div class="row" style="width: 1205">
-            <div class="col-md-3 mb-3">
+      <div class="col-md-3 mb-3">
         <label for="time">Time Departure</label>
         <input type="text" class="form-control" id="time" name="time" minlength="1" maxlength="30" readonly>
       </div>
