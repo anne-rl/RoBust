@@ -347,7 +347,73 @@
         </div>
       </div>
       <div class="card-body">
-<!--          <div id="piechart"></div>-->
+            <div class="row">
+                <!-- Bus -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#B84B48;">Bus</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-bus fa-2x text-black-300" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Earnings -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#F6C103;">Earnings</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">      ₱ 21,000</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-money fa-2x text-black-300" aria-hidden="true"></i>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- User -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#ff7304;">Users</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-user fa-2x text-black-300" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+                <!-- Purchased Tickets -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#ae3e07;">Purchased Tickets</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">1,050</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-ticket fa-2x text-black-300" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <table>
               <tr>
                 <td><div id="seat_PieChart"></div></td>
@@ -393,8 +459,9 @@
         // Optional; add a title and set the width and height of the chart
         var options = {
           'title': 'PREFFERED SEAT',
-          'width': 400,
-          'height': 300,
+          'fontSize': 16, 
+          'width': 500,
+          'height': 500,
           slices: {0: {color: '#B84B48'}, 1:{color: '#F6C103'}, 2:{color: '#2C353C'}, 3: {color: 'red'}, 4:{color: 'grey'}}
         };
 
@@ -423,8 +490,9 @@
 
      var options = {
         title: "TIME DEPARTURE",
-        width: 400,
-        height: 300,
+        fontSize: 16, 
+        width: 500,
+        height: 400,
         bar: {groupWidth: "95%"},
         legend: { position: "none" },
       };
