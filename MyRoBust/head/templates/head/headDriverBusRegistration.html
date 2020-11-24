@@ -4,10 +4,14 @@
 <title>CIT RoBust</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'css/seats.css' %}">
 <link rel="shortcut icon" href="{% static 'media/CIT.png' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/reservation.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}">
 <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 {% endblock headerinclude %}
 
 {% block content %}
@@ -104,12 +108,11 @@
                 <div class="row">
                   <div class="col-md-12">
                     <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-
                       <div class="form-group">
                         <div class="row">
                           <div class="col-lg-12">
                             <div class="text-left">
-                              <a href="" tabindex="5" class="profileInformation" class="btn btn1" data-toggle="modal" data-target="#adminProfile" style="color: white">Profile Information</a>
+                              <a href="" tabindex="5" class="profileInformation" class="btn btn1" data-toggle="modal" data-target="#updateProfile" style="color: white">Profile Information</a>
                             </div>
                             <div class="dropdown-divider" role="presentation">
                               <span class="filler">&nbsp;</span></div>
@@ -132,8 +135,8 @@
   </div>
 </header>
 
-<!-- RoBust Admin Profile Information Modal -->
-<div class="modal fade" id="adminProfile" tabindex="-1" role="dialog" aria-labelledby="adminProfileModalLabel" aria-hidden="true">
+<!-- RoBust Profile Information Modal -->
+<div class="modal fade" id="updateProfile" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content" style="background-color:#2c353c">
       <div class="modal-header" style="background-color:#2c353c">
@@ -157,6 +160,12 @@
           </div>
           <br>
           <input type="text" name="id" hidden>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="passengerID" style="color: white">Passenger ID</label>
+              <input type="text" class="form-control" id="id-passengerID" name="passengerID" placeholder="passenger ID" required minlength="1" maxlength="20" readonly>
+            </div>
+          </div>
           <div class="row">
             <div class="col-md-4 mb-3">
               <label for="firstName" style="color: white">First Name</label>
@@ -195,7 +204,7 @@
           <div class="row">
             <div class="col-md-4 mb-3">
               <label for="contactNumber" style="color: white">Contact No.</label>
-              <input type="number" class="form-control" id="contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11">
+              <input type="contactNumber" class="form-control" id="id-contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11">
             </div>
             <div class="col-md-3 mb-2">
               <label for="gender" style="color: white">Gender</label> <br>
@@ -213,17 +222,19 @@
             </div>
           </div>
 
+
           <div class="modal-footer" style="background-color:#2c353c;height: 35px">
             <button type="button" class="btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>
 
             <!--                    <button type="submit" id="btnRegister" name="btnRegister" class="btn" style="background-color: #a83332; color: white">REGISTER</button>-->
-            <a type="button" class="btn btn1" style="background-color: #a83332; color: white" id="id-register" href="{% url 'user:userReservation_view' %}">UPDATE</a>
+            <a type="button" class="btn btn1" style="background-color: #a83332; color: white" id="id-register" href="{% url 'head:headList_view' %}">UPDATE</a>
           </div>
         </div>
       </form>
     </div>
   </div>
 </div>
+
 
 <!------------ Nav Bar Buttons ------------>
 <div style="background-color: #2c353c; border-bottom-color: #a83332; border-bottom-style: solid">
@@ -275,96 +286,113 @@
 </div>
 <br>
 
-<!------------ Dashboard Page Body ------------>
-<div class="container">
-  <div class="container-fluid" style="width:100%">
-    <div class="card shadow mb-4">
-      <div class="card-header py-2">
-        <p style="color: #a83332; font-size: 22px; font-weight: 700"><b>DASHBOARD</b></p>
-        <div class="text-left">
-          <a tabindex="5" class="week" style="color: black" href="{% url 'head:headDashboard_weekly' %}">Week</a>&nbsp;
-          <a tabindex="5" class="month" style="color: black">Month</a>
+<!------------ Booking Page Body ------------>
+<div class="container" style="position: relative; left: -30px">
+  <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 1180px; border-bottom-color: #a83332; border-bottom-style: solid">
+    <h6><b>Register Driver</b></h6>
+  </div>
+  <br>
+  <form id="regiter_form" method="POST" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+      <div class="picture-container">
+        <div class="picture">
+          <img src="{% static 'media/user.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
+          <input type="file" id="profilePicture" name="profilePicture" class="" required>
         </div>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <!-- Bus -->
-          <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#B84B48;">Bus</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
-                  </div>
-                  <div class="col-auto">
-                    <i class="fa fa-bus fa-2x text-black-300" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Earnings -->
-          <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#F6C103;">Earnings</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800"> ₱ 69,000</div>
-                  </div>
-                  <div class="col-auto">
-                    <i class="fa fa-money fa-2x text-black-300" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- User -->
-          <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#ff7304;">Users</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">300</div>
-                  </div>
-                  <div class="col-auto">
-                    <i class="fa fa-user fa-2x text-black-300" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Purchased Tickets -->
-          <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#ae3e07;">Purchased Tickets</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">2,760</div>
-                  </div>
-                  <div class="col-auto">
-                    <i class="fa fa-ticket fa-2x text-black-300" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Preferred Seats and Time Departure -->
-        <!--
-            <table>
-              <tr>
-                <td><div id="seat_PieChart"></div></td>
-                <td><div id="timeDep_BarChart"></div></td>
-              </tr>
-            </table>
--->
+        <h6 class="">Choose Picture</h6>
       </div>
     </div>
-  </div>
+    <br>
+    <input type="text" name="id" hidden>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="middleName">Middle Name</label>
+        <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5 mb-3">
+        <label for="emailAddress">Email</label>
+        <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="Email" required minlength="1" maxlength="50">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="contactNumber">Contact No.</label>
+        <input type="number" class="form-control" id="contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11">
+      </div>
+      <div class="col-md-3 mb-2">
+        <label for="gender">Gender</label> <br>
+        <div class="form-check-inline text-right" style="color: black">
+          <label class="form-check-label ">
+            {% if user.gender == 'Male' %}
+            <input style="margin: 8px; color: black" type="radio" class="form-check-sm" name="gender" value="Male" checked="checked">Male
+            <input style="margin: 8px; color: black" type="radio" class="form-check-sm" name="gender" value="Female">Female
+            {% else %}
+            <input style="margin: 8px; color: black" type="radio" class="form-check-sm" name="gender" value="Male">Male
+            <input style="margin: 8px; color: black" type="radio" class="form-check-sm" name="gender" value="Female" checked="checked">Female
+            {% endif %}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 1180px; border-bottom-color: #a83332; border-bottom-style: solid">
+      <h6><b>Register Bus</b></h6>
+    </div>
+    <br>
+    <div class="row" style="width: 1205">
+      <div class="col-md-6 mb-3">
+        <label for="busName">Bus Name</label>
+        <input type="text" class="form-control" id="busName" name="busName" minlength="1" maxlength="30" placeholder="Bus Name">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="destination">Destination</label>
+        <input type="text" class="form-control" id="destination" name="destination" minlength="1" maxlength="30" placeholder="Destination">
+      </div>
+    </div>
+    <div class="row" style="width: 1205">
+      <div class="col-md-3 mb-3">
+        <label for="plateNumber">Plate Number</label>
+        <input type="text" class="form-control" id="plateNumber" name="plateNumber" minlength="1" maxlength="30" placeholder="Plate Number" >
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="quantity">Seats</label>
+        <input type="text" class="form-control" id="totalSeats" name="totalSeats" value="" required minlength="1" maxlength="30" placeholder="Seats" >
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="quantity">Bus Fare</label>
+        <input type="text" class="form-control" id="busFare" name="busFare" value="" required minlength="1" maxlength="30"  placeholder="Bus Fare">
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="time">Time Departure</label>
+        <input type="text" class="form-control" id="departureTime" name="departureTime" minlength="1" maxlength="30" placeholder="Time Departure" >
+      </div>
+      
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-md-6 mb-1">
+        <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 310; padding:10px" id="id-Cancel" href="{% url 'user:userReservation_view' %}">CANCEL</a>
+      </div>
+      <div class="col-md-6 mb-1">
+        <form id="submit_form" method="POST">
+          {% csrf_token %}
+          <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px" id="id-Cancel" href="{% url 'user:userReview_view' %}">REGISTER</a>
+          <!--          <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: blue; height: 45px"> Continue </button>-->
+        </form>
+      </div>
+    </div>
+    <br>
+  </form>
 </div>
 
 {% block footerinclude %}
@@ -372,77 +400,19 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+<script>
+  window.console = window.console || function(t) {};
+
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+
+</script>
+
 <script src="{% static 'js/landing.js' %}"></script>
 <script src="{% static 'js/registration.js' %}"></script>
-
-<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-<!--
-<script>
-      // Load Charts and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
-
-      // Draw the pie chart for seat_PieChart.
-      google.charts.setOnLoadCallback(seat_PieChart);
-
-      // Draw the pie chart for timeDep_BarChart.
-      google.charts.setOnLoadCallback(timeDep_BarChart);
-
-      // Callback that draws the pie chart for seat_PieChart.
-      function seat_PieChart() {
-
-        var data = google.visualization.arrayToDataTable([
-          ['Preferred Seat', 'Bookings'],
-          ['1A', 50],
-          ['1B', 100],
-          ['1C', 150]
-        ]);
-
-        // Optional; add a title and set the width and height of the chart
-        var options = {
-          'title': 'PREFFERED SEAT',
-          'fontSize': 16,
-          'width': 500,
-          'height': 400,
-          slices: {0: {color: '#B84B48'}, 1:{color: '#F6C103'}, 2:{color: '#2C353C'}, 3: {color: 'red'}, 4:{color: 'grey'}}
-        };
-
-        // Instantiate and draw the chart for seat_PieChart.
-        var chart = new google.visualization.PieChart(document.getElementById("seat_PieChart"));
-        chart.draw(data, options);
-      }
-
-      // Callback that draws the pie chart for timeDep_BarChart.
-     function timeDep_BarChart() {
-
-     var data = google.visualization.arrayToDataTable([
-         ["Preferred Time", "Bookings", { role: "style" } ],
-         ["5:30", 920, "#B84B48"],
-         ["6:30", 800, "#F6C103"],
-         ["7:30", 700, "#2C353C"],
-       ]);
-
-     var view = new google.visualization.DataView(data);
-      view.setColumns([0, 1,
-                       { calc: "stringify",
-                         sourceColumn: 1,
-                         type: "string",
-                         role: "annotation" },
-                       2]);
-
-     var options = {
-        title: "TIME DEPARTURE",
-        width: 500,
-        fontSize: 16, 
-        height: 400,
-        bar: {groupWidth: "95%"},
-        legend: { position: "none" },
-      };
-     var chart = new google.visualization.BarChart(document.getElementById("timeDep_BarChart"));
-      chart.draw(view, options);
-      }   
-</script>
--->
 {% endblock footerinclude %}
 {% endblock content %}

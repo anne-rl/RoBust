@@ -242,6 +242,9 @@
 -->
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-summary" href="{% url 'head:headSummary_view' %}">Customer Report Summary</a>
 
+  <!-- Admin Update Bus and Schedules -->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-updatebus" href="{% url 'head:headUpdateBus_view' %}">Update Bus</a>
+
   <!-- Trip -->
   <!--
   <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
@@ -250,13 +253,23 @@
 -->
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-summary" href="{% url 'head:headTrip_view' %}">Trip</a>
 
+
+  <!-- Register Driver -->
+  <!--
+  <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
+    Dashboard
+  </button>
+-->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'head:headDriverBusRegistration_view' %}">Bus-Driver Registration</a>
+
+
   <!-- Dashboard -->
   <!--
   <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
     Dashboard
   </button>
 -->
-  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'head:headDashboard_view' %}">Dashboard</a>
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'head:headDashboard_weekly' %}">Dashboard</a>
 </div>
 <br>
 

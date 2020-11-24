@@ -253,101 +253,26 @@
 -->
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-summary" href="{% url 'head:headSummary_view' %}">Customer Report Summary</a>
 
+  <!-- Admin Update Bus and Schedules -->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-updatebus" href="{% url 'head:headUpdateBus_view' %}">Update Bus</a>
+
   <!-- Trip -->
   <!--
   <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
     Trip
   </button>
 -->
-  <!-- Admin Update Bus and Schedules -->
-  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-updatebus" href="{% url 'head:headUpdateBus_view' %}">Update Bus</a>
-
-
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-summary" href="{% url 'head:headTrip_view' %}">Trip</a>
+
 
   <!-- Register Driver -->
   <!--
   <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
-    Register Driver
+    Dashboard
   </button>
 -->
-  <button type="button" class="btn btn1" data-toggle="modal" data-target="#driverModal" style="color: white; position: relative; left: 130px">
-    Register Driver
-  </button>
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'head:headDriverBusRegistration_view' %}">Bus-Driver Registration</a>
 
-  <div class="modal fade" id="driverModal" tabindex="-1" role="dialog" aria-labelledby="driverModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content" style="background-color:#2c353c">
-        <div class="modal-header" style="background-color:#2c353c">
-          <h5 class="modal-title font-weight-bold" style="color:white">Driver Profile Information</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" style="color:white">&times;</span>
-          </button>
-        </div>
-
-        <form id="register_form" method="POST" autocomplete="off" enctype="multipart/form-data">
-          <div class="modal-body">
-            <div class="container">
-              <div class="picture-container">
-                <div class="picture">
-                  <img src="{% static 'media/user.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
-                  <input type="file" id="profilePicture" name="profilePicture" class="" required>
-                </div>
-                <h6 class="" style="color: white">Choose Picture</h6>
-              </div>
-            </div>
-            <br>
-            <input type="text" name="id" hidden>
-            <div class="row">
-              <div class="col-md-4 mb-3">
-                <label for="firstName" style="color: white">First Name</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20">
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="middleName" style="color: white">Middle Name</label>
-                <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20">
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="lastName" style="color: white">Last Name</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5 mb-3">
-                <label for="emailAddress" style="color: white">Email</label>
-                <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="Email" required minlength="1" maxlength="50">
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="contactNumber" style="color: white">Contact No.</label>
-                <input type="number" class="form-control" id="contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11">
-              </div>
-              <div class="col-md-3 mb-2">
-                <label for="gender" style="color: white">Gender</label> <br>
-                <div class="form-check-inline text-right" style="color: white">
-                  <label class="form-check-label ">
-                    {% if user.gender == 'Male' %}
-                    <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Male" checked="checked">Male
-                    <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Female">Female
-                    {% else %}
-                    <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Male">Male
-                    <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Female" checked="checked">Female
-                    {% endif %}
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="modal-footer" style="background-color:#2c353c;height: 40px; padding: 5px">
-              <button type="button" class="btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>
-
-              <!--                    <button type="submit" id="btnRegister" name="btnRegister" class="btn" style="background-color: #a83332; color: white">REGISTER</button>-->
-              <a type="button" class="btn btn1" style="background-color: #a83332; color: white" id="id-register" href="{% url 'head:headList_view' %}">REGISTER</a>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
 
   <!-- Dashboard -->
   <!--
@@ -357,8 +282,8 @@
 -->
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'head:headDashboard_weekly' %}">Dashboard</a>
 </div>
-
 <br>
+
 <!------------ Update Bus Page Body ------------>
 <div class="container" style="position: relative; left: -30px">
   <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 1180px; border-bottom-color: #a83332; border-bottom-style: solid">

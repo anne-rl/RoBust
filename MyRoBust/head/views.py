@@ -27,6 +27,13 @@ class HeadTripView(View):
   def post(self, request):
     return render(request, 'head/headTrip.html')
   
+class HeadDriverBusRegistration(View):
+  def get(self, request):
+    return render(request, 'head/headDriverBusRegistration.html')
+  
+  def post(self, request):
+    return render(request, 'head/headDriverBusRegistration.html')
+  
 class HeadDashboardWeekly(View):
   def get(self, request):
     return render(request, 'head/headDashboardWeekly.html')
