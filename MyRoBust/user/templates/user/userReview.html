@@ -310,10 +310,6 @@
 
             <label for="number">Date Used</label>
             <input type="text" class="form-control" id="dateUsed" name="dateUsed" value="" required minlength="1" maxlength="52" readonly>
-
-
-
-
           </div>
         </div>
       </div>
@@ -393,7 +389,7 @@
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="busNumber" style="color: white">Plate Number</label>
-                            <input type="text" class="form-control" id="busNumber" name="busNumber" placeholder="Plate Number" minlength="1" maxlength="20">
+                            <input type="text" class="form-control" id="plateNumber" name="busNumber" placeholder="Plate Number" minlength="1" maxlength="20">
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="destination" style="color: white">Destination</label>
@@ -479,7 +475,7 @@
 
             </thead>
             <tbody>
-              <!--                {% for customer in customers %}-->
+              <!--                {% for user in user %}-->
               <tr>
                 <td style="text-align:center"></td>
                 <td style="text-align:center"> </td>
@@ -509,7 +505,7 @@
                       </button>
                     </div>
                     <form id="updateForm">
-                      <!--                  {% csrf_token %}-->
+                      <!--                      {% csrf_token %}-->
                       <div class="modal-body">
                         <div class="row">
                           <div class="col-md-4 mb-3">
@@ -518,7 +514,7 @@
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="busNumber" style="color: white">Plate Number</label>
-                            <input type="text" class="form-control" id="busNumber" name="busNumber" placeholder="Plate Number" minlength="1" maxlength="20">
+                            <input type="text" class="form-control" id="plateNumber" name="busNumber" placeholder="Plate Number" minlength="1" maxlength="20">
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="destination" style="color: white">Destination</label>
@@ -556,16 +552,14 @@
               <!-- Modal E-TICKET -->
               <div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content" style="background-color:transparent; border-color: transparent; height: 300px">
+                  <div class="modal-content" style="background-color:transparent; border-color: transparent; height: 100px">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true" style="color: white; padding-left: 580px; padding-bottom: 0px">&times;</span>
+                      <span aria-hidden="true" style="color: white; padding-left: 500px; padding-bottom: 0px; width: 9px">&times;</span>
                     </button>
+                    <div class="modal-body" style="border-color: transparent; text-transform: uppercase; font-family: Oswald, sans-serif; padding-left: 150px; background-color: transparent;">
 
-                    <form id="register_form" autocomplete="off" enctype="multipart/form-data">
-
-                      <div class="modal-body" style="background-image: url({% static 'media/RoBustETicket.png' %}); background-size: 700px 270px; background-repeat: no-repeat; border-color: transparent; text-transform: uppercase; font-family: Oswald, sans-serif; color: white">
-
-                        <div class="row" style="padding-left: 300px; padding-top: 20px">
+                      <div id="content" class="ticket" style="width: 600px; height:245px; padding-top: 10px; color: white; padding-left: 200px; background-color: transparent; padding-bottom: 0px">
+                        <div class="row">
                           <div class="col-md-12 mb-1" style="padding-top: 10px">
                             <li style="list-style:none">
                               <h1><b>RoBust - 1</b></h1>
@@ -592,14 +586,12 @@
                             </li>
                           </div>
                         </div>
-
-                        <div class="row" style="padding-left: 490px; padding-top: 60px">
-                          <button type="submit" id="btnDownload" name="btnDownload" class="btn" style="background-color: #2c353c; color: white; width: 100px; font-family: sans-serif">Download</button>
-                          &nbsp;
-                          <button type="submit" id="btnRegister" name="btnPrint" class="btn" style="background-color: #2c353c; color: white; width: 100px;font-family: sans-serif">Print</button>
-                        </div>
                       </div>
-                    </form>
+                      <div class="row" style="padding-left: 360px; padding-top: 0px">
+                        <button id="btndownload" onclick="savePDF()" name="Download" class="btn" style="background-color: #2c353c; color: white; width: 150px; font-family: sans-serif">Download</button>
+                        &nbsp;
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -633,8 +625,10 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
 
+<!-- Static JS Files -->
 <script src="{% static 'js/landing.js' %}"></script>
 <script src="{% static 'js/registration.js' %}"></script>
+
 <script>
   $(document).ready(function() {
     let initialTableSettings = {
@@ -704,7 +698,6 @@
 
 </script>
 
-
 <!-- E-Ticket Download Button -->
 <script>
   var testDivElement = document.getElementById('content');
@@ -725,6 +718,7 @@
   }
 </script>
 
+<!-- E-Ticket Style -->
 <style type="text/css">
   .ticket {
     background: white;
