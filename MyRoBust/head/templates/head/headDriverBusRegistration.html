@@ -294,7 +294,6 @@
   <br>
   <form id="regiter_form" method="POST" autocomplete="off" enctype="multipart/form-data">
     {% csrf_token %}
-<!--
     <div class="container">
       <div class="picture-container">
         <div class="picture">
@@ -305,7 +304,6 @@
       </div>
     </div>
     <br>
--->
     <input type="text" name="id" hidden>
     <div class="row">
       <div class="col-md-4 mb-3">
@@ -358,33 +356,33 @@
     <div class="row" style="width: 1205">
       <div class="col-md-3 mb-3">
         <label for="plateNumber">Plate Number</label>
-        <input type="text" class="form-control" id="plateNumber" name="plateNumber" minlength="1" maxlength="30" placeholder="Plate Number" >
+        <input type="text" class="form-control" id="plateNumber" name="plateNumber" minlength="1" maxlength="30" placeholder="Plate Number">
       </div>
       <div class="col-md-3 mb-3">
         <label for="quantity">Seats</label>
-        <input type="text" class="form-control" id="seats" name="seats" value="" required minlength="1" maxlength="30" placeholder="Seats" >
+        <input type="text" class="form-control" id="seats" name="seats" value="" required minlength="1" maxlength="30" placeholder="Seats">
       </div>
       <div class="col-md-3 mb-3">
         <label for="quantity">Bus Fare</label>
-        <input type="text" class="form-control" id="busFare" name="busFare" value="" required minlength="1" maxlength="30"  placeholder="Bus Fare">
+        <input type="text" class="form-control" id="busFare" name="busFare" value="" required minlength="1" maxlength="30" placeholder="Bus Fare">
       </div>
       <div class="col-md-3 mb-3">
         <label for="time">Time Departure</label>
-        <input type="text" class="form-control" id="timeDeparture" name="timeDeparture" minlength="1" maxlength="30" placeholder="Time Departure" >
+        <input type="text" class="form-control" id="timeDeparture" name="timeDeparture" minlength="1" maxlength="30" placeholder="Time Departure">
       </div>
-      
+
     </div>
     <br>
 
-    <div class="row">
+    <div class="row" style="padding-left: 60px">
       <div class="col-md-6 mb-1">
         <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 310; padding:10px" id="id-Cancel" href="{% url 'user:userReservation_view' %}">CANCEL</a>
       </div>
       <div class="col-md-6 mb-1">
         <form id="submit_form" method="POST">
           {% csrf_token %}
-<!--          <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px" id="id-Cancel" href="{% url 'user:userReview_view' %}">REGISTER</a>-->
-                    <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: blue; height: 45px"> Continue </button>
+          <!--          <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px" id="id-Cancel" href="{% url 'user:userReview_view' %}">REGISTER</a>-->
+          <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> CONTINUE </button>
         </form>
       </div>
     </div>
