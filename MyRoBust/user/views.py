@@ -10,60 +10,64 @@ from .models import *
 
 
 class LandingIndexView(View):
-        def get(self, request):
-            return render(request, 'user/landing.html')
+				def get(self, request):
+						return render(request, 'user/landing.html')
 
-        def post(self, request):
-            form = PassengerForm(request.POST)
-            if request.method == 'POST':
-                if Passenger.objects.filter(passengerID=request.POST['passengerID'],           password=request.POST['password']).exists() : 
-                    passenger =           Passenger.objects.get(passengerID=request.POST['passengerID'], password=request.POST['password'])
-                
-                    return render(request, 'user/userReservation.html', {'passenger': passenger})
+				def post(self, request):
+						form = PassengerForm(request.POST)
+						if request.method == 'POST':
+								if Passenger.objects.filter(passengerID=request.POST['passengerID'], password=request.POST['password']).exists() : 
+										passenger = Passenger.objects.get(passengerID=request.POST['passengerID'], password=request.POST['password'])
+								
+										return render(request, 'user/userReservation.html', {'passengers': passenger})
 
-                else:
+								else:
 #                    context = {'msg': 'Invalid username/password'}
 #                    return render(request, 'user/landing.html', context)
-                    print(form.errors)
-                    return HttpResponse('Invalid username/password!')
-            else:
-                return render(request, 'user/landing.html', context)
+										print(form.errors)
+										return HttpResponse('Invalid username/password!')
+						else:
+								return render(request, 'user/landing.html', context)
 
 
 class UserReservationView(View):
-        def get(self, request):
-            qs_passenger = Passenger.object.all()
-            
-            context = {
-                'passengers' : qs_passenger
-            }
-            return render(request, 'user/userReservation.html',context)
+				def get(self, request):
+					  return render(request, 'user/userReservation.html')
 
-        def post(self, request):
-            return render(request, 'user/userReservation.html')
-                
+						# qs_passenger = Passenger.object.all()
+						
+						# context = {
+						#     'passengers' : qs_passenger
+						# }
+						# return render(request, 'user/userReservation.html',context)
+
+				def post(self, request):
+						return render(request, 'user/userReservation.html')
+								
 class UserReviewView(View):
-        def get(self, request):
-            qs_passenger = Passenger.objects.all()
-            
-            context = {
-                'passengers' : qs_passenger
-            }
-            return render(request, 'user/userReview.html', context)
+				def get(self, request):
+					  return render(request, 'user/userReview.html')
 
-        def post(self, request):
-            return render(request, 'user/userReview.html')
+						# qs_passenger = Passenger.objects.all()
+						
+						# context = {
+						# 		'passengers' : qs_passenger
+						# }
+						# return render(request, 'user/userReview.html', context)
+
+				def post(self, request):
+						return render(request, 'user/userReview.html')
 
 class UserDashboardViewWeekly(View):
-        def get(self, request):
-            return render(request, 'user/userDashboardWeekly.html')
+				def get(self, request):
+						return render(request, 'user/userDashboardWeekly.html')
 
-        def post(self, request):
-            return render(request, 'user/userDashboardWeekly.html')
+				def post(self, request):
+						return render(request, 'user/userDashboardWeekly.html')
 
 class UserDashboardViewMonthly(View):
-        def get(self, request):
-            return render(request, 'user/userDashboardMonthly.html')
+				def get(self, request):
+						return render(request, 'user/userDashboardMonthly.html')
 
-        def post(self, request):
-            return render(request, 'user/userDashboardMonthly.html')
+				def post(self, request):
+						return render(request, 'user/userDashboardMonthly.html')
