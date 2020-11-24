@@ -286,7 +286,7 @@
 </div>
 <br>
 
-<!------------ Booking Page Body ------------>
+<!------------ BUS DRIVER REGISTRATION BODY ------------>
 <div class="container" style="position: relative; left: -30px">
   <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 1180px; border-bottom-color: #a83332; border-bottom-style: solid">
     <h6><b>Register Driver</b></h6>
@@ -294,6 +294,7 @@
   <br>
   <form id="regiter_form" method="POST" autocomplete="off" enctype="multipart/form-data">
     {% csrf_token %}
+<!--
     <div class="container">
       <div class="picture-container">
         <div class="picture">
@@ -304,6 +305,7 @@
       </div>
     </div>
     <br>
+-->
     <input type="text" name="id" hidden>
     <div class="row">
       <div class="col-md-4 mb-3">
@@ -332,13 +334,8 @@
         <label for="gender">Gender</label> <br>
         <div class="form-check-inline text-right" style="color: black">
           <label class="form-check-label ">
-            {% if user.gender == 'Male' %}
             <input style="margin: 8px; color: black" type="radio" class="form-check-sm" name="gender" value="Male" checked="checked">Male
             <input style="margin: 8px; color: black" type="radio" class="form-check-sm" name="gender" value="Female">Female
-            {% else %}
-            <input style="margin: 8px; color: black" type="radio" class="form-check-sm" name="gender" value="Male">Male
-            <input style="margin: 8px; color: black" type="radio" class="form-check-sm" name="gender" value="Female" checked="checked">Female
-            {% endif %}
           </label>
         </div>
       </div>
@@ -365,7 +362,7 @@
       </div>
       <div class="col-md-3 mb-3">
         <label for="quantity">Seats</label>
-        <input type="text" class="form-control" id="totalSeats" name="totalSeats" value="" required minlength="1" maxlength="30" placeholder="Seats" >
+        <input type="text" class="form-control" id="seats" name="seats" value="" required minlength="1" maxlength="30" placeholder="Seats" >
       </div>
       <div class="col-md-3 mb-3">
         <label for="quantity">Bus Fare</label>
@@ -373,7 +370,7 @@
       </div>
       <div class="col-md-3 mb-3">
         <label for="time">Time Departure</label>
-        <input type="text" class="form-control" id="departureTime" name="departureTime" minlength="1" maxlength="30" placeholder="Time Departure" >
+        <input type="text" class="form-control" id="timeDeparture" name="timeDeparture" minlength="1" maxlength="30" placeholder="Time Departure" >
       </div>
       
     </div>
@@ -386,8 +383,8 @@
       <div class="col-md-6 mb-1">
         <form id="submit_form" method="POST">
           {% csrf_token %}
-          <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px" id="id-Cancel" href="{% url 'user:userReview_view' %}">REGISTER</a>
-          <!--          <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: blue; height: 45px"> Continue </button>-->
+<!--          <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px" id="id-Cancel" href="{% url 'user:userReview_view' %}">REGISTER</a>-->
+                    <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: blue; height: 45px"> Continue </button>
         </form>
       </div>
     </div>
