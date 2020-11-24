@@ -14,19 +14,6 @@ class LandingIndexView(View):
             return render(request, 'user/landing.html')
 
         def post(self, request):
-            return render(request, 'user/landing.html', context)
-
-
-class UserReservationView(View):
-        def get(self, request):
-            qs_passenger = Passenger.object.all()
-            
-            context = {
-                'passengers' : qs_passenger
-            }
-            return render(request, 'user/userReservation.html',context)
-
-        def post(self, request):
             form = PassengerForm(request.POST)
             if request.method == 'POST':
                 if Passenger.objects.filter(passengerID=request.POST['passengerID'],           password=request.POST['password']).exists() : 
@@ -39,6 +26,21 @@ class UserReservationView(View):
 #                    return render(request, 'user/landing.html', context)
                     print(form.errors)
                     return HttpResponse('Invalid username/password!')
+            else:
+                return render(request, 'user/landing.html', context)
+
+
+class UserReservationView(View):
+        def get(self, request):
+            qs_passenger = Passenger.object.all()
+            
+            context = {
+                'passengers' : qs_passenger
+            }
+            return render(request, 'user/userReservation.html',context)
+
+        def post(self, request):
+            return render(request, 'user/userReservation.html')
                 
 class UserReviewView(View):
         def get(self, request):
