@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="shortcut icon" href="{% static 'media/CIT.png' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/reservation.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}">
 <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
 {% endblock headerinclude %}
 
@@ -93,11 +92,12 @@
           </li>
         </ul>
 
+
         <!-- RoBust Profile-->
         <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; background-color: #a83332; height: 50px; border-radius: 5px; font-size: 14px; width: 200px">
-              <i class="fa fa-user" aria-hidden="true"></i> DOSAN <span class="caret"></span></a>
+              <i class="fa fa-lock" aria-hidden="true"></i> ADMIN <span class="caret"></span></a>
             <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #2c353c">
               <li>
                 <div class="row">
@@ -158,49 +158,41 @@
           <input type="text" name="id" hidden>
           <div class="row">
             <div class="col-md-4 mb-3">
-                <label for="passengerID" style="color: white">Passenger ID</label>
-                <input type="text" class="form-control" id="id-passengerID" name="passengerID" placeholder="passenger ID" required minlength="1" maxlength="20" readonly>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 mb-3">
               <label for="firstName" style="color: white">First Name</label>
-              <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20">
+              <input type="text" class="form-control" id="id-firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20">
             </div>
             <div class="col-md-4 mb-3">
               <label for="middleName" style="color: white">Middle Name</label>
-              <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20">
+              <input type="text" class="form-control" id="id-middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20">
             </div>
             <div class="col-md-4 mb-3">
               <label for="lastName" style="color: white">Last Name</label>
-              <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20">
+              <input type="text" class="form-control" id="id-lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20">
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="emailAddress" style="color: white">Email</label>
-              <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="Email" required minlength="1" maxlength="50">
+              <label for="email" style="color: white">Email</label>
+              <input type="email" class="form-control" id="id-email" name="email" placeholder="Email" required minlength="1" maxlength="50">
             </div>
             <div class="col-md-6 mb-3">
               <label for="password" style="color: white">Password</label>
-              <input type="password" class="form-control" id="password" name="password" placeholder="Password" required minlength="8" maxlength="16">
+              <input type="password" class="form-control" id="id-password" name="password" placeholder="Password" required minlength="8" maxlength="16">
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12 mb-1">
-              <label for="department" style="color: white">Department</label><br>
-              <select class="form-control-lg" style="border-color: lightgrey; height: 38px; font-size: 15px; width: 767px" id="department" name="department" required>
+            <div class="col-md-4 mb-3">
+              <label for="number" style="color: white">Contact No.</label>
+              <input type="number" class="form-control" id="id-number" name="number" placeholder="Contact No." required minlength="11" maxlength="11">
+            </div>
+            <div class="col-md-3 mb-1">
+              <label for="status" style="color: white">Department</label>
+              <select class="form-control-lg" style="border-color: lightgrey; height: 38px; font-size: 15px" id="id-status" name="status" required>
                 <option value=""></option>
                 <option value="Elementary">Elementary</option>
                 <option value="High-School">High-School</option>
                 <option value="College">College</option>
               </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 mb-3">
-                <label for="contactNumber" style="color: white">Contact No.</label>
-                <input type="contactNumber" class="form-control" id="id-contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11">
             </div>
             <div class="col-md-3 mb-2">
               <label for="gender" style="color: white">Gender</label> <br>
@@ -234,86 +226,39 @@
 <!------------ Nav Bar Buttons ------------>
 <div style="background-color: #2c353c; border-bottom-color: #a83332; border-bottom-style: solid">
 
-  <!-- Booking -->
-  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-booking" href="{% url 'user:userReservation_view' %}">Booking</a>
+  <!-- Booking History -->
+  <!--
+  <button type="button" class="btn btn1" data-toggle="modal" data-target="#change" style="color: white; position: relative; left: 130px">
+    Booking History
+  </button>
+-->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-list" href="{% url 'head:headList_view' %}">Master List</a>
 
-  <!-- Booking Review -->
-  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-history" href="{% url 'user:userReview_view' %}">Booking Review</a>
+  <!-- Customer Report Summary -->
+  <!--
+  <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
+    Dashboard
+  </button>
+-->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-summary" href="{% url 'head:headSummary_view' %}">Customer Report Summary</a>
+
+  <!-- Trip -->
+  <!--
+  <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
+    Trip
+  </button>
+-->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-summary" href="{% url 'head:headTrip_view' %}">Trip</a>
 
   <!-- Dashboard -->
-  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'user:userDashboard_weekly'%}">Dashboard</a>
-
-  <!-- E-Wallet-->
-  <button type="button" class="btn btn1" data-toggle="modal" data-target="#wallet" style="color: white; position: relative; left: 130px">
-    E-Wallet
+  <!--
+  <button type="button" class="btn btn1" style="color: white; position: relative; left: 130px">
+    Dashboard
   </button>
-
-  <div class="modal fade" id="wallet" tabindex="-1" role="dialog" aria-labelledby="aboutCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content" style="background-color: #2c353c">
-        <div class="modal-header" style="background-color: #2c353c">
-          <h5 class="modal-title" id="walletLongTitle" style="color: white">E-Wallet</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" style="color: white">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="container" style="color: white">
-
-
-
-           <label for="number">Beginning Balance</label>
-            <input type="text" class="form-control" id="availableBalance" name="beginnningBalance" value="" required minlength="0" maxlength="52" readonly>
-
-
-            <label for="number">Available Balance</label>
-            <input type="text" class="form-control" id="availableBalance" name="availableBalance" value="" required minlength="1" maxlength="52" readonly>
-
-            <label for="number">Deposit</label>
-            <input type="text" class="form-control" id="Deposit" name="Deposit" value="" required minlength="1" maxlength="52" readonly>
-
-            <label for="number">Consumed</label>
-            <input type="text" class="form-control" id="consumedAmount" name="consumedAmount" value="" required minlength="1" maxlength="52" readonly>
-            
-            <label for="number">Date Used</label>
-            <input type="text" class="form-control" id="dateUsed" name="dateUsed" value="" required minlength="1" maxlength="52" readonly>
-
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+-->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'head:headDashboard_view' %}">Dashboard</a>
 </div>
 <br>
-
-<!------------ Dashboard Page Body ------------>
-<div class="container">
-  <div class="container-fluid" style="width:100%">
-    <div class="card shadow mb-4">
-      <div class="card-header py-2">
-        <p style="color: #a83332; font-size: 22px; font-weight: 700"><b>DASHBOARD</b></p>
-        <div class="text-left">
-          <a tabindex="5" class="week" style="color: black">Week</a>&nbsp;
-          <a tabindex="5" class="month" style="color: black" href="{% url 'user:userDashboard_monthly' %}">Month</a>
-        </div>
-      </div>
-      <div class="card-body">
-        <!--          <div id="piechart"></div>-->
-        <table>
-          <tr>
-            <td>
-              <div id="seat_PieChart"></div>
-            </td>
-            <td>
-              <div id="timeDep_BarChart"></div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
 
 {% block footerinclude %}
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -323,132 +268,5 @@
 <script src="{% static 'js/landing.js' %}"></script>
 <script src="{% static 'js/registration.js' %}"></script>
 
-<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-<script>
-  // Load Charts and the corechart package.
-  google.charts.load('current', {
-    'packages': ['corechart']
-  });
-
-  // Draw the pie chart for Sarah's pizza when Charts is loaded.
-  google.charts.setOnLoadCallback(seat_PieChart);
-
-  // Draw the pie chart for the Anthony's pizza when Charts is loaded.
-  google.charts.setOnLoadCallback(timeDep_BarChart);
-
-  // Callback that draws the pie chart for Sarah's pizza.
-  function seat_PieChart() {
-
-    var data = google.visualization.arrayToDataTable([
-      ['Preferred Seat', 'Bookings'],
-      ['1A', 8],
-      ['1B', 2],
-      ['1C', 4]
-    ]);
-
-    // Optional; add a title and set the width and height of the chart
-    var options = {
-      'title': 'PREFFERED SEAT',
-      'width': 500,
-      'height': 400,
-      slices: {
-        0: {
-          color: '#B84B48'
-        },
-        1: {
-          color: '#F6C103'
-        },
-        2: {
-          color: '#2C353C'
-        },
-        3: {
-          color: 'red'
-        },
-        4: {
-          color: 'grey'
-        }
-      }
-    };
-
-    // Instantiate and draw the chart for Sarah's pizza.
-    var chart = new google.visualization.PieChart(document.getElementById("seat_PieChart"));
-    chart.draw(data, options);
-  }
-
-  // Callback that draws the pie chart for Anthony's pizza.
-  function timeDep_BarChart() {
-
-    var data = google.visualization.arrayToDataTable([
-      ["Preferred Time", "Bookings", {
-        role: "style"
-      }],
-      ["5:30", 8, "#B84B48"],
-      ["6:30", 2, "#F6C103"],
-      ["7:30", 4, "#2C353C"],
-    ]);
-
-    var view = new google.visualization.DataView(data);
-    view.setColumns([0, 1,
-      {
-        calc: "stringify",
-        sourceColumn: 1,
-        type: "string",
-        role: "annotation"
-      },
-      2
-    ]);
-
-    var options = {
-      title: "TIME DEPARTURE",
-      width: 500,
-      height: 400,
-      bar: {
-        groupWidth: "95%"
-      },
-      legend: {
-        position: "none"
-      },
-    };
-    var chart = new google.visualization.BarChart(document.getElementById("timeDep_BarChart"));
-    chart.draw(view, options);
-  }
-
-</script>
-
-<!--
- <div id="container" style="width: 50%; height: 50%"></div>
-    <script>
-      anychart.onDocumentReady(function() {
- 
-        // set the data
-        var data = {
-            header: ["Name", "Death toll"],
-            rows: [
-              ["San-Francisco (1906)", 1500],
-              ["Messina (1908)", 87000],
-              ["Ashgabat (1948)", 175000],
-              ["Chile (1960)", 10000],
-              ["Tian Shan (1976)", 242000],
-              ["Armenia (1988)", 25000],
-              ["Iran (1990)", 50000]
-        ]};
- 
-        // create the chart
-        var chart = anychart.bar();
- 
-        // add the data
-        chart.data(data);
- 
-        // set the chart title
-        chart.title("The deadliest earthquakes in the XXth century");
- 
-        // draw
-        chart.container("container");
-        chart.draw();
-      });
-    </script>
--->
 {% endblock footerinclude %}
 {% endblock content %}
