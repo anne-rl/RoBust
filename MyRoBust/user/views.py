@@ -32,24 +32,24 @@ class LandingIndexView(View):
 
 class UserReservationView(View):
         def get(self, request):
-            qs_passenger = Passenger.object.all()
-            
-            context = {
-                'passengers' : qs_passenger
-            }
-            return render(request, 'user/userReservation.html',context)
+#            qs_passenger = Passenger.object.all()
+#            
+#            context = {
+#                'passengers' : qs_passenger
+#            }
+            return render(request, 'user/userReservation.html')
 
         def post(self, request):
             return render(request, 'user/userReservation.html')
                 
 class UserReviewView(View):
         def get(self, request):
-            qs_passenger = Passenger.objects.all()
-            
-            context = {
-                'passengers' : qs_passenger
-            }
-            return render(request, 'user/userReview.html', context)
+#            qs_passenger = Passenger.objects.all()
+#            
+#            context = {
+#                'passengers' : qs_passenger
+#            }
+            return render(request, 'user/userReview.html')
 
         def post(self, request):
             return render(request, 'user/userReview.html')
