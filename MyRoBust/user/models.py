@@ -15,3 +15,16 @@ class Passenger(models.Model):
         class Meta:
             db_table = "Passenger"
 
+class Bus(models.Model):
+        busNumber = models.AutoField(primary_key=True)
+        busName = models.CharField(max_length = 50)
+        plateNumber = models.CharField(max_length = 50)
+        destination = models.CharField(max_length = 50)
+        totalSeats = models.IntegerField()
+        busFare = models.FloatField()
+        departureTime = models.TimeField()
+        #driver = models.ForeignKey('Driver', on_delete=models.CASCADE, related_name='bus_driver')
+    
+        class Meta:
+            db_table = "Bus"
+
