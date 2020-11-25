@@ -318,9 +318,8 @@
                         <div class="picture-container">
                           <div class="picture">
                             <img src="{{ bus.img.url }}" class="picture-src" id="profilePicturePreview" required>
-                            <input type="file" id="id-img" name="bus-img" class="" required>
                           </div>
-                          <h6 class="" style="color: white">Choose Picture</h6>
+
                         </div>
                       </div>
                       {% else %}
@@ -329,15 +328,13 @@
                           <div class="picture-container">
                             <div class="picture">
                               <img src="{% static 'media/bus-icon.png' %}" class="picture-src" id="profilePicturePreview" required>
-                              <input type="file" id="id-img" name="bus-img" class="" required>
                             </div>
-                            <h6 class="" style="color: white">Choose Picture</h6>
                           </div>
                         </div>
                         {% endif %}
                         <div class="row">
                           <div class="col-md-4 mb-2">
-                            <input type="text" class="form-control" id="id-busNumber" name="bus-busNumber" value="{{bus.id}}" hidden="hidden">
+                            <input type="text" class="form-control" id="bus-id" name="bus-id" value="{{bus.id}}" hidden="hidden">
                           </div>
                         </div>
                         <div class="row">
@@ -352,7 +349,7 @@
 
                           <div class="col-md-4 mb-3">
                             <label for="fare" style="color: white">Fare</label>
-                            <input type="text" class="form-control" id="id-fare" name="bus-fare" placeholder="Bus Fare" value="{{bus.busFare}}" required>
+                            <input type="text" class="form-control" id="id-fare" name="bus-busFare" placeholder="Bus Fare" value="{{bus.busFare}}" required>
                           </div>
                         </div>
                         <hr style="background-color:  color: white; border-style: solid; border-color: white">
@@ -369,7 +366,7 @@
                         <div class="row">
                           <div class="col-md-6 mb-3">
                             <label for="destination" style="color: white">Destination</label>
-                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" minlength="1" maxlength="20" value="{{bus.destination}}">
+                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" minlength="1" maxlength="50" value="{{bus.destination}}">
                           </div>
                           <div class="col-md-6 mb-3">
                             <label for="driver" style="color: white">Driver</label>
@@ -378,7 +375,7 @@
                         </div>
                         <div class="modal-footer" style="height: 40px; padding-top: 5px">
                           <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">CLOSE</button>
-                          <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">UPDATE</button>
+                          <button type="submit" name="btnUpdate" id="btnUpdate" class="btn btn" style="background-color: #a83332; color: white">UPDATE</button>
                         </div>
                       </div>
                     </div>

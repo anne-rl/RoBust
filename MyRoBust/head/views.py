@@ -71,7 +71,19 @@ class HeadUpdateBusView(View):
         return render(request, 'head/headUpdateBus.html', context)
   
     def post(self, request):
-        return render(request, 'head/headUpdateBus.html', context)
+        if request.method == 'POST':
+            if 'btnUpdate' in request.POST:
+                bid = request.POST.get("bus-id")
+                busbn = request.POST.get("bus-busName")
+                buspn = request.POST.get("bus-plateNumber")
+                busd = request.POST.get("bus-destination")
+                busts = request.POST.get("bus-totalSeats")
+                busf = request.POST.get("bus-busFare")
+                busdt = request.POST.get("bus-departureTime")
+                update_bus = Bus.objects.filter(id=bid).update(busName = busbn, plateNumber = buspn, destination = busd,
+                        totalSeats = busts, busFare = busf, departureTime = busdt)
+
+        return redirect('head:headUpdateBus_view')
        
 class HeadRegisterBus(View):
     def get(self, request):
