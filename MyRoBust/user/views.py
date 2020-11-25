@@ -32,12 +32,13 @@ class LandingIndexView(View):
 
 class UserReservationView(View):
         def get(self, request):
-#            qs_passenger = Passenger.object.all()
-#            
-#            context = {
-#                'passengers' : qs_passenger
-#            }
-            return render(request, 'user/userReservation.html')
+            qs_bus = Bus.objects.all()
+            context = {
+
+                'buses' : qs_bus
+
+            }
+            return render(request, 'user/userReservation.html', context)
 
         def post(self, request):
             return render(request, 'user/userReservation.html')

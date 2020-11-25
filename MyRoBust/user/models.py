@@ -1,4 +1,5 @@
 from django.db import models
+from head.models import Bus
 
 # Create your models here.
 class Passenger(models.Model):
