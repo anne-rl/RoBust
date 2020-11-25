@@ -236,186 +236,6 @@
 </div>
 
 
-<!-- Bus1 Booking Modal -->
-<div class="modal fade" id="bus1Modal" tabindex="-1" role="dialog" aria-labelledby="bus1Label" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" style="background-color:#353E45">
-      <div class="modal-header" style="background-color:#353E45">
-        <h5 class="modal-title" id="seatsModal1" style="color: white">Bus1 Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color: white">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="busName" style="color: white">Bus Name</label>
-            <input type="text" class="form-control" id="id-busName" name="busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="plateNumber" style="color: white">Plate Number</label>
-            <input type="text" class="form-control" id="id-plateNumber" name="plateNumber" placeholder="Plate Number" required minlength="1" maxlength="20" readonly>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="destination" style="color: white">Destination</label>
-            <input type="text" class="form-control" id="id-destination" name="destination" placeholder="CIT-U  - TUNGKOP" required minlength="1" maxlength="20" readonly>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="seats" style="color: white">Seats</label>
-            <input type="text" class="form-control" id="id-seats" name="seats" placeholder="51" required minlength="1" maxlength="20" readonly>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="destination" style="color: white">Fare</label>
-            <input type="text" class="form-control" id="id-fare" name="fare" placeholder="25.00" value="" required readonly>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="driver" style="color: white">Driver</label>
-            <input type="text" class="form-control" id="id-driver" name="driver" placeholder="Driver's Name" required readonly>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="timeDeparture" style="color: white">Time Departure</label>
-            <input type="text" class="form-control" id="id-timeDeparture" name="timeDeparture" placeholder="Time Departure" required readonly>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="date" style="color: white">Select Date</label>
-            <input type="date" class="form-control" id="id-date" name="date" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 110px; background-color: #a83332; height: 40px; margin-left: 290; padding:5px; font-size: 17px" id="id-Cancel" href="{% url 'user:userSelect_view' %}">Search Seat</a>
-        <!--        <button type="button" class="btn btn" style="background-color: #a83332; color: white">Search Seat</button>-->
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Bus2 Booking Modal -->
-<div class="modal fade" id="bus2Modal" tabindex="-1" role="dialog" aria-labelledby="bus2Label" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" style="background-color:#2c353c">
-      <div class="modal-header" style="background-color:#2c353c">
-        <h5 class="modal-title" id="seatsModal2" style="color: white">Bus2 Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color: white">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="busName" style="color: white">Bus Name</label>
-            <input type="text" class="form-control" id="id-busName" name="busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="plateNumber" style="color: white">Plate Number</label>
-            <input type="text" class="form-control" id="id-plateNumber" name="plateNumber" placeholder="Plate Number" required minlength="1" maxlength="20" readonly>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="destination" style="color: white">Destination</label>
-            <input type="text" class="form-control" id="id-destination" name="destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="seats" style="color: white">Seats</label>
-            <input type="text" class="form-control" id="id-seats" name="seats" placeholder="51" required minlength="1" maxlength="20" readonly>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="destination" style="color: white">Fare</label>
-            <input type="text" class="form-control" id="id-fare" name="fare" placeholder="25.00" value="" required>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="driver" style="color: white">Driver</label>
-            <input type="text" class="form-control" id="id-driver" name="driver" placeholder="Driver's Name" required>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="timeDeparture" style="color: white">Time Departure</label>
-            <input type="text" class="form-control" id="id-timeDeparture" name="timeDeparture" placeholder="Time Departure" required readonly>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="date" style="color: white">Select Date</label>
-            <input type="date" class="form-control" id="id-date" name="date" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 110px; background-color: #a83332; height: 40px; margin-left: 290; padding:5px; font-size: 17px" id="id-Cancel" href="{% url 'user:userSelect_view' %}">Search Seat</a>
-        <!--        <button type="button" class="btn btn" style="background-color: #a83332; color: white">Search Seat</button>-->
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Bus3 Booking Modal -->
-<div class="modal fade" id="bus3Modal" tabindex="-1" role="dialog" aria-labelledby="bus3Label" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" style="background-color:#2c353c">
-      <div class="modal-header" style="background-color:#2c353c">
-        <h5 class="modal-title" id="seatsModal3" style="color: white">Bus3 Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color: white">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="busName" style="color: white">Bus Name</label>
-            <input type="text" class="form-control" id="id-busName" name="busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="plateNumber" style="color: white">Plate Number</label>
-            <input type="text" class="form-control" id="id-plateNumber" name="plateNumber" placeholder="Plate Number" required minlength="1" maxlength="20" readonly>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="destination" style="color: white">Destination</label>
-            <input type="text" class="form-control" id="id-destination" name="destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="seats" style="color: white">Seats</label>
-            <input type="text" class="form-control" id="id-seats" name="seats" placeholder="51" required minlength="1" maxlength="20" readonly>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="destination" style="color: white">Fare</label>
-            <input type="text" class="form-control" id="id-fare" name="fare" placeholder="25.00" value="" required>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="driver" style="color: white">Driver</label>
-            <input type="text" class="form-control" id="id-driver" name="driver" placeholder="Driver's Name" required>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="timeDeparture" style="color: white">Time Departure</label>
-            <input type="text" class="form-control" id="id-timeDeparture" name="timeDeparture" placeholder="Time Departure" required readonly>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="date" style="color: white">Select Date</label>
-            <input type="date" class="form-control" id="id-date" name="date" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 110px; background-color: #a83332; height: 40px; margin-left: 290; padding:5px; font-size: 17px" id="id-Cancel" href="{% url 'user:userSelect_view' %}">Search Seat</a>
-        <!--        <button type="button" class="btn btn" style="background-color: #a83332; color: white">Search Seat</button>-->
-      </div>
-    </div>
-  </div>
-</div>
-
 <!------------ Nav Bar Buttons ------------>
 <div style="background-color: #2c353c; border-bottom-color: #a83332; border-bottom-style: solid">
 
@@ -471,32 +291,366 @@
 
 <!------------ Booking Page Body ------------>
 <div class="container" style="position: relative; left: -30px">
-  <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 1180px; border-bottom-color: #a83332; border-bottom-style: solid">
-    <h6><b>Select a Bus</b></h6>
-  </div>
-  <br>
-  <form id="regiter_form" method="POST" autocomplete="off" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="row" style="width: 1230">
-      <!-- Bus1 Boking Button-->
-      <div class="col-md-4 mb-3">
-        <button type="button" class="btn btn" data-toggle="modal" data-target="#bus1Modal" style="background-color: #2c353c; color: white; border-color: transparent; height: 270px; width: 364px; padding: 0px; padding-top: 0px">
-          <img src="{% static 'media/RoBustBus1.jpg' %}" width="360" height="240" style="border-radius: 5px"> Bus 1</button>
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 370px; border-bottom-color: #a83332; border-bottom-style: solid">
+        <h6><b>Select a Seat</b></h6>
+      </div>
+      <div style="background-color: #2c353c; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 370px; border-bottom-color: #a83332; border-bottom-style: solid">
+        <div class="bus">
+          <li class="row row--0">
+            <ol class="A">
+              <li class="seatdriver">
+                <input type="checkbox" disabled id="id-driver" />
+                <label for="id-driver">Occupied</label>
+            </ol>
+          </li>
+          <ol>
+            <li class="row row--1">
+              <ol class="seats" type="A">
+                <li class="seat">
+                  <input type="checkbox" id="1-1A" />
+                  <label for="1-1A">1A</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-1B" />
+                  <label for="1-1B">1B</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-1C" />
+                  <label for="1-1C">1C</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-1D" />
+                  <label for="1-1D">1D</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" disabled id="1-1E" />
+                  <label for="1-1E">1E</label>
+                </li>
+
+              </ol>
+            </li>
+            <li class="row row--2">
+              <ol class="seats">
+                <li class="seat">
+                  <input type="checkbox" id="1-2A" />
+                  <label for="1-2A">2A</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-2B" />
+                  <label for="1-2B">2B</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-2C" />
+                  <label for="1-2C">2C</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-2D" />
+                  <label for="1-2D">2D</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-2E" />
+                  <label for="1-2E">2E</label>
+                </li>
+              </ol>
+            </li>
+            <li class="row row--3">
+              <ol class="seats" type="A">
+                <li class="seat">
+                  <input type="checkbox" id="1-3A" />
+                  <label for="1-3A">3A</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-3B" />
+                  <label for="1-3B">3B</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-3C" />
+                  <label for="1-3C">3C</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-3D" />
+                  <label for="1-3D">3D</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-3E" />
+                  <label for="1-3E">3E</label>
+                </li>
+
+              </ol>
+            </li>
+            <li class="row row--4">
+              <ol class="seats" type="A">
+                <li class="seat">
+                  <input type="checkbox" id="1-4A" />
+                  <label for="1-4A">4A</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-4B" />
+                  <label for="1-4B">4B</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-4C" />
+                  <label for="1-4C">4C</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-4D" />
+                  <label for="1-4D">4D</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-4E" />
+                  <label for="1-4E">4E</label>
+                </li>
+
+              </ol>
+            </li>
+            <li class="row row--5">
+              <ol class="seats" type="A">
+                <li class="seat">
+                  <input type="checkbox" id="1-5A" />
+                  <label for="1-5A">5A</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-5B" />
+                  <label for="1-5B">5B</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-5C" />
+                  <label for="1-5C">5C</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-5D" />
+                  <label for="1-5D">5D</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-5E" />
+                  <label for="1-5E">5E</label>
+                </li>
+
+              </ol>
+            </li>
+            <li class="row row--6">
+              <ol class="seats" type="A">
+                <li class="seat">
+                  <input type="checkbox" id="1-6A" />
+                  <label for="1-6A">6A</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-6B" />
+                  <label for="1-6B">6B</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-6C" />
+                  <label for="1-6C">6C</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-6D" />
+                  <label for="1-6D">6D</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-6E" />
+                  <label for="1-6E">6E</label>
+                </li>
+
+              </ol>
+            </li>
+            <li class="row row--7">
+              <ol class="seats" type="A">
+                <li class="seat">
+                  <input type="checkbox" id="1-7A" />
+                  <label for="1-7A">7A</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-7B" />
+                  <label for="1-7B">7B</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-7C" />
+                  <label for="1-7C">7C</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-7D" />
+                  <label for="1-7D">7D</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-7E" />
+                  <label for="1-7E">7E</label>
+                </li>
+
+              </ol>
+            </li>
+            <li class="row row--8">
+              <ol class="seats" type="A">
+                <li class="seat">
+                  <input type="checkbox" id="1-8A" />
+                  <label for="1-8A">8A</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-8B" />
+                  <label for="1-8B">8B</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-8C" />
+                  <label for="1-8C">8C</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-8D" />
+                  <label for="1-8D">8D</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-8E" />
+                  <label for="1-8E">8E</label>
+                </li>
+
+              </ol>
+            </li>
+            <li class="row row--9">
+              <ol class="seats" type="A">
+                <li class="seat">
+                  <input type="checkbox" id="1-9A" />
+                  <label for="1-9A">9A</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-9B" />
+                  <label for="1-9B">9B</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-9C" />
+                  <label for="1-9C">9C</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-9D" />
+                  <label for="1-9D">9D</label>
+                </li>
+                <li class="seat">
+                  <input type="checkbox" id="1-9E" />
+                  <label for="1-9E">9E</label>
+                </li>
+
+              </ol>
+            </li>
+            <li class="row row--10">
+              <ol class="seats" type="A">
+                <li class="seatnospace">
+                  <input type="checkbox" id="1-10A" />
+                  <label for="1-10A">10A</label>
+                </li>
+                <li class="seatnospace">
+                  <input type="checkbox" id="1-10B" />
+                  <label for="1-10B">10B</label>
+                </li>
+                <li class="seatnospace">
+                  <input type="checkbox" id="1-10C" />
+                  <label for="1-10C">10C</label>
+                </li>
+                <li class="seatnospace">
+                  <input type="checkbox" id="1-10D" />
+                  <label for="1-10D">10D</label>
+                </li>
+                <li class="seatnospace">
+                  <input type="checkbox" id="1-10E" />
+                  <label for="1-10E">10E</label>
+                </li>
+                <li class="seatnospace">
+                  <input type="checkbox" id="1-10F" />
+                  <label for="1-10F">10F</label>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+        <div style="text-align: center">
+          <h6 style="color: white">Vacant&nbsp;&nbsp;Occupied&nbsp;&nbsp;Selected&nbsp;&nbsp;Driver</h6>
+          &nbsp;
+          <li class="seatlegend">
+            <input type="checkbox" id="legend-vacant" />
+          </li>&nbsp;&nbsp;
+          <li class="seatnospace">
+            <input type="checkbox" disabled id="legend-occupied" />
+            <label for="legend-occupied"></label>
+          </li>&nbsp;&nbsp;&nbsp;
+          <li class="seatlegend">
+            <input type="checkbox" disabled id="legend-selected" />
+            <label for="legend-selected"></label>
+          </li>&nbsp;&nbsp;
+          <li class="seatlegenddriver">
+            <input type="checkbox" disabled id="legend-driver" />
+            <label for="legend-driver"></label>
+          </li>
+        </div>
       </div>
 
-      <!-- Bus2 Boking Button-->
-      <div class="col-md-4 mb-3">
-        <button type="button" class="btn btn" data-toggle="modal" data-target="#bus2Modal" style="background-color: #2c353c; color: white; border-color: transparent; height: 270px; width: 364px; padding: 0px; padding-top: 0px">
-          <img src="{% static 'media/RoBustBus2.jpg' %}" width="360" height="240" style="border-radius: 5px"> Bus 2</button>
-      </div>
+    </div>
 
-      <!-- Bus3 Boking Button-->
-      <div class="col-md-2 mb-3">
-        <button type="button" class="btn btn" data-toggle="modal" data-target="#bus3Modal" style="background-color: #2c353c; color: white; border-color: transparent; height: 270px; width: 364px; padding: 0px; padding-top: 0px">
-          <img src="{% static 'media/RoBustBus3.jpg' %}" width="360" height="240" style="border-radius: 5px"> Bus 3</button>
+    <div class="col-md-4 mb-3" style="padding-left: 50px">
+      <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 720px; border-bottom-color: #a83332; border-bottom-style: solid">
+        <h6><b>Booking Details</b></h6>
+      </div>
+      <div class="row" style="width: 900; padding-top: 15px">
+        <div class="col-md-5 mb-3" style="width: 900;">
+          <label for="busName">Bus Name</label>
+          <input type="text" class="form-control" id="busName" name="busName" minlength="1" maxlength="30" readonly>
+        </div>
+        <div class="col-md-5 mb-3">
+          <label for="plateNumber">Plate Number</label>
+          <input type="text" class="form-control" id="plateNumber" name="plateNumber" minlength="1" maxlength="30" readonly>
+        </div>
+      </div>
+      
+      <div class="row" style="width: 900">
+        <div class="col-md-5 mb-3">
+          <label for="destination">Destination</label>
+          <input type="text" class="form-control" id="destination" name="destination" minlength="1" maxlength="30" readonly>
+        </div>
+        <div class="col-md-5 mb-3">
+          <label for="date">Date</label>
+          <input type="text" class="form-control" id="date" name="date" minlength="1" maxlength="30" readonly>
+        </div>
+        <div class="col-md-5 mb-3">
+          <label for="time">Time Departure</label>
+          <input type="text" class="form-control" id="time" name="time" minlength="1" maxlength="30" readonly>
+        </div>
+        <div class="col-md-5 mb-3">
+          <label for="quantity">Seat Quantity</label>
+          <input type="text" class="form-control" id="quantity" name="quantity" value="" required minlength="1" maxlength="30" readonly>
+        </div>
+        <div class="col-md-5 mb-3">
+          <label for="seatNumber">Seat Number</label>
+          <input type="text" class="form-control" id="seatNumber" name="seatNumber" value="" required minlength="1" maxlength="52" readonly>
+        </div>
+        <div class="col-md-5 mb-3">
+          <label for="fare">Total Fare</label>
+          <input type="text" class="form-control" id="fare" name="fare" value="" required minlength="25" maxlength="25" readonly>
+        </div>
+      </div>
+      
+      <br><br>
+      
+      <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 720px; border-bottom-color: #a83332; border-bottom-style: solid">
+        <h6><b>Payment Details</b></h6>
+      </div>
+      <li style="list-style:none; padding-top: 25px">Available Balance: </li>
+      <li style="list-style:none; padding-top: 10px">Total Fare: </li>
+      <li style="list-style:none; padding-top: 10px">Remaining Balance: </li>
+      
+      <br><br><br>
+      
+      <hr class="mb-4" style="width: 800px">
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 180px; background-color: #a83332; height: 45px; margin-left: 170; padding:10px" id="id-Cancel" href="{% url 'user:userReview_view' %}">CANCEL</a>
+        </div>
+        <div class="col-md-3 mb-3">
+          <form id="submit_form" method="POST">
+            {% csrf_token %}
+            <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 180px; background-color: #a83332; height: 45px; margin-left: 290; padding:10px" id="id-Cancel" href="{% url 'user:userReview_view' %}">UPDATE</a>
+            <!--          <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> CONTINUE </button>-->
+          </form>
+        </div>
       </div>
     </div>
-  </form>
+  </div>
 </div>
 
 {% block footerinclude %}
@@ -507,13 +661,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
 <script>
   window.console = window.console || function(t) {};
-
 </script>
 <script>
   if (document.location.search.match(/type=embed/gi)) {
     window.parent.postMessage("resize", "*");
   }
-
 </script>
 
 <script src="{% static 'js/landing.js' %}"></script>
