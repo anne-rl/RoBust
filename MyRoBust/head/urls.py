@@ -10,7 +10,7 @@ urlpatterns = [
     path('headSummary', views.HeadSummaryView.as_view(), name="headSummary_view"),
     path('headDashboardWeekly', views.HeadDashboardWeekly.as_view(), name="headDashboard_weekly"),
     path('headDashboardMonthly', views.HeadDashboardMonthly.as_view(), name="headDashboard_monthly"),
-    path('headUpdateBus', views.HeadUpdateBusView.as_view(), name="headUpdateBus_view"), 
+    path('headBusTransaction', views.HeadBusTransactionView.as_view(), name="headBusTransaction_view"), 
     path('headRegisterBus', views.HeadRegisterBus.as_view(), name="headRegisterBus_view"),
     path('headRegisterDriver', views.HeadRegisterDriver.as_view(), name="headRegisterDriver_view"),
 ] 

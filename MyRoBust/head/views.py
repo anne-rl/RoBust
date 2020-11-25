@@ -60,7 +60,7 @@ class HeadDashboardMonthly(View):
     def post(self, request):
         return render(request, 'head/headDashboardMonthly.html')
 
-class HeadUpdateBusView(View):
+class HeadBusTransactionView(View):
     def get(self, request):
         qs_bus = Bus.objects.all()
         context = {
@@ -68,7 +68,7 @@ class HeadUpdateBusView(View):
             'buses' : qs_bus
 
         }
-        return render(request, 'head/headUpdateBus.html', context)
+        return render(request, 'head/headBusTransaction.html', context)
   
     def post(self, request):
         if request.method == 'POST':
@@ -113,7 +113,7 @@ class HeadRegisterBus(View):
             return HttpResponse('not valid')
 class HeadRegisterDriver(View):
     def get(self, request):
-        return render(request, 'head/headDriverBusRegistration.html')
+        return render(request, 'head/headRegisterDriver.html')
   
     def post(self, request):
         form = RegisterDriverForm(request.POST)

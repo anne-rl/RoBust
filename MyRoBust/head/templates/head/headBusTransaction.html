@@ -246,7 +246,7 @@
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-summary" href="{% url 'head:headSummary_view' %}">Customer Report Summary</a>
 
   <!-- Admin Update Bus and Schedules -->
-  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-updatebus" href="{% url 'head:headUpdateBus_view' %}">Bus Transaction</a>
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-updatebus" href="{% url 'head:headBusTransaction_view' %}">Bus Transaction</a>
 
   <!-- Dashboard -->
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'head:headDashboard_weekly' %}">Dashboard</a>
@@ -281,9 +281,9 @@
             <thead class="thead-light">
               <tr>
                 <th style="text-align:center; width: 12%">Bus Number</th>
-                <th style="text-align:center; width: 20%">Bus Name</th>
-                <th style="text-align:center; width: 30%">Destination</th>
-                <th style="text-align:center; width: 20%">Plate Number</th>
+                <th style="text-align:center; width: 25%">Bus Name</th>
+                <th style="text-align:center; width: 35%">Destination</th>
+                <th style="text-align:center; width: 15%">Plate Number</th>
                 <th style="text-align:center; width: 2%">View</th>
               </tr>
             </thead>
@@ -296,7 +296,7 @@
                 <td style="text-align:center;">{{bus.plateNumber}}</td>
 
                 <!-- View Button-->
-                <td><a href="#" class="view" type="button" class="btn btn-default btn-sm" style="width:33px" data-toggle="modal" data-target="#viewBusModal-{{bus.id}}" title="View"><span class="fa fa-eye" style="color:black;"></span></a></td>
+                <td style="text-align:center; width: 33px"><a href="#" class="view" type="button" class="btn btn-default btn-sm" style="width:10px" data-toggle="modal" data-target="#viewBusModal-{{bus.id}}" title="View"><span class="fa fa-eye" style="color:black;"></span></a></td>
               </tr>
             </tbody>
 
