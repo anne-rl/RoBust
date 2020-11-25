@@ -381,35 +381,35 @@
                           <span aria-hidden="true" style="color: white">&times;</span>
                         </button>
                       </div>
-                      <form id="updateForm">
+                      <form id="updateForm" method="POST">
                         <!--                      {% csrf_token %}-->
                         <div class="modal-body">
                           <div class="row">
                             <div class="col-md-4 mb-3">
                               <label for="busName" style="color: white">Bus Name</label>
-                              <input type="text" class="form-control" id="busName" name="busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
+                              <input type="text" class="form-control" id="id-busName" name="user-busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
                             </div>
                             <div class="col-md-4 mb-3">
                               <label for="busNumber" style="color: white">Plate Number</label>
-                              <input type="text" class="form-control" id="plateNumber" name="busNumber" placeholder="Plate Number" minlength="1" maxlength="20" readonly>
+                              <input type="text" class="form-control" id="id-plateNumber" name="user-busNumber" placeholder="Plate Number" minlength="1" maxlength="20" readonly>
                             </div>
                             <div class="col-md-4 mb-3">
                               <label for="destination" style="color: white">Destination</label>
-                              <input type="text" class="form-control" id="destination" name="destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
+                              <input type="text" class="form-control" id="id-destination" name="user-destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
                             </div>
                           </div>
                           <div class="row">
                             <div class="col-md-4 mb-3">
-                              <label for="tripTime" style="color: white">Time Departure</label>
-                              <input type="text" class="form-control" id="tripTime" name="tripTime" placeholder="Time Departure" minlength="1" maxlength="20" readonly>
+                              <label for="timeDeparture" style="color: white">Time Departure</label>
+                              <input type="text" class="form-control" id="id-timeDeparture" name="user-timeDeparture" placeholder="Time Departure" minlength="1" maxlength="20" readonly>
                             </div>
                             <div class="col-md-4 mb-3">
                               <label for="ticketNumber" style="color: white">Ticket No.</label>
-                              <input type="text" class="form-control" id="ticketNumber" name="ticketNumber" placeholder="Ticket No." minlength="1" maxlength="20" readonly>
+                              <input type="text" class="form-control" id="ticketNumber" name="user-ticketNumber" placeholder="Ticket No." minlength="1" maxlength="20" readonly>
                             </div>
                             <div class="col-md-4 mb-3">
-                              <label for="tripDate" style="color: white">Date</label>
-                              <input type="date" class="form-control" id="tripDate" name="tripDate" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" readonly>
+                              <label for="dateReservation" style="color: white">Date</label>
+                              <input type="date" class="form-control" id="id-dateReservation" name="user-dateReservation" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
                             </div>
                           </div>
                           <div class="modal-footer" style="height: 44px; padding-top: 5px">
@@ -502,44 +502,40 @@
                           <span aria-hidden="true" style="color: white">&times;</span>
                         </button>
                       </div>
-                      <form id="updateForm">
+                      <form id="updateForm" method="POST">
                         <!--                      {% csrf_token %}-->
                         <div class="modal-body">
                           <div class="row">
                             <div class="col-md-4 mb-3">
                               <label for="busName" style="color: white">Bus Name</label>
-                              <input type="text" class="form-control" id="busName" name="busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
+                              <input type="text" class="form-control" id="id-busName" name="user-busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
                             </div>
                             <div class="col-md-4 mb-3">
                               <label for="busNumber" style="color: white">Plate Number</label>
-                              <input type="text" class="form-control" id="plateNumber" name="busNumber" placeholder="Plate Number" minlength="1" maxlength="20" readonly>
+                              <input type="text" class="form-control" id="id-plateNumber" name="user-busNumber" placeholder="Plate Number" minlength="1" maxlength="20" readonly>
                             </div>
                             <div class="col-md-4 mb-3">
                               <label for="destination" style="color: white">Destination</label>
-                              <input type="text" class="form-control" id="destination" name="destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
+                              <input type="text" class="form-control" id="id-destination" name="user-destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
                             </div>
                           </div>
                           <div class="row">
-                            <div class="col-md-3 mb-3">
-                              <label for="tripTime" style="color: white">Time Departure</label>
-                              <input type="text" class="form-control" id="tripTime" name="tripTime" placeholder="Time Departure" minlength="1" maxlength="20" readonly>
-                            </div>
-                            <div class="col-md-3 mb-3">
-                              <label for="ticketNumber" style="color: white">Ticket No.</label>
-                              <input type="text" class="form-control" id="ticketNumber" name="ticketNumber" placeholder="Ticket No." minlength="1" maxlength="20" readonly>
-                            </div>
-                            <div class="col-md-2 mb-3">
-                              <label for="seatNumber" style="color: white">Seat No.</label>
-                              <input type="text" class="form-control" id="seatNumber" name="seatNumber" placeholder="Seat No." minlength="1" maxlength="20">
+                            <div class="col-md-4 mb-3">
+                              <label for="timeDeparture" style="color: white">Time Departure</label>
+                              <input type="text" class="form-control" id="id-timeDeparture" name="user-timeDeparture" placeholder="Time Departure" minlength="1" maxlength="20" readonly>
                             </div>
                             <div class="col-md-4 mb-3">
-                              <label for="tripDate" style="color: white">Date</label>
-                              <input type="date" class="form-control" id="tripDate" name="tripDate" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
+                              <label for="ticketNumber" style="color: white">Ticket No.</label>
+                              <input type="text" class="form-control" id="ticketNumber" name="user-ticketNumber" placeholder="Ticket No." minlength="1" maxlength="20" readonly>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                              <label for="dateReservation" style="color: white">Date</label>
+                              <input type="date" class="form-control" id="id-dateReservation" name="user-dateReservation" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
                             </div>
                           </div>
-                          <div class="modal-footer" style="height: 40px; padding-top: 5px">
-                            <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>
-                            <button type="submit" id="btnReviewUpdate" name="btnReviewUpdate" class="btn btn" style="background-color: #a83332; color: white">UPDATE</button>
+                          <div class="modal-footer" style="height: 44px; padding-top: 5px">
+                            <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 110px; background-color: #a83332; height: 40px; margin-left: 290; padding:5px; font-size: 17px" id="id-Cancel" href="{% url 'user:userSelectUpdate_view' %}">Search Seat</a>
+                            <!--                          <button type="submit" id="btnReviewUpdate" name="btnReviewUpdate" class="btn btn" style="background-color: #a83332; color: white">Search Seat</button>-->
                           </div>
                         </div>
                       </form>
