@@ -245,10 +245,6 @@
   <!-- Admin Update Bus and Schedules -->
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-updatebus" href="{% url 'head:headUpdateBus_view' %}">Update Bus</a>
 
-  <!-- Trip -->
-  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-summary" href="{% url 'head:headTrip_view' %}">Trip</a>
-
-
   <!-- Dashboard -->
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'head:headDashboard_weekly' %}">Dashboard</a>
 </div>
@@ -276,7 +272,7 @@
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table table-bordered" id="myHistoryTable" width="100%" cellspacing="0">
+          <table class="table table-bordered" id="mySummaryTable" width="100%" cellspacing="0">
             <thead class="thead-light">
               <tr>
                 <th style="text-align:center; width: 12%">Ticket No.</th>
@@ -551,7 +547,7 @@
       changeYear: true,
       dateFormat: "dd/mm/yy"
     });
-    var table = $('#myHistoryTable').DataTable(initialTableSettings);
+    var table = $('#mySummaryTable').DataTable(initialTableSettings);
 
     // Event listener to the two range filtering inputs to redraw on input
     $('#min, #max').change(function() {

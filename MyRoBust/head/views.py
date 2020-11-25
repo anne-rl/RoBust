@@ -46,13 +46,6 @@ class HeadSummaryView(View):
     def post(self, request):
         return render(request, 'head/headSummary.html')
 
-class HeadTripView(View):
-    def get(self, request):
-        return render(request, 'head/headTrip.html')
-  
-    def post(self, request):
-        return render(request, 'head/headTrip.html')
-
 class HeadDashboardWeekly(View):
     def get(self, request):
         return render(request, 'head/headDashboardWeekly.html')
