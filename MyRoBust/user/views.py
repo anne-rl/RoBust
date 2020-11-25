@@ -41,14 +41,23 @@ class UserReservationView(View):
 
         def post(self, request):
             return render(request, 'user/userReservation.html')
+    
+class UserSelectView(View):
+        def get(self, request):
+            return render(request, 'user/userSelect.html')
+
+        def post(self, request):
+            return render(request, 'user/userSelect.html')
+          
+class UserSelectUpdateView(View):
+        def get(self, request):
+            return render(request, 'user/userSelectUpdate.html')
+
+        def post(self, request):
+            return render(request, 'user/userSelectUpdate.html')
                 
 class UserReviewView(View):
         def get(self, request):
-#            qs_passenger = Passenger.objects.all()
-#            
-#            context = {
-#                'passengers' : qs_passenger
-#            }
             return render(request, 'user/userReview.html')
 
         def post(self, request):
