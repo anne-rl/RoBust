@@ -252,10 +252,6 @@
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-summary" href="{% url 'head:headTrip_view' %}">Trip</a>
 
 
-  <!-- Register Driver -->
-  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'head:headDriverBusRegistration_view' %}">Driver-Bus Registration</a>
-
-
   <!-- Dashboard -->
   <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'head:headDashboard_weekly' %}">Dashboard</a>
 </div>
@@ -313,51 +309,14 @@
         </div>
       </div>
     </div>
-
-    <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 1180px; border-bottom-color: #a83332; border-bottom-style: solid">
-      <h6><b>Register Bus</b></h6>
-    </div>
-    <br>
-    <div class="row" style="width: 1205">
-      <div class="col-md-6 mb-3">
-        <label for="busName">Bus Name</label>
-        <input type="text" class="form-control" id="busName" name="busName" minlength="1" maxlength="30" placeholder="Bus Name">
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="destination">Destination</label>
-        <input type="text" class="form-control" id="destination" name="destination" minlength="1" maxlength="30" placeholder="Destination">
-      </div>
-    </div>
-    <div class="row" style="width: 1205">
-      <div class="col-md-3 mb-3">
-        <label for="plateNumber">Plate Number</label>
-        <input type="text" class="form-control" id="plateNumber" name="plateNumber" minlength="1" maxlength="30" placeholder="Plate Number">
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="quantity">Seats</label>
-        <input type="text" class="form-control" id="seats" name="seats" value="" required minlength="1" maxlength="30" placeholder="Seats">
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="quantity">Bus Fare</label>
-        <input type="text" class="form-control" id="busFare" name="busFare" value="" required minlength="1" maxlength="30" placeholder="Bus Fare">
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="time">Time Departure</label>
-        <input type="text" class="form-control" id="timeDeparture" name="timeDeparture" minlength="1" maxlength="30" placeholder="Time Departure">
-      </div>
-
-    </div>
     <br>
 
     <div class="row" style="padding-left: 60px">
       <div class="col-md-6 mb-1">
-        <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 310; padding:10px" id="id-Cancel" href="{% url 'user:userReservation_view' %}">CANCEL</a>
+        <a type="cancel" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 310; padding:10px" id="id-Cancel" href="{% url 'head:headUpdateBus_view' %}">CANCEL</a>
       </div>
       <div class="col-md-6 mb-1">
-        <form id="submit_form" method="POST">
-          {% csrf_token %}
-          <!--          <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px" id="id-Cancel" href="{% url 'user:userReview_view' %}">REGISTER</a>-->
-          <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> CONTINUE </button>
+          <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> SUBMIT </button>
         </form>
       </div>
     </div>

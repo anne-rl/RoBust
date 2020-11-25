@@ -65,3 +65,48 @@ table.table td a.delete {
 table.table td i {
   font-size: 19px;
 }
+
+/*.button {
+background-color: #fbda57;
+color: black;
+border: 2px solid #216a61;
+padding: 4px 15px;
+border-radius: 8px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 13px;
+            }
+.button {
+ transition-duration: 0.4s;
+}
+
+.button:hover {
+ background-color: #216a61;
+ color: white;
+ }
+.button span {
+cursor: pointer;
+display: inline-block;
+position: relative;
+transition: 0.5s;
+}
+
+.button span:after {
+content: '\00bb';
+position: absolute;
+opacity: 0;
+top: 0;
+right: -20px;
+transition: 0.5s;
+}
+
+.button:hover span {
+padding-right: 25px;
+}
+
+.button:hover span:after {
+opacity: 1;
+right: 0;
+}
+*/
