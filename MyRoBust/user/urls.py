@@ -14,3 +14,4 @@ urlpatterns = [
     path('userDashboardWeekly', views.UserDashboardViewWeekly.as_view(), name="userDashboard_weekly"),
     path('userDashboardMonthly', views.UserDashboardViewMonthly.as_view(), name="userDashboard_monthly")
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -424,7 +424,7 @@
       <!-- Bus Booking Button-->
       <div class="col-md-4 mb-3">
         <button type="button" class="btn btn" data-toggle="modal" data-target="#viewbusModal-{{bus.id}}" style="background-color: #2c353c; color: white; border-color: transparent; height: 270px; width: 364px; padding: 0px; padding-top: 0px">
-          <img src="{% static 'media/RoBustBus1.jpg' %}" width="360" height="240" style="border-radius: 5px">{{bus.busName}}</button>
+          <img src="{{ bus.img.url }}" width="360" height="240" style="border-radius: 5px">{{bus.busName}}</button>
       </div>
 
       <!-- Bus Booking Modal -->
@@ -449,13 +449,15 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-6 mb-3">
+                  <div class="col-md-12 mb-3">
                     <label for="destination" style="color: white">Destination</label>
                     <input type="text" class="form-control" id="id-destination" name="destination"value="{{bus.destination}}" readonly>
                   </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="seats" style="color: white">Seats</label>
-                    <input type="text" class="form-control" id="id-seats" name="seats" value="{{bus.totalSeats}}" readonly>
+                </div>
+                <div class="row">
+                 <div class="col-md-12 mb-3">
+                    <label for="driver" style="color: white">Driver</label>
+                    <input type="text" class="form-control" id="id-driver" name="driver" placeholder="Driver's Name"  readonly>
                   </div>
                 </div>
                 <div class="row">
@@ -464,8 +466,8 @@
                     <input type="text" class="form-control" id="id-fare" name="fare" value="{{bus.busFare}}"  readonly>
                   </div>
                   <div class="col-md-6 mb-3">
-                    <label for="driver" style="color: white">Driver</label>
-                    <input type="text" class="form-control" id="id-driver" name="driver" placeholder="Driver's Name"  readonly>
+                    <label for="seats" style="color: white">Seats</label>
+                    <input type="text" class="form-control" id="id-seats" name="seats" value="{{bus.totalSeats}}" readonly>
                   </div>
                 </div>
                 <div class="row">
