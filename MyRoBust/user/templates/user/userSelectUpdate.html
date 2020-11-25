@@ -291,6 +291,10 @@
 
 <!------------ Booking Page Body ------------>
 <div class="container" style="position: relative; left: -30px">
+<<<<<<< Updated upstream
+=======
+  <form id="seatsUpdateForm" method="POST">
+>>>>>>> Stashed changes
   <div class="row">
     <div class="col-md-4 mb-3">
       <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 370px; border-bottom-color: #a83332; border-bottom-style: solid">
@@ -645,12 +649,20 @@
           <form id="submit_form" method="POST">
             {% csrf_token %}
             <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 180px; background-color: #a83332; height: 45px; margin-left: 290; padding:10px" id="id-Cancel" href="{% url 'user:userReview_view' %}">UPDATE</a>
+<<<<<<< Updated upstream
             <!--          <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> CONTINUE </button>-->
+=======
+            <!--          <button type="submit" name="seatsUpdateBtn" id="seatsUpdateBtn" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> UPDATE </button>-->
+>>>>>>> Stashed changes
           </form>
         </div>
       </div>
     </div>
   </div>
+<<<<<<< Updated upstream
+=======
+  </form>
+>>>>>>> Stashed changes
 </div>
 
 {% block footerinclude %}
