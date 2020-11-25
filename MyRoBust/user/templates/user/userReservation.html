@@ -421,18 +421,18 @@
     {% csrf_token %}
     <div class="row" style="width: 1230">
       {% for bus in buses %}
-      <!-- Bus1 Booking Button-->
+      <!-- Bus Booking Button-->
       <div class="col-md-4 mb-3">
         <button type="button" class="btn btn" data-toggle="modal" data-target="#viewbusModal-{{bus.id}}" style="background-color: #2c353c; color: white; border-color: transparent; height: 270px; width: 364px; padding: 0px; padding-top: 0px">
           <img src="{% static 'media/RoBustBus1.jpg' %}" width="360" height="240" style="border-radius: 5px">{{bus.busName}}</button>
       </div>
 
-      <!-- Bus1 Booking Modal -->
+      <!-- Bus Booking Modal -->
         <div class="modal fade" id="viewbusModal-{{bus.id}}" tabindex="-1" role="dialog" aria-labelledby="bus1Label" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content" style="background-color:#353E45">
               <div class="modal-header" style="background-color:#353E45">
-                <h5 class="modal-title" id="seatsModal1" style="color: white">Bus1 Details</h5>
+                <h5 class="modal-title" id="seatsModal1" style="color: white">{{bus.busName}} Details</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true" style="color: white">&times;</span>
                 </button>
