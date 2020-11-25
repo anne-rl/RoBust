@@ -1,7 +1,6 @@
 {% load static %}
 
 {% block headerinclude %}
-<html oncontextmenu="return false">
 <title>CIT RoBust</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,7 +28,6 @@
 
 {% block content %}
 
-<body oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
   <header style="background-color: #fbfbfb">
     <div class="container">
       <div class="row flex-nowrap justify-content-between align-items-center">
@@ -423,7 +421,7 @@
                 </div>
 
                 <!-- Modal E-TICKET -->
-                <div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketLabel" aria-hidden="true">
+                <div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketLabel" aria-hidden="true" oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
                   <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content" style="background-color:transparent; border-color: transparent; height: 100px">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -728,7 +726,4 @@
 
   </style>
   {% endblock footerinclude %}
-</body>
-
-</html>
 {% endblock content %}
