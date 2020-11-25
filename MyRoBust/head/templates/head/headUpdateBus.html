@@ -281,8 +281,8 @@
             <thead class="thead-light">
               <tr>
                 <th style="text-align:center; width: 12%">Bus Number</th>
-                <th style="text-align:center; width: 30%">Bus Name</th>
-                <th style="text-align:center; width: 25%">Destination</th>
+                <th style="text-align:center; width: 20%">Bus Name</th>
+                <th style="text-align:center; width: 30%">Destination</th>
                 <th style="text-align:center; width: 20%">Plate Number</th>
                 <th style="text-align:center; width: 2%">View</th>
               </tr>
@@ -290,13 +290,13 @@
             <tbody id="busData">
               {% for bus in buses %}
               <tr>
-                <td>{{bus.id}}</td>
-                <td>{{bus.busName}}</td>
-                <td>{{bus.destination}}</td>
-                <td>{{bus.plateNumber}}</td>
+                <td style="text-align:center;">{{bus.id}}</td>
+                <td style="text-align:center;">{{bus.busName}}</td>
+                <td style="text-align:center;">{{bus.destination}}</td>
+                <td style="text-align:center;">{{bus.plateNumber}}</td>
 
                 <!-- View Button-->
-                <td><a href="#" class="view" type="button" class="btn btn-default btn-sm" style="width:33px" data-toggle="modal" data-target="#viewBusModal-{{bus.id}}" title="View"><span class="fa fa-eye" style="color:black"></span></a></td>
+                <td><a href="#" class="view" type="button" class="btn btn-default btn-sm" style="width:33px" data-toggle="modal" data-target="#viewBusModal-{{bus.id}}" title="View"><span class="fa fa-eye" style="color:black;"></span></a></td>
               </tr>
             </tbody>
 
