@@ -1,8 +1,10 @@
 from django import forms
 from .models import *
 
-class RegisterDriverForm(forms.ModelForm):
-    
-    class Meta:
-        model = Driver
-        fields = ('firstName', 'middleName', 'lastName', 'emailAddress', 'contactNumber', 'gender', 'busName', 'destination', 'plateNumber', 'seats', 'busFare', 'timeDeparture')
+class BusForm(forms.ModelForm):
+
+      class Meta:
+         model = Bus
+         fields = ('busName','plateNumber', 'busFare')
+         
+
