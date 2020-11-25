@@ -253,9 +253,8 @@
 </div>
 <br>
 
+
 <!------------  Bus Page Body ------------>
-
-
 <div class="container">
   <div class="container-fluid" style="width:100%">
     <div class="card shadow mb-4">
@@ -393,17 +392,17 @@
       </div>
     </div>
   </div>
-
 </div>
 
+
 <!------------  Driver Page Body ------------>
-
-
+<!-- Driver Master List-->
 <div class="container">
+  <!-- Driver Master List DataTable-->
   <div class="container-fluid" style="width:100%">
     <div class="card shadow mb-4">
       <div class="card-header py-2">
-        <p style="color: #a83332; font-size: 22px; font-weight: 700"><b>DRIVER DETAILS</b></p>
+        <p style="color: #a83332; font-size: 22px; font-weight: 700"><b>DRIVER MASTER LIST</b></p>
       </div>
       <div class="card-body">
         <div class="container">
@@ -418,9 +417,8 @@
             </div>
           </div>
         </div>
-
         <div class="table-responsive">
-          <table class="table table-bordered" id="driverMListTable" width="100%" cellspacing="0">
+          <table class="table table-bordered" id="myDriverTable" width="100%" cellspacing="0">
             <thead class="thead-light">
               <tr>
                 <th style="text-align:center; width: 15%">ID</th>
@@ -803,6 +801,78 @@
         });
 
 </script>
+
+<!------ Driver Table Scripts ------>
+<script>
+  $(document).ready(function() {
+    let initialTableSettings = {
+      "pageLength": 10,
+      "lengthMenu": [
+        [10, 20, 30, -1],
+        [10, 20, 30, "All"]
+      ],
+      dom: 'flrtBi<"posR"p>',
+      buttons: [
+        'copy',
+        'excel'
+      ]
+    }
+
+    $.fn.dataTable.ext.search.push(
+      function(settings, data, dataIndex) {
+        var min = $('#min').datepicker("getDate");
+        var max = $('#max').datepicker("getDate");
+        // need to change str order before making  date obect since it uses a new Date("mm/dd/yyyy") format for short date.
+        var startDate = new Date(data[0])
+        if (min == null && max == null) {
+          return true;
+        }
+        if (min == null && startDate <= max) {
+          return true;
+        }
+        if (max == null && startDate >= min) {
+          return true;
+        }
+        if (startDate <= max && startDate >= min) {
+          return true;
+        }
+        return false;
+      }
+    );
+
+    $("#min").datepicker({
+      onSelect: function() {
+        table.draw();
+      },
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: "dd/mm/yy"
+    });
+    $("#max").datepicker({
+      onSelect: function() {
+        table.draw();
+      },
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: "dd/mm/yy"
+    });
+    var table = $('#myDriverTable').DataTable(initialTableSettings);
+
+    // Event listener to the two range filtering inputs to redraw on input
+    $('#min, #max').change(function() {
+      table.draw();
+    });
+
+  });
+
+  $(document).ready(function() {
+    //Activate tooltip
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+
+</script>
+
+<!------ Trip Table Scripts ------>
 <script>
   $(document).ready(function() {
     let initialTableSettings = {
