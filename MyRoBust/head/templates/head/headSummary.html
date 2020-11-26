@@ -494,6 +494,8 @@
 
 <script src="{% static 'js/landing.js' %}"></script>
 <script src="{% static 'js/registration.js' %}"></script>
+
+<!------ Customer Summary Table Script ------>
 <script>
   $(document).ready(function() {
     let initialTableSettings = {
@@ -560,6 +562,27 @@
     //Activate tooltip
     $('[data-toggle="tooltip"]').tooltip();
   });
+</script>
+
+<!-- Char that will only accept numbers only -->
+<script>
+    function validate(evt) {
+      var theEvent = evt || window.event;
+
+      // Handle paste
+      if (theEvent.type === 'paste') {
+          key = event.clipboardData.getData('text/plain');
+      } else {
+      // Handle key press
+          var key = theEvent.keyCode || theEvent.which;
+          key = String.fromCharCode(key);
+      }
+      var regex = /[0-9]|\./;
+      if( !regex.test(key) ) {
+        theEvent.returnValue = false;
+        if(theEvent.preventDefault) theEvent.preventDefault();
+      }
+    }
 </script>
 {% endblock footerinclude %}
 {% endblock content %}

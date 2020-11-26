@@ -434,10 +434,10 @@
                 <td style="text-align:center">
                   <div class="text-center">
                     <!-- View Button-->
-                    <a type="button" class="btn btn-default btn-sm" style="width:35px" href="#" data-toggle="modal" data-target="#driverUpdateModal"><span class="fa fa-eye" style="color:black"></span></a>
+                    <a type="button" class="btn btn-default btn-sm" style="width:35px" href="#" data-toggle="modal" data-target="#driverUpdateModal-{{driver.id}}"><span class="fa fa-eye" style="color:black"></span></a>
 
                     <!-- Delete Button-->
-                    <button type="button" class="btn btn-default btn-sm" style="width:35px" data-toggle="modal" data-target="#driverDeleteModal">
+                    <button type="button" class="btn btn-default btn-sm" style="width:35px" data-toggle="modal" data-target="#driverDeleteModal-{{driver.id}}">
                       <span class="fa fa-trash"></span>
                     </button>
 
@@ -446,7 +446,7 @@
               </tr>
 
               <!-- Modal VIEW-->
-              <div class="modal fade" id="driverUpdateModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
+              <div class="modal fade" id="driverUpdateModal-{{driver.id}}" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                   <div class="modal-content" style="background-color: #2c353c">
                     <div class="modal-header" style="background-color: #2c353c">
@@ -521,7 +521,7 @@
               </div>
 
               <!-- Modal DELETE -->
-              <div class="modal fade" id="driverDeleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+              <div class="modal fade" id="driverDeleteModal-{{driver.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content" style="background-color: #2c353c">
                     <div class="modal-header" style="background-color: #2c353c">

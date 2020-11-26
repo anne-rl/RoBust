@@ -112,7 +112,8 @@
                               <a href="" tabindex="5" class="profileInformation" class="btn btn1" data-toggle="modal" data-target="#adminProfile" style="color: white">Profile Information</a>
                             </div>
                             <div class="dropdown-divider" role="presentation">
-                              <span class="filler">&nbsp;</span></div>
+                              <span class="filler">&nbsp;</span>
+                            </div>
                             <div class="text-left">
                               <a tabindex="5" class="logout" style="color: white" href="{% url 'user:landing_view' %}">Logout</a>
                             </div>
@@ -242,75 +243,71 @@
 
 
 <!--  Add Bus-->
-      <div class="container" style="position: relative; left: -10px">
-        <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 1180px; border-bottom-color: #a83332; border-bottom-style: solid">
-          <h6><b>Register Bus</b></h6>
-        </div>
-        <br>
-      </div>
-         <form id="form1" method='POST' autocomplete="off" enctype="multipart/form-data">
-           {% csrf_token %}
-                   
-              <div class="container">
-                 <div class="picture-container">
-                     <div class="picture">
-                         <img src="{% static 'media/bus-icon.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
-                         <input type="file" id="img" name="img" class="" required>
-                         <label for="img">Choose Picture</label>
-                     </div>
-                 </div>
-              </div>
-           <br>
-            <div class = "container">
-                <div class="row">
-                   <div class="col-md-4 mb-2">
-                            
-                    <input type="text" class="form-control" id="busNumber" name="busNumber" placeholder="Bus Number" hidden="hidden">
-                    </div>
-                </div>
-                 <div class="row" style="width: 1200">
-                  <div class="col-md-6 mb-3">
-                    <label for="busName">Bus Name</label>
-                    <input type="text" class="form-control" id="busName" name="busName" minlength="1" maxlength="30" placeholder="Bus Name"required>
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="destination">Destination</label>
-                     <input type="text" class="form-control" id="destination" name="destination" minlength="1" maxlength="30" placeholder="Destination" required>
-                  </div>
-                </div>
-                <div class="row" style="width: 1200">
-                  <div class="col-md-3 mb-3">
-                    <label for="plateNumber">Plate Number</label>
-                     <input type="text" class="form-control" id="plateNumber" name="plateNumber" minlength="1" maxlength="30" placeholder="Plate Number" required>
-                  </div>
-                  <div class="col-md-3 mb-3">
-                    <label for="totalSeats">Seats</label>
-                   <input type="number" class="form-control" id="totalSeats" name="totalSeats" value="" step ="1"  max="100" min="20"  placeholder="Seats" required>
-                  </div>
-                  <div class="col-md-3 mb-3">
-                    <label for="busFare">Bus Fare</label>
-                    <input type="number" class="form-control" id="busFare" name="busFare" value="" required min="10" max="100" step="1.00" maxlength="5" placeholder="Bus Fare" required>
-                  </div>
-                  <div class="col-md-3 mb-3">
-                    <label for="departureTime">Time Departure</label>
-                    <input type="time" class="form-control" id="departureTime" name="departureTime" required>
-                  </div>
+<div class="container" style="position: relative; left: -10px">
+  <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 1180px; border-bottom-color: #a83332; border-bottom-style: solid">
+    <h6><b>Register Bus</b></h6>
+  </div>
+  <br>
+</div>
+<form id="form1" method='POST' autocomplete="off" enctype="multipart/form-data">
+  {% csrf_token %}
 
-                </div>
-                <br>
-
-                <div class="row" style="padding-left: 60px">
-                  <div class="col-md-6 mb-1">
-                    <a type="cancel" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 310; padding:10px" id="id-Cancel" href="{% url 'head:headBusTransaction_view' %}">CANCEL</a>
-                  </div>
-                  <div class="col-md-6 mb-1">
-                      <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> SUBMIT </button>
-                    
-                  </div>
-                </div>
-                </form>
-                <br>
+  <div class="container">
+    <div class="picture-container">
+      <div class="picture">
+        <img src="{% static 'media/bus-icon.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
+        <input type="file" id="img" name="img" class="" required>
+        <label for="img">Choose Picture</label>
       </div>
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-2">
+        <input type="text" class="form-control" id="busNumber" name="busNumber" placeholder="Bus Number" hidden="hidden">
+      </div>
+    </div>
+    <div class="row" style="width: 1200">
+      <div class="col-md-6 mb-3">
+        <label for="busName">Bus Name</label>
+        <input type="text" class="form-control" id="busName" name="busName" minlength="1" maxlength="30" placeholder="Bus Name" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="destination">Destination</label>
+        <input type="text" class="form-control" id="destination" name="destination" minlength="1" maxlength="30" placeholder="Destination" required>
+      </div>
+    </div>
+    <div class="row" style="width: 1200">
+      <div class="col-md-3 mb-3">
+        <label for="plateNumber">Plate Number</label>
+        <input type="text" class="form-control" id="plateNumber" name="plateNumber" minlength="1" maxlength="30" placeholder="Plate Number" required>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="totalSeats">Seats</label>
+        <input type="number" class="form-control" id="totalSeats" name="totalSeats" value="" step="1" max="100" min="20" placeholder="Seats" required>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="busFare">Bus Fare</label>
+        <input type="number" class="form-control" id="busFare" name="busFare" value="" required min="10" max="100" step="1.00" maxlength="5" placeholder="Bus Fare" required>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="departureTime">Time Departure</label>
+        <input type="time" class="form-control" id="departureTime" name="departureTime" required>
+      </div>
+    </div>
+    <br>
+    <div class="row" style="padding-left: 60px">
+      <div class="col-md-6 mb-1">
+        <a type="cancel" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 310; padding:10px" id="id-Cancel" href="{% url 'head:headBusTransaction_view' %}">CANCEL</a>
+      </div>
+      <div class="col-md-6 mb-1">
+        <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> SUBMIT </button>
+      </div>
+    </div>
+    </div>
+</form>
+<br>
 
 {% endblock content %}
 
@@ -324,5 +321,27 @@
 
 <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<!-- Char that will only accept numbers only -->
+<script>
+  function validate(evt) {
+    var theEvent = evt || window.event;
+
+    // Handle paste
+    if (theEvent.type === 'paste') {
+      key = event.clipboardData.getData('text/plain');
+    } else {
+      // Handle key press
+      var key = theEvent.keyCode || theEvent.which;
+      key = String.fromCharCode(key);
+    }
+    var regex = /[0-9]|\./;
+    if (!regex.test(key)) {
+      theEvent.returnValue = false;
+      if (theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }
+
+</script>
 
 {% endblock footerinclude %}
