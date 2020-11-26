@@ -1,4 +1,5 @@
 from django.db import models
+from user.models import *
 
 class Bus(models.Model):
         busName = models.CharField(max_length = 50)

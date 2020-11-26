@@ -5,37 +5,44 @@ from django.http import HttpResponse
 from django.contrib import messages
 from .models import *
 from .forms import *
+from user.models import *
 
 
 class HeadListView(View):
     def get(self, request):
-        drivers = Driver.objects.all()
+        passengers = Passenger.objects.all()
         context = {
-        'drivers' : drivers,
+        'passengers' : passengers,
         }
-        return render(request, 'head/headBusTransaction.html', context)
+        return render(request, 'head/headList.html', context)
   
     def post(self, request):
         if request.method == 'POST':
-            if 'driverUpdate' in request.POST:
+            #Passenger Update
+            if 'passengerUpdate' in request.POST:
                 print('update profile button clicked')
-                Driverid = request.POST.get("driver-id")
-                DriverFirstName = request.POST.get("driver-firstName")
-                DriverMiddleName = request.POST.get("driver-middleName")
-                DriverLastName = request.POST.get("driver-lastName")
-                DriverEmailAddress = request.POST.get("driver-emailAddress")
-                DriverContactNumber = request.POST.get("driver-contactNumber")
-                DriverGender = request.POST.get("driver-gender")
-                    
-                UpdateDriver = Driver.objects.filter(id = Driverid).update(firstName = DriverFirstName, middleName = DriverMiddleName, lastName = DriverLastName, emailAddress = DriverEmailAddress, contactNumber = DriverContactNumber, gender = DriverGender)
-                    
-                print(UpdateDriver)
-                print('Driver Updated')
-            elif 'driverDelete' in request.POST:	          
+                PassengerUsername = request.POST.get("passenger-username")
+                PassengerFirstName = request.POST.get("passenger-firstName")
+                PassengerMiddleName = request.POST.get("passenger-middleName")
+                PassengerLastName = request.POST.get("passenger-lastName")
+                PassengerEmailAddress = request.POST.get("passenger-emailAddress")
+                PassengerPassword = request.POST.get("passenger-password")
+                PassengerDepartment = request.POST.get("passenger-department")
+                PassengerContactNumber = request.POST.get("passenger-contactNumber")
+                PassengerGender = request.POST.get("passenger-gender")
+                
+                UpdatePassenger = Passenger.objects.filter(username = PassengerUsername).update(firstName = PassengerFirstName, middleName = PassengerMiddleName, lastName = PassengerLastName, emailAddress = PassengerEmailAddress, password = PassengerPassword, department = PassengerDepartment, contactNumber = PassengerContactNumber, gender = PassengerGender)
+                
+                print(UpdatePassenger)
+                print('Passenger Updated')
+            
+            #Passenger Delete
+            elif 'passengerDelete' in request.POST:
                 print('delete button clicked')
-                Driverid = request.POST.get("deleteDriver-id")
-                DeleteDriver = Driver.objects.filter(id = Driverid).delete()
-                print('recorded deleted')                  
+                getPassengerUsername = request.POST.get("deletePassenger-username")
+                DeletePassenger = Passenger.objects.filter(username = getPassengerUsername).delete()
+                print('recorded deleted')  
+                
         return redirect('head:headList_view')       
 
 class HeadSummaryView(View):

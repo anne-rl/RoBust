@@ -1,9 +1,9 @@
 from django.db import models
-from head.models import Bus
+from head.models import *
 
 # Create your models here.
 class Passenger(models.Model):
-        passengerID = models.CharField(max_length = 100, primary_key = True)
+        username = models.CharField(max_length = 100, primary_key = True)
         firstName = models.CharField(max_length = 100)
         middleName = models.CharField(max_length = 100)
         lastName = models.CharField(max_length = 100)
