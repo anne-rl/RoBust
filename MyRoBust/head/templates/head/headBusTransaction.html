@@ -291,9 +291,9 @@
               {% for bus in buses %}
               <tr>
                 <td style="text-align:center;">{{bus.id}}</td>
-                <td style="text-align:center;">{{bus.busName}}</td>
-                <td style="text-align:center;">{{bus.destination}}</td>
-                <td style="text-align:center;">{{bus.plateNumber}}</td>
+                <td>{{bus.busName}}</td>
+                <td>{{bus.destination}}</td>
+                <td  style="text-align:center;">{{bus.plateNumber}}</td>
 
                 <!-- View Button-->
                 <td style="text-align:center; width: 33px"><a href="#" class="view" type="button" class="btn btn-default btn-sm" style="width:10px" data-toggle="modal" data-target="#viewBusModal-{{bus.id}}" title="View"><span class="fa fa-eye" style="color:black;"></span></a></td>
