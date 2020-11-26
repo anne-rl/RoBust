@@ -261,6 +261,7 @@
   <br>
   <form id="regiter_form" method="POST" autocomplete="off" enctype="multipart/form-data">
     {% csrf_token %}
+<!--
     <div class="container">
       <div class="picture-container">
         <div class="picture">
@@ -271,6 +272,7 @@
       </div>
     </div>
     <br>
+-->
     <input type="text" name="id" hidden>
     <div class="row">
       <div class="col-md-4 mb-3">
@@ -293,7 +295,7 @@
       </div>
       <div class="col-md-4 mb-3">
         <label for="contactNumber">Contact No.</label>
-        <input type="number" class="form-control" id="contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11">
+        <input type="text" class="form-control" id="contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11"  onkeypress='validate(event)'/>
       </div>
       <div class="col-md-3 mb-2">
         <label for="gender">Gender</label> <br>
@@ -305,11 +307,9 @@
         </div>
       </div>
     </div>
-    <br>
-
     <div class="row" style="padding-left: 60px">
       <div class="col-md-6 mb-1">
-        <a type="cancel" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 310; padding:10px; font-size: 15px; font-weight: 500" id="id-Cancel" href="{% url 'head:headBusTransaction_view' %}">CANCEL</a>
+        <a type="cancel" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 310; padding:10px" id="id-Cancel" href="{% url 'head:headBusTransaction_view' %}">CANCEL</a>
       </div>
       <div class="col-md-6 mb-1">
           <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> SUBMIT </button>
@@ -336,5 +336,26 @@
 
 <script src="{% static 'js/landing.js' %}"></script>
 <script src="{% static 'js/registration.js' %}"></script>
+
+<!-- Char that will only accept numbers only -->
+<script>
+    function validate(evt) {
+      var theEvent = evt || window.event;
+
+      // Handle paste
+      if (theEvent.type === 'paste') {
+          key = event.clipboardData.getData('text/plain');
+      } else {
+      // Handle key press
+          var key = theEvent.keyCode || theEvent.which;
+          key = String.fromCharCode(key);
+      }
+      var regex = /[0-9]|\./;
+      if( !regex.test(key) ) {
+        theEvent.returnValue = false;
+        if(theEvent.preventDefault) theEvent.preventDefault();
+      }
+    }
+</script>
 {% endblock footerinclude %}
 {% endblock content %}

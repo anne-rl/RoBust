@@ -4,8 +4,7 @@ from django.views.generic import View
 from django.http import HttpResponse
 from django.contrib import messages
 from .models import *
-from .forms import BusForm
-
+from .forms import *
 
 
 class HeadListView(View):
@@ -14,7 +13,7 @@ class HeadListView(View):
         context = {
         'drivers' : drivers,
         }
-        return render(request, 'head/headList.html', context)
+        return render(request, 'head/headBusTransaction.html', context)
   
     def post(self, request):
         if request.method == 'POST':
@@ -63,15 +62,16 @@ class HeadDashboardMonthly(View):
 class HeadBusTransactionView(View):
     def get(self, request):
         qs_bus = Bus.objects.all()
+        drivers = Driver.objects.all()
         context = {
-
-            'buses' : qs_bus
-
+            'buses' : qs_bus,
+            'drivers' : drivers
         }
         return render(request, 'head/headBusTransaction.html', context)
   
     def post(self, request):
         if request.method == 'POST':
+            #BUS UPDATE
             if 'btnUpdate' in request.POST:
                 bid = request.POST.get("bus-id")
                 busbn = request.POST.get("bus-busName")
@@ -82,8 +82,31 @@ class HeadBusTransactionView(View):
                 busdt = request.POST.get("bus-departureTime")
                 update_bus = Bus.objects.filter(id=bid).update(busName = busbn, plateNumber = buspn, destination = busd,
                         totalSeats = busts, busFare = busf, departureTime = busdt)
+                
+            #DRIVER UPDATE        
+            elif 'driverUpdate' in request.POST:
+                print('update profile button clicked')
+                Driverid = request.POST.get("driver-id")
+                DriverFirstName = request.POST.get("driver-firstName")
+                DriverMiddleName = request.POST.get("driver-middleName")
+                DriverLastName = request.POST.get("driver-lastName")
+                DriverEmailAddress = request.POST.get("driver-emailAddress")
+                DriverContactNumber = request.POST.get("driver-contactNumber")
+                DriverGender = request.POST.get("driver-gender")
+                    
+                UpdateDriver = Driver.objects.filter(id = Driverid).update(firstName = DriverFirstName, middleName = DriverMiddleName, lastName = DriverLastName, emailAddress = DriverEmailAddress, contactNumber = DriverContactNumber, gender = DriverGender)
+                    
+                print(UpdateDriver)
+                print('Driver Updated')  
+                
+            #DRIVER DELETE     
+            elif 'driverDelete' in request.POST:	          
+                print('delete button clicked')
+                Driverid = request.POST.get("deleteDriver-id")
+                DeleteDriver = Driver.objects.filter(id = Driverid).delete()
+                print('recorded deleted') 
 
-        return redirect('head:headUpdateBus_view')
+        return redirect('head:headBusTransaction_view')
        
 class HeadRegisterBus(View):
     def get(self, request):
@@ -106,7 +129,7 @@ class HeadRegisterBus(View):
                         totalSeats = ts, busFare = f, departureTime = dt, img = img)
             form.save()
 
-            return redirect('head:headUpdateBus_view')
+            return redirect('head:headBusTransaction_view')
 
         else:
             print(form.errors)
@@ -130,7 +153,7 @@ class HeadRegisterDriver(View):
             form = Driver(firstName = DriverFirstName, middleName = DriverMiddleName, lastName = DriverLastName, emailAddress = DriverEmailAddress, contactNumber = DriverContactNumber, gender = DriverGender)
             form.save()
         
-            return redirect('head:headList_view')   
+            return redirect('head:headBusTransaction_view')   
         else:
             print(form.errors)
             return HttpResponse('not valid')
