@@ -275,34 +275,34 @@
             <table class="table table-bordered" id="customerMListTable" width="100%" cellspacing="0">
               <thead class="thead-light">
                 <tr>
-                  <th style="text-align:center; width: 15%">Username</th>
-                  <th style="text-align:center; width: 27%">Name</th>
-                  <th style="text-align:center; width: 15%">Email Address</th>
+                  <th style="text-align:center; width: 13%">Username</th>
+                  <th style="text-align:center; width: 25%">Name</th>
+                  <th style="text-align:center; width: 20%">Email Address</th>
                   <th style="text-align:center; width: 15%">Contact Number</th>  
-                  <th style="text-align:center; width: 25%">Department</th>
-                  <th style="text-align:center; width: 25%">Actions</th>  
+                  <th style="text-align:center; width: 12%">Department</th>
+                  <th style="text-align:center; width: 13%">Actions</th>  
                 </tr>
               </thead>
               <tbody>
                 {% for passenger in passengers %}
                 <tr>
-                  <td style="text-align:center">{{passenger.username}}</td>
-                  <td style="text-align:center">{{passenger.firstName}} {{passenger.middleName}} {{passenger.lastName}}</td>
-                  <td style="text-align:center">{{passenger.emailAddress}}</td>
+                  <td>{{passenger.username}}</td>
+                  <td>{{passenger.firstName}} {{passenger.middleName}} {{passenger.lastName}}</td>
+                  <td>{{passenger.emailAddress}}</td>
                   <td style="text-align:center">{{passenger.contactNumber}}</td>
-                  <td style="text-align:center">{{passenger.department}}</td>            
-                  <td>
+                  <td>{{passenger.department}}</td>            
+                  <td style="width: 10px">
                     <div class="text-center">
                       <!-- View Button-->
-                      <a type="button" class="btn btn-default btn-sm" style="width:25px" href="#" data-toggle="modal" data-target="#passengerViewModal-{{passenger.username}}"><span class="fa fa-eye" style="color:black"></span></a>
+                      <a type="button" class="btn btn-default btn-sm" style="width:25px; padding-left: 0px; padding-right: 0px" href="#" data-toggle="modal" data-target="#passengerViewModal-{{passenger.username}}"><span class="fa fa-eye" style="color:black"></span></a>
 
                       <!-- Delete Button-->
-                      <button type="button" class="btn btn-default btn-sm" style="width:25px" data-toggle="modal" data-target="#passengerDeleteModal-{{passenger.username}}">
+                      <button type="button" class="btn btn-default btn-sm" style="width:25px; padding-left: 0px; padding-right: 0px" data-toggle="modal" data-target="#passengerDeleteModal-{{passenger.username}}">
                         <span class="fa fa-trash"></span>
                       </button>
 
                       <!-- E-Wallet Button-->
-                      <button type="button" class="btn btn-default btn-sm" style="width:25px" data-toggle="modal" data-target="#cashModal">
+                      <button type="button" class="btn btn-default btn-sm" style="width:25px; padding-left: 0px; padding-right: 0px" data-toggle="modal" data-target="#cashModal">
                         <i class="fa fa-credit-card" aria-hidden="true" style="font-size: 13px"></i>
                       </button>
                     </div>
@@ -392,7 +392,7 @@
                           <div class="modal-footer" style="background-color:#2c353c;height: 45px; padding-top: 5px">
                             <button type="button" class="btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>
 
-                            <button type="submit" id="passengerUpdate" name="passengerUpdate" class="btn" style="background-color: #a83332; color: white">REGISTER</button>
+                            <button type="submit" id="passengerUpdate" name="passengerUpdate" class="btn" style="background-color: #a83332; color: white">UPDATE</button>
 <!--                            <a type="button" class="btn btn1" style="background-color: #a83332; color: white" id="id-register" href="{% url 'user:userReservation_view' %}">UPDATE</a>-->
                           </div>
                         </div>
