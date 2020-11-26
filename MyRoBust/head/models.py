@@ -25,4 +25,19 @@ class Driver(models.Model):
         class Meta:
             db_table = "Driver"
 
+class Admin(models.Model):
+        username = models.CharField(max_length = 50, primary_key = True)
+        password = models.CharField(max_length = 50)
+        firstName = models.CharField(max_length = 50)
+        middleName = models.CharField(max_length = 50)
+        lastName = models.CharField(max_length = 50)
+        emailAddress = models.CharField(max_length = 50)
+        contactNumber = models.IntegerField()
+        username = models.CharField(max_length = 50, primary_key = True)
+        password = models.CharField(max_length = 50)
+
+        class Meta:
+            db_table = "Admin"
+
+
 

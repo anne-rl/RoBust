@@ -1,5 +1,6 @@
 from django import forms
 from .models import *
+from head.forms import *
 
 class PassengerForm(forms.ModelForm):
     

@@ -4,6 +4,7 @@ from django.views.generic import View
 from django.http import HttpResponse
 from django.contrib import messages
 from .forms import PassengerForm
+from head.forms import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .models import *
@@ -14,10 +15,17 @@ class LandingIndexView(View):
             return render(request, 'user/landing.html')
 
         def post(self, request):
+            form = AdministratorForm(request.POST)
             form = PassengerForm(request.POST)
+
             if request.method == 'POST':
-                if Passenger.objects.filter(passengerID=request.POST['passengerID'],           password=request.POST['password']).exists() : 
-                    passenger =           Passenger.objects.get(passengerID=request.POST['passengerID'], password=request.POST['password'])
+                if Admin.objects.filter(username=request.POST['username'],password=request.POST['password']).exists() : 
+                    admin =Admin.objects.get(username=request.POST['username'], password=request.POST['password'])
+                
+                    return render(request, 'head/headList.html', {'admin': admin})
+
+                if Passenger.objects.filter(username=request.POST['username'],password=request.POST['password']).exists() : 
+                    passenger =Passenger.objects.get(username=request.POST['username'], password=request.POST['password'])
                 
                     return render(request, 'user/userReservation.html', {'passenger': passenger})
 
@@ -28,7 +36,6 @@ class LandingIndexView(View):
                     return HttpResponse('Invalid username/password!')
             else:
                 return render(request, 'user/landing.html', context)
-
 
 class UserReservationView(View):
         def get(self, request):
