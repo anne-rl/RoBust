@@ -79,7 +79,7 @@ class HeadBusTransactionView(View):
     def post(self, request):
         if request.method == 'POST':
             #BUS UPDATE
-            if 'btnUpdate' in request.POST:
+            if 'busUpdate' in request.POST:
                 bid = request.POST.get("bus-id")
                 busbn = request.POST.get("bus-busName")
                 buspn = request.POST.get("bus-plateNumber")
@@ -87,8 +87,15 @@ class HeadBusTransactionView(View):
                 busts = request.POST.get("bus-totalSeats")
                 busf = request.POST.get("bus-busFare")
                 busdt = request.POST.get("bus-departureTime")
-                update_bus = Bus.objects.filter(id=bid).update(busName = busbn, plateNumber = buspn, destination = busd,
-                        totalSeats = busts, busFare = busf, departureTime = busdt)
+                update_bus = Bus.objects.filter(id=bid).update(busName = busbn, plateNumber = buspn, 
+                            destination = busd,totalSeats = busts, busFare = busf, departureTime = busdt)
+                
+            #BUS DELETE     
+            elif 'busDelete' in request.POST:	          
+                print('delete button clicked')
+                bid = request.POST.get("deleteBus-id")
+                delete_bus = Bus.objects.filter(id = bid).delete()
+                print('recorded deleted') 
                 
             #DRIVER UPDATE        
             elif 'driverUpdate' in request.POST:
