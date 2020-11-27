@@ -81,20 +81,20 @@ class HeadBusTransactionView(View):
             #BUS UPDATE
             if 'busUpdate' in request.POST:
                 bid = request.POST.get("bus-id")
-                busbn = request.POST.get("bus-busName")
-                buspn = request.POST.get("bus-plateNumber")
-                busd = request.POST.get("bus-destination")
-                busts = request.POST.get("bus-totalSeats")
-                busf = request.POST.get("bus-busFare")
-                busdt = request.POST.get("bus-departureTime")
-                update_bus = Bus.objects.filter(id=bid).update(busName = busbn, plateNumber = buspn, 
-                            destination = busd,totalSeats = busts, busFare = busf, departureTime = busdt)
+                busBName = request.POST.get("bus-busName")
+                busPNumber = request.POST.get("bus-plateNumber")
+                busDes = request.POST.get("bus-destination")
+                busSeats = request.POST.get("bus-totalSeats")
+                busBsFare = request.POST.get("bus-busFare")
+                busDTime = request.POST.get("bus-departureTime")
+                UpdateBus = Bus.objects.filter(id=bid).update(busName = busBName, plateNumber = busPNumber, 
+                            destination = busDes,totalSeats = busSeats, busFare = busBsFare, departureTime = busDTime)
                 
             #BUS DELETE     
             elif 'busDelete' in request.POST:	          
                 print('delete button clicked')
                 bid = request.POST.get("deleteBus-id")
-                delete_bus = Bus.objects.filter(id = bid).delete()
+                deleteBus = Bus.objects.filter(id = bid).delete()
                 print('recorded deleted') 
                 
             #DRIVER UPDATE        
@@ -132,15 +132,15 @@ class HeadRegisterBus(View):
 
         if form.is_valid():
 
-            bn = request.POST.get("busName")
-            pn = request.POST.get("plateNumber")
-            d = request.POST.get("destination")
-            ts = request.POST.get("totalSeats")
-            f = request.POST.get("busFare")
-            dt = request.POST.get("departureTime")
+            busBName = request.POST.get("busName")
+            busPNumber = request.POST.get("plateNumber")
+            busDes = request.POST.get("destination")
+            busSeats = request.POST.get("totalSeats")
+            busBsFare = request.POST.get("busFare")
+            busDTime = request.POST.get("departureTime")
             img = request.FILES.get('img')
-            form = Bus(busName = bn, plateNumber = pn, destination = d,
-                        totalSeats = ts, busFare = f, departureTime = dt, img = img)
+            form = Bus(busName = busBName, plateNumber = busPNumber, destination = busDes,
+                        totalSeats = busSeats, busFare = busBsFare, departureTime = busDTime, img = img)
             form.save()
 
             return redirect('head:headBusTransaction_view')
