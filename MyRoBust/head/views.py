@@ -6,6 +6,7 @@ from django.contrib import messages
 from .models import *
 from .forms import *
 from user.models import *
+from django.db.models import Count
 
 class HeadListView(View):
     def get(self, request):
@@ -67,14 +68,22 @@ class HeadSummaryView(View):
 
 class HeadDashboardWeekly(View):
     def get(self, request):
-        return render(request, 'head/headDashboardWeekly.html')
+        allBuses = Bus.objects.count()
+        context = {
+        'allBuses' : allBuses
+        }
+        return render(request, 'head/headDashboardWeekly.html', context)
   
     def post(self, request):
         return render(request, 'head/headDashboardWeekly.html')
 
 class HeadDashboardMonthly(View):
     def get(self, request):
-        return render(request, 'head/headDashboardMonthly.html')
+        allBuses = Bus.objects.count()
+        context = {
+        'allBuses' : allBuses
+        }
+        return render(request, 'head/headDashboardMonthly.html', context)
   
     def post(self, request):
         return render(request, 'head/headDashboardMonthly.html')
