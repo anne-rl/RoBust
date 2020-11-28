@@ -12,6 +12,8 @@ class Passenger(models.Model):
     department = models.CharField(max_length = 100)
     gender = models.CharField(max_length = 100)
     password = models.CharField(max_length = 15)
+    availableBalance = models.IntegerField()
+    currentCashIn = models.IntegerField()
 
     class Meta:
         db_table = "Passenger"

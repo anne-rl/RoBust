@@ -42,6 +42,27 @@ class HeadListView(View):
                 getPassengerUsername = request.POST.get("deletePassenger-username")
                 DeletePassenger = Passenger.objects.filter(username = getPassengerUsername).delete()
                 print('recorded deleted')  
+            
+            #Passenger Delete
+            elif 'passengerDelete' in request.POST:
+                print('delete button clicked')
+                getPassengerUsername = request.POST.get("deletePassenger-username")
+                DeletePassenger = Passenger.objects.filter(username = getPassengerUsername).delete()
+                print('recorded deleted')  
+                
+            #Cash In
+            elif 'passengerCashIn' in request.POST:
+                getPassengerUsername = request.POST.get("cashInPassenger-username") 
+                CashInUpdate = request.POST.get("cashIn-amount")
+                AvailableBalance = request.POST.get("available-balance")
+               
+                if (AvailableBalance == 0) : 
+                    AvailableBalanceUpdate = (int(AvailableBalance)-int(CashInUpdate))
+                else :
+                    AvailableBalanceUpdate = (int(AvailableBalance)+int(CashInUpdate))
+                
+                UpdatePassengerCashIn = Passenger.objects.filter(username = getPassengerUsername).update(availableBalance = AvailableBalanceUpdate, currentCashIn = CashInUpdate)
+                print(UpdatePassengerCashIn)
                 
         return redirect('head:headList_view')       
 
