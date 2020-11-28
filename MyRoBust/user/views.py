@@ -20,12 +20,12 @@ class LandingIndexView(View):
 
             if request.method == 'POST':
                 if Admin.objects.filter(username=request.POST['username'],password=request.POST['password']).exists() : 
-                    admin =Admin.objects.get(username=request.POST['username'], password=request.POST['password'])
+                    admin = Admin.objects.get(username=request.POST['username'], password=request.POST['password'])
                 
                     return render(request, 'head/headList.html', {'admin': admin})
 
-                if Passenger.objects.filter(username=request.POST['username'],password=request.POST['password']).exists() : 
-                    passenger =Passenger.objects.get(username=request.POST['username'], password=request.POST['password'])
+                if Passenger.objects.filter(username=request.POST['username'],           password=request.POST['password']).exists() : 
+                    passenger = Passenger.objects.get(username=request.POST['username'], password=request.POST['password'])
                 
                     return render(request, 'user/userReservation.html', {'passenger': passenger})
 
