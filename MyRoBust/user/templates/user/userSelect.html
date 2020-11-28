@@ -292,6 +292,7 @@
       <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 370px; border-bottom-color: #a83332; border-bottom-style: solid">
         <h6><b>Select a Seat</b></h6>
       </div>
+      {% for book in books %}
       <div style="background-color: #2c353c; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 370px; border-bottom-color: #a83332; border-bottom-style: solid">
         <div class="bus">
           <li class="row row--0">
@@ -586,26 +587,26 @@
       <div class="row" style="width: 900; padding-top: 15px">
         <div class="col-md-5 mb-3" style="width: 900;">
           <label for="busName">Bus Name</label>
-          <input type="text" class="form-control" id="busName" name="busName" minlength="1" maxlength="30" readonly>
+          <input type="text" class="form-control" id="busName" name="busName" minlength="1" maxlength="30" value = "{{book.busName}}" readonly>
         </div>
         <div class="col-md-5 mb-3">
           <label for="plateNumber">Plate Number</label>
-          <input type="text" class="form-control" id="plateNumber" name="plateNumber" minlength="1" maxlength="30" readonly>
+          <input type="text" class="form-control" id="plateNumber" name="plateNumber" minlength="1" maxlength="30" value = "{{book.plateNumber}}" readonly>
         </div>
       </div>
       
       <div class="row" style="width: 900">
         <div class="col-md-5 mb-3">
           <label for="destination">Destination</label>
-          <input type="text" class="form-control" id="destination" name="destination" minlength="1" maxlength="30" readonly>
+          <input type="text" class="form-control" id="destination" name="destination" minlength="1" maxlength="30" value = "{{book.destination}}" readonly>
         </div>
         <div class="col-md-5 mb-3">
-          <label for="date">Date</label>
-          <input type="text" class="form-control" id="date" name="date" minlength="1" maxlength="30" readonly>
+          <label>Date</label>
+          <input type="text" class="form-control"  onfocus="(this.type='date')" onblur="(this.type='text')" id="date" name="date" minlength="1" maxlength="30" value = "" readonly>
         </div>
         <div class="col-md-5 mb-3">
           <label for="time">Time Departure</label>
-          <input type="text" class="form-control" id="time" name="time" minlength="1" maxlength="30" readonly>
+          <input type="text" class="form-control" id="time" name="time" minlength="1" maxlength="30" value = "{{book.departureTime}}" readonly>
         </div>
         <div class="col-md-5 mb-3">
           <label for="quantity">Seat Quantity</label>
@@ -644,6 +645,7 @@
             <!--          <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> CONTINUE </button>-->
           </form>
         </div>
+      {% endfor %}
       </div>
     </div>
   </div>

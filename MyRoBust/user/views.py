@@ -41,9 +41,7 @@ class UserReservationView(View):
         def get(self, request):
             qs_bus = Bus.objects.all()
             context = {
-
                 'buses' : qs_bus
-
             }
             return render(request, 'user/userReservation.html', context)
 
@@ -52,7 +50,11 @@ class UserReservationView(View):
     
 class UserSelectView(View):
         def get(self, request):
-            return render(request, 'user/userSelect.html')
+            selectSeat = Bus.objects.all()
+            context = {
+                'books' : selectSeat 
+            }
+            return render(request, 'user/userSelect.html', context)
 
         def post(self, request):
             return render(request, 'user/userSelect.html')

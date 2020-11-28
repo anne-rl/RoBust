@@ -350,7 +350,7 @@
                   </div>
                   <div class="col-md-6 mb-3">
                     <label for="date" style="color: white">Select Date</label>
-                    <input type="date" class="form-control" id="id-date" name="date" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
+                    <input type="text" class="form-control" id="id-date" name="date" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
                   </div>
                 </div>
               </div>
@@ -362,8 +362,8 @@
           </div>
         </div>
         {% endfor %}
-
-      <!--  Bus2 Boking Button
+<!--
+        Bus2 Boking Button
       <div class="col-md-4 mb-3">
         <button type="button" class="btn btn" data-toggle="modal" data-target="#bus2Modal" style="background-color: #2c353c; color: white; border-color: transparent; height: 270px; width: 364px; padding: 0px; padding-top: 0px">
           <img src="{% static 'media/RoBustBus2.jpg' %}" width="360" height="240" style="border-radius: 5px"> Bus 2</button>
@@ -374,9 +374,10 @@
         <button type="button" class="btn btn" data-toggle="modal" data-target="#bus3Modal" style="background-color: #2c353c; color: white; border-color: transparent; height: 270px; width: 364px; padding: 0px; padding-top: 0px">
           <img src="{% static 'media/RoBustBus3.jpg' %}" width="360" height="240" style="border-radius: 5px"> Bus 3</button>
       </div>
+-->
     </div>
   </form>
-</div> -->
+</div> 
 
 
 {% block footerinclude %}
