@@ -7,7 +7,6 @@ from .models import *
 from .forms import *
 from user.models import *
 
-
 class HeadListView(View):
     def get(self, request):
         passengers = Passenger.objects.all()
@@ -18,7 +17,7 @@ class HeadListView(View):
   
     def post(self, request):
         if request.method == 'POST':
-            #Passenger Update
+            #PASSENGER UPDATE
             if 'passengerUpdate' in request.POST:
                 print('update profile button clicked')
                 PassengerUsername = request.POST.get("passenger-username")
@@ -36,21 +35,14 @@ class HeadListView(View):
                 print(UpdatePassenger)
                 print('Passenger Updated')
             
-            #Passenger Delete
-            elif 'passengerDelete' in request.POST:
-                print('delete button clicked')
-                getPassengerUsername = request.POST.get("deletePassenger-username")
-                DeletePassenger = Passenger.objects.filter(username = getPassengerUsername).delete()
-                print('recorded deleted')  
-            
-            #Passenger Delete
+            #PASSENGER DELETE
             elif 'passengerDelete' in request.POST:
                 print('delete button clicked')
                 getPassengerUsername = request.POST.get("deletePassenger-username")
                 DeletePassenger = Passenger.objects.filter(username = getPassengerUsername).delete()
                 print('recorded deleted')  
                 
-            #Cash In
+            #PASSENGER CASH IN
             elif 'passengerCashIn' in request.POST:
                 getPassengerUsername = request.POST.get("cashInPassenger-username") 
                 CashInUpdate = request.POST.get("cashIn-amount")
