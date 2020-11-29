@@ -615,7 +615,7 @@
         </div>
         <div class="col-md-3 mb-3">
           <label for="fare" style="margin-left: 50px">Total Fare</label>
-          <input class="form-control" id="fare" name="fare" value="" required minlength="25" maxlength="25" style="width: 220px; margin-left: 50px" readonly>
+          <input class="form-control" id="fare" name="fare" value="{{book.busFare}}" required minlength="25" maxlength="25" style="width: 220px; margin-left: 50px" readonly>
         </div>
       </div>
 
@@ -625,7 +625,7 @@
         <h6><b>Payment Details</b></h6>
       </div>
       <li style="list-style:none; padding-top: 25px">Available Balance: </li>
-      <li style="list-style:none; padding-top: 10px">Total Fare: </li>
+      <li style="list-style:none; padding-top: 10px">Total Fare: {{book.busFare}}</li>
       <li style="list-style:none; padding-top: 10px">Remaining Balance: </li>
 
       <br><br><br>
