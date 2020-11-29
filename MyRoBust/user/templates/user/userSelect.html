@@ -115,7 +115,8 @@
                               <a href="" tabindex="5" class="profileInformation" class="btn btn1" data-toggle="modal" data-target="#updateProfile" style="color: white">Profile Information</a>
                             </div>
                             <div class="dropdown-divider" role="presentation">
-                              <span class="filler">&nbsp;</span></div>
+                              <span class="filler">&nbsp;</span>
+                            </div>
                             <div class="text-left">
                               <a tabindex="5" class="logout" style="color: white" href="{% url 'user:landing_view' %}">Logout</a>
                             </div>
@@ -331,7 +332,7 @@
             <li class="row row--2">
               <ol class="seats">
                 <li class="seat">
-                  <input type="checkbox" id="1-2A" value="2A"/>
+                  <input type="checkbox" id="1-2A" value="2A" />
                   <label for="1-2A">2A</label>
                 </li>
                 <li class="seat">
@@ -421,7 +422,7 @@
                   <label for="1-5D">5D</label>
                 </li>
                 <li class="seat">
-                  <input type="checkbox" id="1-5E" value="5E"/>
+                  <input type="checkbox" id="1-5E" value="5E" />
                   <label for="1-5E">5E</label>
                 </li>
 
@@ -442,7 +443,7 @@
                   <label for="1-6C">6C</label>
                 </li>
                 <li class="seat">
-                  <input type="checkbox" id="1-6D"  value="6D"/>
+                  <input type="checkbox" id="1-6D" value="6D" />
                   <label for="1-6D">6D</label>
                 </li>
                 <li class="seat">
@@ -546,7 +547,7 @@
                   <label for="1-10D">10D</label>
                 </li>
                 <li class="seatnospace">
-                  <input type="checkbox" id="1-10E" value="10E" />
+                  <input type="checkbox" id="1-10E" value="10E" >
                   <label for="1-10E">10E</label>
                 </li>
                 <li class="seatnospace">
@@ -587,26 +588,26 @@
       <div class="row" style="width: 900; padding-top: 15px">
         <div class="col-md-5 mb-3" style="width: 900;">
           <label for="busName">Bus Name</label>
-          <input type="text" class="form-control" id="busName" name="busName" minlength="1" maxlength="100" value = "{{book.busName}}" readonly>
+          <input class="form-control" id="busName" name="busName" minlength="1" maxlength="100" value="{{book.busName}}" readonly>
         </div>
         <div class="col-md-5 mb-3">
           <label for="plateNumber">Plate Number</label>
-          <input type="text" class="form-control" id="plateNumber" name="plateNumber" minlength="2" maxlength="20" value = "{{book.plateNumber}}" readonly>
+          <input class="form-control" id="plateNumber" name="plateNumber" minlength="2" maxlength="20" value="{{book.plateNumber}}" readonly>
         </div>
       </div>
-      
+
       <div class="row" style="width: 900">
         <div class="col-md-5 mb-3">
           <label for="destination">Destination</label>
-          <input type="text" class="form-control" id="destination" name="destination" minlength="1" maxlength="50" value = "{{book.destination}}" readonly>
+          <input class="form-control" id="destination" name="destination" minlength="1" maxlength="50" value="{{book.destination}}" readonly>
         </div>
         <div class="col-md-5 mb-3">
           <label>Date</label>
-          <input type="text" class="form-control"  onfocus="(this.type='date')" onblur="(this.type='text')" id="date" name="date" minlength="1" maxlength="30" value = "" readonly>
+          <input class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" name="date" minlength="1" maxlength="30" value="" readonly>
         </div>
         <div class="col-md-3 mb-3">
           <label for="time">Time Departure</label>
-          <input type="text" class="form-control" id="time" name="time" minlength="1" maxlength="30" value = "{{book.departureTime}}" style="width: 220px" readonly>
+          <input class="form-control" id="time" name="time" minlength="1" maxlength="30" value="{{book.departureTime}}" style="width: 220px" readonly>
         </div>
         <div class="col-md-3 mb-3">
           <label for="seatNumber" style="margin-left: 25px">Seat Number</label>
@@ -614,21 +615,21 @@
         </div>
         <div class="col-md-3 mb-3">
           <label for="fare" style="margin-left: 50px">Total Fare</label>
-          <input type="text" class="form-control" id="fare" name="fare" value="" required minlength="25" maxlength="25" style="width: 220px; margin-left: 50px" readonly>
+          <input class="form-control" id="fare" name="fare" value="" required minlength="25" maxlength="25" style="width: 220px; margin-left: 50px" readonly>
         </div>
       </div>
-      
+
       <br><br><br>
-      
+
       <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 720px; border-bottom-color: #a83332; border-bottom-style: solid">
         <h6><b>Payment Details</b></h6>
       </div>
       <li style="list-style:none; padding-top: 25px">Available Balance: </li>
       <li style="list-style:none; padding-top: 10px">Total Fare: </li>
       <li style="list-style:none; padding-top: 10px">Remaining Balance: </li>
-      
+
       <br><br><br>
-      
+
       <hr class="mb-4" style="width: 720px">
       <div class="row">
         <div class="col-md-3 mb-3">
@@ -641,7 +642,7 @@
             <!--          <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> CONTINUE </button>-->
           </form>
         </div>
-      {% endfor %}
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -662,7 +663,7 @@
   }
 </script>
 
-<!-- Char that will only accept numbers only -->
+<!---- Char that will only accept numbers only ---->
 <script>
   function validate(evt) {
     var theEvent = evt || window.event;
@@ -681,35 +682,32 @@
       if (theEvent.preventDefault) theEvent.preventDefault();
     }
   }
-
 </script>
 
-<!-- Choosen Seat Scripts -->
-<script>
-var $textInput = $('#seatNumber');
-var $checkBox = $('#seatChoosen');
-
-$('input').click(function(){
-    populateTextInput();
-});
-                       
-function populateTextInput () {
-    // empty text input
-    $textInput.val('');
-    
-    // print out all checked inputs
-    $checkBox.find('input:checked').each(function() {
-        $textInput.val( $textInput.val() + $(this).val() );
-    });
-}
+<!---- Choosen Seat Scripts ---->
+<script type="text/javascript">
+  $('.product-list').on('change', function() {
+    $('.product-list').not(this).prop('checked', false);
+  });
 </script>
 <script>
-$('input[type=checkbox]').change(function(e){
-   if ($('input[type=checkbox]:checked').length > 1) {
-        $(this).prop('checked', false)
-        alert("Only 1 seat is allowed per passenger");
-   }
-})
+  $('input[type="checkbox"]').on('click', function() {
+    var is_checked = $(this).prop('checked');
+    var val = '';
+    if (is_checked)
+      val = this.value;
+    $('input[type="text"]').val(val);
+  });
+</script>
+
+<!---- Restriction Script for Seat ---->
+<script>
+  $('input[type=checkbox]').change(function(e) {
+    if ($('input[type=checkbox]:checked').length > 1) {
+      $(this).prop('checked', false)
+      alert("Only 1 seat is allowed per passenger");
+    }
+  })
 </script>
 
 <script src="{% static 'js/landing.js' %}"></script>
