@@ -489,22 +489,19 @@
                     <form id="updateForm" method='POST'>
                       {% csrf_token %}
                       <div class="modal-body">
-                        
+                          
                           <div class="container">
                             <div class="picture-container">
                               <div class="picture">
-                                {% if driver.profilePicture  %}
                                 <img src="{{driver.profilePicture.url}}" class="picture-src" id="profilePicturePreview" title="">
-                                {% else %}
-                                <input type="file" id="profilePicture" name="profilePicture" class="">                                
-                                <input type="file" id="profilePicture" name="driver-profilePicture" value="{{driver.profilePicture}}" required>
+                                <input type="file" id="profilePicture" name="driver-profilePicture" class="">                                
+                                <input type="file" id="profilePicture"  id="profilePicture" name="driver-profilePicture" value="{{driver.profilePicture}}">
+                                <h6 class="" style="color: white">Choose Picture</h6>
                               </div>
-                              <h6 class="" style="color: white">Choose Picture</h6>
-                                {% endif %}
                             </div>
-                          </div>
-
-                        <br>
+                          </div>                
+                          <br>
+                          
                         <input type="text" name="driver-id" value="{{driver.id}}" hidden>
                         <div class="row">
                           <div class="col-md-4 mb-3">
@@ -533,7 +530,7 @@
                             <label for="gender" style="color: white">Gender</label> <br>
                             <div class="form-check-inline text-right" style="color: white">
                               <label class="form-check-label ">
-                                {% if user.gender == 'Male' %}
+                                {% if driver.gender == 'Male' %}
                                 <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="driver-gender" value="Male" checked="checked">Male
                                 <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="driver-gender" value="Female">Female
                                 {% else %}
