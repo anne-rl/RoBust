@@ -8,3 +8,8 @@ class PassengerForm(forms.ModelForm):
             model = Passenger
             fields = '__all__'
 
+#class BookingForm(forms.ModelForm):
+#        
+#        class Meta:
+#            model = Booking
+#            fields = '__all__'

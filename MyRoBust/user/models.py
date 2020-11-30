@@ -18,3 +18,8 @@ class Passenger(models.Model):
     class Meta:
         db_table = "Passenger"
     
+#class Booking(Bus):
+#    seatNumber = models.CharField(max_length = 15)
+#    
+#    class Meta:
+#        db_table = "Booking"

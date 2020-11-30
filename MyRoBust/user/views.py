@@ -4,6 +4,7 @@ from django.views.generic import View
 from django.http import HttpResponse
 from django.contrib import messages
 from .forms import PassengerForm
+#from .forms import BookingForm
 from head.forms import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
@@ -57,7 +58,20 @@ class UserSelectView(View):
             return render(request, 'user/userSelect.html', context)
 
         def post(self, request):
-            return render(request, 'user/userSelect.html')
+#          form = BookingForm(request.POST, request.FILES)    
+#
+#          if form.is_valid():     
+#              seatNumber = request.POST.get("seatNumber")
+#
+#              form = Booking(seatNumber = busSeatNumber)
+#              form.save()
+
+              return render(request, 'user/userSelect.html')
+
+#          else:
+#              print(form.errors)
+#              return HttpResponse('not valid')
+            
           
 class UserSelectUpdateView(View):
         def get(self, request):
