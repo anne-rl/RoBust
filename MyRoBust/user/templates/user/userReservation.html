@@ -291,7 +291,7 @@
     <h6><b>Select a Bus</b></h6>
   </div>
   <br>
-  <form id="regiter_form" method="POST" autocomplete="off" enctype="multipart/form-data">
+  <form id="bookingForm" method="POST" autocomplete="off" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="row" style="width: 1230">
       {% for bus in buses %}
@@ -357,7 +357,7 @@
             </div>
             <div class="modal-footer">
 <!--              <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 140px; background-color: #a83332; height: 40px; margin-left: 290; padding:5px; font-size: 17px" id="id-Cancel" href="{% url 'user:userSelect_view' %}">SEARCH SEAT</a>-->
-              <!--        <button type="button" class="btn btn" style="background-color: #a83332; color: white">SEARCH SEAT</button>-->
+                      <button type="button" class="btn btn" style="background-color: #a83332; color: white">SEARCH SEAT</button>
             </div>
           </div>
         </div>

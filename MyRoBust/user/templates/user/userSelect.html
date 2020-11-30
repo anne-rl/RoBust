@@ -289,11 +289,11 @@
 <!------------ Booking Page Body ------------>
 <div class="container" style="position: relative; left: -30px">
   <div class="row">
+    {% for book in books %}
     <div class="col-md-4 mb-3">
       <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 370px; border-bottom-color: #a83332; border-bottom-style: solid">
         <h6><b>Select a Seat</b></h6>
       </div>
-      {% for book in books %}
       <div style="background-color: #2c353c; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 370px; border-bottom-color: #a83332; border-bottom-style: solid">
         <div class="bus" id="seatChoosen">
           <li class="row row--0">
@@ -578,7 +578,6 @@
           </li>
         </div>
       </div>
-
     </div>
 
     <div class="col-md-4 mb-3" style="padding-left: 50px">
@@ -603,9 +602,9 @@
         </div>
         <div class="col-md-5 mb-3">
           <label>Date</label>
-          <input class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" name="date" minlength="1" maxlength="30" value="" readonly>
+          <input class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="dateReservation" name="dateReservation" minlength="1" maxlength="30" value="" readonly>
         </div>
-        <div class="col-md-3 mb-3">
+        <div class="col-md-3">
           <label for="time">Time Departure</label>
           <input class="form-control" id="time" name="time" minlength="1" maxlength="30" value="{{book.departureTime}}" style="width: 220px" readonly>
         </div>
