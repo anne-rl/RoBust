@@ -127,6 +127,7 @@ class HeadBusTransactionView(View):
             elif 'driverUpdate' in request.POST:
                 print('update profile button clicked')
                 Driverid = request.POST.get("driver-id")
+                DriverProfilePicture = request.POST.get("driver-profilePicture")
                 DriverFirstName = request.POST.get("driver-firstName")
                 DriverMiddleName = request.POST.get("driver-middleName")
                 DriverLastName = request.POST.get("driver-lastName")
@@ -179,9 +180,10 @@ class HeadRegisterDriver(View):
         return render(request, 'head/headRegisterDriver.html')
   
     def post(self, request):
-        form = RegisterDriverForm(request.POST)
+        form = RegisterDriverForm(request.POST, request.FILES)
     
         if form.is_valid():
+            DriverProfilePicture = request.FILES.get('profilePicture')
             DriverFirstName = request.POST.get("firstName")
             DriverMiddleName = request.POST.get("middleName")
             DriverLastName = request.POST.get("lastName")
@@ -190,7 +192,7 @@ class HeadRegisterDriver(View):
             DriverGender = request.POST.get("gender")
     
 
-            form = Driver(firstName = DriverFirstName, middleName = DriverMiddleName, lastName = DriverLastName, emailAddress = DriverEmailAddress, contactNumber = DriverContactNumber, gender = DriverGender)
+            form = Driver(profilePicture = DriverProfilePicture, firstName = DriverFirstName, middleName = DriverMiddleName, lastName = DriverLastName, emailAddress = DriverEmailAddress, contactNumber = DriverContactNumber, gender = DriverGender)
             form.save()
         
             return redirect('head:headBusTransaction_view')   

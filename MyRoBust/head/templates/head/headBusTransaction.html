@@ -489,17 +489,21 @@
                     <form id="updateForm" method='POST'>
                       {% csrf_token %}
                       <div class="modal-body">
-                        <!--
+                        
                           <div class="container">
                             <div class="picture-container">
                               <div class="picture">
-                                <img src="{% static 'media/user.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
-                                <input type="file" id="profilePicture" name="profilePicture" class="" required>
+                                {% if driver.profilePicture  %}
+                                <img src="{{driver.profilePicture.url}}" class="picture-src" id="profilePicturePreview" title="">
+                                {% else %}
+                                <input type="file" id="profilePicture" name="profilePicture" class="">                                
+                                <input type="file" id="profilePicture" name="driver-profilePicture" value="{{driver.profilePicture}}" required>
                               </div>
                               <h6 class="" style="color: white">Choose Picture</h6>
+                                {% endif %}
                             </div>
                           </div>
--->
+
                         <br>
                         <input type="text" name="driver-id" value="{{driver.id}}" hidden>
                         <div class="row">

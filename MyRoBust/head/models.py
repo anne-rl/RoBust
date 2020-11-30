@@ -15,6 +15,7 @@ class Bus(models.Model):
             db_table = "Bus"
 
 class Driver(models.Model):
+        profilePicture = models.ImageField(upload_to='images/', null=True, blank=True)
         firstName = models.CharField(max_length = 50)
         middleName = models.CharField(max_length = 50)
         lastName = models.CharField(max_length = 50)
