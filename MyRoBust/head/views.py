@@ -69,8 +69,10 @@ class HeadSummaryView(View):
 class HeadDashboardWeekly(View):
     def get(self, request):
         allBuses = Bus.objects.count()
+        allPassengers = Passenger.objects.count()
         context = {
-        'allBuses' : allBuses
+            'allBuses' : allBuses, 
+            'allPassengers' : allPassengers
         }
         return render(request, 'head/headDashboardWeekly.html', context)
   
@@ -80,8 +82,10 @@ class HeadDashboardWeekly(View):
 class HeadDashboardMonthly(View):
     def get(self, request):
         allBuses = Bus.objects.count()
+        allPassengers = Passenger.objects.count()
         context = {
-        'allBuses' : allBuses
+            'allBuses' : allBuses,
+            'allPassengers' : allPassengers
         }
         return render(request, 'head/headDashboardMonthly.html', context)
   
