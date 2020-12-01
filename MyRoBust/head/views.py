@@ -6,7 +6,7 @@ from django.contrib import messages
 from .models import *
 from .forms import *
 from user.models import *
-
+from django.db.models import Count
 
 class HeadListView(View):
     def get(self, request):
@@ -18,7 +18,7 @@ class HeadListView(View):
   
     def post(self, request):
         if request.method == 'POST':
-            #Passenger Update
+            #PASSENGER UPDATE
             if 'passengerUpdate' in request.POST:
                 print('update profile button clicked')
                 PassengerUsername = request.POST.get("passenger-username")
@@ -36,12 +36,26 @@ class HeadListView(View):
                 print(UpdatePassenger)
                 print('Passenger Updated')
             
-            #Passenger Delete
+            #PASSENGER DELETE
             elif 'passengerDelete' in request.POST:
                 print('delete button clicked')
                 getPassengerUsername = request.POST.get("deletePassenger-username")
                 DeletePassenger = Passenger.objects.filter(username = getPassengerUsername).delete()
                 print('recorded deleted')  
+                
+            #PASSENGER CASH IN
+            elif 'passengerCashIn' in request.POST:
+                getPassengerUsername = request.POST.get("cashInPassenger-username") 
+                CashInUpdate = request.POST.get("cashIn-amount")
+                AvailableBalance = request.POST.get("available-balance")
+               
+                if (AvailableBalance == 0) : 
+                    AvailableBalanceUpdate = (int(AvailableBalance)-int(CashInUpdate))
+                else :
+                    AvailableBalanceUpdate = (int(AvailableBalance)+int(CashInUpdate))
+                
+                UpdatePassengerCashIn = Passenger.objects.filter(username = getPassengerUsername).update(availableBalance = AvailableBalanceUpdate, currentCashIn = CashInUpdate)
+                print(UpdatePassengerCashIn)
                 
         return redirect('head:headList_view')       
 
@@ -54,14 +68,26 @@ class HeadSummaryView(View):
 
 class HeadDashboardWeekly(View):
     def get(self, request):
-        return render(request, 'head/headDashboardWeekly.html')
+        allBuses = Bus.objects.count()
+        allPassengers = Passenger.objects.count()
+        context = {
+            'allBuses' : allBuses, 
+            'allPassengers' : allPassengers
+        }
+        return render(request, 'head/headDashboardWeekly.html', context)
   
     def post(self, request):
         return render(request, 'head/headDashboardWeekly.html')
 
 class HeadDashboardMonthly(View):
     def get(self, request):
-        return render(request, 'head/headDashboardMonthly.html')
+        allBuses = Bus.objects.count()
+        allPassengers = Passenger.objects.count()
+        context = {
+            'allBuses' : allBuses,
+            'allPassengers' : allPassengers
+        }
+        return render(request, 'head/headDashboardMonthly.html', context)
   
     def post(self, request):
         return render(request, 'head/headDashboardMonthly.html')
@@ -79,21 +105,29 @@ class HeadBusTransactionView(View):
     def post(self, request):
         if request.method == 'POST':
             #BUS UPDATE
-            if 'btnUpdate' in request.POST:
+            if 'busUpdate' in request.POST:
                 bid = request.POST.get("bus-id")
-                busbn = request.POST.get("bus-busName")
-                buspn = request.POST.get("bus-plateNumber")
-                busd = request.POST.get("bus-destination")
-                busts = request.POST.get("bus-totalSeats")
-                busf = request.POST.get("bus-busFare")
-                busdt = request.POST.get("bus-departureTime")
-                update_bus = Bus.objects.filter(id=bid).update(busName = busbn, plateNumber = buspn, destination = busd,
-                        totalSeats = busts, busFare = busf, departureTime = busdt)
+                busBName = request.POST.get("bus-busName")
+                busPNumber = request.POST.get("bus-plateNumber")
+                busDes = request.POST.get("bus-destination")
+                busSeats = request.POST.get("bus-totalSeats")
+                busBsFare = request.POST.get("bus-busFare")
+                busDTime = request.POST.get("bus-departureTime")
+                UpdateBus = Bus.objects.filter(id=bid).update(busName = busBName, plateNumber = busPNumber, 
+                            destination = busDes,totalSeats = busSeats, busFare = busBsFare, departureTime = busDTime)
+                
+            #BUS DELETE     
+            elif 'busDelete' in request.POST:	          
+                print('delete button clicked')
+                bid = request.POST.get("deleteBus-id")
+                deleteBus = Bus.objects.filter(id = bid).delete()
+                print('recorded deleted') 
                 
             #DRIVER UPDATE        
             elif 'driverUpdate' in request.POST:
                 print('update profile button clicked')
                 Driverid = request.POST.get("driver-id")
+                DriverProfilePicture = request.POST.get("driver-profilePicture")
                 DriverFirstName = request.POST.get("driver-firstName")
                 DriverMiddleName = request.POST.get("driver-middleName")
                 DriverLastName = request.POST.get("driver-lastName")
@@ -125,15 +159,15 @@ class HeadRegisterBus(View):
 
         if form.is_valid():
 
-            bn = request.POST.get("busName")
-            pn = request.POST.get("plateNumber")
-            d = request.POST.get("destination")
-            ts = request.POST.get("totalSeats")
-            f = request.POST.get("busFare")
-            dt = request.POST.get("departureTime")
+            busBName = request.POST.get("busName")
+            busPNumber = request.POST.get("plateNumber")
+            busDes = request.POST.get("destination")
+            busSeats = request.POST.get("totalSeats")
+            busBsFare = request.POST.get("busFare")
+            busDTime = request.POST.get("departureTime")
             img = request.FILES.get('img')
-            form = Bus(busName = bn, plateNumber = pn, destination = d,
-                        totalSeats = ts, busFare = f, departureTime = dt, img = img)
+            form = Bus(busName = busBName, plateNumber = busPNumber, destination = busDes,
+                        totalSeats = busSeats, busFare = busBsFare, departureTime = busDTime, img = img)
             form.save()
 
             return redirect('head:headBusTransaction_view')
@@ -146,9 +180,10 @@ class HeadRegisterDriver(View):
         return render(request, 'head/headRegisterDriver.html')
   
     def post(self, request):
-        form = RegisterDriverForm(request.POST)
+        form = RegisterDriverForm(request.POST, request.FILES)
     
         if form.is_valid():
+            DriverProfilePicture = request.FILES.get('profilePicture')
             DriverFirstName = request.POST.get("firstName")
             DriverMiddleName = request.POST.get("middleName")
             DriverLastName = request.POST.get("lastName")
@@ -157,7 +192,7 @@ class HeadRegisterDriver(View):
             DriverGender = request.POST.get("gender")
     
 
-            form = Driver(firstName = DriverFirstName, middleName = DriverMiddleName, lastName = DriverLastName, emailAddress = DriverEmailAddress, contactNumber = DriverContactNumber, gender = DriverGender)
+            form = Driver(profilePicture = DriverProfilePicture, firstName = DriverFirstName, middleName = DriverMiddleName, lastName = DriverLastName, emailAddress = DriverEmailAddress, contactNumber = DriverContactNumber, gender = DriverGender)
             form.save()
         
             return redirect('head:headBusTransaction_view')   

@@ -19,11 +19,10 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
 
 <!-- PDF Convertion Links -->
-<script type="text/javascript" src="/js/lib/dummy.js"></script>
-<link rel="stylesheet" type="text/css" href="/css/result-light.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
 <script id="insert"></script>
 
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css'>
 {% endblock headerinclude %}
 
 {% block content %}
@@ -115,7 +114,7 @@
         <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; background-color: #a83332; height: 50px; border-radius: 5px; font-size: 14px; width: auto">
-              <i class="fa fa-user" aria-hidden="true"></i> DOSAN <span class="caret"></span></a>
+              <i class="fa fa-user" aria-hidden="true"></i> {{passenger.firstName}} {{passenger.lastName}} <span class="caret"></span></a>
             <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #2c353c">
               <li>
                 <div class="row">
@@ -183,21 +182,21 @@
           <div class="row">
             <div class="col-md-4 mb-3">
               <label for="firstName" style="color: white">First Name</label>
-              <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20">
+              <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20" readonly>
             </div>
             <div class="col-md-4 mb-3">
               <label for="middleName" style="color: white">Middle Name</label>
-              <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20">
+              <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20" readonly>
             </div>
             <div class="col-md-4 mb-3">
               <label for="lastName" style="color: white">Last Name</label>
-              <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20">
+              <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20" readonly>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="emailAddress" style="color: white">Email</label>
-              <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="Email" required minlength="1" maxlength="50">
+              <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="Email" required minlength="1" maxlength="50" readonly>
             </div>
             <div class="col-md-6 mb-3">
               <label for="password" style="color: white">Password</label>
@@ -388,7 +387,7 @@
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="dateReservation" style="color: white">Date</label>
-                            <input type="date" class="form-control" id="id-dateReservation" name="reservation-dateReservation" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
+                            <input type="text" class="form-control" id="id-dateReservation" name="reservation-dateReservation" data-provide="datepicker" placeholder="mm/dd/yyyy" value="" required>
                           </div>
                         </div>
                         <div class="modal-footer" style="height: 44px; padding-top: 5px">
@@ -489,29 +488,29 @@
                         <div class="row">
                           <div class="col-md-4 mb-3">
                             <label for="busName" style="color: white">Bus Name</label>
-                            <input type="text" class="form-control" id="id-busName" name="reservation-busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
+                            <input type="text" class="form-control" id="busName" name="busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="busNumber" style="color: white">Plate Number</label>
-                            <input type="text" class="form-control" id="id-plateNumber" name="reservation-busNumber" placeholder="Plate Number" minlength="1" maxlength="20" readonly>
+                            <input type="text" class="form-control" id="plateNumber" name="busNumber" placeholder="Plate Number" minlength="1" maxlength="20" readonly>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="destination" style="color: white">Destination</label>
-                            <input type="text" class="form-control" id="id-destination" name="reservation-destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
+                            <input type="text" class="form-control" id="destination" name="destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-4 mb-3">
                             <label for="timeDeparture" style="color: white">Time Departure</label>
-                            <input type="text" class="form-control" id="id-timeDeparture" name="reservation-timeDeparture" placeholder="Time Departure" minlength="1" maxlength="20" readonly>
+                            <input type="text" class="form-control" id="timeDeparture" name="timeDeparture" placeholder="Time Departure" minlength="1" maxlength="20" readonly>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="ticketNumber" style="color: white">Ticket No.</label>
-                            <input type="text" class="form-control" id="ticketNumber" name="reservation-ticketNumber" placeholder="Ticket No." minlength="1" maxlength="20" readonly>
+                            <input type="text" class="form-control" id="ticketNumber" name="ticketNumber" placeholder="Ticket No." minlength="1" maxlength="20" readonly>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="dateReservation" style="color: white">Date</label>
-                            <input type="date" class="form-control" id="id-dateReservation" name="reservation-dateReservation" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="" required>
+                            <input type="text" class="form-control" id="id-dateReservation" name="reservation-dateReservation" placeholder="mm/dd/yyyy" data-provide="datepicker" value="" required>
                           </div>
                         </div>
                         <div class="modal-footer" style="height: 44px; padding-top: 5px">
@@ -714,6 +713,24 @@
     }
   }
 
+</script>
+
+<!-- Disabling of Past Dates Scrpits -->
+<script id="rendered-js">
+  var date = new Date();
+  date.setDate(date.getDate());
+
+  $('#id-dateReservation').datepicker({
+    startDate: date
+  });
+</script>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
 </script>
 
 <!-- E-Ticket Style -->
