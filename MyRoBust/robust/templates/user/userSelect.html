@@ -720,6 +720,13 @@
 
 </script>
 
+{% for seat in seat%}
+<script type="text/javascript">
+  $("{{seat.seatNumber}}").addClass("notvacant").children("input").prop("disabled", true);
+  $("{{seat.seatNumber}}").children("label").remove();
+</script>
+{% endfor %}
+
 <script src="{% static 'js/landing.js' %}"></script>
 <script src="{% static 'js/registration.js' %}"></script>
 {% endblock footerinclude %}
