@@ -209,14 +209,14 @@ class AdminBusTransactionView(View):
                 busSeats = request.POST.get("bus-totalSeats")
                 busBsFare = request.POST.get("bus-busFare")
                 busDTime = request.POST.get("bus-departureTime")
-                UpdateBus = Bus.objects.filter(id=bid).update(busName = busBName, plateNumber = busPNumber, 
-                            destination = busDes,totalSeats = busSeats, busFare = busBsFare, departureTime = busDTime)
+                UpdateBus = Bus.objects.filter(busID=bid).update(busName = busBName, plateNumber = busPNumber, 
+                            destination = busDes, totalSeats = busSeats, busFare = busBsFare, departureTime = busDTime)
                 
             #BUS DELETE     
             elif 'busDelete' in request.POST:	          
                 print('delete button clicked')
                 bid = request.POST.get("deleteBus-id")
-                deleteBus = Bus.objects.filter(id = bid).delete()
+                deleteBus = Bus.objects.filter(busID = bid).delete()
                 print('recorded deleted') 
                 
             #DRIVER UPDATE        
@@ -243,7 +243,7 @@ class AdminBusTransactionView(View):
                 DeleteDriver = Driver.objects.filter(id = Driverid).delete()
                 print('recorded deleted') 
 
-        return redirect('admin:adminBusTransaction_view')
+        return redirect('robust:adminBusTransaction_view')
        
 class AdminRegisterBus(View):
     def get(self, request):
@@ -266,11 +266,12 @@ class AdminRegisterBus(View):
                         totalSeats = busSeats, busFare = busBsFare, departureTime = busDTime, img = img)
             form.save()
 
-            return redirect('admin:adminBusTransaction_view')
+            return redirect('robust:adminBusTransaction_view')
 
         else:
             print(form.errors)
             return HttpResponse('not valid')
+
 class AdminRegisterDriver(View):
     def get(self, request):
         return render(request, 'admin/adminRegisterDriver.html')
@@ -291,7 +292,7 @@ class AdminRegisterDriver(View):
             form = Driver(profilePicture = DriverProfilePicture, firstName = DriverFirstName, middleName = DriverMiddleName, lastName = DriverLastName, emailAddress = DriverEmailAddress, contactNumber = DriverContactNumber, gender = DriverGender)
             form.save()
         
-            return redirect('admin:adminBusTransaction_view')   
+            return redirect('robust:adminBusTransaction_view')   
         else:
             print(form.errors)
             return HttpResponse('not valid')
