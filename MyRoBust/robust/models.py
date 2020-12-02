@@ -58,7 +58,7 @@ class Bus(models.Model):
             db_table = "Bus"
 
 class Booking(models.Model):
-        # date_booked = models.DateField(auto_now_add = True)
+        date_booked = models.DateField(auto_now_add = True)
         booking=models.AutoField(primary_key=True, null=False)
         # passenger=models.ForeignKey(Passenger, on_delete=models.CASCADE)
         bus = models.ForeignKey(Bus, on_delete=models.CASCADE)
