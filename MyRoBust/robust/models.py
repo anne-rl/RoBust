@@ -52,7 +52,7 @@ class Bus(models.Model):
         busFare = models.PositiveSmallIntegerField(default=0)
         departureTime = models.TimeField(default = timezone.now)
         img = models.FileField(upload_to='media', null = True)
-        driver = models.ForeignKey('Driver', on_delete=models.CASCADE)
+        # driver = models.ForeignKey('Driver', on_delete=models.CASCADE)
     
         class Meta:
             db_table = "Bus"
