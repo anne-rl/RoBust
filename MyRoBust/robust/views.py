@@ -278,7 +278,7 @@ class AdminRegisterBus(View):
 
     def post(self, request):
 
-        form = BusForm(request.POST)
+        form = BusForm(request.POST, request.FILES)
 
         if form.is_valid():
 
