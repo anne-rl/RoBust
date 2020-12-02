@@ -152,8 +152,8 @@
           <div class="container">
             <div class="picture-container">
               <div class="picture">
-                <img src="{% static 'media/user.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
-                <input type="file" id="profilePicture" name="profilePicture" class="" required>
+                <img src="{% static '/media/user.png' %}">
+                <div class="col-xs-4"><input type="file" class="form-control" id="id-img1" name="profilePicture" value="fileupload" required> </div>
               </div>
               <h6 class="" style="color: white">Choose Picture</h6>
             </div>
@@ -259,12 +259,12 @@
     <h6><b>Register Driver</b></h6>
   </div>
   <br>
-  <form id="regiter_form" method="POST" autocomplete="off" enctype="multipart/form-data">
+  <form id="register_form" method="POST" autocomplete="off" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="container">
       <div class="picture-container">
         <div class="picture">
-          <img src="{% static 'media/user.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
+          <img src="{% static '/images/user.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
           <input type="file" id="profilePicture" name="profilePicture" required>
         </div>
         <h6 class="">Choose Picture</h6>
@@ -275,25 +275,25 @@
     <div class="row">
       <div class="col-md-4 mb-3">
         <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20">
+        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20" required>
       </div>
       <div class="col-md-4 mb-3">
         <label for="middleName">Middle Name</label>
-        <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20">
+        <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20" required>
       </div>
       <div class="col-md-4 mb-3">
         <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20">
+        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20" required>
       </div>
     </div>
     <div class="row">
       <div class="col-md-5 mb-3">
         <label for="emailAddress">Email</label>
-        <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="Email" required minlength="1" maxlength="50">
+        <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="Email" required minlength="1" maxlength="50" required>
       </div>
       <div class="col-md-4 mb-3">
         <label for="contactNumber">Contact No.</label>
-        <input type="text" class="form-control" id="contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11"  onkeypress='validate(event)'/>
+        <input type="text" class="form-control" id="contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11"  onkeypress='validate(event)'/ required>
       </div>
       <div class="col-md-3 mb-2">
         <label for="gender">Gender</label> <br>
