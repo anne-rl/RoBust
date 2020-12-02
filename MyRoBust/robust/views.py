@@ -48,12 +48,22 @@ class UserReservationView(View):
 
         def post(self, request):
             return render(request, 'user/userReservation.html')
+
+# def UserSelect(request, id):
+#     bus = Bus.objects.get(bus=id)
+#     qs_booking = Booking.objects.filter(bus=id)
+#     context = {
+#         'bookings': qs_booking
+#     }
+#     return render(request, 'user/userSelect.html', context)
     
 class UserSelectView(View):
-        def get(self, request):
-            selectSeat = Bus.objects.all()
+        # model = Bus
+        def get(self,request,id):
+            bus = Bus.objects.get(busID=id)
+            qs_booking = Bus.objects.filter(busID=id)    
             context = {
-                'books' : selectSeat 
+                'bookings': qs_booking
             }
             return render(request, 'user/userSelect.html', context)
 
@@ -62,12 +72,11 @@ class UserSelectView(View):
 
             if form.is_valid():    
                 seatNumber = request.POST.get("seatNumber")
-
-                form = Booking(seatNumber = seatNumber)
+                bus = request.POST['bus']
+                form = Booking(seatNumber = seatNumber, busID = bus)
                 form.save()
                 
-                return render(request, 'user/userSelect.html')
-                
+                return render(request, 'user/userReview.html')       
     
             else:
                 print(form.errors)

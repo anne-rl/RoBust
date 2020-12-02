@@ -291,7 +291,8 @@
   <form id="bookingForm" method="POST" autocomplete="off" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="row">
-    {% for book in books %}
+
+    {% for booking in bookings %}
       <div class="col-md-4 mb-3">
         <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 370px; border-bottom-color: #a83332; border-bottom-style: solid">
           <h6><b>Select a Seat</b></h6>
@@ -587,20 +588,21 @@
           <h6><b>Booking Details</b></h6>
         </div>
         <div class="row" style="width: 900; padding-top: 15px">
+          <input class="form-control" id="busID" name="busID" minlength="1" maxlength="100" value = "{{booking.busID}}" hidden>
           <div class="col-md-5 mb-3" style="width: 900;">
             <label for="busName">Bus Name</label>
-            <input class="form-control" id="busID" name="busID" minlength="1" maxlength="100" value = "{{books.id}}" readonly>
+            <input class="form-control" id="busID" name="busID" minlength="1" maxlength="100" value = "{{booking.busName}}" readonly>
           </div>
           <div class="col-md-5 mb-3">
             <label for="plateNumber">Plate Number</label>
-            <input class="form-control" id="plateNumber" name="plateNumber" minlength="2" maxlength="20" value="{{book.plateNumber}}" readonly>
+            <input class="form-control" id="plateNumber" name="plateNumber" minlength="2" maxlength="20" value="{{booking.plateNumber}}" readonly>
           </div>
         </div>
 
         <div class="row" style="width: 900">
           <div class="col-md-5 mb-3">
             <label for="destination">Destination</label>
-            <input class="form-control" id="destination" name="destination" minlength="1" maxlength="50" value="{{book.destination}}" readonly>
+            <input class="form-control" id="destination" name="destination" minlength="1" maxlength="50" value="{{booking.destination}}" readonly>
           </div>
           <div class="col-md-5 mb-3">
             <label>Date</label>
@@ -608,7 +610,7 @@
           </div>
           <div class="col-md-3">
             <label for="time">Time Departure</label>
-            <input class="form-control" id="time" name="time" minlength="1" maxlength="30" value="{{book.departureTime}}" style="width: 220px" readonly>
+            <input class="form-control" id="time" name="time" minlength="1" maxlength="30" value="{{booking.departureTime}}" style="width: 220px" readonly>
           </div>
           <div class="col-md-3 mb-3">
             <label for="seatNumber" style="margin-left: 25px">Seat Number</label>
@@ -616,7 +618,7 @@
           </div>
           <div class="col-md-3 mb-3">
             <label for="fare" style="margin-left: 50px">Total Fare</label>
-            <input class="form-control" id="fare" name="fare" value="{{book.busFare}}" required minlength="25" maxlength="25" style="width: 220px; margin-left: 50px" readonly>
+            <input class="form-control" id="fare" name="fare" value="{{booking.busFare}}" required minlength="25" maxlength="25" style="width: 220px; margin-left: 50px" readonly>
           </div>
         </div>
 
@@ -626,7 +628,7 @@
           <h6><b>Payment Details</b></h6>
         </div>
         <li style="list-style:none; padding-top: 25px">Available Balance: </li>
-        <li style="list-style:none; padding-top: 10px">Total Fare: {{book.busFare}}</li>
+        <li style="list-style:none; padding-top: 10px">Total Fare: {{booking.busFare}}</li>
         <li style="list-style:none; padding-top: 10px">Remaining Balance: </li>
 
         <br><br><br>
