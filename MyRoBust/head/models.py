@@ -1,13 +1,14 @@
 from django.db import models
 from user.models import *
+from django.utils import timezone
 
 class Bus(models.Model):
         busName = models.CharField(max_length = 50)
         plateNumber = models.CharField(max_length = 50)
         destination = models.CharField(max_length = 50)
-        totalSeats = models.IntegerField()
-        busFare = models.FloatField()
-        departureTime = models.TimeField()
+        totalSeats = models.PositiveSmallIntegerField(default=0)
+        busFare = models.PositiveSmallIntegerField(default=0)
+        departureTime = models.TimeField(default = timezone.now)
         img = models.FileField(upload_to='media', null = True)
         #driver = models.ForeignKey('Driver', on_delete=models.CASCADE, related_name='bus_driver')
     

@@ -3,13 +3,14 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.http import HttpResponse
 from django.contrib import messages
-from .forms import PassengerForm
-#from .forms import BookingForm
-from head.forms import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from .forms import *
 from .models import *
-
+from head.forms import *
+from head.models import *
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 class LandingIndexView(View):
         def get(self, request):
@@ -58,21 +59,22 @@ class UserSelectView(View):
             return render(request, 'user/userSelect.html', context)
 
         def post(self, request):
-#          form = BookingForm(request.POST, request.FILES)    
-#
-#          if form.is_valid():     
-#              seatNumber = request.POST.get("seatNumber")
-#
-#              form = Booking(seatNumber = busSeatNumber)
-#              form.save()
+            form = BookingForm(request.POST)    
 
-              return render(request, 'user/userSelect.html')
+            if form.is_valid():    
+                seatNumber = request.POST.get("seatNumber")
 
-#          else:
-#              print(form.errors)
-#              return HttpResponse('not valid')
+                form = Booking(seatNumber = seatNumber)
+                form.save()
+                
+                return render(request, 'user/userSelect.html')
+                
+    
+            else:
+                print(form.errors)
+                return HttpResponse('not valid')
             
-          
+            
 class UserSelectUpdateView(View):
         def get(self, request):
             return render(request, 'user/userSelectUpdate.html')

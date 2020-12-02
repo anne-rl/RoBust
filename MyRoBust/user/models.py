@@ -18,8 +18,9 @@ class Passenger(models.Model):
     class Meta:
         db_table = "Passenger"
     
-#class Booking(Bus):
-#    seatNumber = models.CharField(max_length = 15)
-#    
-#    class Meta:
-#        db_table = "Booking"
+class Booking(Bus):
+    BusID = models.ForeignKey(Bus, on_delete=models.CASCADE, related_name='bookingBusID', null=True, blank = True)
+    seatNumber = models.CharField(max_length = 15)
+    
+    class Meta:
+        db_table = "Booking"
