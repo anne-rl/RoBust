@@ -299,7 +299,7 @@
       <div class="col-md-4 mb-3">
         {% if bus.img %}
         <button type="button" class="btn btn" data-toggle="modal" data-target="#viewbusModal-{{bus.id}}" style="background-color: #2c353c; color: white; border-color: transparent; height: 270px; width: 364px; padding: 0px; padding-top: 0px">
-          <img src="{{bus.img.url}}" width="360" height="240" style="border-radius: 5px"></button>
+          <img src="{{bus.img.url}}" width="360" height="240" style="border-radius: 5px">{{bus.busName}}</button>
         {% endif %}
       </div>
 
