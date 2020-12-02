@@ -67,13 +67,13 @@ class UserSelectView(View):
             }
             return render(request, 'user/userSelect.html', context)
 
-        def post(self, request):
+        def post(self, request, id):
             form = BookingForm(request.POST)    
 
             if form.is_valid():    
                 seatNumber = request.POST.get("seatNumber")
-                bus = request.POST['bus']
-                form = Booking(seatNumber = seatNumber, busID = bus)
+                bus = request.POST['busID']
+                form = Booking(seatNumber = seatNumber, bus_id=bus)
                 form.save()
                 
                 return render(request, 'user/userReview.html')       
