@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 class Passenger(models.Model):
-        username = models.CharField(max_length = 100, primary_key = True)
+        username = models.CharField(max_length = 100, primary_key = True, null=False)
         firstName = models.CharField(max_length = 100)
         middleName = models.CharField(max_length = 100)
         lastName = models.CharField(max_length = 100)
@@ -44,6 +44,7 @@ class Driver(models.Model):
             db_table = "Driver"
 
 class Bus(models.Model):
+        busID=models.AutoField(primary_key=True)
         busName = models.CharField(max_length = 50)
         plateNumber = models.CharField(max_length = 50)
         destination = models.CharField(max_length = 50)
@@ -57,9 +58,9 @@ class Bus(models.Model):
             db_table = "Bus"
 
 class Booking(models.Model):
-        booking=models.AutoField(primary_key=True)
-        passenger=models.ForeignKey(Passenger, on_delete=models.CASCADE)
-        busId = models.ForeignKey(Bus, on_delete=models.CASCADE)
+        booking=models.AutoField(primary_key=True, null=False, default=1)
+        # passenger=models.ForeignKey(Passenger, on_delete=models.CASCADE)
+        bus = models.ForeignKey(Bus, on_delete=models.CASCADE)
         seatNumber = models.CharField(max_length = 15)
     
         class Meta:
