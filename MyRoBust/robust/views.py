@@ -61,7 +61,7 @@ class UserSelectView(View):
         # model = Bus
         def get(self,request,id):
             bus = Bus.objects.get(busID=id)
-            qs_booking = Bus.objects.filter(busID=id)    
+            qs_booking = Bus.objects.filter(busID=id)  
             context = {
                 'bookings': qs_booking
             }
@@ -92,10 +92,27 @@ class UserSelectUpdateView(View):
             return render(request, 'user/userSelectUpdate.html')
                 
 class UserReviewView(View):
-        def get(self, request):
-            return render(request, 'user/userReview.html')
+        def get(self,request):   
+            booking = Booking.objects.all()
+            bus = Bus.objects.all()
+            context = {
+                'buses': bus,
+                'bookings': booking
+            }
+            return render(request, 'user/userReview.html', context)
 
         def post(self, request):
+            if request.method == 'POST':
+#                if 'seatsUpdateBtn' in request.POST:
+#                    print('update booking button clicked')
+               dBooked = request.POST.get("booking-date_booked")
+               bName = request.POST.get("bus-busName")
+               pNumber = request.POST.get("bus-plateNumber")
+               pdestination = request.POST.get("bus-destination")
+               tDeparture = request.POST.get("bus-timeDeparture")
+               tNumber = request.POST.get("booking-ticketNumber")
+               dReservation = request.POST.get("booking-dateReservation")
+                                                                                              
             return render(request, 'user/userReview.html')
 
 class UserDashboardViewWeekly(View):

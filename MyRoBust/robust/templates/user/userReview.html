@@ -326,17 +326,19 @@
                 <th style="text-align:center; width: 15%">Ticket No.</th>
                 <th style="text-align:center; width: 10%">Time Departure</th>
                 <th style="text-align:center; width: 25%">Destination</th>
-                <th style="text-align:center; width: 15%">Seat No.</th>
+                <th style="text-align:center; width: 10%">Seat No.</th>
                 <th style="text-align:center; width: 12%">Action</th>
               </tr>
-
-              <!-------------- Fake Data -------------->
-              <tr style="background-color: white">
-                <td style="text-align:center"> 11/02/2020</td>
-                <td style="text-align:center">RoBust - 1</td>
-                <td>5:30 p.m.</td>
-                <td>Lawaan</td>
-                <td style="text-align:center">Seat43</td>
+            </thead>
+            <tbody>
+              {% for bus in buses %}
+              {% for booking in bookings %}
+              <tr>
+                <td style="text-align:center">{{booking.date_booked}}</td>
+                <td> RoBust - {{booking.booking}}</td>
+                <td style="text-align:center">{{bus.departureTime}}</td>
+                <td>{{bus.destination}}</td>
+                <td style="text-align:center">{{booking.seatNumber}}</td>
                 <td style="text-align:center">
                   <div class="text-center">
                     <a type="button" class="btn btn-default btn-sm" style="width:33px" href="#" data-toggle="modal" data-target="#viewModal"><span class="fa fa-eye" style="color:black"></span></a>
@@ -365,29 +367,29 @@
                         <div class="row">
                           <div class="col-md-4 mb-3">
                             <label for="busName" style="color: white">Bus Name</label>
-                            <input type="text" class="form-control" id="id-busName" name="reservation-busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
+                            <input type="text" class="form-control" id="id-busName" name="bus-busName" placeholder="Bus Name" required minlength="1" maxlength="20" value="{{bus.busName}}" readonly>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="busNumber" style="color: white">Plate Number</label>
-                            <input type="text" class="form-control" id="id-plateNumber" name="reservation-busNumber" placeholder="Plate Number" minlength="1" maxlength="20" readonly>
+                            <input type="text" class="form-control" id="id-plateNumber" name="bus-plateNumber" placeholder="Plate Number" minlength="1" maxlength="20" value="{{bus.plateNumber}}"  readonly>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="destination" style="color: white">Destination</label>
-                            <input type="text" class="form-control" id="id-destination" name="reservation-destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
+                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" required minlength="1" maxlength="20" value="{{bus.destination}}" readonly>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-4 mb-3">
                             <label for="timeDeparture" style="color: white">Time Departure</label>
-                            <input type="text" class="form-control" id="id-timeDeparture" name="reservation-timeDeparture" placeholder="Time Departure" minlength="1" maxlength="20" readonly>
+                            <input type="text" class="form-control" id="id-departureTime" name="bus-departureTime" placeholder="Time Departure" minlength="1" maxlength="20" value="{{bus.departureTime}}" readonly>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="ticketNumber" style="color: white">Ticket No.</label>
-                            <input type="text" class="form-control" id="ticketNumber" name="reservation-ticketNumber" placeholder="Ticket No." minlength="1" maxlength="20" readonly>
+                            <input type="text" class="form-control" id="ticketNumber" name="booking-booking" placeholder="Ticket No." minlength="1" maxlength="20" value=" RoBust - {{booking.booking}}" readonly>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="dateReservation" style="color: white">Date</label>
-                            <input type="text" class="form-control" id="id-dateReservation" name="reservation-dateReservation" data-provide="datepicker" placeholder="mm/dd/yyyy" value="" required>
+                            <input type="text" class="form-control" id="id-date_booked" name="booking-date_booked" data-provide="datepicker" placeholder="mm/dd/yyyy" required>
                           </div>
                         </div>
                         <div class="modal-footer" style="height: 44px; padding-top: 5px">
@@ -399,8 +401,7 @@
                   </div>
                 </div>
               </div>
-
-
+              
               <!-- Modal E-TICKET -->
               <div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketLabel" aria-hidden="true" oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
                 <div class="modal-dialog modal-lg" role="document">
@@ -414,27 +415,27 @@
                         <div class="row">
                           <div class="col-md-12 mb-1" style="padding-top: 10px">
                             <li style="list-style:none">
-                              <h1><b>RoBust - 1</b></h1>
+                              <h1><b>RoBust - {{booking.booking}}</b></h1>
                             </li>
                             <li style="list-style:none">
                               <i class="fa fa-bus" aria-hidden="true"></i>&nbsp;&nbsp;
-                              Wildcats School Bus
+                              {{bus.busName}}
                             </li>
                             <li style="list-style:none">
                               <i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;&nbsp;
-                              CITU 1432
+                              {{bus.plateNumber}}
                             </li>
                             <li style="list-style:none">
                               <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;
-                              5:30 pm
+                              {{bus.departureTime}}
                             </li>
                             <li style="list-style:none">
                               <i class="fa fa-calendar"></i>&nbsp;&nbsp;
-                              06 January 2021
+                              {{booking.date_booked}}
                             </li>
                             <li style="list-style:none">
                               <i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;
-                              CIT-University - Tungkop
+                              {{bus.destination}}
                             </li>
                           </div>
                         </div>
@@ -447,129 +448,8 @@
                   </div>
                 </div>
               </div>
-
-              <!-------------- Fake Data -------------->
-
-            </thead>
-            <tbody>
-              <!--                {% for user111 in user111 %}-->
-              <tr>
-                <td style="text-align:center"></td>
-                <td style="text-align:center"> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td style="text-align:center"> </td>
-                <td style="text-align:center">
-                  <div class="text-center">
-                    <a type="button" class="btn btn-default btn-sm" style="width:33px" href="#" data-toggle="modal" data-target="#viewModal"><span class="fa fa-eye" style="color:black"></span></a>
-
-                    <button type="button" class="btn btn-default btn-sm" style="width:33px" data-toggle="modal" data-target="#ticketModal">
-                      <span class="fa fa-ticket"></span>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-
-              <!-- Modal VIEW-->
-              <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content" style="background-color: #2c353c">
-                    <div class="modal-header" style="background-color: #2c353c">
-                      <h5 class="modal-title font-weight-bold" style="color:white">VIEW DETAILS</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" style="color: white">&times;</span>
-                      </button>
-                    </div>
-                    <form id="reviewUpdateForm" method="POST">
-                      <!--                      {% csrf_token %}-->
-                      <div class="modal-body">
-<!--                        <input type="text" name="passenger-username" value="{{passenger.username}}" hidden>-->
-                        <div class="row">
-                          <div class="col-md-4 mb-3">
-                            <label for="busName" style="color: white">Bus Name</label>
-                            <input type="text" class="form-control" id="busName" name="busName" placeholder="Bus Name" required minlength="1" maxlength="20" readonly>
-                          </div>
-                          <div class="col-md-4 mb-3">
-                            <label for="busNumber" style="color: white">Plate Number</label>
-                            <input type="text" class="form-control" id="plateNumber" name="busNumber" placeholder="Plate Number" minlength="1" maxlength="20" readonly>
-                          </div>
-                          <div class="col-md-4 mb-3">
-                            <label for="destination" style="color: white">Destination</label>
-                            <input type="text" class="form-control" id="destination" name="destination" placeholder="Destination" required minlength="1" maxlength="20" readonly>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-4 mb-3">
-                            <label for="timeDeparture" style="color: white">Time Departure</label>
-                            <input type="text" class="form-control" id="timeDeparture" name="timeDeparture" placeholder="Time Departure" minlength="1" maxlength="20" readonly>
-                          </div>
-                          <div class="col-md-4 mb-3">
-                            <label for="ticketNumber" style="color: white">Ticket No.</label>
-                            <input type="text" class="form-control" id="ticketNumber" name="ticketNumber" placeholder="Ticket No." minlength="1" maxlength="20" readonly>
-                          </div>
-                          <div class="col-md-4 mb-3">
-                            <label for="dateReservation" style="color: white">Date</label>
-                            <input type="text" class="form-control" id="id-dateReservation" name="reservation-dateReservation" placeholder="mm/dd/yyyy" data-provide="datepicker" value="" required>
-                          </div>
-                        </div>
-                        <div class="modal-footer" style="height: 44px; padding-top: 5px">
-                          <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 140px; background-color: #a83332; height: 40px; margin-left: 290; padding:5px; font-size: 17px" id="id-Cancel" href="{% url 'robust:userSelectUpdate_view' %}">SEARCH SEAT</a>
-                          <!--                          <button type="submit" id="btnReviewUpdate" name="btnReviewUpdate" class="btn btn" style="background-color: #a83332; color: white">SEARCH SEAT</button>-->
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Modal E-TICKET -->
-              <div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketLabel" aria-hidden="true" oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content" style="background-color:transparent; border-color: transparent; height: 100px">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true" style="color: white; padding-left: 500px; padding-bottom: 0px; width: 9px">&times;</span>
-                    </button>
-                    <div class="modal-body" style="border-color: transparent; text-transform: uppercase; font-family: Oswald, sans-serif; padding-left: 150px; background-color: transparent;">
-
-                      <div id="content" class="ticket" style="width: 600px; height:245px; padding-top: 10px; color: white; padding-left: 200px; background-color: transparent; padding-bottom: 0px">
-                        <div class="row">
-                          <div class="col-md-12 mb-1" style="padding-top: 10px">
-                            <li style="list-style:none">
-                              <h1><b>RoBust - 1</b></h1>
-                            </li>
-                            <li style="list-style:none">
-                              <i class="fa fa-bus" aria-hidden="true"></i>&nbsp;&nbsp;
-                              Wildcats School Bus
-                            </li>
-                            <li style="list-style:none">
-                              <i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;&nbsp;
-                              CITU 1432
-                            </li>
-                            <li style="list-style:none">
-                              <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;
-                              5:30 pm
-                            </li>
-                            <li style="list-style:none">
-                              <i class="fa fa-calendar"></i>&nbsp;&nbsp;
-                              06 January 2021
-                            </li>
-                            <li style="list-style:none">
-                              <i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;
-                              CIT-University - Tungkop
-                            </li>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row" style="padding-left: 360px; padding-top: 0px">
-                        <button id="btndownload" onclick="savePDF()" name="Download" class="btn" style="background-color: #2c353c; color: white; width: 150px; font-family: sans-serif">DOWNLOAD</button>
-                        &nbsp;
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--              {% endfor %}-->
+              {% endfor %}
+              {% endfor %}
             </tbody>
           </table>
         </div>
