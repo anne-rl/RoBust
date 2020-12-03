@@ -164,27 +164,27 @@
           <div class="row">
             <div class="col-md-4 mb-3">
               <label for="passengerID" style="color: white">Passenger ID</label>
-              <input type="text" class="form-control" id="id-passengerID" name="passengerID" placeholder="passenger ID" required minlength="1" maxlength="20" readonly>
+              <input type="text" class="form-control" id="id-passengerID" name="passengerID" placeholder="passenger ID" required minlength="1" maxlength="20" value="{{passenger.username}}" readonly>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4 mb-3">
               <label for="firstName" style="color: white">First Name</label>
-              <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20" readonly>
+              <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20" value="{{passenger.firstName}}" readonly>
             </div>
             <div class="col-md-4 mb-3">
               <label for="middleName" style="color: white">Middle Name</label>
-              <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20" readonly>
+              <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20" value="{{passenger.middleName}}" readonly>
             </div>
             <div class="col-md-4 mb-3">
               <label for="lastName" style="color: white">Last Name</label>
-              <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20" readonly>
+              <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20" value="{{passenger.lastName}}" readonly>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="emailAddress" style="color: white">Email</label>
-              <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="Email" required minlength="1" maxlength="50" readonly>
+              <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="Email" required minlength="1" maxlength="50" value="{{passenger.emailAddress}}" readonly>
             </div>
             <div class="col-md-6 mb-3">
               <label for="password" style="color: white">Password</label>
@@ -194,7 +194,7 @@
           <div class="row">
             <div class="col-md-4 mb-1">
               <label for="department" style="color: white">Department</label><br>
-              <select class="form-control-lg" style="border-color: lightgrey; height: 38px; font-size: 15px; width: 240px" id="department" name="department" required>
+              <select class="form-control-lg" style="border-color: lightgrey; height: 38px; font-size: 15px; width: 240px" id="department" name="department" value="{{passenger.department}}">
                 <option value=""></option>
                 <option value="Elementary">Elementary</option>
                 <option value="High-School">High-School</option>
@@ -203,12 +203,12 @@
             </div>
             <div class="col-md-4 mb-3">
               <label for="contactNumber" style="color: white">Contact No.</label>
-              <input type="contactNumber" class="form-control" id="id-contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11">
+              <input type="contactNumber" class="form-control" id="id-contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11" value="{{passenger.contactNumber}}">
             </div>
             <div class="col-md-3 mb-2">
               <label for="gender" style="color: white">Gender</label> <br>
               <div class="form-check-inline text-right" style="color: white">
-                <label class="form-check-label ">
+                <label class="form-check-label " value="{{passenger.gender}}">
                   {% if user.gender == 'Male' %}
                   <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Male" checked="checked">Male
                   <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Female">Female
