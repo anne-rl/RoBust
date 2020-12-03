@@ -23,12 +23,14 @@ class LandingIndexView(View):
                 if Admin.objects.filter(username=request.POST['username'],password=request.POST['password']).exists() : 
                     admin = Admin.objects.get(username=request.POST['username'], password=request.POST['password'])
                 
-                    return render(request, 'admin/adminList.html', {'admin': admin})
+                    #return render(request, 'admin/adminList.html', {'admin': admin})
+                    return redirect('robust:adminList_view')   
 
                 if Passenger.objects.filter(username=request.POST['username'],           password=request.POST['password']).exists() : 
                     passenger = Passenger.objects.get(username=request.POST['username'], password=request.POST['password'])
                 
-                    return render(request, 'user/userReservation.html', {'passenger': passenger})
+                    #return render(request, 'user/userReservation.html', {'passenger': passenger})
+                    return redirect('robust:userReservation_view')   
 
                 else:
 #                    context = {'msg': 'Invalid username/password'}
@@ -48,26 +50,36 @@ class UserReservationView(View):
 
         def post(self, request):
             return render(request, 'user/userReservation.html')
+
+# def UserSelect(request, id):
+#     bus = Bus.objects.get(bus=id)
+#     qs_booking = Booking.objects.filter(bus=id)
+#     context = {
+#         'bookings': qs_booking
+#     }
+#     return render(request, 'user/userSelect.html', context)
     
 class UserSelectView(View):
-        def get(self, request):
-            selectSeat = Bus.objects.all()
+        # model = Bus
+        def get(self,request,id):
+            bus = Bus.objects.get(busID=id)
+            qs_booking = Bus.objects.filter(busID=id)  
             context = {
-                'books' : selectSeat 
+                'bookings': qs_booking
             }
             return render(request, 'user/userSelect.html', context)
 
-        def post(self, request):
+        def post(self, request, id):
             form = BookingForm(request.POST)    
 
-            if form.is_valid():    
+            if form.is_valid():
+                dBooked = request.POST.get("dateBooked")   
                 seatNumber = request.POST.get("seatNumber")
-
-                form = Booking(seatNumber = seatNumber)
+                bus = request.POST['busID']
+                form = Booking(date_booked=dBooked, seatNumber = seatNumber, bus_id=bus)
                 form.save()
                 
-                return render(request, 'user/userSelect.html')
-                
+                return render(request, 'user/userReview.html')       
     
             else:
                 print(form.errors)
@@ -82,10 +94,27 @@ class UserSelectUpdateView(View):
             return render(request, 'user/userSelectUpdate.html')
                 
 class UserReviewView(View):
-        def get(self, request):
-            return render(request, 'user/userReview.html')
+        def get(self,request):   
+            booking = Booking.objects.all()
+            bus = Bus.objects.all()
+            context = {
+                'buses': bus,
+                'bookings': booking
+            }
+            return render(request, 'user/userReview.html', context)
 
         def post(self, request):
+            if request.method == 'POST':
+#                if 'seatsUpdateBtn' in request.POST:
+#                    print('update booking button clicked')
+               dBooked = request.POST.get("booking-date_booked")
+               bName = request.POST.get("bus-busName")
+               pNumber = request.POST.get("bus-plateNumber")
+               pdestination = request.POST.get("bus-destination")
+               tDeparture = request.POST.get("bus-timeDeparture")
+               tNumber = request.POST.get("booking-ticketNumber")
+               dReservation = request.POST.get("booking-dateReservation")
+                                                                                              
             return render(request, 'user/userReview.html')
 
 class UserDashboardViewWeekly(View):
@@ -153,7 +182,8 @@ class AdminListView(View):
                 UpdatePassengerCashIn = Passenger.objects.filter(username = getPassengerUsername).update(availableBalance = AvailableBalanceUpdate, currentCashIn = CashInUpdate)
                 print(UpdatePassengerCashIn)
                 
-        return redirect('admin:adminList_view')       
+        return redirect('robust:adminList_view')   
+        #return render(request, 'admin/adminList.html')           
 
 class AdminSummaryView(View):
     def get(self, request):
@@ -251,7 +281,7 @@ class AdminRegisterBus(View):
 
     def post(self, request):
 
-        form = BusForm(request.POST)
+        form = BusForm(request.POST, request.FILES)
 
         if form.is_valid():
 
