@@ -137,7 +137,7 @@ class AdminListView(View):
     def get(self, request):
         passengers = Passenger.objects.all()
         context = {
-        'passengers' : passengers,
+            'passengers' : passengers,
         }
         return render(request, 'admin/adminList.html', context)
   
@@ -187,7 +187,13 @@ class AdminListView(View):
 
 class AdminSummaryView(View):
     def get(self, request):
-        return render(request, 'admin/adminSummary.html')
+        booking = Booking.objects.all()
+        bus = Bus.objects.all()
+        context = {
+            'buses': bus,
+            'bookings': booking
+        }
+        return render(request, 'admin/adminSummary.html', context)
   
     def post(self, request):
         return render(request, 'admin/adminSummary.html')

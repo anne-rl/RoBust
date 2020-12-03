@@ -336,11 +336,11 @@
             <tbody>
               {% for booking in bookings %}
               <tr>
-                <td style="text-align:center">{{booking.date_booked}}</td>
-                <td> RoBust - {{booking.booking}}</td>
-                <td style="text-align:center">{{booking.bus.departureTime}}</td>
-                <td>{{booking.bus.destination}}</td>
-                <td style="text-align:center">{{booking.seatNumber}}</td>
+                <td style="text-align:center">{{booking.date_booked}} </td>
+                <td> RoBust - {{booking.booking}} </td>
+                <td style="text-align:center"> {{booking.bus.departureTime}} </td>
+                <td> {{booking.bus.destination}} </td>
+                <td style="text-align:center"> {{booking.seatNumber}} </td>
                 <td style="text-align:center">
                   <div class="text-center">
                     <a type="button" class="btn btn-default btn-sm" style="width:33px" href="#" data-toggle="modal" data-target="#viewModal-{{booking.booking}}"><span class="fa fa-eye" style="color:black"></span></a>
@@ -367,29 +367,29 @@
                       <div class="modal-body">
                         <!--                        <input type="text" name="passenger-username" value="{{passenger.username}}" hidden>-->
                         <div class="row">
-                          <div class="col-md-4 mb-3">
+                          <div class="col-md-6 mb-3">
                             <label for="busName" style="color: white">Bus Name</label>
                             <input type="text" class="form-control" id="id-busName" name="bus-busName" placeholder="Bus Name" required minlength="1" maxlength="20" value="{{booking.bus.busName}}" readonly>
                           </div>
-                          <div class="col-md-4 mb-3">
-                            <label for="busNumber" style="color: white">Plate Number</label>
-                            <input type="text" class="form-control" id="id-plateNumber" name="bus-plateNumber" placeholder="Plate Number" minlength="1" maxlength="20" value="{{booking.bus.plateNumber}}" readonly>
-                          </div>
-                          <div class="col-md-4 mb-3">
+                          <div class="col-md-6 mb-3">
                             <label for="destination" style="color: white">Destination</label>
                             <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" required minlength="1" maxlength="20" value="{{booking.bus.destination}}" readonly>
                           </div>
                         </div>
                         <div class="row">
-                          <div class="col-md-4 mb-3">
+                          <div class="col-md-3 mb-3">
+                            <label for="busNumber" style="color: white">Plate Number</label>
+                            <input type="text" class="form-control" id="id-plateNumber" name="bus-plateNumber" placeholder="Plate Number" minlength="1" maxlength="20" value="{{booking.bus.plateNumber}}" readonly>
+                          </div>
+                          <div class="col-md-3 mb-3">
                             <label for="timeDeparture" style="color: white">Time Departure</label>
                             <input type="text" class="form-control" id="id-departureTime" name="bus-departureTime" placeholder="Time Departure" minlength="1" maxlength="20" value="{{booking.bus.departureTime}}" readonly>
                           </div>
-                          <div class="col-md-4 mb-3">
+                          <div class="col-md-3 mb-3">
                             <label for="ticketNumber" style="color: white">Ticket No.</label>
                             <input type="text" class="form-control" id="ticketNumber" name="booking-booking" placeholder="Ticket No." minlength="1" maxlength="20" value=" RoBust - {{booking.booking}}" readonly>
                           </div>
-                          <div class="col-md-4 mb-3">
+                          <div class="col-md-3 mb-3">
                             <label for="dateReservation" style="color: white">Date</label>
                             <input type="text" class="form-control" id="id-date_booked" name="booking-date_booked" data-provide="datepicker" placeholder="mm/dd/yyyy" required>
                           </div>
@@ -459,7 +459,6 @@
                                 </li>
                               </div>
                             </div>
-
                           </div>
                         </div>
                       </div>
