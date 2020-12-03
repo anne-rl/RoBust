@@ -320,25 +320,13 @@
                   <form id="updateForm" method='POST'>
                     {% csrf_token %}
                     <div class="modal-body">
-                      {% if bus.img.url is not null %}
                       <div class="container">
                         <div class="picture-container">
                           <div class="picture">
                             <img src="{{ bus.img.url }}" class="picture-src" id="profilePicturePreview" required>
                           </div>
-
                         </div>
                       </div>
-                      {% else %}
-                      <div class="modal-body">
-                        <div class="container">
-                          <div class="picture-container">
-                            <div class="picture">
-                              <img src="{% static 'media/bus-icon.png' %}" class="picture-src" id="profilePicturePreview" required>
-                            </div>
-                          </div>
-                        </div>
-                        {% endif %}
                         <div class="row">
                           <div class="col-md-4 mb-2">
                             <input type="text" class="form-control" id="bus-id" name="bus-id" value="{{bus.busID}}" hidden="hidden">
@@ -384,7 +372,6 @@
                           <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">CLOSE</button>
                           <button type="submit" name="busUpdate" id="busUpdate" class="btn btn" style="background-color: #a83332; color: white">UPDATE</button>
                         </div>
-                      </div>
                     </div>
                   </form>
                 </div>
@@ -494,9 +481,11 @@
                             <div class="picture-container">
                               <div class="picture">
                                 <img src="{{driver.profilePicture.url}}" class="picture-src" id="profilePicturePreview" title="">
+<!--
                                 <input type="file" id="profilePicture" name="driver-profilePicture" class="">                                
                                 <input type="file" id="profilePicture"  id="profilePicture" name="driver-profilePicture" value="{{driver.profilePicture}}" readonly>
-<!--                                <h6 class="" style="color: white">Choose Picture</h6>-->
+                                <h6 class="" style="color: white">Choose Picture</h6>
+-->
                               </div>
                             </div>
                           </div>                
@@ -506,15 +495,15 @@
                         <div class="row">
                           <div class="col-md-4 mb-3">
                             <label for="firstName" style="color: white">First Name</label>
-                            <input type="text" class="form-control" id="firstName" name="driver-firstName" placeholder="First Name" value="{{driver.firstName}}" required minlength="1" maxlength="20" readonly>
+                            <input type="text" class="form-control" id="firstName" name="driver-firstName" placeholder="First Name" value="{{driver.firstName}}" required minlength="1" maxlength="20">
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="middleName" style="color: white">Middle Name</label>
-                            <input type="text" class="form-control" id="middleName" name="driver-middleName" placeholder="Middle Name" value="{{driver.middleName}}" minlength="1" maxlength="20" readonly>
+                            <input type="text" class="form-control" id="middleName" name="driver-middleName" placeholder="Middle Name" value="{{driver.middleName}}" minlength="1" maxlength="20">
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="lastName" style="color: white">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" name="driver-lastName" placeholder="Last Name" value="{{driver.lastName}}" required minlength="1" maxlength="20" readonly>
+                            <input type="text" class="form-control" id="lastName" name="driver-lastName" placeholder="Last Name" value="{{driver.lastName}}" required minlength="1" maxlength="20">
                           </div>
                         </div>
                         <div class="row">

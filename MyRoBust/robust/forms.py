@@ -24,7 +24,7 @@ class RegisterDriverForm(forms.ModelForm):
     
     class Meta:
         model = Driver
-        fields = ('profilePicture', 'firstName', 'middleName', 'lastName', 'emailAddress', 'contactNumber', 'gender')
+        fields = ('profilePicture', 'firstName', 'lastName', 'emailAddress', 'contactNumber', 'gender')
          
 
 class AdministratorForm(forms.ModelForm):

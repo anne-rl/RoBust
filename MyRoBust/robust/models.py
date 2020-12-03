@@ -32,7 +32,7 @@ class Admin(models.Model):
             db_table = "Admin"
 
 class Driver(models.Model):
-        profilePicture = models.ImageField(upload_to='images/', null=True, blank=True)
+        profilePicture = models.ImageField(upload_to='imagesDriver/', null=True, blank=True)
         firstName = models.CharField(max_length = 50)
         middleName = models.CharField(max_length = 50)
         lastName = models.CharField(max_length = 50)
@@ -51,7 +51,7 @@ class Bus(models.Model):
         totalSeats = models.PositiveSmallIntegerField(default=51)
         busFare = models.PositiveSmallIntegerField(default=0)
         departureTime = models.TimeField(default = timezone.now)
-        img = models.FileField(upload_to='media', null = True)
+        img = models.ImageField(upload_to='imagesBus/', null=True, blank=True)
         # driver = models.ForeignKey('Driver', on_delete=models.CASCADE)
     
         class Meta:

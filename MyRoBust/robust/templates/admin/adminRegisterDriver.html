@@ -235,7 +235,6 @@
   </div>
 </div>
 
-
 <!------------ Nav Bar Buttons ------------>
 <div style="background-color: #2c353c; border-bottom-color: #a83332; border-bottom-style: solid">
 
@@ -266,8 +265,8 @@
         <div class="picture">
           <img src="{% static '/images/user.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
           <input type="file" id="profilePicture" name="profilePicture" required>
+          <h6 class="">Choose Picture</h6>
         </div>
-        <h6 class="">Choose Picture</h6>
       </div>
     </div>
     <br>
@@ -279,7 +278,7 @@
       </div>
       <div class="col-md-4 mb-3">
         <label for="middleName">Middle Name</label>
-        <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20" required>
+        <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20">
       </div>
       <div class="col-md-4 mb-3">
         <label for="lastName">Last Name</label>

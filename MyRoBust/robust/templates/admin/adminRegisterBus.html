@@ -4,10 +4,14 @@
 <title>CIT RoBust</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'css/seats.css' %}">
 <link rel="shortcut icon" href="{% static 'media/CIT.png' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/reservation.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}">
 <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 {% endblock headerinclude %}
 
 {% block content %}
@@ -104,16 +108,14 @@
                 <div class="row">
                   <div class="col-md-12">
                     <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-
                       <div class="form-group">
                         <div class="row">
                           <div class="col-lg-12">
                             <div class="text-left">
-                              <a href="" tabindex="5" class="profileInformation" class="btn btn1" data-toggle="modal" data-target="#adminProfile" style="color: white">Profile Information</a>
+                              <a href="" tabindex="5" class="profileInformation" class="btn btn1" data-toggle="modal" data-target="#updateProfile" style="color: white">Profile Information</a>
                             </div>
                             <div class="dropdown-divider" role="presentation">
-                              <span class="filler">&nbsp;</span>
-                            </div>
+                              <span class="filler">&nbsp;</span></div>
                             <div class="text-left">
                               <a tabindex="5" class="logout" style="color: white" href="{% url 'robust:landing_view' %}">Logout</a>
                             </div>
@@ -133,8 +135,8 @@
   </div>
 </header>
 
-<!-- RoBust Admin Profile Information Modal -->
-<div class="modal fade" id="adminProfile" tabindex="-1" role="dialog" aria-labelledby="adminProfileModalLabel" aria-hidden="true">
+<!-- RoBust Profile Information Modal -->
+<div class="modal fade" id="updateProfile" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content" style="background-color:#2c353c">
       <div class="modal-header" style="background-color:#2c353c">
@@ -150,14 +152,20 @@
           <div class="container">
             <div class="picture-container">
               <div class="picture">
-                <img src="{% static 'media/user.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
-                <input type="file" id="profilePicture" name="profilePicture" class="" required>
+                <img src="{% static '/media/user.png' %}">
+                <div class="col-xs-4"><input type="file" class="form-control" id="id-img1" name="profilePicture" value="fileupload" required> </div>
               </div>
               <h6 class="" style="color: white">Choose Picture</h6>
             </div>
           </div>
           <br>
           <input type="text" name="id" hidden>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="passengerID" style="color: white">Passenger ID</label>
+              <input type="text" class="form-control" id="id-passengerID" name="passengerID" placeholder="passenger ID" required minlength="1" maxlength="20" readonly>
+            </div>
+          </div>
           <div class="row">
             <div class="col-md-4 mb-3">
               <label for="firstName" style="color: white">First Name</label>
@@ -196,7 +204,7 @@
           <div class="row">
             <div class="col-md-4 mb-3">
               <label for="contactNumber" style="color: white">Contact No.</label>
-              <input type="number" class="form-control" id="contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11">
+              <input type="contactNumber" class="form-control" id="id-contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11">
             </div>
             <div class="col-md-3 mb-2">
               <label for="gender" style="color: white">Gender</label> <br>
@@ -214,15 +222,19 @@
             </div>
           </div>
 
+
           <div class="modal-footer" style="background-color:#2c353c;height: 35px">
             <button type="button" class="btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>
-            <a type="button" class="btn btn1" style="background-color: #a83332; color: white" id="id-register" href="{% url 'robust:userReservation_view' %}">UPDATE</a>
+
+            <!--                    <button type="submit" id="btnRegister" name="btnRegister" class="btn" style="background-color: #a83332; color: white">REGISTER</button>-->
+            <a type="button" class="btn btn1" style="background-color: #a83332; color: white" id="id-register" href="{% url 'robust:adminList_view' %}">UPDATE</a>
           </div>
         </div>
       </form>
     </div>
   </div>
 </div>
+
 
 <!------------ Nav Bar Buttons ------------>
 <div style="background-color: #2c353c; border-bottom-color: #a83332; border-bottom-style: solid">
@@ -241,107 +253,89 @@
 </div>
 <br>
 
-
-<!--  Add Bus-->
-<div class="container" style="position: relative; left: -10px">
+<!------------ BUS REGISTRATION BODY ------------>
+<div class="container" style="position: relative; left: -30px">
   <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 1180px; border-bottom-color: #a83332; border-bottom-style: solid">
     <h6><b>Register Bus</b></h6>
   </div>
   <br>
-</div>
-<form id="form1" method='POST' autocomplete="off" enctype="multipart/form-data">
-  {% csrf_token %}
-
-  <div class="container">
-    <div class="picture-container">
-      <div class="picture">
-        <img src="{% static 'media/bus-icon.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
-        <input type="file" id="img" name="img" class="" required>
-        <label for="img">Choose Picture</label>
-      </div>
-    </div>
-  </div>
-  <br>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-2">
-        <input type="text" class="form-control" id="busNumber" name="busNumber" placeholder="Bus Number" hidden="hidden">
-      </div>
-    </div>
-    <div class="row" style="width: 1200">
-      <div class="col-md-6 mb-3">
-        <label for="busName">Bus Name</label>
-        <input type="text" class="form-control" id="busName" name="busName" minlength="1" maxlength="30" placeholder="Bus Name" required>
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="destination">Destination</label>
-        <input type="text" class="form-control" id="destination" name="destination" minlength="1" maxlength="30" placeholder="Destination" required>
-      </div>
-    </div>
-    <div class="row" style="width: 1200">
-      <div class="col-md-3 mb-3">
-        <label for="plateNumber">Plate Number</label>
-        <input type="text" class="form-control" id="plateNumber" name="plateNumber" minlength="1" maxlength="30" placeholder="Plate Number" required>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="totalSeats">Seats</label>
-        <input type="number" class="form-control" id="totalSeats" name="totalSeats" value="" step="1" max="100" min="20" placeholder="Seats" required>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="busFare">Bus Fare</label>
-        <input type="number" class="form-control" id="busFare" name="busFare" value="" required min="10" max="100" step="1.00" maxlength="5" placeholder="Bus Fare" required>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="departureTime">Time Departure</label>
-        <input type="time" class="form-control" id="departureTime" name="departureTime" required>
+  <form id="register_form" method="POST" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+      <div class="picture-container">
+        <div class="picture">
+          <img src="{% static '/images/bus-icon.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
+          <input type="file" id="profilePicture" name="img" required>
+          <h6 class="">Choose Picture</h6>
+        </div>
       </div>
     </div>
     <br>
-    <div class="row" style="padding-left: 60px">
-      <div class="col-md-6 mb-1">
-        <a type="cancel" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 310; padding:10px" id="id-Cancel" href="{% url 'robust:adminBusTransaction_view' %}">CANCEL</a>
-      </div>
-      <div class="col-md-6 mb-1">
-        <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> SUBMIT </button>
-      </div>
+    <input type="text" name="id" hidden>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-2">
+            <input type="text" class="form-control" id="busNumber" name="busNumber" placeholder="Bus Number" hidden="hidden">
+          </div>
+        </div>
+        <div class="row" style="width: 1200">
+          <div class="col-md-6 mb-3">
+            <label for="busName">Bus Name</label>
+            <input type="text" class="form-control" id="busName" name="busName" minlength="1" maxlength="30" placeholder="Bus Name" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="destination">Destination</label>
+            <input type="text" class="form-control" id="destination" name="destination" minlength="1" maxlength="30" placeholder="Destination" required>
+          </div>
+        </div>
+        <div class="row" style="width: 1200">
+          <div class="col-md-3 mb-3">
+            <label for="plateNumber">Plate Number</label>
+            <input type="text" class="form-control" id="plateNumber" name="plateNumber" minlength="1" maxlength="30" placeholder="Plate Number" required>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="totalSeats">Seats</label>
+            <input type="text" class="form-control" id="totalSeats" name="totalSeats"  placeholder="Seats" value = "51" readonly>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="busFare">Bus Fare</label>
+            <input type="number" class="form-control" id="busFare" name="busFare" value="" required min="10" max="100" step="1.00" maxlength="5" placeholder="Bus Fare" required>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="departureTime">Time Departure</label>
+            <input type="time" class="form-control" id="departureTime" name="departureTime" required>
+          </div>
+        </div>
+        <br>
+        <div class="row" style="padding-left: 60px">
+          <div class="col-md-6 mb-1">
+            <a type="cancel" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 310; padding:10px" id="id-Cancel" href="{% url 'robust:adminBusTransaction_view' %}">CANCEL</a>
+          </div>
+          <div class="col-md-6 mb-1">
+            <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> SUBMIT </button>
+          </div>
     </div>
     </div>
-</form>
-<br>
-
-{% endblock content %}
+    </form>
+    <br>
+</div>
 
 {% block footerinclude %}
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-<script src="{% static 'js/landing.js' %}"></script>
-<script src="{% static 'js/registration.js' %}"></script>
-
-<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-<!-- Char that will only accept numbers only -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
 <script>
-  function validate(evt) {
-    var theEvent = evt || window.event;
-
-    // Handle paste
-    if (theEvent.type === 'paste') {
-      key = event.clipboardData.getData('text/plain');
-    } else {
-      // Handle key press
-      var key = theEvent.keyCode || theEvent.which;
-      key = String.fromCharCode(key);
-    }
-    var regex = /[0-9]|\./;
-    if (!regex.test(key)) {
-      theEvent.returnValue = false;
-      if (theEvent.preventDefault) theEvent.preventDefault();
-    }
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
   }
-
 </script>
 
+<script src="{% static 'js/landing.js' %}"></script>
+<script src="{% static 'js/registration.js' %}"></script>
 {% endblock footerinclude %}
+{% endblock content %}
