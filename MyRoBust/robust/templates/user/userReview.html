@@ -128,7 +128,8 @@
                               <a href="" tabindex="5" class="profileInformation" class="btn btn1" data-toggle="modal" data-target="#updateProfile" style="color: white">Profile Information</a>
                             </div>
                             <div class="dropdown-divider" role="presentation">
-                              <span class="filler">&nbsp;</span></div>
+                              <span class="filler">&nbsp;</span>
+                            </div>
                             <div class="text-left">
                               <a tabindex="5" class="logout" style="color: white" href="{% url 'robust:landing_view' %}">Logout</a>
                             </div>
@@ -310,11 +311,13 @@
           <div class="row">
             <div class="col-xs-2">
               <p><b>FROM</b>
-                <input id="min" class="form-control" name="min" type="text" style="width: 150px;"></p>
+                <input id="min" class="form-control" name="min" type="text" style="width: 150px;">
+              </p>
             </div>
             <div class="col-xs-2" style="padding-left: 20px">
               <p><b>TO</b>
-                <input id="max" class="form-control" name="max" type="text" style="width: 150px;"></p>
+                <input id="max" class="form-control" name="max" type="text" style="width: 150px;">
+              </p>
             </div>
           </div>
         </div>
@@ -322,36 +325,35 @@
           <table class="table table-bordered" id="myHistoryTable" width="100%" cellspacing="0">
             <thead class="thead-light">
               <tr>
-                <th style="text-align:center; width: 14%">Date Booked</th>
-                <th style="text-align:center; width: 15%">Ticket No.</th>
+                <th style="text-align:center; width: 10%">Date Booked</th>
+                <th style="text-align:center; width: 12%">Ticket No.</th>
                 <th style="text-align:center; width: 10%">Time Departure</th>
                 <th style="text-align:center; width: 25%">Destination</th>
-                <th style="text-align:center; width: 10%">Seat No.</th>
-                <th style="text-align:center; width: 12%">Action</th>
+                <th style="text-align:center; width: 7%">Seat No.</th>
+                <th style="text-align:center; width: 9%">Action</th>
               </tr>
             </thead>
             <tbody>
-              {% for bus in buses %}
               {% for booking in bookings %}
               <tr>
                 <td style="text-align:center">{{booking.date_booked}}</td>
                 <td> RoBust - {{booking.booking}}</td>
-                <td style="text-align:center">{{bus.departureTime}}</td>
-                <td>{{bus.destination}}</td>
+                <td style="text-align:center">{{booking.bus.departureTime}}</td>
+                <td>{{booking.bus.destination}}</td>
                 <td style="text-align:center">{{booking.seatNumber}}</td>
                 <td style="text-align:center">
                   <div class="text-center">
-                    <a type="button" class="btn btn-default btn-sm" style="width:33px" href="#" data-toggle="modal" data-target="#viewModal"><span class="fa fa-eye" style="color:black"></span></a>
+                    <a type="button" class="btn btn-default btn-sm" style="width:33px" href="#" data-toggle="modal" data-target="#viewModal-{{booking.booking}}"><span class="fa fa-eye" style="color:black"></span></a>
 
-                    <button type="button" class="btn btn-default btn-sm" style="width:33px" data-toggle="modal" data-target="#ticketModal">
+                    <button type="button" class="btn btn-default btn-sm" style="width:33px" data-toggle="modal" data-target="#ticketModal-{{booking.booking}}">
                       <span class="fa fa-ticket"></span>
                     </button>
                   </div>
                 </td>
               </tr>
 
-               <!-- Modal VIEW-->
-              <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
+              <!-- Modal VIEW-->
+              <div class="modal fade" id="viewModal-{{booking.booking}}" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                   <div class="modal-content" style="background-color: #2c353c">
                     <div class="modal-header" style="background-color: #2c353c">
@@ -363,25 +365,25 @@
                     <form id="reviewUpdateForm" method="POST">
                       <!--                      {% csrf_token %}-->
                       <div class="modal-body">
-<!--                        <input type="text" name="passenger-username" value="{{passenger.username}}" hidden>-->
+                        <!--                        <input type="text" name="passenger-username" value="{{passenger.username}}" hidden>-->
                         <div class="row">
                           <div class="col-md-4 mb-3">
                             <label for="busName" style="color: white">Bus Name</label>
-                            <input type="text" class="form-control" id="id-busName" name="bus-busName" placeholder="Bus Name" required minlength="1" maxlength="20" value="{{bus.busName}}" readonly>
+                            <input type="text" class="form-control" id="id-busName" name="bus-busName" placeholder="Bus Name" required minlength="1" maxlength="20" value="{{booking.bus.busName}}" readonly>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="busNumber" style="color: white">Plate Number</label>
-                            <input type="text" class="form-control" id="id-plateNumber" name="bus-plateNumber" placeholder="Plate Number" minlength="1" maxlength="20" value="{{bus.plateNumber}}"  readonly>
+                            <input type="text" class="form-control" id="id-plateNumber" name="bus-plateNumber" placeholder="Plate Number" minlength="1" maxlength="20" value="{{booking.bus.plateNumber}}" readonly>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="destination" style="color: white">Destination</label>
-                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" required minlength="1" maxlength="20" value="{{bus.destination}}" readonly>
+                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" required minlength="1" maxlength="20" value="{{booking.bus.destination}}" readonly>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-4 mb-3">
                             <label for="timeDeparture" style="color: white">Time Departure</label>
-                            <input type="text" class="form-control" id="id-departureTime" name="bus-departureTime" placeholder="Time Departure" minlength="1" maxlength="20" value="{{bus.departureTime}}" readonly>
+                            <input type="text" class="form-control" id="id-departureTime" name="bus-departureTime" placeholder="Time Departure" minlength="1" maxlength="20" value="{{booking.bus.departureTime}}" readonly>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="ticketNumber" style="color: white">Ticket No.</label>
@@ -401,9 +403,9 @@
                   </div>
                 </div>
               </div>
-              
+
               <!-- Modal E-TICKET -->
-              <div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketLabel" aria-hidden="true" oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
+              <div class="modal fade" id="ticketModal-{{booking.booking}}" tabindex="-1" role="dialog" aria-labelledby="ticketLabel" aria-hidden="true" oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
                 <div class="modal-dialog modal-lg" role="document">
                   <div class="modal-content" style="background-color:transparent; border-color: transparent; height: 100px">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -411,32 +413,53 @@
                     </button>
                     <div class="modal-body" style="border-color: transparent; text-transform: uppercase; font-family: Oswald, sans-serif; padding-left: 150px; background-color: transparent;">
 
-                      <div id="content" class="ticket" style="width: 600px; height:245px; padding-top: 10px; color: white; padding-left: 200px; background-color: transparent; padding-bottom: 0px">
-                        <div class="row">
+                      <div id="content" class="ticket" style="width: 600px; height:245px; padding-top: 20px; color: white; padding-left: 180px; background-color: transparent; padding-bottom: 0px">
+                        <div class="row" style="padding-left: 20px">
                           <div class="col-md-12 mb-1" style="padding-top: 10px">
-                            <li style="list-style:none">
-                              <h1><b>RoBust - {{booking.booking}}</b></h1>
-                            </li>
-                            <li style="list-style:none">
-                              <i class="fa fa-bus" aria-hidden="true"></i>&nbsp;&nbsp;
-                              {{bus.busName}}
-                            </li>
-                            <li style="list-style:none">
-                              <i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;&nbsp;
-                              {{bus.plateNumber}}
-                            </li>
-                            <li style="list-style:none">
-                              <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;
-                              {{bus.departureTime}}
-                            </li>
-                            <li style="list-style:none">
-                              <i class="fa fa-calendar"></i>&nbsp;&nbsp;
-                              {{booking.date_booked}}
-                            </li>
-                            <li style="list-style:none">
-                              <i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;
-                              {{bus.destination}}
-                            </li>
+                            <div class="row" style="height: 45px">
+                               <div class="col-md-2 mb-3">
+                                <label style="font-size: 10px; margin-bottom: 0px; letter-spacing: 1px; color: #2c353c"><b> Time </b></label>
+                                <li style="list-style:none">
+                                  <label style="font-size: 13px; width: 300px">{{booking.bus.departureTime}}</label>
+                                </li>
+                              </div>
+                              <div class="col-md-2 mb-3" style="width: 1500">
+                                <label style="font-size: 10px; margin-bottom: 0px; letter-spacing: 1px; color: #2c353c"><b> Date </b></label>
+                                <li style="list-style:none">
+                                  <label style="font-size: 13px; width: 900px">{{booking.date_booked}}</label>
+                                </li> 
+                              </div>
+                              <div class="col-md-4 mb-3" style="padding-left: 20px">
+                                <label style="font-size: 10px; margin-bottom: 0px; letter-spacing: 1px; color: #2c353c"><b> Bus Plate No. </b></label>
+                                <li style="list-style:none">
+                                  <label style="font-size: 13px">{{booking.bus.plateNumber}}</label>
+                                </li> 
+                              </div>
+                            </div>
+                            <div class="row" style="height: 33px">
+                              <div class="col-md-7 mb-3">
+                                <label style="font-size: 10px; margin-bottom: 0px; letter-spacing: 1px; color: #2c353c"><b> Destination </b></label>
+                                <li style="list-style:none">
+                                  {{booking.bus.destination}}
+                                </li>
+                              </div>
+                            </div>
+                              <hr class="mb-1" style="width: 230px; margin-right: 200px; background-color: white">
+                            <div class="row" style="height: 45px">
+                              <div class="col-md-2 mb-3">
+                                <label style="font-size: 10px; margin-bottom: 0px; letter-spacing: 1px; color: #2c353c; height: 10px"><b> Seat No. </b></label>
+                                <li style="list-style:none">
+                                  <b style="font-size: 30px" >{{booking.seatNumber}}</b>
+                                </li>
+                              </div>
+                             <div class="col-md-5 mb-3">
+                                <label style="font-size: 10px; margin-bottom: 0px; letter-spacing: 1px; color: #2c353c; height: 10px"><b> Ticket No. </b></label>
+                                <li style="list-style:none">
+                                  <b style="font-size: 30px" >RoBust - {{booking.booking}}</b>
+                                </li>
+                              </div>
+                            </div>
+
                           </div>
                         </div>
                       </div>
@@ -448,7 +471,6 @@
                   </div>
                 </div>
               </div>
-              {% endfor %}
               {% endfor %}
             </tbody>
           </table>
@@ -603,14 +625,17 @@
   $('#id-dateReservation').datepicker({
     startDate: date
   });
+
 </script>
 <script>
   window.console = window.console || function(t) {};
+
 </script>
 <script>
   if (document.location.search.match(/type=embed/gi)) {
     window.parent.postMessage("resize", "*");
   }
+
 </script>
 
 <!-- E-Ticket Style -->
