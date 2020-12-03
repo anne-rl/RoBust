@@ -23,12 +23,14 @@ class LandingIndexView(View):
                 if Admin.objects.filter(username=request.POST['username'],password=request.POST['password']).exists() : 
                     admin = Admin.objects.get(username=request.POST['username'], password=request.POST['password'])
                 
-                    return render(request, 'admin/adminList.html', {'admin': admin})
+                    #return render(request, 'admin/adminList.html', {'admin': admin})
+                    return redirect('robust:adminList_view')   
 
                 if Passenger.objects.filter(username=request.POST['username'],           password=request.POST['password']).exists() : 
                     passenger = Passenger.objects.get(username=request.POST['username'], password=request.POST['password'])
                 
-                    return render(request, 'user/userReservation.html', {'passenger': passenger})
+                    #return render(request, 'user/userReservation.html', {'passenger': passenger})
+                    return redirect('robust:userReservation_view')   
 
                 else:
 #                    context = {'msg': 'Invalid username/password'}
@@ -180,7 +182,8 @@ class AdminListView(View):
                 UpdatePassengerCashIn = Passenger.objects.filter(username = getPassengerUsername).update(availableBalance = AvailableBalanceUpdate, currentCashIn = CashInUpdate)
                 print(UpdatePassengerCashIn)
                 
-        return redirect('admin:adminList_view')       
+        return redirect('robust:adminList_view')   
+        #return render(request, 'admin/adminList.html')           
 
 class AdminSummaryView(View):
     def get(self, request):
