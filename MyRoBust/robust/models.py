@@ -32,6 +32,7 @@ class Admin(models.Model):
             db_table = "Admin"
 
 class Driver(models.Model):
+#        driverID = models.AutoField(primary_key=True)
         profilePicture = models.ImageField(upload_to='imagesDriver/', null=True, blank=True)
         firstName = models.CharField(max_length = 50)
         middleName = models.CharField(max_length = 50)
@@ -52,7 +53,7 @@ class Bus(models.Model):
         busFare = models.PositiveSmallIntegerField(default=0)
         departureTime = models.TimeField(default = timezone.now)
         img = models.ImageField(upload_to='imagesBus/', null=True, blank=True)
-        # driver = models.ForeignKey('Driver', on_delete=models.CASCADE)
+#        driver = models.ForeignKey('Driver', on_delete=models.CASCADE)
     
         class Meta:
             db_table = "Bus"
@@ -66,3 +67,9 @@ class Booking(models.Model):
     
         class Meta:
             db_table = "Booking"
+            
+class DashboardBus(models.Model):
+        totalBuses = models.IntegerField()
+        
+        class Meta:
+            db_table = "DashboardBus"

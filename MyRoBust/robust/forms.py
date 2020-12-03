@@ -32,4 +32,9 @@ class AdministratorForm(forms.ModelForm):
     class Meta:
         model = Admin
         fields = ('firstName', 'middleName', 'lastName', 'emailAddress', 'contactNumber', 'username', 'password')
-         
+    
+class DashboardBusForm(forms.ModelForm):
+
+    class Meta:
+        model = DashboardBus
+        fields = ('totalBuses' ,)

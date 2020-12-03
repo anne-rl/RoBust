@@ -214,15 +214,28 @@ class AdminDashboardWeekly(View):
 class AdminDashboardMonthly(View):
     def get(self, request):
         allBuses = Bus.objects.count()
-        allPassengers = Passenger.objects.count()
+                
         context = {
-            'allBuses' : allBuses,
-            'allPassengers' : allPassengers
+            'allBuses' : allBuses
         }
         return render(request, 'admin/adminDashboardMonthly.html', context)
   
     def post(self, request):
-        return render(request, 'admin/adminDashboardMonthly.html')
+#        form = AdminDashboardMonthlyForm(request.POST)
+#        
+#        if form.is_valid():  
+#            monthlyTotalBus = request.POST.get("allBuses")
+#            
+#            form = DashboardAdmin(totalBuses = monthlyTotalBus)
+#            form.save()
+#            
+#            print('hello')
+            
+            return redirect('robust:adminDashboard_monthly')
+        
+#        else:
+#            print(form.errors)
+#            return HttpResponse('not valid')
 
 class AdminBusTransactionView(View):
     def get(self, request):
@@ -300,6 +313,11 @@ class AdminRegisterBus(View):
             img = request.FILES.get('img')
             form = Bus(busName = busBName, plateNumber = busPNumber, destination = busDes,
                         totalSeats = busSeats, busFare = busBsFare, departureTime = busDTime, img = img)
+            form.save()
+            
+            allBuses = Bus.objects.count()
+        
+            form = DashboardBus(totalBuses = allBuses)
             form.save()
 
             return redirect('robust:adminBusTransaction_view')

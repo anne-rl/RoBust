@@ -244,6 +244,8 @@
 
 <!------------ Dashboard Page Body ------------>
 <div class="container">
+  <form id="bookingForm" method="POST" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
   <div class="container-fluid" style="width:100%">
     <div class="card shadow mb-4">
       <div class="card-header py-2">
@@ -262,7 +264,7 @@
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#B84B48;">Bus</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{allBuses}}</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800" name = "allBuses" value ="allBuses">{{allBuses}}</div>
                   </div>
                   <div class="col-auto">
                     <i class="fa fa-bus fa-2x text-black-300" aria-hidden="true"></i>
@@ -332,6 +334,7 @@
       </div>
     </div>
   </div>
+</form>
 </div>
 
 {% block footerinclude %}
