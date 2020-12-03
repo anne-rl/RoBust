@@ -79,7 +79,7 @@ class UserSelectView(View):
                 form = Booking(date_booked=dBooked, seatNumber = seatNumber, bus_id=bus)
                 form.save()
                 
-                return render(request, 'user/userReview.html')       
+                return redirect('robust:userReview_view')       
     
             else:
                 print(form.errors)
