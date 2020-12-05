@@ -1,0 +1,257 @@
+{% load static %}
+
+{% block headerinclude %}
+<title>CIT RoBust</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="{% static 'media/CIT.png' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/reservation.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}">
+<link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
+
+<!-- Booking History DataTable Links -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
+
+<script src="{% static 'js/landing.js' %}"></script>
+<script src="{% static 'js/registration.js' %}"></script>
+{% endblock headerinclude %}
+
+<header style="background-color: #fbfbfb">
+  <div class="container">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+
+      <!------------ RoBust Logo ------------>
+      <div class="col-5 d-flex justify-content-end align-items-center">
+        <div class="text-center mb-2">
+          <img src="{% static 'media/RoBust.png' %}" width="505" height="130">
+        </div>
+      </div>
+
+      <!------------ RoBust Icons ------------>
+      <div class="col-8 d-flex justify-content-end">
+
+        <!-- RoBust Location Icon-->
+        <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; height: 50px; border-radius: 5px; font-size: 14px; width: 160px">
+              <i class="fa fa-map-marker" aria-hidden="true" style="color: #a83332"></i><span class="caret"></span></a>
+            <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #e1e1e1">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="text-black">N. Bacalso Avenue, Cebu City</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- RoBust Envelope Icon-->
+        <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; height: 50px; border-radius: 5px; font-size: 14px; width: 160px">
+              <i class="fa fa-envelope" aria-hidden="true" style="color: #a83332"></i><span class="caret"></span></a>
+            <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #e1e1e1">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <ul class="info-list">
+                      <li><span class="siteinfo-name" style="font-weight: 700">General Inquiries:</span>
+                        <a href="mailto:info@cit.edu" style="color: #a83332">info@cit.edu</a>
+                      </li>
+                      <li>
+                        <span class="siteinfo-name" style="font-weight: 700">Admissions:</span>
+                        <a href="mailto:admission@cit.edu" style="color: #a83332">admission@cit.edu</a>
+                        <p></p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- RoBust Phone Icon-->
+        <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; height: 50px; border-radius: 5px; font-size: 14px">
+              <i class="fa fa-phone" aria-hidden="true" style="color: #a83332"></i><span class="caret"></span></a>
+            <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #e1e1e1">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="text-black"><b>PLDT Trunk Line:</b> +63322617741</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- RoBust Microphone Icon-->
+        <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; height: 50px; border-radius: 5px; font-size: 14px">
+              <i class="fa fa-microphone fa-lg" aria-hidden="true" style="color: #a83332"></i><span class="caret"></span></a>
+          </li>
+        </ul>
+
+
+        <!-- RoBust Profile-->
+        <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; background-color: #a83332; height: 50px; border-radius: 5px; font-size: 14px; width: auto">
+              <i class="fa fa-user" aria-hidden="true"></i> ADMIN <span class="caret"></span></a>
+            <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #2c353c">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="text-left">
+                              <a href="" tabindex="5" class="profileInformation" class="btn btn1" data-toggle="modal" data-target="#adminProfile" style="color: white">Profile Information</a>
+                            </div>
+                            <div class="dropdown-divider" role="presentation">
+                              <span class="filler">&nbsp;</span></div>
+                            <div class="text-left">
+                              <a tabindex="5" class="logout" style="color: white" href="{% url 'robust:landing_view' %}">Logout</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- RoBust Profile Information Modal -->
+<div class="modal fade" id="adminProfile" tabindex="-1" role="dialog" aria-labelledby="adminProfileModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" style="background-color:#2c353c">
+      <div class="modal-header" style="background-color:#2c353c">
+        <h5 class="modal-title font-weight-bold" style="color:white">Profile Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color:white">&times;</span>
+        </button>
+      </div>
+
+      <form id="register_form" method="POST" autocomplete="off" enctype="multipart/form-data">
+        <div class="modal-body">
+          {% csrf_token %}
+          <div class="container">
+            <div class="picture-container">
+              <div class="picture">
+                <img src="{% static 'media/user.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
+                <input type="file" id="profilePicture" name="profilePicture" class="" required>
+              </div>
+              <h6 class="" style="color: white">Choose Picture</h6>
+            </div>
+          </div>
+          <br>
+          <input type="text" name="id" hidden>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="firstName" style="color: white">First Name</label>
+              <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20">
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="middleName" style="color: white">Middle Name</label>
+              <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20">
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="lastName" style="color: white">Last Name</label>
+              <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="emailAddress" style="color: white">Email</label>
+              <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="Email" required minlength="1" maxlength="50">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="password" style="color: white">Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password" required minlength="8" maxlength="16">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-1">
+              <label for="department" style="color: white">Department</label><br>
+              <select class="form-control-lg" style="border-color: lightgrey; height: 38px; font-size: 15px; width: 767px" id="department" name="department" required>
+                <option value=""></option>
+                <option value="Elementary">Elementary</option>
+                <option value="High-School">High-School</option>
+                <option value="College">College</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="contactNumber" style="color: white">Contact No.</label>
+              <input type="number" class="form-control" id="contactNumber" name="contactNumber" placeholder="Contact No." required minlength="11" maxlength="11">
+            </div>
+            <div class="col-md-3 mb-2">
+              <label for="gender" style="color: white">Gender</label> <br>
+              <div class="form-check-inline text-right" style="color: white">
+                <label class="form-check-label ">
+                  {% if user.gender == 'Male' %}
+                  <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Male" checked="checked">Male
+                  <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Female">Female
+                  {% else %}
+                  <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Male">Male
+                  <input style="margin: 8px; color: white" type="radio" class="form-check-sm" name="gender" value="Female" checked="checked">Female
+                  {% endif %}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer" style="background-color:#2c353c;height: 35px">
+            <button type="button" class="btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>
+
+            <!--                    <button type="submit" id="btnRegister" name="btnRegister" class="btn" style="background-color: #a83332; color: white">REGISTER</button>-->
+            <a type="button" class="btn btn1" style="background-color: #a83332; color: white" id="id-register" href="{% url 'robust:userReservation_view' %}">UPDATE</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</header>
+
+
+<!------------ Nav Bar Buttons ------------>
+<div style="background-color: #2c353c; border-bottom-color: #a83332; border-bottom-style: solid">
+
+  <!-- Booking History -->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-list" href="{% url 'robust:adminList_view' %}">Master List</a>
+
+  <!-- Customer Report Summary -->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-summary" href="{% url 'robust:adminSummary_view' %}">Customer Report Summary</a>
+
+  <!-- Admin Update Bus and Schedules -->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-updatebus" href="{% url 'robust:adminBusTransaction_view' %}">Bus Transaction</a>
+
+  <!-- Dashboard -->
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'robust:adminDashboard_weekly' %}">Dashboard</a>
+</div>
+<br>
+
+{% block content %}
+
+{% endblock %}

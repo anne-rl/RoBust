@@ -2,13 +2,14 @@ from django.urls import path
 from . import views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.conf.urls import url
 
 app_name = 'robust'
 
 urlpatterns = [
     path('landing', views.LandingIndexView.as_view(), name="landing_view"),
     path('userReservation', views.UserReservationView.as_view(), name="userReservation_view"),
-    path('userSelect/<int:id>', views.UserSelectView.as_view(), name="userSelect_view"),
+    path('userSelect/<int:id>/(?P<month>[0-9]{2})/(?P<day>[0-9]{2})/(?P<year>[0-9]{4})$', views.UserSelectView.as_view(), name="userSelect_view"),
     path('userSelectUpdate', views.UserSelectUpdateView.as_view(), name="userSelectUpdate_view"),
     path('userReview', views.UserReviewView.as_view(), name="userReview_view"),
     path('userDashboardWeekly', views.UserDashboardViewWeekly.as_view(), name="userDashboard_weekly"),
