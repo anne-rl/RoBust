@@ -251,13 +251,13 @@
 <div style="background-color: #2c353c; border-bottom-color: #a83332; border-bottom-style: solid">
 
   <!-- Booking -->
-  <a type="button" id="btn btn1" class="btn btn1" style="color: white; position: relative; left: 130px" onclick="" href="{% url 'robust:userReservation_view' %}">Booking</a>
+  <a type="button" id="btn btn1" class="btn btn1" style="color: white; position: relative; left: 130px" id="reservation" onclick="" href="{% url 'robust:userReservation_view' %}">Booking</a>
 
   <!-- Booking Review -->
-  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px;" id="id-history" href="{% url 'robust:userReview_view' %}">Booking Review</a>
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px;" id="history" href="{% url 'robust:userReview_view' %}">Booking Review</a>
 
   <!-- Dashboard -->
-  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="id-dashboard" href="{% url 'robust:userDashboard_weekly' %}">Dashboard</a>
+  <a type="button" class="btn btn1" style="color: white; position: relative; left: 130px" id="idashboard" href="{% url 'robust:userDashboard_weekly' %}">Dashboard</a>
 
   <!-- E-Wallet-->
   <button type="button" class="btn btn2" data-toggle="modal" data-target="#wallet" style="color: white; position: relative; left: 130px">
@@ -298,7 +298,8 @@
   </div>
 </div>
 <br>
-
+<script>
+</script>
 <style>
   .btn.btn1:active {
     background-color: #a83332;
