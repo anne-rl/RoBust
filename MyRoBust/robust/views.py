@@ -1,44 +1,91 @@
-from django.http import Http404
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.http import HttpResponse
-from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login
+from django.http import Http404
 from .forms import *
 from .models import *
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from .forms import CreateUserForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.db.models import Q
+import datetime
+from django.core.paginator import Paginator, EmptyPage
+from itertools import chain
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
+def landingIndexView(request):
+        if request.method == 'POST':
+                username = request.POST.get('username')
+                password = request.POST.get('password')
 
-class LandingIndexView(View):
-        def get(self, request):
-            return render(request, 'user/landing.html')
+                user = authenticate(request, username=username, password=password)
 
-        def post(self, request):
-            form = AdministratorForm(request.POST)
-            form = PassengerForm(request.POST)
+                if user is not None:
+                    login(request,user)
+                    request.session['username'] = username
 
-            if request.method == 'POST':
-                if Admin.objects.filter(username=request.POST['username'],password=request.POST['password']).exists() : 
-                    admin = Admin.objects.get(username=request.POST['username'], password=request.POST['password'])
-                
-                    return render(request, 'admin/adminList.html', {'admin': admin})
-#                    return redirect('robust:adminList_view')   
-
-                if Passenger.objects.filter(username=request.POST['username'],           password=request.POST['password']).exists() : 
-                    passenger = Passenger.objects.get(username=request.POST['username'], password=request.POST['password'])
-                
-                    return render(request, 'user/userReservation.html', {'passenger': passenger})
-#                    return redirect('robust:userReservation_view')   
-
+                    if request.user.is_superuser:
+                        return redirect('robust:adminList_view')   
+                    else:
+                        return redirect('robust:userBase_view')
                 else:
+#                    messages.info(request, 'Incorrect username/password')
                     context = {'msg': 'Invalid username/password'}
                     return render(request, 'user/landing.html', context)
-#                    print(form.errors)
-#                    return HttpResponse('Invalid username/password!')
-            else:
-                return render(request, 'user/landing.html', context)
+    
+        context = {}
+        return render(request, 'user/landing.html', context)
+    
+def logoutPage(request):
+        logout(request)
+        return redirect('robust:landing_view')
+
+def registerPage(request):
+        form = CreateUserForm()
+
+        if request.method == 'POST':
+            form = CreateUserForm(data=request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, 'Account was created for'+user)
+                return redirect('robust:landing_view')
+        
+        context = {'form' : form}
+        return render(request,'user/registration.html', context)
+   
+    
+#class LandingIndexView(View):
+#        def get(self, request):
+#            return render(request, 'user/landing.html')
+#
+#        def post(self, request):
+#            form = AdministratorForm(request.POST)
+#            form = PassengerForm(request.POST)
+#
+#            if request.method == 'POST':
+#                if Admin.objects.filter(username=request.POST['username'],password=request.POST['password']).exists() : 
+#                    admin = Admin.objects.get(username=request.POST['username'], password=request.POST['password'])
+#                
+#                    return render(request, 'admin/adminList.html', {'admin': admin})
+##                    return redirect('robust:adminList_view')   
+#
+#                if Passenger.objects.filter(username=request.POST['username'],           password=request.POST['password']).exists() : 
+#                    passenger = Passenger.objects.get(username=request.POST['username'], password=request.POST['password'])
+#                
+#                    return render(request, 'user/userReservation.html', {'passenger': passenger})
+##                    return redirect('robust:userReservation_view')   
+#
+#                else:
+#                    context = {'msg': 'Invalid username/password'}
+#                    return render(request, 'user/landing.html', context)
+##                    print(form.errors)
+##                    return HttpResponse('Invalid username/password!')
+#            else:
+#                return render(request, 'user/landing.html', context)
 
 class UserReservationView(View):
         def get(self, request):

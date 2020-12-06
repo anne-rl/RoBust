@@ -116,14 +116,12 @@
                         </div>
                       </div>
 
-<!--
                       <div class="col text-center">
                         <p style="text-align:center; color: white; font: 8px"> Not yet registered?
-                          <button type="button" class="btn btn1" data-toggle="modal" data-target="#register" style="color: white; text-align: center; font-weight: 700">
+                          <a type="submit" class="btn btn1" style="color: white; text-align: center; font-weight: 700" href="{% url 'robust:registration_view' %}">
                             Click Here
-                          </button></p>
+                          </a></p>
                       </div>
--->
                     </form>
                   </div>
                 </div>
@@ -159,30 +157,36 @@
                   <input type="text" name="id" hidden>
                   <div class="row">
                     <div class="col-md-4 mb-3">
+                        {{form.first_name}}
                       <label for="firstName" style="color: white">First Name</label>
                       <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="1" maxlength="20">
                     </div>
                     <div class="col-md-4 mb-3">
+<!--                        {{form.middle_name}}-->
                       <label for="middleName" style="color: white">Middle Name</label>
                       <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle Name" minlength="1" maxlength="20">
                     </div>
                     <div class="col-md-4 mb-3">
+                        {{form.last_name}}
                       <label for="lastName" style="color: white">Last Name</label>
                       <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="1" maxlength="20">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6 mb-3">
+                        {{form.email}}
                       <label for="emailAddress" style="color: white">Email</label>
                       <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="Email" required minlength="1" maxlength="50">
                     </div>
                     <div class="col-md-6 mb-3">
+                        {{form.password}}
                       <label for="password" style="color: white">Password</label>
                       <input type="password" class="form-control" id="password" name="password" placeholder="Password" required minlength="8" maxlength="16">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12 mb-1">
+<!--                        {{form.department}}-->
                       <label for="department" style="color: white">Department</label><br>
                       <select class="form-control-lg" style="border-color: lightgrey; height: 38px; font-size: 15px; width: 767px" id="department" name="department" required>
                         <option value=""></option>
@@ -218,7 +222,7 @@
                     <button type="button" class="btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>
 
                     <!--                    <button type="submit" id="btnRegister" name="btnRegister" class="btn" style="background-color: #a83332; color: white">REGISTER</button>-->
-                    <a type="button" class="btn btn1" style="background-color: #a83332; color: white" id="id-register" href="{% url 'robust:userReservation_view' %}">REGISTER</a>
+                    <a type="submit" class="btn btn1" style="background-color: #a83332; color: white" id="id-register" name="Create User" href="{% url 'robust:registration_view' %}">REGISTER</a>
                   </div>
                 </div>
               </form>
@@ -235,6 +239,7 @@
   <button type="button" class="btn btn1" data-toggle="modal" data-target="#about" style="color: white; position: relative; left: 130px">
     About Us
   </button>
+
 
   <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -255,6 +260,7 @@
     </div>
   </div>
 </div>
+
 
 
 {% block footerinclude %}
