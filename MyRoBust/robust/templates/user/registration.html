@@ -1,0 +1,97 @@
+{% load static %}
+
+{% block headerinclude %}
+    <title>Medicine Registration</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+      <style type="text/css">
+          
+          body{
+                font-family: sans-serif;
+                background: maroon;
+            }
+          h2{
+              text-align: center;
+              padding: 15px;
+              text-transform: uppercase;
+              font-weight: 700;
+              line-height: 2;
+              
+          }
+    
+      </style>
+{% endblock headerinclude %}
+
+{% block content %}
+<body>
+  <h2>Registration</h2>  
+        <form id="form1" action="" method="POST" autocomplete="off" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class = "container">
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>First Name</label>
+                            {{form.first_name}}
+<!--                            <input type="date" class="form-control" id="id-dateRegistered" name="dateRegistered" placeholder="mm/dd/yy" required>-->
+                        </div>
+                        <div class="col-md-6">
+                            <label>Last Name</label>
+                            {{form.last_name}}
+<!--                            <input type="text" class="form-control" id="id-sku" name="sku" placeholder="Enter SKU" max="100" required>-->
+                        </div>
+                        <div class="col-md-6">
+                            <label>Email Address</label>
+                            {{form.email}}
+<!--                            <input type="text" class="form-control" id="id-category" name="category" placeholder="Enter category" max="1000" required>-->
+                        </div>
+                        <div class="col-md-6">
+                            <label>Username</label>
+                            {{form.username}}
+<!--                            <input type="text" class="form-control" id="id-generic_name" name="generic_name" placeholder="Enter generic name" max="100" required>-->
+                        </div>
+                        <div class="col-md-6">
+                            <label>Password</label>
+                            {{form.password1}}
+<!--                            <input type="text" class="form-control" id="id-common_brand" name="common_brand" placeholder="Enter common brand" max="100" required>-->
+                        </div>
+                        <div class="col-md-6">
+                            <label>Confirm Password</label>
+                            {{form.password2}}
+<!--                            <input type="date" class="form-control" id="id-man_date" name="man_date" placeholder="mm/dd/yy" required>-->
+                        </div>
+                        <div class="col-md-6">
+                           {{form.errors}}
+                        </div>
+                        
+                        <div class="col text-center">
+                            <p style="text-align:center; color: white; font: 8px"> Not yet registered?
+                                <a type="submit" class="btn btn1" style="color: white; text-align: center; font-weight: 700" href="{% url 'robust:landing_view' %}">
+                                Sign in
+                                </a>
+                            </p>
+                      </div>
+                        
+                        <div class="col-md-12" style="text-align: center; margin-top: 20px"> 
+                            <a type="button" class="btn btn-primary" id="id_registration" href="{% url 'robust:landing_view' %}">Cancel
+                            </a>
+                            <input type="submit" name="Create User">
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+       </form>
+</body>
+{% endblock content %}
+
+{% block footerinclude %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+{% endblock footerinclude %}

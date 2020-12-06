@@ -1,6 +1,16 @@
 from django.db import models
 from django.utils import timezone
 
+class User(models.Model):
+        name = models.CharField(max_length = 100,null = True)
+        email = models.CharField(max_length = 100,null = True)
+        phone = models.CharField(max_length = 100,null = True)
+        date_created = models.DateTimeField(auto_now_add = True,null = True)
+#        profile_pic = models.ImageField(upload_to = 'media/')
+        
+        def __str__(self):
+            return self.name
+        
 class Passenger(models.Model):
         username = models.CharField(max_length = 100, primary_key = True, null=False)
         firstName = models.CharField(max_length = 100)

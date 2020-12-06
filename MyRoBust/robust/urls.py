@@ -7,9 +7,12 @@ from django.conf.urls import url
 app_name = 'robust'
 
 urlpatterns = [
-    path('landing', views.LandingIndexView.as_view(), name="landing_view"),
+    path('landing', views.landingIndexView, name="landing_view"),
+    path('logout', views.logoutPage, name="logout_view"),
+    path('registration', views.registerPage, name="registration_view"),
+    path('userBase', views.UserBaseView.as_view(), name="userBase_view"),
     path('userReservation', views.UserReservationView.as_view(), name="userReservation_view"),
-    path('userSelect/<int:id>/(?P<month>[0-9]{2})/(?P<day>[0-9]{2})/(?P<year>[0-9]{4})$', views.UserSelectView.as_view(), name="userSelect_view"),
+#    path('userSelect/<int:id>/(?P<month>[0-9]{2})/(?P<day>[0-9]{2})/(?P<year>[0-9]{4})$', views.UserSelectView.as_view(), name="userSelect_view"),
     path('userSelectUpdate', views.UserSelectUpdateView.as_view(), name="userSelectUpdate_view"),
     path('userReview', views.UserReviewView.as_view(), name="userReview_view"),
     path('userDashboardWeekly', views.UserDashboardViewWeekly.as_view(), name="userDashboard_weekly"),
