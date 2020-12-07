@@ -43,7 +43,7 @@ def logoutPage(request):
         logout(request)
         return redirect('robust:landing_view')
 
-def registerPage(request):
+def UserRegistrationView(request):
         form = CreateUserForm()
 
         if request.method == 'POST':
@@ -55,7 +55,7 @@ def registerPage(request):
                 return redirect('robust:landing_view')
         
         context = {'form' : form}
-        return render(request,'user/registration.html', context)
+        return render(request,'user/userRegistration.html', context)
    
     
 #class LandingIndexView(View):
