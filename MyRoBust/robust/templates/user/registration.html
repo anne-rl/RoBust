@@ -1,33 +1,6 @@
-{% load static %}
-
-{% block headerinclude %}
-    <title>Medicine Registration</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-      <style type="text/css">
-          
-          body{
-                font-family: sans-serif;
-                background: maroon;
-            }
-          h2{
-              text-align: center;
-              padding: 15px;
-              text-transform: uppercase;
-              font-weight: 700;
-              line-height: 2;
-              
-          }
-    
-      </style>
-{% endblock headerinclude %}
+{% extends 'user/userBase.html' %}
 
 {% block content %}
-<body>
   <h2>Registration</h2>  
         <form id="form1" action="" method="POST" autocomplete="off" enctype="multipart/form-data">
             {% csrf_token %}
@@ -87,7 +60,6 @@
                 </div>
             </div>
        </form>
-</body>
 {% endblock content %}
 
 {% block footerinclude %}
