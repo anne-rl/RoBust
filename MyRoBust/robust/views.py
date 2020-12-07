@@ -30,7 +30,7 @@ def landingIndexView(request):
                     if request.user.is_superuser:
                         return redirect('robust:adminList_view')   
                     else:
-                        return redirect('robust:userBase_view')
+                        return redirect('robust:userReservation_view')
                 else:
 #                    messages.info(request, 'Incorrect username/password')
                     context = {'msg': 'Invalid username/password'}
