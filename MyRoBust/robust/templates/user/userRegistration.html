@@ -131,33 +131,33 @@
     <table>
       <div class="txt_field" style="padding-bottom: 6px">
         <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="id_first_name" name="first_name">
+        <input type="text" class="form-control" id="id_first_name" name="first_name" required>
       </div>
       <div class="txt_field" style="padding-bottom: 6px">
         <label for="firstName">Last Name</label>
-        <input type="text" class="form-control" id="id_last_name" name="last_name">
+        <input type="text" class="form-control" id="id_last_name" name="last_name" required>
       </div>
       <div class="txt_field" style="padding-bottom: 6px">
         <label for="firstName">Username</label>
-        <input type="text" class="form-control" id="id_username" name="username">
+        <input type="text" class="form-control" id="id_username" name="username" required>
       </div>
       <div class="txt_field" style="padding-bottom: 6px">
         <label for="firstName">Email</label>
-        <input type="text" class="form-control" id="id_email" name="email">
+        <input type="text" class="form-control" id="id_email" name="email" required>
       </div>
       <div class="txt_field" style="padding-bottom: 6px">
         <label for="firstName">Password</label>
-        <input type="password" class="form-control" id="id_password1" name="password1" autocomplete="new-password">
+        <input type="password" class="form-control" id="id_password1" name="password1" autocomplete="new-password" required>
       </div>
       <div class="txt_field" style="padding-bottom: 6px">
         <label for="firstName">Confirm Password</label>
-        <input type="password" class="form-control" id="id_password2" name="password2" autocomplete="new-password">
+        <input type="password" class="form-control" id="id_password2" name="password2" autocomplete="new-password" required>
       </div>
       <div class="col-md-6">
         {{form.errors}}
       </div>
       <hr style="border-top: 1px solid ">
-      <div class="text-center">Already have an account? <a type="button" href="{% url 'robust:landing_view' %}" style="color: #a83332"><b>Sign in here</b></a></div>
+      <div class="text-center">Already have an <label style="color: #F6C103; text-shadow: 200"><b>account</b></label> ? <a type="button" href="{% url 'robust:landing_view' %}" style="color: #a83332"><b>Sign in here</b></a></div>
     </table>
     <br><br>
     <div class="row">
