@@ -32,6 +32,33 @@ def landingIndexView(request):
                         return redirect('robust:adminList_view')   
                     else:
                         return redirect('robust:userReservation_view')
+                    
+                elif 'userUpdateBtn' in request.POST:
+                    print('update profile button clicked')
+                    UserId = request.POST.get("user-id")
+                    UserFirstName = request.POST.get("user-firstName")
+                    UserLastName = request.POST.get("user-lastName")
+                    UserUsername = request.POST.get("user-username")
+                    UserEmailAddress = request.POST.get("user-emailAddress")
+
+                    UpdateUser = User.objects.filter(id = UserId).update(first_name = UserFirstName, last_name = UserLastName, username = UserUsername, email = UserEmailAddress)
+
+                    print(UpdateUser)
+                    print('User Updated')
+                    
+                elif 'adminUpdateBtn' in request.POST:
+                    print('update profile button clicked')
+                    AdminId = request.POST.get("user-id")
+                    AdminFirstName = request.POST.get("admin-firstName")
+                    AdminLastName = request.POST.get("admin-lastName")
+                    AdminUsername = request.POST.get("admin-username")
+                    AdminEmailAddress = request.POST.get("user-emailAddress")
+
+                    UpdateAdmin = User.objects.filter(id = UserId).update(first_name = AdminFirstName, last_name = AdminLastName, username = AdminUsername, email = AdminEmailAddress)
+
+                    print(UpdateAdmin)
+                    print('User Updated')
+                    
                 else:
 #                    messages.info(request, 'Incorrect username/password')
                     context = {'msg': 'Invalid username/password'}
