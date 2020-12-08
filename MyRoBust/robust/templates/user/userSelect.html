@@ -299,6 +299,11 @@
         </div>
       </div>
 
+      <script type="text/javascript">
+        $("{{booking.seatNumber}}").addClass("notvacant").children("input").prop("disabled", true);
+        $("{{booking.seatNumber}}").children("label").remove();
+      </script>
+
       <div class="col-md-4 mb-3" style="padding-left: 50px">
         <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 720px; border-bottom-color: #a83332; border-bottom-style: solid">
           <h6><b>Booking Details</b></h6>
@@ -316,16 +321,16 @@
         </div>
 
         <div class="row" style="width: 900">
-          <div class="col-md-5 mb-3">
+          <div class="col-md-10 mb-3">
             <label for="destination">Destination</label>
             <input class="form-control" id="destination" name="destination" minlength="1" maxlength="50" value="{{booking.destination}}" readonly>
           </div>
-          <div class="col-md-5 mb-3">
+          <!-- <div class="col-md-5 mb-3">
             <label>Date</label>
             <input class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="dateReservation" name="dateReservation" minlength="1" maxlength="30" value="" readonly>
-          </div>
+          </div> -->
 
-
+<!-- 
           <script>
             function parseQueryString() {
               var queryDict = {}
@@ -340,7 +345,7 @@
               document.getElementById('dateReservation').value = parseQueryString().name;
             }
 
-          </script>
+          </script> -->
 
 
 
@@ -380,7 +385,9 @@
             <form id="submit_form" method="POST">
               {% csrf_token %}
               <!--            <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 180px; background-color: #a83332; height: 45px; margin-left: 290; padding:10px" id="id-Cancel" href="{% url 'robust:userReview_view' %}">BOOK</a>-->
+              {% if user.is_authenticated %}
               <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px; margin-left: 290;"> BOOK </button>
+              {% endif %}
             </form>
           </div>
           {% endfor %}
@@ -458,13 +465,9 @@
 
 </script>
 
-{% for seat in seat%}
-<script type="text/javascript">
-  $("{{seat.seatNumber}}").addClass("notvacant").children("input").prop("disabled", true);
-  $("{{seat.seatNumber}}").children("label").remove();
+<!-- {% for booking in bookings%} -->
 
-</script>
-{% endfor %}
+<!-- {% endfor %} -->
 
 {% endblock footerinclude %}
 {% endblock content %}

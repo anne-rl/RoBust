@@ -15,7 +15,7 @@ from django.core.paginator import Paginator, EmptyPage
 from itertools import chain
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.contrib.auth.models import User
+# from django.contrib.auth import update_session_auth_hash
 
 def landingIndexView(request):
         if request.method == 'POST':
@@ -118,21 +118,21 @@ class UserSelectView(View):
             return render(request, 'user/userSelect.html', context)
 
         def post(self, request, id):
-            form = BookingForm(request.POST)    
-
-            if form.is_valid():
-                user =  request.user
-                dBooked = request.POST.get("dateBooked")   
-                seatNumber = request.POST.get("seatNumber")
-                bus = request.POST['busID']
-                form = Booking(date_booked=dBooked, seatNumber = seatNumber, bus_id=bus, user=user)
-                form.save()
-                
-                return redirect('robust:userReview_view')       
-    
-            else:
-                print(form.errors)
-                return HttpResponse('not valid')
+            form = BookingForm(request.POST or None)    
+            if request.method == 'POST':
+                if form.is_valid():
+                    user=request.user
+                    dBooked = request.POST.get("dateBooked")   
+                    seatNumber = request.POST.get("seatNumber")
+                    bus = request.POST['busID']
+                    form = Booking(date_booked=dBooked, seatNumber = seatNumber, bus_id=bus, user = user)
+                    form.save()
+                        
+                    return redirect('robust:userReview_view')       
+            
+                else:
+                    print(form.errors)
+                    return HttpResponse('not valid')
             
             
 class UserSelectUpdateView(View):
@@ -184,9 +184,9 @@ class UserDashboardViewMonthly(View):
           
 class AdminListView(View):
     def get(self, request):
-        user = User.objects.all()
+        passengers = Passenger.objects.all()
         context = {
-            'users' : user
+            'passengers' : passengers,
         }
         return render(request, 'admin/adminList.html', context)
   
@@ -219,7 +219,7 @@ class AdminListView(View):
                 
             #PASSENGER CASH IN
             elif 'passengerCashIn' in request.POST:
-                getUserId = request.POST.get("cashInPassenger-username") 
+                getPassengerUsername = request.POST.get("cashInPassenger-username") 
                 CashInUpdate = request.POST.get("cashIn-amount")
                 AvailableBalance = request.POST.get("available-balance")
                
@@ -228,7 +228,7 @@ class AdminListView(View):
                 else :
                     AvailableBalanceUpdate = (int(AvailableBalance)+int(CashInUpdate))
                 
-                UpdatePassengerCashIn = Passenger.objects.filter(id = getUserId).update(availableBalance = AvailableBalanceUpdate, currentCashIn = CashInUpdate)
+                UpdatePassengerCashIn = Passenger.objects.filter(username = getPassengerUsername).update(availableBalance = AvailableBalanceUpdate, currentCashIn = CashInUpdate)
                 print(UpdatePassengerCashIn)
                 
         return redirect('robust:adminList_view')   
