@@ -120,10 +120,11 @@ class UserSelectView(View):
             form = BookingForm(request.POST)    
 
             if form.is_valid():
+                user =  request.user
                 dBooked = request.POST.get("dateBooked")   
                 seatNumber = request.POST.get("seatNumber")
                 bus = request.POST['busID']
-                form = Booking(date_booked=dBooked, seatNumber = seatNumber, bus_id=bus)
+                form = Booking(date_booked=dBooked, seatNumber = seatNumber, bus_id=bus, user=user)
                 form.save()
                 
                 return redirect('robust:userReview_view')       

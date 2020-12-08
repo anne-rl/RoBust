@@ -48,28 +48,28 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6 mb-3">
+                <div class="col-md-4 mb-3">
                   <label for="destination" style="color: white">Fare</label>
                   <input type="text" class="form-control" id="fare" name="fare" value="{{bus.busFare}}" readonly>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-4 mb-3">
                   <label for="seats" style="color: white">Seats</label>
                   <input type="text" class="form-control" id="seats" name="seats" value="{{bus.totalSeats}}" readonly>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="timeDeparture" style="color: white">Time Departure</label>
                   <input type="time" class="form-control" id="departureTime" name="departureTime" value="{{bus.departureTime| time:'H:i'}}" readonly>
                 </div>
+              </div>
+             <!--  <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="date" style="color: white">Select Date</label>
                   <input type="text" class="form-control" id="dateReservation" name="dateReservation" placeholder="mm/dd/yyyy" data-provide="datepicker" value="" required>
                 </div>
-              </div>
+              </div> -->
             </div>
             <div class="modal-footer">
-              <a type="submit" class="btn submit" style="color: white; border-radius: 3px; width: 140px; background-color: #a83332; height: 40px; margin-left: 290; padding:5px; font-size: 17px" id="id-submit" href = "userSelect/{{bus.pk}}/">SEARCH SEAT</a>
+              <a type="submit" class="btn submit" style="color: white; border-radius: 3px; width: 140px; background-color: #a83332; height: 40px; margin-left: 290; padding:5px; font-size: 17px" id="id-submit" href = "userSelect/{{bus.pk}}">VIEW SEATS</a>
             </div>
 
 <!-- onclick=" onClickHandler()
