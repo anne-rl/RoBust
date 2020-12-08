@@ -51,6 +51,7 @@ def UserRegistrationView(request):
             form = CreateUserForm(data=request.POST)
             if form.is_valid():
                 form.save()
+                
                 user = form.cleaned_data.get('username')
                 messages.success(request, 'Account was created for'+user)
                 return redirect('robust:adminList_view')
@@ -385,9 +386,10 @@ class AdminRegisterDriver(View):
         return render(request, 'admin/adminRegisterDriver.html')
   
     def post(self, request):
-        form = RegisterDriverForm(request.POST, request.FILES)
+        form = RegisterDriverForm(request.POST or None, request.FILES)
     
         if form.is_valid():
+            user=request.user
             DriverProfilePicture = request.FILES.get('profilePicture')
             DriverFirstName = request.POST.get("firstName")
             DriverMiddleName = request.POST.get("middleName")
@@ -397,7 +399,7 @@ class AdminRegisterDriver(View):
             DriverGender = request.POST.get("gender")
     
 
-            form = Driver(profilePicture = DriverProfilePicture, firstName = DriverFirstName, middleName = DriverMiddleName, lastName = DriverLastName, emailAddress = DriverEmailAddress, contactNumber = DriverContactNumber, gender = DriverGender)
+            form = Driver(user = user, profilePicture = DriverProfilePicture, firstName = DriverFirstName, middleName = DriverMiddleName, lastName = DriverLastName, emailAddress = DriverEmailAddress, contactNumber = DriverContactNumber, gender = DriverGender)
             form.save()
         
             return redirect('robust:adminBusTransaction_view')   

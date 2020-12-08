@@ -44,7 +44,8 @@ from .models import *
 #            db_table = "Admin"
 
 class Driver(models.Model):
-#       driverID = models.AutoField(primary_key=True)
+#        driverID = models.AutoField(primary_key=True)
+        user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
         profilePicture = models.ImageField(upload_to='imagesDriver/', null=True, blank=True)
         firstName = models.CharField(max_length = 50)
         middleName = models.CharField(max_length = 50)
