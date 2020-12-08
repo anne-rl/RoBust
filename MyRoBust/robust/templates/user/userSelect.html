@@ -299,6 +299,11 @@
         </div>
       </div>
 
+      <script type="text/javascript">
+        $("{{booking.seatNumber}}").addClass("notvacant").children("input").prop("disabled", true);
+        $("{{booking.seatNumber}}").children("label").remove();
+      </script>
+
       <div class="col-md-4 mb-3" style="padding-left: 50px">
         <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 720px; border-bottom-color: #a83332; border-bottom-style: solid">
           <h6><b>Booking Details</b></h6>
@@ -460,13 +465,9 @@
 
 </script>
 
-{% for booking in bookings%}
-<script type="text/javascript">
-  $("{{booking.bus.seatNumber}}").addClass("notvacant").children("input").prop("disabled", true);
-  $("{{booking.bus.seatNumber}}").children("label").remove();
+<!-- {% for booking in bookings%} -->
 
-</script>
-{% endfor %}
+<!-- {% endfor %} -->
 
 {% endblock footerinclude %}
 {% endblock content %}

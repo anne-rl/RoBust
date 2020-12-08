@@ -1,4 +1,5 @@
 {% extends 'admin/adminBase.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -13,7 +14,7 @@
     <div class="container">
       <div class="picture-container">
         <div class="picture">
-          <img src="" class="picture-src" id="profilePicturePreview" title="" required>
+          <img src="{% static '/media/user.png' %}" class="picture-src" id="profilePicturePreview" title="" required>
           <input type="file" id="profilePicture" name="profilePicture" required>
         </div>
         <h6 class="">Choose Picture</h6>
