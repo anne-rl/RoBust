@@ -15,6 +15,7 @@ from django.core.paginator import Paginator, EmptyPage
 from itertools import chain
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+# from django.contrib.auth import update_session_auth_hash
 
 def landingIndexView(request):
         if request.method == 'POST':
@@ -117,21 +118,21 @@ class UserSelectView(View):
             return render(request, 'user/userSelect.html', context)
 
         def post(self, request, id):
-            form = BookingForm(request.POST)    
-
-            if form.is_valid():
-                user =  request.user
-                dBooked = request.POST.get("dateBooked")   
-                seatNumber = request.POST.get("seatNumber")
-                bus = request.POST['busID']
-                form = Booking(date_booked=dBooked, seatNumber = seatNumber, bus_id=bus, user=user)
-                form.save()
-                
-                return redirect('robust:userReview_view')       
-    
-            else:
-                print(form.errors)
-                return HttpResponse('not valid')
+            form = BookingForm(request.POST or None)    
+            if request.method == 'POST':
+                if form.is_valid():
+                    user=request.user
+                    dBooked = request.POST.get("dateBooked")   
+                    seatNumber = request.POST.get("seatNumber")
+                    bus = request.POST['busID']
+                    form = Booking(date_booked=dBooked, seatNumber = seatNumber, bus_id=bus, user = user)
+                    form.save()
+                        
+                    return redirect('robust:userReview_view')       
+            
+                else:
+                    print(form.errors)
+                    return HttpResponse('not valid')
             
             
 class UserSelectUpdateView(View):
