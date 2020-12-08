@@ -184,37 +184,36 @@ class UserDashboardViewMonthly(View):
           
 class AdminListView(View):
     def get(self, request):
-        passengers = Passenger.objects.all()
+        users = User.objects.all()
         context = {
-            'passengers' : passengers,
+            'users' : users,
         }
         return render(request, 'admin/adminList.html', context)
   
     def post(self, request):
         if request.method == 'POST':
-            #PASSENGER UPDATE
-            if 'passengerUpdate' in request.POST:
+            #USER UPDATE
+            if 'userUpdate' in request.POST:
                 print('update profile button clicked')
-                PassengerUsername = request.POST.get("passenger-username")
-                PassengerFirstName = request.POST.get("passenger-firstName")
-                PassengerMiddleName = request.POST.get("passenger-middleName")
-                PassengerLastName = request.POST.get("passenger-lastName")
-                PassengerEmailAddress = request.POST.get("passenger-emailAddress")
-                PassengerPassword = request.POST.get("passenger-password")
-                PassengerDepartment = request.POST.get("passenger-department")
-                PassengerContactNumber = request.POST.get("passenger-contactNumber")
-                PassengerGender = request.POST.get("passenger-gender")
+                UserId = request.POST.get("user-id")
+                UserFirstName = request.POST.get("user-firstName")
+                UserLastName = request.POST.get("user-lastName")
+                UserUsername = request.POST.get("user-username")
+                UserEmailAddress = request.POST.get("user-emailAddress")
+   
+                UpdateUser = User.objects.filter(id = UserId).update(first_name = UserFirstName, last_name = UserLastName, username = UserUsername, email = UserEmailAddress)
                 
-                UpdatePassenger = Passenger.objects.filter(username = PassengerUsername).update(firstName = PassengerFirstName, middleName = PassengerMiddleName, lastName = PassengerLastName, emailAddress = PassengerEmailAddress, password = PassengerPassword, department = PassengerDepartment, contactNumber = PassengerContactNumber, gender = PassengerGender)
-                
-                print(UpdatePassenger)
-                print('Passenger Updated')
+                print(UpdateUser)
+                print('User Updated')
             
-            #PASSENGER DELETE
-            elif 'passengerDelete' in request.POST:
+            #USER DELETE
+            elif 'userDelete' in request.POST:
                 print('delete button clicked')
-                getPassengerUsername = request.POST.get("deletePassenger-username")
-                DeletePassenger = Passenger.objects.filter(username = getPassengerUsername).delete()
+                getUserId = request.POST.get("deleteUser-username")
+                
+                DeleteUser = User.objects.filter(id = getUserId).delete()
+                
+                print(DeleteUser)
                 print('recorded deleted')  
                 
             #PASSENGER CASH IN
@@ -250,7 +249,7 @@ class AdminSummaryView(View):
 class AdminDashboardWeekly(View):
     def get(self, request):
         allBuses = Bus.objects.count()
-        allPassengers = Passenger.objects.count()
+        allPassengers = User.objects.count()
         context = {
             'allBuses' : allBuses, 
             'allPassengers' : allPassengers
@@ -263,9 +262,10 @@ class AdminDashboardWeekly(View):
 class AdminDashboardMonthly(View):
     def get(self, request):
         allBuses = Bus.objects.count()
-                
+        allPassengers = User.objects.count()        
         context = {
-            'allBuses' : allBuses
+            'allBuses' : allBuses,
+            'allPassengers' : allPassengers
         }
         return render(request, 'admin/adminDashboardMonthly.html', context)
   
