@@ -15,6 +15,7 @@ from django.core.paginator import Paginator, EmptyPage
 from itertools import chain
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 def landingIndexView(request):
         if request.method == 'POST':
@@ -183,9 +184,9 @@ class UserDashboardViewMonthly(View):
           
 class AdminListView(View):
     def get(self, request):
-        passengers = Passenger.objects.all()
+        user = User.objects.all()
         context = {
-            'passengers' : passengers,
+            'users' : user
         }
         return render(request, 'admin/adminList.html', context)
   
@@ -218,7 +219,7 @@ class AdminListView(View):
                 
             #PASSENGER CASH IN
             elif 'passengerCashIn' in request.POST:
-                getPassengerUsername = request.POST.get("cashInPassenger-username") 
+                getUserId = request.POST.get("cashInPassenger-username") 
                 CashInUpdate = request.POST.get("cashIn-amount")
                 AvailableBalance = request.POST.get("available-balance")
                
@@ -227,7 +228,7 @@ class AdminListView(View):
                 else :
                     AvailableBalanceUpdate = (int(AvailableBalance)+int(CashInUpdate))
                 
-                UpdatePassengerCashIn = Passenger.objects.filter(username = getPassengerUsername).update(availableBalance = AvailableBalanceUpdate, currentCashIn = CashInUpdate)
+                UpdatePassengerCashIn = Passenger.objects.filter(id = getUserId).update(availableBalance = AvailableBalanceUpdate, currentCashIn = CashInUpdate)
                 print(UpdatePassengerCashIn)
                 
         return redirect('robust:adminList_view')   
