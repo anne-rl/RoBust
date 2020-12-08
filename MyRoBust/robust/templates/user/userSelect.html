@@ -321,36 +321,14 @@
         </div>
 
         <div class="row" style="width: 900">
-          <div class="col-md-10 mb-3">
+          <div class="col-md-5 mb-3">
             <label for="destination">Destination</label>
             <input class="form-control" id="destination" name="destination" minlength="1" maxlength="50" value="{{booking.destination}}" readonly>
           </div>
-          <!-- <div class="col-md-5 mb-3">
+           <div class="col-md-5 mb-3">
             <label>Date</label>
-            <input class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="dateReservation" name="dateReservation" minlength="1" maxlength="30" value="" readonly>
-          </div> -->
-
-<!-- 
-          <script>
-            function parseQueryString() {
-              var queryDict = {}
-              location.search.substr(1).split("&").forEach(function(item) {
-                queryDict[item.split("=")[0]] = item.split("=")[1]
-              });
-
-              return queryDict;
-            }
-
-            function onLoadHandler() {
-              document.getElementById('dateReservation').value = parseQueryString().name;
-            }
-
-          </script> -->
-
-
-
-
-
+            <input class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="dateReservation" name="dateReservation" minlength="1" maxlength="30" value=" {{Booked}}" readonly>
+          </div>
           <div class="col-md-3">
             <label for="time">Time Departure</label>
             <input class="form-control" id="time" name="time" minlength="1" maxlength="30" value="{{booking.departureTime}}" style="width: 220px" readonly>

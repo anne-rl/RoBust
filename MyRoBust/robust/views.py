@@ -96,36 +96,41 @@ class UserReservationView(View):
             }
             return render(request, 'user/userReservation.html', context)
 
-        def post(self, request):
-            return render(request, 'user/userReservation.html')
-
-# def UserSelect(request, id):
-#     bus = Bus.objects.get(bus=id)
-#     qs_booking = Booking.objects.filter(bus=id)
-#     context = {
-#         'bookings': qs_booking
-#     }
-#     return render(request, 'user/userSelect.html', context)
+        def post(self,request):  
+            id = request.POST.get('busID')
+            date_reserved = request.POST.get('dateReservation')
+            global getID
+            global getdBooked
+            def getID():
+                return id;
+            def getdBooked():
+                return date_reserved;
+            return redirect('robust:userSelect_view')
     
 class UserSelectView(View):
         # model = Bus
-        def get(self,request,id):
+        def get(self,request):
+            id = getID()
+            dBooked = getdBooked()
             bus = Bus.objects.get(busID=id)
             qs_booking = Bus.objects.filter(busID=id)  
             context = {
-                'bookings': qs_booking
+                'bookings': qs_booking,
+                'Booked' : dBooked
             }
             return render(request, 'user/userSelect.html', context)
 
-        def post(self, request, id):
+        def post(self, request):
             form = BookingForm(request.POST or None)    
             if request.method == 'POST':
                 if form.is_valid():
                     user=request.user
-                    dBooked = request.POST.get("dateBooked")   
+                    dBooked = request.POST.get("dateReservation")
+                    t_object1 = datetime.datetime.strptime(dBooked, " %m/%d/%Y")
+                    t_object2 = datetime.datetime.strftime(t_object1,"%Y-%m-%d")
                     seatNumber = request.POST.get("seatNumber")
                     bus = request.POST['busID']
-                    form = Booking(date_booked=dBooked, seatNumber = seatNumber, bus_id=bus, user = user)
+                    form = Booking(dateReservation=t_object2, seatNumber = seatNumber, bus_id=bus, user = user)
                     form.save()
                         
                     return redirect('robust:userReview_view')       

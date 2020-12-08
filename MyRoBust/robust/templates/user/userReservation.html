@@ -30,56 +30,52 @@
                 <span aria-hidden="true" style="color: white">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label for="busName" style="color: white">Bus Name</label>
-                  <input type="text" class="form-control" id="busName" name="busName" value="{{bus.busName}}" readonly>
+            <form method="POST">
+              {% csrf_token %}
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="busName" style="color: white">Bus Name</label>
+                    <input type="text" class="form-control" id="busName" name="busName" value="{{bus.busName}}" readonly>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="plateNumber" style="color: white">Plate Number</label>
+                    <input type="text" class="form-control" id="plateNumber" name="plateNumber" value="{{bus.plateNumber}}" readonly>
+                  </div>
                 </div>
-                <div class="col-md-6 mb-3">
-                  <label for="plateNumber" style="color: white">Plate Number</label>
-                  <input type="text" class="form-control" id="plateNumber" name="plateNumber" value="{{bus.plateNumber}}" readonly>
+                <div class="row">
+                  <div class="col-md-12 mb-3">
+                    <label for="destination" style="color: white">Destination</label>
+                    <input type="text" class="form-control" id="destination" name="destination" value="{{bus.destination}}" readonly>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="destination" style="color: white">Fare</label>
+                    <input type="text" class="form-control" id="fare" name="fare" value="{{bus.busFare}}" readonly>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="seats" style="color: white">Seats</label>
+                    <input type="text" class="form-control" id="seats" name="seats" value="{{bus.totalSeats}}" readonly>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="timeDeparture" style="color: white">Time Departure</label>
+                    <input type="time" class="form-control" id="departureTime" name="departureTime" value="{{bus.departureTime| time:'H:i'}}" readonly>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="date" style="color: white">Select Date</label>
+                    <input type="text" name=busID value="{{bus.pk}}" hidden>
+                    <input type="text" class="form-control" id="dateReservation" name="dateReservation" placeholder="mm/dd/yyyy" data-provide="datepicker" value="" required>
+                  </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-12 mb-3">
-                  <label for="destination" style="color: white">Destination</label>
-                  <input type="text" class="form-control" id="destination" name="destination" value="{{bus.destination}}" readonly>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4 mb-3">
-                  <label for="destination" style="color: white">Fare</label>
-                  <input type="text" class="form-control" id="fare" name="fare" value="{{bus.busFare}}" readonly>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <label for="seats" style="color: white">Seats</label>
-                  <input type="text" class="form-control" id="seats" name="seats" value="{{bus.totalSeats}}" readonly>
-                </div>
-              <div class="col-md-4 mb-3">
-                  <label for="timeDeparture" style="color: white">Time Departure</label>
-                  <input type="time" class="form-control" id="departureTime" name="departureTime" value="{{bus.departureTime| time:'H:i'}}" readonly>
-                </div>
-              </div>
-             <!--  <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label for="date" style="color: white">Select Date</label>
-                  <input type="text" class="form-control" id="dateReservation" name="dateReservation" placeholder="mm/dd/yyyy" data-provide="datepicker" value="" required>
-                </div>
-              </div> -->
-            </div>
-            <div class="modal-footer">
-              <a type="submit" class="btn submit" style="color: white; border-radius: 3px; width: 140px; background-color: #a83332; height: 40px; margin-left: 290; padding:5px; font-size: 17px" id="id-submit" href = "userSelect/{{bus.pk}}">VIEW SEATS</a>
-            </div>
 
-<!-- onclick=" onClickHandler()
- -->            <!-- <script>
-              function onClickHandler() {
-                location.href = "userSelect/{{bus.pk}}/" + document.getElementById('dateReservation').value;
-              }
-
-            </script>
- -->
+              <div class="modal-footer">
+                <button type="submit" class="btn submit" style="color: white; border-radius: 3px; width: 140px; background-color: #a83332; height: 40px; margin-left: 290; padding:5px; font-size: 17px" id="id-submit">SEARCH SEAT</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

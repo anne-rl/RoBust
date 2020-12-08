@@ -41,22 +41,20 @@
           <table class="table table-bordered" id="mySummaryTable" width="100%" cellspacing="0">
             <thead class="thead-light">
               <tr>
-                <th style="text-align:center; width: 13%">Id</th>
-                <th style="text-align:center; width: 25%">FirstName</th>
-                <th style="text-align:center; width: 15%">LastName</th>
                 <th style="text-align:center; width: 12%">Username</th>
+                <th style="text-align:center; width: 25%">Name</th>
+                <th style="text-align:center; width: 25%">Email</th>
                 <th style="text-align:center; width: 12%">Available Balance</th>
                 <th style="text-align:center; width: 12%">Current Cash In</th>
-                <th style="text-align:center; width: 13%">Actions</th>
+                <th style="text-align:center; width: 5%">Actions</th>
               </tr>
             </thead>
             <tbody>
               {% for user in users %}
               <tr>
-                <td>{{user.id}}</td>
-                <td>{{user.first_name}}</td>
-                <td style="text-align:center">{{user.last_name}}</td>
-                <td>{{user.username}}</td>
+                <td style="text-align:center">{{user.username}}</td>
+                <td>{{user.first_name}} {{user.last_name}}</td>
+                <td>{{user.email}}</td>
                 <th style="text-align:center; width: 12%">{{passenger.availableBalance}}</th>
                 <th style="text-align:center; width: 12%">{{passenger.currentCashIn}}</th>
                 <td style="width: 10px">

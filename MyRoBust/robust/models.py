@@ -83,7 +83,7 @@ class Booking(models.Model):
         booking=models.AutoField(primary_key=True, null=False)
         bus = models.ForeignKey(Bus, on_delete=models.CASCADE)
         seatNumber = models.CharField(max_length = 15)
-        # dateReservation = models.DateField(default =  timezone.now)
+        dateReservation = models.DateField(default = None)
     
         class Meta:
             db_table = "Booking"

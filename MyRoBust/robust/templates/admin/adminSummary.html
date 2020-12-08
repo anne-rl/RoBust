@@ -15,11 +15,13 @@
           <div class="row">
             <div class="col-xs-2">
               <p><b>FROM</b>
-                <input id="min" class="form-control" name="min" type="text" style="width: 150px;"></p>
+                <input id="min" class="form-control" name="min" type="text" style="width: 150px;">
+              </p>
             </div>
             <div class="col-xs-2" style="padding-left: 20px">
               <p><b>TO</b>
-                <input id="max" class="form-control" name="max" type="text" style="width: 150px;"></p>
+                <input id="max" class="form-control" name="max" type="text" style="width: 150px;">
+              </p>
             </div>
           </div>
         </div>
@@ -27,19 +29,21 @@
           <table class="table table-bordered" id="mySummaryTable" width="100%" cellspacing="0">
             <thead class="thead-light">
               <tr>
+                <th style="text-align:center; width: 12%">Date Booked</th>
+                <th style="text-align:center; width: 12%">Date Reserved</th>
                 <th style="text-align:center; width: 12%">Ticket No.</th>
-                <th style="text-align:center; width: 12%">ID</th>
-                <th style="text-align:center; width: 25%">Name</th>
+                <th style="text-align:center; width: 12%">Username</th>
                 <th style="text-align:center; width: 20%">Bus Name</th>
                 <th style="text-align:center; width: 2%">View</th>
               </tr>
             </thead>
             <tbody>
-               {% for booking in bookings %}
+              {% for booking in bookings %}
               <tr>
+                <td style="text-align:center">{{booking.date_booked}} </td>
+                <td style="text-align:center">{{booking.dateReservation}} </td>
                 <td> RoBust - {{booking.booking}} </td>
-                <td> </td>
-                <td> </td>
+                <td style="text-align:center"> {{booking.user.username}}</td>
                 <td> {{booking.bus.busName}} </td>
                 <td style="text-align:center">
                   <div class="text-center">
@@ -62,24 +66,14 @@
                     <form id="updateForm" method='POST'>
                       {% csrf_token %}
                       <div class="modal-body">
-<!--                        <input type="text" name="passenger-username" value="{{passenger.username}}" hidden>-->
                         <div class="row">
-                          <div class="col-md-4 mb-2">
-                            <label for="passengerID" style="color: white">ID :</label>
+                          <div class="col-md-6 mb-3">
+                            <label for="username" style="color: white">Username</label>
+                            <input type="text" class="form-control" id="username" name="passenger-username" placeholder="Last Name" required minlength="1" maxlength="20" value="{{booking.user.username}}" readonly>
                           </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-4 mb-3">
-                            <label for="firstName" style="color: white">First Name</label>
-                            <input type="text" class="form-control" id="firstName" name="passenger-firstName" placeholder="First Name" required minlength="1" maxlength="20" readonly>
-                          </div>
-                          <div class="col-md-4 mb-3">
-                            <label for="middleName" style="color: white">Middle Name</label>
-                            <input type="text" class="form-control" id="middleName" name="passenger-middleName" placeholder="Middle Name" minlength="1" maxlength="20" readonly>
-                          </div>
-                          <div class="col-md-4 mb-3">
-                            <label for="lastName" style="color: white">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" name="passenger-lastName" placeholder="Last Name" required minlength="1" maxlength="20" readonly>
+                          <div class="col-md-6 mb-3">
+                            <label for="name" style="color: white">Name</label>
+                            <input type="text" class="form-control" id="name" name="passenger-name" placeholder="Name" required minlength="1" maxlength="20" value="{{booking.user.first_name}} {{booking.user.last_name}}" readonly>
                           </div>
                         </div>
                         <hr style="background-color:  color: white; border-style: solid; border-color: white">
@@ -112,7 +106,7 @@
                           </div>
                           <div class="col-md-2 mb-3">
                             <label for="seatNumber" style="color: white">Seat No.</label>
-                            <input type="text" class="form-control" id="seatNumber" name="passenger-seatNumber" placeholder="Seat No." minlength="1" maxlength="20"  value="{{booking.seatNumber}}" readonly>
+                            <input type="text" class="form-control" id="seatNumber" name="passenger-seatNumber" placeholder="Seat No." minlength="1" maxlength="20" value="{{booking.seatNumber}}" readonly>
                           </div>
                         </div>
                         <div class="modal-footer" style="height: 40px; padding-top: 5px">
@@ -223,27 +217,29 @@
     //Activate tooltip
     $('[data-toggle="tooltip"]').tooltip();
   });
+
 </script>
 
 <!-- Char that will only accept numbers only -->
 <script>
-    function validate(evt) {
-      var theEvent = evt || window.event;
+  function validate(evt) {
+    var theEvent = evt || window.event;
 
-      // Handle paste
-      if (theEvent.type === 'paste') {
-          key = event.clipboardData.getData('text/plain');
-      } else {
+    // Handle paste
+    if (theEvent.type === 'paste') {
+      key = event.clipboardData.getData('text/plain');
+    } else {
       // Handle key press
-          var key = theEvent.keyCode || theEvent.which;
-          key = String.fromCharCode(key);
-      }
-      var regex = /[0-9]|\./;
-      if( !regex.test(key) ) {
-        theEvent.returnValue = false;
-        if(theEvent.preventDefault) theEvent.preventDefault();
-      }
+      var key = theEvent.keyCode || theEvent.which;
+      key = String.fromCharCode(key);
     }
+    var regex = /[0-9]|\./;
+    if (!regex.test(key)) {
+      theEvent.returnValue = false;
+      if (theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }
+
 </script>
 {% endblock footerinclude %}
 {% endblock content %}
