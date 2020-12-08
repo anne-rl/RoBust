@@ -96,4 +96,4 @@ class DashboardBus(models.Model):
         totalBuses = models.IntegerField()
         
         class Meta:
-            db_table = "DashboardBus"
+            db_table = "DashboardBus"            

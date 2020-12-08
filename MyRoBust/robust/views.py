@@ -322,10 +322,12 @@ class AdminDashboardMonthly(View):
 class AdminBusTransactionView(View):
     def get(self, request):
         qs_bus = Bus.objects.all()
-        drivers = Driver.objects.all()
+        qs_drivers = Driver.objects.all()
+        qs_trips = Booking.objects.all()
         context = {
             'buses' : qs_bus,
-            'drivers' : drivers
+            'drivers' : qs_drivers,
+            'trips' : qs_trips
         }
         return render(request, 'admin/adminBusTransaction.html', context)
   
@@ -372,6 +374,13 @@ class AdminBusTransactionView(View):
                 print('delete button clicked')
                 Driverid = request.POST.get("deleteDriver-id")
                 DeleteDriver = Driver.objects.filter(id = Driverid).delete()
+                print('recorded deleted') 
+                
+            #TRIP DELETE
+            elif 'tripDelete' in request.POST:	          
+                print('delete button clicked')
+                Tripid = request.POST.get("deleteTrip-id")
+                DeleteTrip = Booking.objects.filter(booking = Tripid).delete()
                 print('recorded deleted') 
 
         return redirect('robust:adminBusTransaction_view')
