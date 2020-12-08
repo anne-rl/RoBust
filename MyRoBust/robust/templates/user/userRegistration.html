@@ -153,13 +153,14 @@
         <label for="firstName">Confirm Password</label>
         <input type="password" class="form-control" id="id_password2" name="password2" autocomplete="new-password" required>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-12">
         {{form.errors}}
       </div>
       <hr style="border-top: 1px solid ">
-      <div class="text-center">Already have an <label style="color: #F6C103; text-shadow: 200"><b>account</b></label> ? <a type="button" href="{% url 'robust:landing_view' %}" style="color: #a83332"><b>Sign in here</b></a></div>
+<!--      <div class="text-center">Already have an <label style="color: #F6C103; text-shadow: 200"><b>account</b></label> ? <a type="button" href="{% url 'robust:landing_view' %}" style="color: #a83332"><b>Sign in here</b></a></div>-->
     </table>
-    <br><br>
+<!--    <br>-->
+<!--    <br>-->
     <div class="row">
       <div class="col-md-6 mb-1">
         <a type="cancel" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; padding:10px" ; id="id-Cancel" href="{% url 'robust:landing_view' %}">CANCEL</a>
