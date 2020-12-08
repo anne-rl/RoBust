@@ -52,7 +52,7 @@ def UserRegistrationView(request):
                 form.save()
                 user = form.cleaned_data.get('username')
                 messages.success(request, 'Account was created for'+user)
-                return redirect('robust:landing_view')
+                return redirect('robust:adminList_view')
         
         context = {'form' : form}
         return render(request,'user/userRegistration.html', context)
