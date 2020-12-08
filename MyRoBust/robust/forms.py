@@ -19,7 +19,7 @@ class BookingForm(forms.ModelForm):
         
         class Meta:
             model = Booking
-            fields = ('seatNumber','dateReservation')
+            fields = ('seatNumber',)
             
 class BusForm(forms.ModelForm):
 

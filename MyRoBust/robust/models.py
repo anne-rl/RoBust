@@ -69,12 +69,13 @@ class Bus(models.Model):
             db_table = "Bus"
 
 class Booking(models.Model):
+        user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
         date_booked = models.DateField(auto_now_add = True)
         booking=models.AutoField(primary_key=True, null=False)
         # passenger=models.ForeignKey(Passenger, on_delete=models.CASCADE)
         bus = models.ForeignKey(Bus, on_delete=models.CASCADE)
         seatNumber = models.CharField(max_length = 15)
-        dateReservation = models.DateField(default =  timezone.now)
+        # dateReservation = models.DateField(default =  timezone.now)
     
         class Meta:
             db_table = "Booking"

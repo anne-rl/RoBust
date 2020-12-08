@@ -108,7 +108,7 @@ class UserReservationView(View):
     
 class UserSelectView(View):
         # model = Bus
-        def get(self,request,id, month, day, year):
+        def get(self,request,id):
             bus = Bus.objects.get(busID=id)
             qs_booking = Bus.objects.filter(busID=id)  
             context = {
