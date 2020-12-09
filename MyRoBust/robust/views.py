@@ -212,9 +212,7 @@ class UserDashboardViewMonthly(View):
 
         def post(self, request):
             return render(request, 'user/userDashboardMonthly.html')
-          
-          
-          
+                    
 class AdminListView(View):
     def get(self, request):
         users = User.objects.all()
@@ -350,8 +348,10 @@ class AdminBusTransactionView(View):
                 print('delete button clicked')
                 bid = request.POST.get("deleteBus-id")
                 deleteBus = Bus.objects.filter(busID = bid).delete()
+                deleteBashboardBus = DashboardBus.objects.filter(id = bid).delete()
                 print('recorded deleted') 
-                
+            
+      
             #DRIVER UPDATE        
             elif 'driverUpdate' in request.POST:
                 print('update profile button clicked')
@@ -387,6 +387,7 @@ class AdminBusTransactionView(View):
        
 class AdminRegisterBus(View):
     def get(self, request):
+        bus = Bus.objects.all()
         return render(request, 'admin/adminRegisterBus.html')
 
     def post(self, request):
@@ -394,7 +395,7 @@ class AdminRegisterBus(View):
         form = BusForm(request.POST, request.FILES)
 
         if form.is_valid():
-
+            user=request.user
             busBName = request.POST.get("busName")
             busPNumber = request.POST.get("plateNumber")
             busDes = request.POST.get("destination")
@@ -405,13 +406,13 @@ class AdminRegisterBus(View):
             form = Bus(busName = busBName, plateNumber = busPNumber, destination = busDes,
                         totalSeats = busSeats, busFare = busBsFare, departureTime = busDTime, img = img)
             form.save()
-            
+                     
             allBuses = Bus.objects.count()
         
-            form = DashboardBus(totalBuses = allBuses)
+            form = DashboardBus(totalBuses = allBuses, user = user)
             form.save()
-
-            return redirect('robust:adminBusTransaction_view')
+            
+            return redirect('robust:adminBusTransaction_view') 
 
         else:
             print(form.errors)
