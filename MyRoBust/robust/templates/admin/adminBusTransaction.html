@@ -354,29 +354,31 @@
                 <th style="text-align:center; width: 15%">Trip Date</th>
                 <th style="text-align:center; width: 14%">Trip Time</th>
 
-                <th style="text-align:center; width: 2%">Delete</th>
+<!--                <th style="text-align:center; width: 2%">Delete</th>-->
               </tr>
             </thead>
             <tbody>
               {% for trip in trips %}
               <tr style="background-color: white">
 <!--                <td> </td>-->
-                <td>Robust - {{trip.booking}}</td>
-                <td>{{trip.bus.busID}}</td>
-                <td>{{trip.user.id}}</td>
-                <td>{{trip.dateReservation}}</td>
-                <td>{{trip.bus.departureTime}}</td>
+                <td style="text-align:center">Robust - {{trip.booking}}</td>
+                <td style="text-align:center">{{trip.bus.busID}}</td>
+                <td style="text-align:center">{{trip.user.id}}</td>
+                <td style="text-align:center">{{trip.dateReservation}}</td>
+                <td style="text-align:center">{{trip.bus.departureTime}}</td>
+<!--
                 <td style="text-align:center; width: 33px">
                   <div class="text-center">
-                    <!-- View Button
-                    <a type="button" class="btn btn-default btn-sm" style="width:55px" href="#" data-toggle="modal" data-target="#viewModal"><span class="fa fa-eye" style="color:black"></span></a>-->
+                     View Button
+                    <a type="button" class="btn btn-default btn-sm" style="width:55px" href="#" data-toggle="modal" data-target="#viewModal"><span class="fa fa-eye" style="color:black"></span></a>
 
-                    <!-- Delete Button-->
+                     Delete Button
                     <button type="button" class="btn btn-default btn-sm" style="width:55px" data-toggle="modal" data-target="#deleteTripModal-{{trip.booking}}">
                       <span class="fa fa-trash"></span>
                     </button>
                   </div>
                 </td>
+-->
               </tr>
             </tbody>
 
