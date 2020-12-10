@@ -93,7 +93,7 @@ class Booking(models.Model):
         #     return self.user.username +" | "+ self.booking.bus.busName +" | "+ self.seatNumber
             
 class DashboardBus(models.Model):
-#        busID = models.ForeignKey(Bus, on_delete=models.CASCADE)
+#        bus_ID = models.ForeignKey(Bus, on_delete=models.CASCADE)
         totalBuses = models.IntegerField()
         user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
         

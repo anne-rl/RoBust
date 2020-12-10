@@ -344,14 +344,18 @@ class AdminBusTransactionView(View):
                             destination = busDes, totalSeats = busSeats, busFare = busBsFare, departureTime = busDTime)
                 
             #BUS DELETE     
-            elif 'busDelete' in request.POST:	          
+            elif 'busDelete' in request.POST:
                 print('delete button clicked')
                 bid = request.POST.get("deleteBus-id")
                 deleteBus = Bus.objects.filter(busID = bid).delete()
-                deleteBashboardBus = DashboardBus.objects.filter(id = bid).delete()
                 print('recorded deleted') 
-            
-      
+                
+                #Delete a bus to the DashboardBus 
+                user=request.user
+                allBuses = Bus.objects.count()
+                form = DashboardBus(totalBuses = allBuses, user = user)
+                form.save()
+             
             #DRIVER UPDATE        
             elif 'driverUpdate' in request.POST:
                 print('update profile button clicked')
@@ -387,7 +391,6 @@ class AdminBusTransactionView(View):
        
 class AdminRegisterBus(View):
     def get(self, request):
-        bus = Bus.objects.all()
         return render(request, 'admin/adminRegisterBus.html')
 
     def post(self, request):
@@ -406,9 +409,10 @@ class AdminRegisterBus(View):
             form = Bus(busName = busBName, plateNumber = busPNumber, destination = busDes,
                         totalSeats = busSeats, busFare = busBsFare, departureTime = busDTime, img = img)
             form.save()
-                     
+            
+            #Count all the buses 
             allBuses = Bus.objects.count()
-        
+            
             form = DashboardBus(totalBuses = allBuses, user = user)
             form.save()
             
