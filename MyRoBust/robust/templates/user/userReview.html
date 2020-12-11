@@ -43,7 +43,7 @@
                 <td style="text-align:center">{{booking.date_booked}} </td>
                 <td> RoBust - {{booking.booking}} </td>
                 <td style="text-align:center"> {{booking.bus.departureTime}} </td>
-                <td> {{booking.bus.destination}} </td>
+                <td style="text-transform: uppercase"> {{booking.bus.destination}} </td>
                 <td style="text-align:center"> {{booking.seatNumber}} </td>
                 <td style="text-align:center">
                   <div class="text-center">
@@ -77,13 +77,13 @@
                           </div>
                           <div class="col-md-6 mb-3">
                             <label for="destination" style="color: white">Destination</label>
-                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" required minlength="1" maxlength="20" value="{{booking.bus.destination}}" readonly>
+                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" required minlength="1" maxlength="20" value="{{booking.bus.destination}}" style="text-transform: uppercase" readonly>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-3 mb-3">
                             <label for="busNumber" style="color: white">Plate Number</label>
-                            <input type="text" class="form-control" id="id-plateNumber" name="bus-plateNumber" placeholder="Plate Number" minlength="1" maxlength="20" value="{{booking.bus.plateNumber}}" readonly>
+                            <input type="text" class="form-control" id="id-plateNumber" name="bus-plateNumber" placeholder="Plate Number" minlength="1" maxlength="20" value="{{booking.bus.plateNumber}}" style="text-transform: uppercase" readonly>
                           </div>
                           <div class="col-md-3 mb-3">
                             <label for="timeDeparture" style="color: white">Time Departure</label>

@@ -40,8 +40,8 @@
               <tr>
                 <td style="text-align:center;">{{bus.busID}}</td>
                 <td>{{bus.busName}}</td>
-                <td>{{bus.destination}}</td>
-                <td style="text-align:center;">{{bus.plateNumber}}</td>
+                <td style="text-transform: uppercase">{{bus.destination}}</td>
+                <td style="text-align:center;text-transform: uppercase">{{bus.plateNumber}}</td>
                 <td style="text-align:center; width: 33px">                 
                   <!-- View Button-->
                     <a type="button" class="btn btn-default btn-sm" style="width:35px" href="#" data-toggle="modal" data-target="#viewBusModal-{{bus.busID}}"><span class="fa fa-eye" style="color:black"></span></a>
@@ -82,7 +82,7 @@
                         <div class="row">
                           <div class="col-md-4 mb-3">
                             <label for="busName" style="color: white">Bus Name</label>
-                            <input type="text" class="form-control" id="id-busName" name="bus-busName" required minlength="1" maxlength="20" value="{{bus.busName}}">
+                            <input type="text" class="form-control" id="id-busName" name="bus-busName" required minlength="1" maxlength="20" value="{{bus.busName}}"  required>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="seats" style="color: white">No. of Seats</label>
@@ -102,13 +102,13 @@
                           </div>
                           <div class="col-md-6 mb-3">
                             <label for="plateNumber" style="color: white">Plate Number</label>
-                            <input type="text" class="form-control" id="id-plateNumber" name="bus-plateNumber" placeholder="Plate Number" minlength="1" maxlength="20" value="{{bus.plateNumber}}">
+                            <input type="text" class="form-control" id="id-plateNumber" name="bus-plateNumber" placeholder="Plate Number" minlength="1" maxlength="20" value="{{bus.plateNumber}}" style="text-transform: uppercase" required>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-6 mb-3">
                             <label for="destination" style="color: white">Destination</label>
-                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" minlength="1" maxlength="50" value="{{bus.destination}}">
+                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" minlength="1" maxlength="50" value="{{bus.destination}}" style="text-transform: uppercase" required>
                           </div>
                           <div class="col-md-6 mb-3">
                             <label for="driver" style="color: white">Driver</label>
