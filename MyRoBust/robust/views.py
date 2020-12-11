@@ -81,8 +81,16 @@ def UserRegistrationView(request):
                 
                 user = form.cleaned_data.get('username')
                 messages.success(request, 'Account was created for'+user)
+                
+                #Count all the users 
+                form = DashboardUserForm(request.POST)
+                user=request.user
+                allUsers = User.objects.count()   
+                form = DashboardUser(totalUsers = allUsers, user = user)
+                form.save()
+                
                 return redirect('robust:adminList_view')
-        
+                
         context = {'form' : form}
         return render(request,'user/userRegistration.html', context)
    
@@ -240,12 +248,17 @@ class AdminListView(View):
             #USER DELETE
             elif 'userDelete' in request.POST:
                 print('delete button clicked')
-                getUserId = request.POST.get("deleteUser-username")
-                
+                getUserId = request.POST.get("deleteUser-username")               
                 DeleteUser = User.objects.filter(id = getUserId).delete()
-                
                 print(DeleteUser)
                 print('recorded deleted')  
+                
+                #Delete a user to the DashboardUser 
+                form = DashboardUserForm(request.POST)
+                user=request.user
+                allUsers = User.objects.count()
+                form = DashboardUser(totalUsers = allUsers, user = user)
+                form.save()
                 
             #PASSENGER CASH IN
             elif 'passengerCashIn' in request.POST:

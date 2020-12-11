@@ -45,3 +45,9 @@ class DashboardBusForm(forms.ModelForm):
     class Meta:
         model = DashboardBus
         fields = ('totalBuses' ,)
+        
+class DashboardUserForm(forms.ModelForm):
+
+    class Meta:
+        model = DashboardUser
+        fields = ('totalUsers' ,)
