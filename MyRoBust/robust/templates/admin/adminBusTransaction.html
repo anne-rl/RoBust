@@ -353,6 +353,7 @@
                 <th style="text-align:center; width: 15%">Passenger ID.</th>
                 <th style="text-align:center; width: 15%">Trip Date</th>
                 <th style="text-align:center; width: 14%">Trip Time</th>
+                <th style="text-align:center; width: 14%">View</th>
 
 <!--                <th style="text-align:center; width: 2%">Delete</th>-->
               </tr>
@@ -366,24 +367,23 @@
                 <td style="text-align:center">{{trip.user.id}}</td>
                 <td style="text-align:center">{{trip.dateReservation}}</td>
                 <td style="text-align:center">{{trip.bus.departureTime}}</td>
-<!--
                 <td style="text-align:center; width: 33px">
                   <div class="text-center">
-                     View Button
-                    <a type="button" class="btn btn-default btn-sm" style="width:55px" href="#" data-toggle="modal" data-target="#viewModal"><span class="fa fa-eye" style="color:black"></span></a>
+                    <a type="button" class="btn btn-default btn-sm" style="width:55px" href="#" data-toggle="modal" data-target="#viewTripModal-{{trip.booking}}"><span class="fa fa-eye" style="color:black"></span></a>
 
+<!--
                      Delete Button
                     <button type="button" class="btn btn-default btn-sm" style="width:55px" data-toggle="modal" data-target="#deleteTripModal-{{trip.booking}}">
                       <span class="fa fa-trash"></span>
                     </button>
+-->
                   </div>
                 </td>
--->
               </tr>
             </tbody>
 
-              <!-- Modal VIEW
-              <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
+             <!-- Modal VIEW -->
+              <div class="modal fade" id="viewTripModal-{{trip.booking}}" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                   <div class="modal-content" style="background-color: #2c353c">
                     <div class="modal-header" style="background-color: #2c353c">
@@ -395,19 +395,45 @@
                     <form id="updateForm" method='POST'>
                       {% csrf_token %}
                       <div class="modal-body">
-                        ..
+<!--                        <input type="text" name="user-id" value="{{user.id}}" hidden>-->
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <label for="tripNo" style="color: white">Trip No.</label>
+                            <input type="text" class="form-control" id="" name="trip-tripNo" placeholder="Trip No." value="Robust - {{trip.booking}}" required minlength="1" maxlength="20" readonly>
+                          </div>    
+                          <div class="col-md-6 mb-3">
+                            <label for="busNo" style="color: white">Bus No.</label>
+                            <input type="text" class="form-control" id="" name="trip-busNo" placeholder="Bus No." value="{{trip.bus.busID}}" required minlength="1" maxlength="20" readonly>
+                          </div>                        
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 mb-3">
+                            <label for="passengerID" style="color: white">Passenger ID. </label>
+                            <input type="text" class="form-control" id="" name="trip-passengerID" placeholder="Passenger ID." value="{{trip.user.id}}" required minlength="1" maxlength="20" readonly>
+                          </div>   
+                          <div class="col-md-4 mb-3">
+                            <label for="tripDate" style="color: white">Date</label>
+                            <input type="date" class="form-control" id="" name="trip-dateReservation" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" value="{{trip.dateReservation}}" required readonly>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="tripTime" style="color: white">Time Departure</label>
+                            <input type="text" class="form-control" id="" name="trip-departureTime" placeholder="Trip Time Departure" minlength="1" maxlength="20" value="{{trip.bus.departureTime}}" readonly>
+                          </div>
+                        </div>
+                        <div class="modal-footer" style="background-color:#2c353c;height: 45px; padding-top: 5px">
+<!--                          <button type="button" class="btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>-->
 
-                        <div class="modal-footer" style="height: 40px; padding-top: 5px">
-                          <button type="button" class="btn btn" data-dismiss="modal" style="background-color: #a83332; color: white">CANCEL</button>
-                          <button type="submit" id="btnUpdate1" name="btnUpdate1" class="btn btn" style="background-color: #a83332; color: white">UPDATE</button>
+                          <button type="submit" id="" name="close" class="btn" style="background-color: #a83332; color: white">CLOSE</button>
+                          <!--                            <a type="button" class="btn btn1" style="background-color: #a83332; color: white" id="id-register" href="{% url 'robust:userReservation_view' %}">UPDATE</a>-->
                         </div>
                       </div>
                     </form>
                   </div>
                 </div>
-              </div>-->
+              </div>
 
               <!-- Modal DELETE -->
+<!--
               <div class="modal fade" id="deleteTripModal-{{trip.booking}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content" style="background-color: #2c353c">
@@ -431,6 +457,7 @@
                   </div>
                 </div>
               </div>
+-->
               {% endfor %}
           </table>
         </div>
