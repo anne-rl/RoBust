@@ -34,6 +34,14 @@
         <label for="firstName">Confirm Password</label>
         <input type="password" class="form-control" id="id_password2" name="password2" autocomplete="new-password" required>
       </div>
+      <div class="txt_field" style="padding-bottom: 6px">
+        <label for="availableBalance" hidden>Available Balance</label>
+        <input type="text" class="form-control" id="id_password1" name="availableBalance" value = "0" hidden>
+      </div>
+      <div class="txt_field" style="padding-bottom: 6px">
+        <label for="currentCashIn" hidden>Current Cash In</label>
+        <input type="text" class="form-control" id="id_password2" name="currentCashIn " value = "0" hidden>
+      </div>
       <div class="col-md-12">
         {{form.errors}}
       </div>
@@ -47,7 +55,9 @@
         <a type="cancel" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; padding:10px" ; id="id-Cancel" href="{% url 'robust:adminList_view' %}">CANCEL</a>
       </div>
       <div class="col-md-6 mb-1">
-        <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> SUBMIT </button>
+        {% if user.is_authenticated %}
+        <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> SUBMIT </button> 
+        {% endif %}
       </div>
     </div>
   </form>

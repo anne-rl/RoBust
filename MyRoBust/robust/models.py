@@ -43,6 +43,14 @@ from .models import *
 #        class Meta:
 #            db_table = "Admin"
 
+class EWallet(models.Model):
+#        user = models.OneToOneField(User, on_delete=models.CASCADE)
+        availableBalance = models.IntegerField(default = 0)
+        currentCashIn = models.IntegerField(default = 0)
+
+        class Meta:
+            db_table = "EWallet"
+
 class Driver(models.Model):
 #        driverID = models.AutoField(primary_key=True)
         user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
@@ -56,14 +64,7 @@ class Driver(models.Model):
 
         class Meta:
             db_table = "Driver"
-            
-class CashIn(models.Model):
-        availableBalance = models.IntegerField()
-        currentCashIn = models.IntegerField()
-
-        class Meta:
-            db_table = "CashIn"
-        
+                   
 class Bus(models.Model):
         busID=models.AutoField(primary_key=True)
         busName = models.CharField(max_length = 50)

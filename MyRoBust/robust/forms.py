@@ -9,6 +9,11 @@ class CreateUserForm(UserCreationForm):
             model = User
             fields = ['first_name','last_name','username','email','password1','password2']
             
+class EWalletForm(forms.ModelForm):
+        class Meta:
+            model = EWallet
+            fields = ['availableBalance', 'currentCashIn']
+            
 #class PassengerForm(forms.ModelForm):
 #    
 #        class Meta:
@@ -39,7 +44,7 @@ class RegisterDriverForm(forms.ModelForm):
 #    class Meta:
 #        model = Admin
 #        fields = ('firstName', 'middleName', 'lastName', 'emailAddress', 'contactNumber', 'username', 'password')
-    
+
 class DashboardBusForm(forms.ModelForm):
 
     class Meta:
