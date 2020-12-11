@@ -194,7 +194,7 @@
               <!-------------- Data -------------->
               <tr style="background-color: white">
                 <td style="text-align:center">{{driver.id}}</td>
-                <td>{{driver.firstName}} {{driver.middleName}} {{driver.lastName}}</td>
+                <td style ="text-transform: capitalize" >{{driver.firstName}} {{driver.middleName}} {{driver.lastName}}</td>
                 <td style="text-align:center">{{driver.contactNumber}}</td>
                 <td style="text-align:center">{{driver.gender}}</td>
                 <td style="text-align:center">
@@ -242,15 +242,15 @@
                         <div class="row">
                           <div class="col-md-4 mb-3">
                             <label for="firstName" style="color: white">First Name</label>
-                            <input type="text" class="form-control" id="firstName" name="driver-firstName" placeholder="First Name" value="{{driver.firstName}}" required minlength="1" maxlength="20">
+                            <input type="text" style ="text-transform: capitalize" class="form-control" id="firstName" name="driver-firstName" placeholder="First Name" value="{{driver.firstName}}" required minlength="1" maxlength="20">
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="middleName" style="color: white">Middle Name</label>
-                            <input type="text" class="form-control" id="middleName" name="driver-middleName" placeholder="Middle Name" value="{{driver.middleName}}" minlength="1" maxlength="20">
+                            <input type="text" style ="text-transform: capitalize" class="form-control" id="middleName" name="driver-middleName" placeholder="Middle Name" value="{{driver.middleName}}" minlength="1" maxlength="20">
                           </div>
                           <div class="col-md-4 mb-3">
-                            <label for="lastName" style="color: white">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" name="driver-lastName" placeholder="Last Name" value="{{driver.lastName}}" required minlength="1" maxlength="20">
+                            <label for="lastName"style="color: white">Last Name</label>
+                            <input type="text" style ="text-transform: capitalize"  class="form-control" id="lastName" name="driver-lastName" placeholder="Last Name" value="{{driver.lastName}}" required minlength="1" maxlength="20">
                           </div>
                         </div>
                         <div class="row">
@@ -465,6 +465,7 @@
     </div>
   </div>
 </div>
+<br style = "line-height:10px;">
 
 {% block footerinclude %}
 <!-- Footer -->
