@@ -304,26 +304,26 @@
         <div class="row" style="width: 900; padding-top: 15px">
           <div class="col-md-5 mb-3" style="width: 900;">
             <label for="busName">Bus Name</label>
-            <input class="form-control" id="busName" name="busName" minlength="1" maxlength="100" value="{{book.busName}}" readonly>
+            <input class="form-control" id="busName" name="busName" minlength="1" maxlength="100" value="{{bus.busName}}" readonly>
           </div>
           <div class="col-md-5 mb-3">
             <label for="plateNumber">Plate Number</label>
-            <input class="form-control" id="plateNumber" name="plateNumber" minlength="2" maxlength="20" value="{{book.plateNumber}}" style="text-transform: uppercase" readonly>
+            <input class="form-control" id="plateNumber" name="plateNumber" minlength="2" maxlength="20" value="{{bus.plateNumber}}" style="text-transform: uppercase" readonly>
           </div>
         </div>
 
         <div class="row" style="width: 900">
           <div class="col-md-5 mb-3">
             <label for="destination">Destination</label>
-            <input class="form-control" id="destination" name="destination" minlength="1" maxlength="50" value="{{book.destination}}" style="text-transform: uppercase" readonly>
+            <input class="form-control" id="destination" name="destination" minlength="1" maxlength="50" value="{{bus.destination}}" style="text-transform: uppercase" readonly>
           </div>
           <div class="col-md-5 mb-3">
             <label>Date</label>
-            <input class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" name="date" minlength="1" maxlength="30" value=" {{Booked}}" readonly>
+            <input class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" name="date" minlength="1" maxlength="30" value=" {{booking.dateReservation}}" readonly>
           </div>
           <div class="col-md-3 mb-3">
             <label for="time">Time Departure</label>
-            <input class="form-control" id="time" name="time" minlength="1" maxlength="30" value="{{book.departureTime}}" style="width: 220px" readonly>
+            <input class="form-control" id="time" name="time" minlength="1" maxlength="30" value="{{bus.departureTime}}" style="width: 220px" readonly>
           </div>
           <div class="col-md-3 mb-3">
             <label for="seatNumber" style="margin-left: 25px">Seat Number</label>
@@ -331,7 +331,7 @@
           </div>
           <div class="col-md-3 mb-3">
             <label for="fare" style="margin-left: 50px">Total Fare</label>
-            <input class="form-control" id="fare" name="fare" value="" required minlength="25" maxlength="25" style="width: 220px; margin-left: 50px" readonly>
+            <input class="form-control" id="fare" name="fare" value="{{bus.busFare}}" required minlength="25" maxlength="25" style="width: 220px; margin-left: 50px" readonly>
           </div>
         </div>
 

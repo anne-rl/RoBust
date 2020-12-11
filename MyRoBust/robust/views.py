@@ -185,7 +185,14 @@ class UserSelectView(View):
             
 class UserSelectUpdateView(View):
         def get(self, request):
-            return render(request, 'user/userSelectUpdate.html')
+            booking_id = getBookingID()
+            qs_booking = Booking.objects.get(booking = booking_id)
+            qs_bus = Bus.objects.get(busID = qs_booking.bus_id)
+            context = {
+               'booking' : qs_booking,
+               'bus' : qs_bus
+            }
+            return render(request, 'user/userSelectUpdate.html',context)
 
         def post(self, request):
             return render(request, 'user/userSelectUpdate.html')
@@ -201,18 +208,12 @@ class UserReviewView(View):
             return render(request, 'user/userReview.html', context)
 
         def post(self, request):
-            if request.method == 'POST':
-#                if 'seatsUpdateBtn' in request.POST:
-#                    print('update booking button clicked')
-               dBooked = request.POST.get("booking-date_booked")
-               bName = request.POST.get("bus-busName")
-               pNumber = request.POST.get("bus-plateNumber")
-               pdestination = request.POST.get("bus-destination")
-               tDeparture = request.POST.get("bus-timeDeparture")
-               tNumber = request.POST.get("booking-ticketNumber")
-               dReservation = request.POST.get("booking-dateReservation")
-                                                                                              
-            return render(request, 'user/userReview.html')
+            booking_id = request.POST.get("booking_id")
+            global getBookingID
+            def getBookingID():
+                return booking_id;
+
+            return redirect('robust:userSelectUpdate_view')
 
 class UserDashboardViewWeekly(View):
         def get(self, request):

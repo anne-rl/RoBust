@@ -19,7 +19,6 @@
           <img src="{{bus.img.url}}" width="360" height="240" style="border-radius: 5px">{{bus.busName}}</button>
         {% endif %}
       </div>
-
       <!-- Bus Booking Modal -->
       <div class="modal fade" id="viewbusModal-{{bus.busID}}" tabindex="-1" role="dialog" aria-labelledby="bus1Label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -36,6 +35,7 @@
                 <div class="row">
                   <div class="col-md-6 mb-3">
                     <label for="busName" style="color: white">Bus Name</label>
+
                     <input type="text" class="form-control" id="busName" name="busName" value="{{bus.busName}}" readonly>
                   </div>
                   <div class="col-md-6 mb-3">
