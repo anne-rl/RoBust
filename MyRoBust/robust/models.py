@@ -96,7 +96,7 @@ class Booking(models.Model):
 class DashboardBus(models.Model):
 #        bus_ID = models.ForeignKey(Bus, on_delete=models.CASCADE)
         totalBuses = models.IntegerField()
-        user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+        userLogIn = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
         
         class Meta:
             db_table = "DashboardBus"   
@@ -104,7 +104,7 @@ class DashboardBus(models.Model):
 class DashboardUser(models.Model):
 #        bus_ID = models.ForeignKey(Bus, on_delete=models.CASCADE)
         totalUsers = models.IntegerField()
-        user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+        userLogIn = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
         
         class Meta:
             db_table = "DashboardUser" 

@@ -435,7 +435,6 @@ class AdminRegisterBus(View):
             
             #Count all the buses 
             allBuses = Bus.objects.count()
-            
             form = DashboardBus(totalBuses = allBuses, user = user)
             form.save()
             
