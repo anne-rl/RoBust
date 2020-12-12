@@ -39,24 +39,25 @@
             </thead>
             <tbody>
               {% for booking in bookings %}
+<!--               {% if booking.user_id == user.id %} -->
               <tr>
-                {% if booking.user_id == user.id %}
                 <td style="text-align:center">{{booking.date_booked}} </td>
                 <td> RoBust - {{booking.booking}} </td>
                 <td style="text-align:center"> {{booking.bus.departureTime}} </td>
-                <td style="text-transform: uppercase"> {{booking.bus.destination}} </td>
+                <td> {{booking.bus.destination}} </td>
                 <td style="text-align:center"> {{booking.seatNumber}} </td>
                 <td style="text-align:center">
                   <div class="text-center">
                     <a type="button" class="btn btn-default btn-sm" style="width:33px" href="#" data-toggle="modal" data-target="#viewModal-{{booking.booking}}"><span class="fa fa-eye" style="color:black"></span></a>
 
-                    <button type="bu tton" class="btn btn-default btn-sm" style="width:33px" data-toggle="modal" data-target="#ticketModal-{{booking.booking}}">
+                    <button type="button" class="btn btn-default btn-sm" style="width:33px" data-toggle="modal" data-target="#ticketModal-{{booking.booking}}">
                       <span class="fa fa-ticket"></span>
                     </button>
                   </div>
                 </td>
               </tr>
-              {% endif %}
+             <!--  {% endif %} -->
+
               <!-- Modal VIEW-->
               <div class="modal fade" id="viewModal-{{booking.booking}}" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
@@ -67,10 +68,10 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                       </button>
                     </div>
-                    <form  method="POST">
-                      {% csrf_token %}
+                    <form id="reviewUpdateForm" method="POST">
+                      <!--                      {% csrf_token %}-->
                       <div class="modal-body">
-                        <input type="text" name="booking_id" value="{{booking.booking}}" hidden>
+                        <!--                        <input type="text" name="passenger-username" value="{{passenger.username}}" hidden>-->
                         <div class="row">
                           <div class="col-md-6 mb-3">
                             <label for="busName" style="color: white">Bus Name</label>
@@ -78,13 +79,13 @@
                           </div>
                           <div class="col-md-6 mb-3">
                             <label for="destination" style="color: white">Destination</label>
-                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" required minlength="1" maxlength="20" value="{{booking.bus.destination}}" style="text-transform: uppercase" readonly>
+                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" required minlength="1" maxlength="20" value="{{booking.bus.destination}}" readonly>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-3 mb-3">
                             <label for="busNumber" style="color: white">Plate Number</label>
-                            <input type="text" class="form-control" id="id-plateNumber" name="bus-plateNumber" placeholder="Plate Number" minlength="1" maxlength="20" value="{{booking.bus.plateNumber}}" style="text-transform: uppercase" readonly>
+                            <input type="text" class="form-control" id="id-plateNumber" name="bus-plateNumber" placeholder="Plate Number" minlength="1" maxlength="20" value="{{booking.bus.plateNumber}}" readonly>
                           </div>
                           <div class="col-md-3 mb-3">
                             <label for="timeDeparture" style="color: white">Time Departure</label>
@@ -100,7 +101,8 @@
                           </div>
                         </div>
                         <div class="modal-footer" style="height: 44px; padding-top: 5px">
-                          <button type="submit" class="btn btn1" style="color: white; border-radius: 3px; width: 140px; background-color: #a83332; height: 40px; margin-left: 290; padding:5px; font-size: 17px" id="id-Cancel"> SEARCH SEAT</button>>
+<!--                          <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 140px; background-color: #a83332; height: 40px; margin-left: 290; padding:5px; font-size: 17px" id="id-Cancel" href="{% url 'robust:userSelectUpdate_view' %}">SEARCH SEAT</a>-->
+                                                    <button type="submit" id="btnReviewUpdate" name="btnReviewUpdate" class="btn btn" style="background-color: #a83332; color: white">SEARCH SEAT</button>
                         </div>
                       </div>
                     </form>
@@ -168,7 +170,7 @@
                       </div>
                       
                       <div class="row" style="padding-left: 360px; padding-top: 0px">
-                        <button id="btnDownload-{{booking.booking}}" name="Download" class="btn" style="background-color: #2c353c; color: white; width: 150px; font-family: sans-serif">DOWNLOAD</button>
+                        <button id="btnDownload" name="Download" class="btn" style="background-color: #2c353c; color: white; width: 150px; font-family: sans-serif">DOWNLOAD</button>
                         &nbsp;
                       </div>
                     </div>
@@ -280,7 +282,7 @@
 
 <!-- E-Ticket Download Button -->
 <script>
-  document.getElementById('btnDownload-{{booking.booking}}').addEventListener('click',
+  document.getElementById('btnDownload').addEventListener('click',
   savePDF);
   
   function savePDF() {
