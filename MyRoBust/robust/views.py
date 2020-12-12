@@ -93,7 +93,7 @@ def UserRegistrationView(request):
                 form = DashboardUserForm(request.POST)
                 user=request.user
                 allUsers = User.objects.count()   
-                form = DashboardUser(totalUsers = allUsers, user = user)
+                form = DashboardUser(totalUsers = allUsers, userLogIn = user)
                 form.save()
                 
                 return redirect('robust:adminList_view')
@@ -267,7 +267,7 @@ class AdminListView(View):
                 form = DashboardUserForm(request.POST)
                 user=request.user
                 allUsers = User.objects.count()
-                form = DashboardUser(totalUsers = allUsers, user = user)
+                form = DashboardUser(totalUsers = allUsers, userLogIn = user)
                 form.save()
                 
             #PASSENGER CASH IN
@@ -376,7 +376,7 @@ class AdminBusTransactionView(View):
                 #Delete a bus to the DashboardBus 
                 user=request.user
                 allBuses = Bus.objects.count()
-                form = DashboardBus(totalBuses = allBuses, user = user)
+                form = DashboardBus(totalBuses = allBuses, userLogIn = user)
                 form.save()
              
             #DRIVER UPDATE        
@@ -435,7 +435,7 @@ class AdminRegisterBus(View):
             
             #Count all the buses 
             allBuses = Bus.objects.count()
-            form = DashboardBus(totalBuses = allBuses, user = user)
+            form = DashboardBus(totalBuses = allBuses, userLogIn = user)
             form.save()
             
             return redirect('robust:adminBusTransaction_view') 
@@ -462,7 +462,7 @@ class AdminRegisterDriver(View):
             DriverGender = request.POST.get("gender")
     
 
-            form = Driver(user = user, profilePicture = DriverProfilePicture, firstName = DriverFirstName, middleName = DriverMiddleName, lastName = DriverLastName, emailAddress = DriverEmailAddress, contactNumber = DriverContactNumber, gender = DriverGender)
+            form = Driver(userLogIn = user, profilePicture = DriverProfilePicture, firstName = DriverFirstName, middleName = DriverMiddleName, lastName = DriverLastName, emailAddress = DriverEmailAddress, contactNumber = DriverContactNumber, gender = DriverGender)
             form.save()
         
             return redirect('robust:adminBusTransaction_view')   
