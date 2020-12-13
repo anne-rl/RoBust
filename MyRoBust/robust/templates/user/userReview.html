@@ -44,7 +44,7 @@
                 <td style="text-align:center">{{booking.date_booked}} </td>
                 <td> RoBust - {{booking.booking}} </td>
                 <td style="text-align:center"> {{booking.bus.departureTime}} </td>
-                <td> {{booking.bus.destination}} </td>
+                <td style="text-transform: uppercase"> {{booking.bus.destination}} </td>
                 <td style="text-align:center"> {{booking.seatNumber}} </td>
                 <td style="text-align:center">
                   <div class="text-center">
@@ -79,7 +79,7 @@
                           </div>
                           <div class="col-md-6 mb-3">
                             <label for="destination" style="color: white">Destination</label>
-                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" required minlength="1" maxlength="20" value="{{booking.bus.destination}}" readonly style="text-transform: capitalize">
+                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" required minlength="1" maxlength="20" value="{{booking.bus.destination}}" readonly style="text-transform: uppercase">
                           </div>
                           <div class="col-md-2 mb-3">
                             <label for="seat" style="color: white">Seat No.</label>
