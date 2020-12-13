@@ -15,7 +15,7 @@
       <!-- Bus Booking Button-->
       <div class="col-md-4 mb-3">
         {% if bus.img %}
-        <button type="button" class="btn btn" data-toggle="modal" data-target="#viewbusModal-{{bus.busID}}" style="background-color: #2c353c; color: white; border-color: transparent; height: 270px; width: 364px; padding: 0px; padding-top: 0px">
+        <button type="button" class="btn btn" data-toggle="modal" data-target="#viewbusModal-{{bus.busID}}" style="background-color: #2c353c; color: white; border-color: transparent; height: 270px; width: 364px; padding: 0px; padding-top: 0px; text-transform: capitalize">
           <img src="{{bus.img.url}}" width="360" height="240" style="border-radius: 5px">{{bus.busName}}</button>
         {% endif %}
       </div>
@@ -24,7 +24,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content" style="background-color:#353E45">
             <div class="modal-header" style="background-color:#353E45">
-              <h5 class="modal-title" id="seatsModal1" style="color: white">{{bus.busName}} Details</h5>
+              <h5 class="modal-title" id="seatsModal1" style="color: white; text-transform: capitalize ">{{bus.busName}} Details</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true" style="color: white">&times;</span>
               </button>
