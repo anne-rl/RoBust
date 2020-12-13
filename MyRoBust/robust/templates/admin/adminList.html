@@ -41,6 +41,8 @@
           <table class="table table-bordered" id="mySummaryTable" width="100%" cellspacing="0">
             <thead class="thead-light">
               <tr>
+
+                <th style="text-align:center; width: 12%">Id</th>
                 <th style="text-align:center; width: 12%">Username</th>
                 <th style="text-align:center; width: 25%">Name</th>
                 <th style="text-align:center; width: 25%">Email</th>
@@ -51,12 +53,12 @@
             </thead>
             <tbody>
               <tr>
-                {% for ingr in user.ewallet_set.all %}
                 {% for user in users %}
+                <td style="text-align:center">{{user.id}}</td>
                 <td style="text-align:center">{{user.username}}</td>
                 <td>{{user.first_name}} {{user.last_name}}</td>
                 <td>{{user.email}}</td>
-                <td style="text-align:center; width: 12%">{{ingr.availableBalance}}</td>
+                <td style="text-align:center; width: 12%">{{users.availableBalance}}</td>
                 <td style="text-align:center; width: 12%">{{ingr.currentCashIn}}</td>
                 <td style="width: 10px">
                   <div class="text-center">
@@ -102,7 +104,7 @@
                           </div>
 -->
 
-                        <input type="text" name="user-id" value="{{user.id}}" hidden>
+                        <input type="text" name="id" value="{{user.id}}" hidden>
                         <div class="row">
                           <div class="col-md-6 mb-3">
                             <label for="firstName" style="color: white">First Name</label>
@@ -196,7 +198,7 @@
               </div>
             </tbody>
              {% endfor %}
-             {% endfor %}
+           
           </table>
         </div>
       </div>

@@ -72,6 +72,7 @@ def logoutPage(request):
         return redirect('robust:landing_view')
 
 def UserRegistrationView(request):
+
         form = CreateUserForm()
 
         if request.method == 'POST':
@@ -84,10 +85,11 @@ def UserRegistrationView(request):
                 
                 #For EWallet where the name of DB is Profile
                 form = EWalletForm(request.POST)
-                user=request.user
+                user = request.user
+                                                                               
                 availableBalance = request.POST.get("availableBalance")
                 currentCashIn = request.POST.get("currentCashIn")
-                form = EWallet(user = user, availableBalance = availableBalance , currentCashIn = currentCashIn)
+                form = EWallet(id = user, availableBalance = availableBalance , currentCashIn = currentCashIn)
                 form.save()
         
                 #Count all the users 
@@ -238,14 +240,14 @@ class UserDashboardViewMonthly(View):
                     
 class AdminListView(View):
     def get(self, request):
-        users = User.objects.all()
+        user = User.objects.all()
         ewallet = EWallet.objects.all()
-#        context = {
-#            'users' : users,
-#            'ewallet' : ewallet
-#        }
-#        return render(request, 'admin/adminList.html', context)
-        return render(request, 'admin/adminList.html',{'users':users, 'ewallet':ewallet})
+        context = {
+            'users' : user,
+            'ewallets' : ewallet
+        }
+        return render(request, 'admin/adminList.html', context)
+        #return render(request, 'admin/adminList.html',{'users':users, 'ewallet':ewallet})
   
     def post(self, request):
         if request.method == 'POST':
