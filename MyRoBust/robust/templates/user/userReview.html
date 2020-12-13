@@ -73,19 +73,23 @@
                       <div class="modal-body">
                         <input type="text" name="booking_id" value="{{booking.booking}}" hidden>
                         <div class="row">
-                          <div class="col-md-6 mb-3">
+                          <div class="col-md-4 mb-3">
                             <label for="busName" style="color: white">Bus Name</label>
-                            <input type="text" class="form-control" id="id-busName" name="bus-busName" placeholder="Bus Name" required minlength="1" maxlength="20" value="{{booking.bus.busName}}" readonly>
+                            <input type="text" class="form-control" id="id-busName" name="bus-busName" placeholder="Bus Name" required minlength="1" maxlength="20" value="{{booking.bus.busName}}" readonly style="text-transform: capitalize">
                           </div>
                           <div class="col-md-6 mb-3">
                             <label for="destination" style="color: white">Destination</label>
-                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" required minlength="1" maxlength="20" value="{{booking.bus.destination}}" readonly>
+                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Destination" required minlength="1" maxlength="20" value="{{booking.bus.destination}}" readonly style="text-transform: capitalize">
+                          </div>
+                          <div class="col-md-2 mb-3">
+                            <label for="seat" style="color: white">Seat No.</label>
+                            <input type="text" class="form-control" id="id-destination" name="bus-destination" placeholder="Seat No." required minlength="1" maxlength="20" value="{{booking.seatNumber}}" readonly style="text-transform: capitalize">
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-3 mb-3">
                             <label for="busNumber" style="color: white">Plate Number</label>
-                            <input type="text" class="form-control" id="id-plateNumber" name="bus-plateNumber" placeholder="Plate Number" minlength="1" maxlength="20" value="{{booking.bus.plateNumber}}" readonly>
+                            <input type="text" class="form-control" id="id-plateNumber" name="bus-plateNumber" placeholder="Plate Number" minlength="1" maxlength="20" value="{{booking.bus.plateNumber}}" readonly style="text-transform: uppercase">
                           </div>
                           <div class="col-md-3 mb-3">
                             <label for="timeDeparture" style="color: white">Time Departure</label>
