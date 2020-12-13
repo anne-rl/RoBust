@@ -84,9 +84,10 @@ def UserRegistrationView(request):
                 
                 #For EWallet where the name of DB is Profile
                 form = EWalletForm(request.POST)
+                user=request.user
                 availableBalance = request.POST.get("availableBalance")
                 currentCashIn = request.POST.get("currentCashIn")
-                form = EWallet(availableBalance = availableBalance , currentCashIn = currentCashIn)
+                form = EWallet(user = user, availableBalance = availableBalance , currentCashIn = currentCashIn)
                 form.save()
         
                 #Count all the users 
@@ -233,11 +234,12 @@ class AdminListView(View):
     def get(self, request):
         users = User.objects.all()
         ewallet = EWallet.objects.all()
-        context = {
-            'users' : users,
-            'ewallet' : ewallet
-        }
-        return render(request, 'admin/adminList.html', context)
+#        context = {
+#            'users' : users,
+#            'ewallet' : ewallet
+#        }
+#        return render(request, 'admin/adminList.html', context)
+        return render(request, 'admin/adminList.html',{'users':users, 'ewallet':ewallet})
   
     def post(self, request):
         if request.method == 'POST':
@@ -260,11 +262,9 @@ class AdminListView(View):
                 print('delete button clicked')
                 getUserId = request.POST.get("deleteUser-username")               
                 DeleteUser = User.objects.filter(id = getUserId).delete()
-                print(DeleteUser)
                 print('recorded deleted')  
                 
                 #Delete a user to the DashboardUser 
-                form = DashboardUserForm(request.POST)
                 user=request.user
                 allUsers = User.objects.count()
                 form = DashboardUser(totalUsers = allUsers, userLogIn = user)

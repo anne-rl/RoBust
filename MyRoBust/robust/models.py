@@ -44,7 +44,7 @@ from .models import *
 #            db_table = "Admin"
 
 class EWallet(models.Model):
-#        user = models.OneToOneField(User, on_delete=models.CASCADE)
+        user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
         availableBalance = models.IntegerField(default = 0)
         currentCashIn = models.IntegerField(default = 0)
 
