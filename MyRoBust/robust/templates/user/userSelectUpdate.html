@@ -301,10 +301,13 @@
         <div style="background-color: #e8e7e7; padding-top: 10px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px; width: 720px; border-bottom-color: #a83332; border-bottom-style: solid">
           <h6><b>Booking Details</b></h6>
         </div>
+        <form id="submit_form" method="POST">
+          {% csrf_token %}
+        <input class="form-control" id="" name="booking_id" minlength="1" maxlength="100" value="{{booking_id}}" hidden>
         <div class="row" style="width: 900; padding-top: 15px">
           <div class="col-md-5 mb-3" style="width: 900;">
             <label for="busName">Bus Name</label>
-            <input class="form-control" id="busName" name="busName" minlength="1" maxlength="100" value="{{bus.busName}}" readonly>
+            <input class="form-control" id="busName" name="busName" minlength="1" maxlength="100" value="{{bus.busName}}" readonly style="text-transform: capitalize">
           </div>
           <div class="col-md-5 mb-3">
             <label for="plateNumber">Plate Number</label>
@@ -315,15 +318,15 @@
         <div class="row" style="width: 900">
           <div class="col-md-5 mb-3">
             <label for="destination">Destination</label>
-            <input class="form-control" id="destination" name="destination" minlength="1" maxlength="50" value="{{bus.destination}}" style="text-transform: uppercase" readonly>
+            <input class="form-control" id="destination" name="busDestination" minlength="1" maxlength="50" value="{{bus.destination}}" style="text-transform: uppercase" readonly>
           </div>
           <div class="col-md-5 mb-3">
             <label>Date</label>
-            <input class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" name="date" minlength="1" maxlength="30" value=" {{dateReservation}}" readonly>
+            <input class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" name="dateReservation" minlength="1" maxlength="30" value=" {{dateReservation}}" readonly>
           </div>
           <div class="col-md-3 mb-3">
             <label for="time">Time Departure</label>
-            <input class="form-control" id="time" name="time" minlength="1" maxlength="30" value="{{bus.departureTime}}" style="width: 220px" readonly>
+            <input class="form-control" id="time" name="departureTime" minlength="1" maxlength="30" value="{{bus.departureTime}}" style="width: 220px" readonly>
           </div>
           <div class="col-md-3 mb-3">
             <label for="seatNumber" style="margin-left: 25px">Seat Number</label>
@@ -331,7 +334,7 @@
           </div>
           <div class="col-md-3 mb-3">
             <label for="fare" style="margin-left: 50px">Total Fare</label>
-            <input class="form-control" id="fare" name="fare" value="{{bus.busFare}}" required minlength="25" maxlength="25" style="width: 220px; margin-left: 50px" readonly>
+            <input class="form-control" id="fare" name="busFare" value="{{bus.busFare}}" required minlength="25" maxlength="25" style="width: 220px; margin-left: 50px" readonly>
           </div>
         </div>
 
@@ -352,9 +355,7 @@
             <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 180px; background-color: #a83332; height: 45px; margin-left: 170; padding:10px" id="id-Cancel" href="{% url 'robust:userReview_view' %}">CANCEL</a>
           </div>
           <div class="col-md-3 mb-3">
-            <form id="submit_form" method="POST">
-              {% csrf_token %}
-              <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 180px; background-color: #a83332; height: 45px; margin-left: 290; padding:10px" id="id-Cancel" href="{% url 'robust:userReview_view' %}">UPDATE</a>
+              <button type="submit" class="btn btn1" style="color: white; border-radius: 3px; width: 180px; background-color: #a83332; height: 45px; margin-left: 290; padding:10px" id="id-Cancel">UPDATE</a>
               <!--          <button type="submit" name="seatsUpdateBtn" id="seatsUpdateBtn" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> UPDATE </button>-->
             </form>
           </div>
