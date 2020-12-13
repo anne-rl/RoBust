@@ -44,7 +44,7 @@
                 <td style="text-align:center">{{booking.dateReservation}} </td>
                 <td> RoBust - {{booking.booking}} </td>
                 <td style="text-align:center"> {{booking.user.username}}</td>
-                <td> {{booking.bus.busName}} </td>
+                <td style="text-transform: capitalize"> {{booking.bus.busName}} </td>
                 <td style="text-align:center">
                   <div class="text-center">
                     <!-- View Button-->
@@ -73,14 +73,14 @@
                           </div>
                           <div class="col-md-6 mb-3">
                             <label for="name" style="color: white">Name</label>
-                            <input type="text" class="form-control" id="name" name="passenger-name" placeholder="Name" required minlength="1" maxlength="20" value="{{booking.user.first_name}} {{booking.user.last_name}}" readonly>
+                            <input type="text" class="form-control" id="name" name="passenger-name" placeholder="Name" required minlength="1" maxlength="20" value="{{booking.user.first_name}} {{booking.user.last_name}}" readonly style="text-transform: capitalize">
                           </div>
                         </div>
                         <hr style="background-color:  color: white; border-style: solid; border-color: white">
                         <div class="row">
                           <div class="col-md-4 mb-3">
                             <label for="busName" style="color: white">Bus Name</label>
-                            <input type="text" class="form-control" id="busName" name="bus-busName" placeholder="Bus Name" required minlength="1" maxlength="20" value="{{booking.bus.busName}}" readonly>
+                            <input type="text" class="form-control" id="busName" name="bus-busName" placeholder="Bus Name" required minlength="1" maxlength="20" value="{{booking.bus.busName}}" readonly style="text-transform: capitalize">
                           </div>
                           <div class="col-md-3 mb-3">
                             <label for="busNumber" style="color: white">Plate Number</label>
