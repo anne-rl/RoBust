@@ -187,11 +187,13 @@ class UserSelectView(View):
 class UserSelectUpdateView(View):
         def get(self, request):
             booking_id = getBookingID()
+            dateReservation = getBookingDate()
             qs_booking = Booking.objects.get(booking = booking_id)
             qs_bus = Bus.objects.get(busID = qs_booking.bus_id)
             context = {
                'booking' : qs_booking,
-               'bus' : qs_bus
+               'bus' : qs_bus,
+               'dateReservation' : dateReservation
             }
             return render(request, 'user/userSelectUpdate.html',context)
 
@@ -210,9 +212,13 @@ class UserReviewView(View):
 
         def post(self, request):
             booking_id = request.POST.get("booking_id")
+            dateReservation = request.POST.get("booking-date_booked")
             global getBookingID
+            global getBookingDate
             def getBookingID():
                 return booking_id;
+            def getBookingDate():
+                return dateReservation;    
 
             return redirect('robust:userSelectUpdate_view')
 
