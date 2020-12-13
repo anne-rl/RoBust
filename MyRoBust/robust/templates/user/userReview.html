@@ -97,8 +97,9 @@
                           </div>
                           <div class="col-md-3 mb-3">
                             <label for="dateReservation" style="color: white">Date</label>
-                            <input type="text" class="form-control" id="id-date_booked" name="booking-date_booked" data-provide="datepicker" placeholder="mm/dd/yyyy" value="{{booking.dateReservation}}" required>
+                            <input type="date" class="form-control" id="id-date_booked" name="booking-date_booked" placeholder="mm/dd/yyyy" value="{{booking.dateReservation}}" required>
                           </div>
+                          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                         </div>
                         <div class="modal-footer" style="height: 44px; padding-top: 5px">
                           <!--                          <a type="button" class="btn btn1" style="color: white; border-radius: 3px; width: 140px; background-color: #a83332; height: 40px; margin-left: 290; padding:5px; font-size: 17px" id="id-Cancel" href="{% url 'robust:userSelectUpdate_view' %}">SEARCH SEAT</a>-->
@@ -325,28 +326,23 @@
 
 </script>
 
-<!-- Disabling of Past Dates Scrpits -->
-<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js'></script>
+<!-- Disable Past Dates -->
+<script>
+  $(function() {
+    var dtToday = new Date();
 
-<script id="rendered-js">
-  var date = new Date();
-  date.setDate(date.getDate());
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if (month < 10)
+      month = '0' + month.toString();
+    if (day < 10)
+      day = '0' + day.toString();
 
-  $('#id-date_booked').datepicker({
-    startDate: date
+    var minDate = year + '-' + month + '-' + day;
+
+    $('#id-date_booked').attr('min', minDate);
   });
-
-</script>
-<script>
-  window.console = window.console || function(t) {};
-
-</script>
-<script>
-  if (document.location.search.match(/type=embed/gi)) {
-    window.parent.postMessage("resize", "*");
-  }
 
 </script>
 

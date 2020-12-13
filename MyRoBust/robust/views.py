@@ -170,7 +170,7 @@ class UserSelectView(View):
                 if form.is_valid():
                     user=request.user
                     dBooked = request.POST.get("dateReservation")
-                    t_object1 = datetime.datetime.strptime(dBooked, " %m/%d/%Y")
+                    t_object1 = datetime.datetime.strptime(dBooked, " %Y-%m-%d")
                     t_object2 = datetime.datetime.strftime(t_object1,"%Y-%m-%d")
                     seatNumber = request.POST.get("seatNumber")
                     bus = request.POST['busID']
@@ -183,23 +183,6 @@ class UserSelectView(View):
                     print(form.errors)
                     return HttpResponse('not valid')
             
-            
-class UserSelectUpdateView(View):
-        def get(self, request):
-            booking_id = getBookingID()
-            dateReservation = getBookingDate()
-            qs_booking = Booking.objects.get(booking = booking_id)
-            qs_bus = Bus.objects.get(busID = qs_booking.bus_id)
-            context = {
-               'booking' : qs_booking,
-               'bus' : qs_bus,
-               'dateReservation' : dateReservation
-            }
-            return render(request, 'user/userSelectUpdate.html',context)
-
-        def post(self, request):
-            return render(request, 'user/userSelectUpdate.html')
-                
 class UserReviewView(View):
         def get(self,request):   
             booking = Booking.objects.all()
@@ -221,6 +204,23 @@ class UserReviewView(View):
                 return dateReservation;    
 
             return redirect('robust:userSelectUpdate_view')
+          
+class UserSelectUpdateView(View):
+        def get(self, request):
+            booking_id = getBookingID()
+            dateReservation = getBookingDate()
+            qs_booking = Booking.objects.get(booking = booking_id)
+            qs_bus = Bus.objects.get(busID = qs_booking.bus_id)
+            context = {
+               'booking' : qs_booking,
+               'bus' : qs_bus,
+               'dateReservation' : dateReservation
+            }
+            return render(request, 'user/userSelectUpdate.html',context)
+
+        def post(self, request):
+            return render(request, 'user/userSelectUpdate.html')
+                
 
 class UserDashboardViewWeekly(View):
         def get(self, request):
