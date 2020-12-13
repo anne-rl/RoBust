@@ -199,7 +199,7 @@ class UserReviewView(View):
             global getBookingID
             global getBookingDate
             def getBookingID():
-                return booking_id;
+                return booking_id
             def getBookingDate():
                 return dateReservation;    
 
@@ -210,16 +210,25 @@ class UserSelectUpdateView(View):
             booking_id = getBookingID()
             dateReservation = getBookingDate()
             qs_booking = Booking.objects.get(booking = booking_id)
-            qs_bus = Bus.objects.get(busID = qs_booking.bus_id)
+            busID = qs_booking.bus_id
+            qs_bus = Bus.objects.get(busID = busID)
             context = {
-               'booking' : qs_booking,
+               'booking_id' : booking_id,
                'bus' : qs_bus,
                'dateReservation' : dateReservation
             }
             return render(request, 'user/userSelectUpdate.html',context)
 
         def post(self, request):
-            return render(request, 'user/userSelectUpdate.html')
+            if request.method == 'POST':
+                    booking_id = request.POST.get('booking_id')
+                    dateReservation = request.POST.get('dateReservation')
+                    t_object1 = datetime.datetime.strptime(dateReservation, " %Y-%m-%d")
+                    t_object2 = datetime.datetime.strftime(t_object1,"%Y-%m-%d")
+                    seatNumber = request.POST.get('seatNumber')
+                    UpdateBooking = Booking.objects.filter(booking = booking_id).update(seatNumber = seatNumber, dateReservation = t_object2)
+                    print(UpdateBooking)
+            return redirect('robust:userReview_view')
                 
 
 class UserDashboardViewWeekly(View):

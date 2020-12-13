@@ -71,7 +71,7 @@
                     <form id="reviewUpdateForm" method="POST">
                       {% csrf_token %}
                       <div class="modal-body">
-                        <!--                        <input type="text" name="passenger-username" value="{{passenger.username}}" hidden>-->
+                        <input type="text" name="booking_id" value="{{booking.booking}}" hidden>
                         <div class="row">
                           <div class="col-md-6 mb-3">
                             <label for="busName" style="color: white">Bus Name</label>
