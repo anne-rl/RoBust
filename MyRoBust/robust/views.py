@@ -284,7 +284,7 @@ class AdminListView(View):
                 #Delete a user to the DashboardUser 
                 user=request.user
                 allUsers = User.objects.count()
-                form = DashboardUser(totalUsers = allUsers, userLogIn = user)
+                form = DashboardUser(totalUsers = allUsers, userLogIn = user, is_deleted = True)
                 form.save()
                 
             #PASSENGER CASH IN
@@ -393,7 +393,7 @@ class AdminBusTransactionView(View):
                 #Delete a bus to the DashboardBus 
                 user=request.user
                 allBuses = Bus.objects.count()
-                form = DashboardBus(totalBuses = allBuses, userLogIn = user)
+                form = DashboardBus(totalBuses = allBuses, userLogIn = user, is_deleted = True)
                 form.save()
              
             #DRIVER UPDATE        
