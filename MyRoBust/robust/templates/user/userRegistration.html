@@ -2,7 +2,7 @@
 
 {% block content %}
 <!------------ User Registration Body ------------>
-<div class="d-flex justify-content-center">
+<div class="container" style="width: 500px">
   <form id="register_form" method="POST" autocomplete="off" enctype="multipart/form-data">
     {% csrf_token %}
     <br>
@@ -51,12 +51,12 @@
 <!--    <br>-->
 <!--    <br>-->
     <div class="row">
-      <div class="col-md-6 mb-1">
-        <a type="cancel" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; padding:10px" ; id="id-Cancel" href="{% url 'robust:adminList_view' %}">CANCEL</a>
+      <div class="col-md-5 mb-1" style="margin-left: 30px">
+        <a type="cancel" class="btn btn1" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; padding:10px" ; id="id-Cancel;" href="{% url 'robust:adminList_view' %}">CANCEL</a>
       </div>
-      <div class="col-md-6 mb-1">
+      <div class="col-md-5 mb-1">
         {% if user.is_authenticated %}
-        <button type="submit" name="form_type" value="formTwo" class="btn btn-sm btn-link" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> SUBMIT </button> 
+        <button type="submit" name="form_type" value="formTwo" class="btn btn" style="color: white; border-radius: 3px; width: 200px; background-color: #a83332; height: 45px; margin-left: 0; padding:10px"> SUBMIT </button> 
         {% endif %}
       </div>
     </div>

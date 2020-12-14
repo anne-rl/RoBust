@@ -72,6 +72,7 @@ def logoutPage(request):
         return redirect('robust:landing_view')
 
 def UserRegistrationView(request):
+
         form = CreateUserForm()
 
         if request.method == 'POST':
@@ -84,10 +85,11 @@ def UserRegistrationView(request):
                 
                 #For EWallet where the name of DB is Profile
                 form = EWalletForm(request.POST)
-                user=request.user
+                user = request.user
+                                                                               
                 availableBalance = request.POST.get("availableBalance")
                 currentCashIn = request.POST.get("currentCashIn")
-                form = EWallet(user = user, availableBalance = availableBalance , currentCashIn = currentCashIn)
+                form = EWallet(id = user, availableBalance = availableBalance , currentCashIn = currentCashIn)
                 form.save()
         
                 #Count all the users 
@@ -170,7 +172,7 @@ class UserSelectView(View):
                 if form.is_valid():
                     user=request.user
                     dBooked = request.POST.get("dateReservation")
-                    t_object1 = datetime.datetime.strptime(dBooked, " %m/%d/%Y")
+                    t_object1 = datetime.datetime.strptime(dBooked, " %Y-%m-%d")
                     t_object2 = datetime.datetime.strftime(t_object1,"%Y-%m-%d")
                     seatNumber = request.POST.get("seatNumber")
                     bus = request.POST['busID']
@@ -183,23 +185,6 @@ class UserSelectView(View):
                     print(form.errors)
                     return HttpResponse('not valid')
             
-            
-class UserSelectUpdateView(View):
-        def get(self, request):
-            booking_id = getBookingID()
-            dateReservation = getBookingDate()
-            qs_booking = Booking.objects.get(booking = booking_id)
-            qs_bus = Bus.objects.get(busID = qs_booking.bus_id)
-            context = {
-               'booking' : qs_booking,
-               'bus' : qs_bus,
-               'dateReservation' : dateReservation
-            }
-            return render(request, 'user/userSelectUpdate.html',context)
-
-        def post(self, request):
-            return render(request, 'user/userSelectUpdate.html')
-                
 class UserReviewView(View):
         def get(self,request):   
             booking = Booking.objects.all()
@@ -216,11 +201,37 @@ class UserReviewView(View):
             global getBookingID
             global getBookingDate
             def getBookingID():
-                return booking_id;
+                return booking_id
             def getBookingDate():
                 return dateReservation;    
 
             return redirect('robust:userSelectUpdate_view')
+          
+class UserSelectUpdateView(View):
+        def get(self, request):
+            booking_id = getBookingID()
+            dateReservation = getBookingDate()
+            qs_booking = Booking.objects.get(booking = booking_id)
+            busID = qs_booking.bus_id
+            qs_bus = Bus.objects.get(busID = busID)
+            context = {
+               'booking_id' : booking_id,
+               'bus' : qs_bus,
+               'dateReservation' : dateReservation
+            }
+            return render(request, 'user/userSelectUpdate.html',context)
+
+        def post(self, request):
+            if request.method == 'POST':
+                    booking_id = request.POST.get('booking_id')
+                    dateReservation = request.POST.get('dateReservation')
+                    t_object1 = datetime.datetime.strptime(dateReservation, " %Y-%m-%d")
+                    t_object2 = datetime.datetime.strftime(t_object1,"%Y-%m-%d")
+                    seatNumber = request.POST.get('seatNumber')
+                    UpdateBooking = Booking.objects.filter(booking = booking_id).update(seatNumber = seatNumber, dateReservation = t_object2)
+                    print(UpdateBooking)
+            return redirect('robust:userReview_view')
+                
 
 class UserDashboardViewWeekly(View):
         def get(self, request):
@@ -238,14 +249,14 @@ class UserDashboardViewMonthly(View):
                     
 class AdminListView(View):
     def get(self, request):
-        users = User.objects.all()
+        user = User.objects.all()
         ewallet = EWallet.objects.all()
-#        context = {
-#            'users' : users,
-#            'ewallet' : ewallet
-#        }
-#        return render(request, 'admin/adminList.html', context)
-        return render(request, 'admin/adminList.html',{'users':users, 'ewallet':ewallet})
+        context = {
+            'users' : user,
+            'ewallets' : ewallet
+        }
+        return render(request, 'admin/adminList.html', context)
+        #return render(request, 'admin/adminList.html',{'users':users, 'ewallet':ewallet})
   
     def post(self, request):
         if request.method == 'POST':
