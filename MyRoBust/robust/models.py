@@ -94,9 +94,10 @@ class Booking(models.Model):
         #     return self.user.username +" | "+ self.booking.bus.busName +" | "+ self.seatNumber
             
 class DashboardBus(models.Model):
-#        bus_ID = models.ForeignKey(Bus, on_delete=models.CASCADE)
+#       user_ID = models.ForeignKey(Bus, on_delete=models.CASCADE)
         totalBuses = models.IntegerField()
         userLogIn = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+        is_deleted = models.BooleanField(default=False)
         
         class Meta:
             db_table = "DashboardBus"   
@@ -105,6 +106,7 @@ class DashboardUser(models.Model):
 #        bus_ID = models.ForeignKey(Bus, on_delete=models.CASCADE)
         totalUsers = models.IntegerField()
         userLogIn = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+        is_deleted = models.BooleanField(default=False)
         
         class Meta:
             db_table = "DashboardUser" 
