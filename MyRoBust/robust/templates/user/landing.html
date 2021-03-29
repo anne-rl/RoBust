@@ -1,122 +1,147 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block headerinclude %}
-<title>CIT RoBust</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="shortcut icon" href="{% static 'media/CIT.png' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'css/landing.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}">
-<link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
-{% endblock headerinclude %}
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Welcome </title>
+	<link rel="shortcut icon" href="{% static 'media/CIT.png' %}" />
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+	<!-- Material Design Bootstrap -->
+	<link rel="stylesheet" href="{% static 'css/mdb.min.css'%}">
+	<!-- JQuery -->
+	<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+	<!-- Your custom styles (optional) -->
+	<style>
+		html,
+		body,
+		header,
+		.view.jarallax {
+			height: 100%;
+			min-height: 100%;
+		}
 
-{% block content %}
-<header style="background-color: #fbfbfb">
-  <div class="container">
-    <div class="row flex-nowrap justify-content-between align-items-center">
+	</style>
+</head>
 
-      <!-- Robust Logo -->
-      <div class="col-5 d-flex justify-content-end align-items-center">
-        <div class="text-center mb-2">
-          <img src="{% static 'media/RoBust.png' %}" width="505" height="130">
-        </div>
-      </div>
+<body class="event-lp">
 
-      <!-- RoBust Nav Bar Operations-->
-      <div class="col-8 d-flex justify-content-end">
-
-        <!-- RoBust Icons-->
-        <ul class="nav navbar-nav navbar-left">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; height: 50px; border-radius: 5px; font-size: 14px; width: 160px">
-              <i class="fa fa-map-marker" aria-hidden="true" style="color: #a83332"></i><span class="caret"></span></a>
-            <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #e1e1e1">
-              <li>
-                <div class="row">
-                  <div class="col-md-12">
-                    <p class="text-black">N. Bacalso Avenue, Cebu City</p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-left">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; height: 50px; border-radius: 5px; font-size: 14px; width: 160px">
-              <i class="fa fa-envelope" aria-hidden="true" style="color: #a83332"></i><span class="caret"></span></a>
-            <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #e1e1e1">
-              <li>
-                <div class="row">
-                  <div class="col-md-12">
-                    <ul class="info-list">
-                      <li><span class="siteinfo-name" style="font-weight: 700">General Inquiries:</span>
-                        <a href="mailto:info@cit.edu" style="color: #a83332">info@cit.edu</a>
-                      </li>
-                      <li>
-                        <span class="siteinfo-name" style="font-weight: 700">Admissions:</span>
-                        <a href="mailto:admission@cit.edu" style="color: #a83332">admission@cit.edu</a>
-                        <p></p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-left">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; height: 50px; border-radius: 5px; font-size: 14px">
-              <i class="fa fa-phone" aria-hidden="true" style="color: #a83332"></i><span class="caret"></span></a>
-            <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #e1e1e1">
-              <li>
-                <div class="row">
-                  <div class="col-md-12">
-                    <p class="text-black"><b>PLDT Trunk Line:</b> +63322617741</p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
-        <!-- RoBust Login-->
-        <ul class="nav navbar-nav navbar-left">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; background-color: #a83332; height: 50px; border-radius: 5px; font-size: 14px; width: 160px">
-              <i class="fa fa-lock" aria-hidden="true"></i> LOG IN<span class="caret"></span></a>
-            <ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #2c353c">
-              <li>
-                <div class="row">
-                  <div class="col-md-12">
+	<!-- Navigation & Intro -->
+	<header>
 
 
-                    <form class="post-form" role="form" method="post" action="landing" accept-charset="UTF-8" id="login-nav">
-                      {% csrf_token %}
-                      <div class="form-group">
-                        <label class="sr-only" for="exampleInputEmail2">Username</label>
-                        <input type="text" class="form-control" id="id-passengerID" name="username" placeholder="Username" required>
-                      </div>
-                      <div class="form-group">
-                        <label class="sr-only" for="exampleInputPassword2"><i class="fa fa-lock" aria-hidden="true"></i>Password</label>
-                        <input type="password" class="form-control" id="id-password" placeholder="Password" name="password" required>
-                      </div>
-                      <center><label class="text-danger">{{msg}}</label></center>
-                      <div class="form-group">
-                        <button type="submit" class="btn btn-primary form-control" style="background-color: #a83332">></button>
-                      </div>
-                      <div class="form-group">
-                        <div class="row">
-                          <div class="col-lg-12">
-                            <div class="text-center">
-                              <a href="" tabindex="5" class="forgot-password" style="color: white">Forgot Password?</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+		<div class="navbar navbar-inverse navbar-static-top" id="topNav" style="background-color: #fafafa">
+			<div class="container">
+				<img src="{% static 'media/RoBust.png' %}" width="450" height="120">
+				<!-- RoBust Nav Bar Operations-->
 
-<!--
+
+				<!-- RoBust Icons-->
+				<div class="row">
+					<div class="col-md-7" style="text-align: right; float: right">
+						<ul class="nav navbar-nav navbar-left">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 15px; padding-bottom: 10px; padding-left: 10px; height: 50px; border-radius: 5px; font-size: 14px; width: 160px; text-align: right">
+									<i class="fa fa-map-marker" aria-hidden="true" style="color: #a83332; text-align: right"></i><span class="caret"></span></a>
+								<ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #e1e1e1">
+									<li>
+										<div class="row">
+											<div class="col-md-12">
+												<p class="text-black">N. Bacalso Avenue, Cebu City</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-1">
+						<ul class="nav navbar-nav navbar-left">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 15px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; height: 50px; border-radius: 5px; font-size: 14px; width: 160px">
+									<i class="fa fa-envelope" aria-hidden="true" style="color: #a83332"></i><span class="caret"></span></a>
+								<ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #e1e1e1">
+									<li>
+										<div class="row">
+											<div class="col-md-12">
+												<ul class="info-list">
+													<li><span class="siteinfo-name" style="font-weight: 700">General Inquiries:</span>
+														<a href="mailto:info@cit.edu" style="color: #a83332">info@cit.edu</a>
+													</li>
+													<li>
+														<span class="siteinfo-name" style="font-weight: 700">Admissions:</span>
+														<a href="mailto:admission@cit.edu" style="color: #a83332">admission@cit.edu</a>
+														<p></p>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-1">
+						<ul class="nav navbar-nav navbar-left">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 15px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; height: 50px; border-radius: 5px; font-size: 14px">
+									<i class="fa fa-phone" aria-hidden="true" style="color: #a83332"></i><span class="caret"></span></a>
+								<ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #e1e1e1">
+									<li>
+										<div class="row">
+											<div class="col-md-12">
+												<p class="text-black"><b>PLDT Trunk Line:</b> +63322617741</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+
+					</div>
+
+
+
+
+					<div class="col-md-3">
+
+						<!-- RoBust Login-->
+						<ul class="nav navbar-nav navbar-left">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; background-color: #a83332; height: 40px; border-radius: 5px; font-size: 14px; width: 100px">
+									<i class="fa fa-lock" aria-hidden="true"></i> LOG IN<span class="caret"></span></a>
+								<ul id="login-dp" class="dropdown-menu dropdown-menu-right" style="background-color: #2c353c">
+									<li>
+										<div class="row">
+											<div class="col-md-12" style="width: 250px">
+
+
+												<form class="post-form" role="form" method="post" action="landing" accept-charset="UTF-8" id="login-nav">
+													{% csrf_token %}
+													<div class="form-group">
+														<label class="sr-only" for="exampleInputEmail2">Username</label>
+														<input type="text" class="form-control" id="id-passengerID" name="username" placeholder="Username" required style="width: 220px">
+													</div>
+													<div class="form-group">
+														<label class="sr-only" for="exampleInputPassword2"><i class="fa fa-lock" aria-hidden="true"></i>Password</label>
+														<input type="password" class="form-control" id="id-password" placeholder="Password" name="password" required style="width: 220px">
+													</div>
+
+													<div class="form-group" style="color: white">
+
+														<button type="submit" class="form-control" style="background-color: #a83332; color: white; width: 220px; border: transparent">></button>
+
+														<a href="" tabindex="5" class="forgot-password" style="color: white;text-align: center; vertical-align: middle; width: 220px">Forgot Password?</a>
+
+														<label class="text-danger" style="align-content: center; text-align: center; width: 220px">{{msg}}</label>
+													</div>
+
+													<!--
                       <div class="col text-center">
                         <p style="text-align:center; color: white; font: 8px"> Not yet registered?
                           <a type="submit" class="btn btn1" style="color: white; text-align: center; font-weight: 700" href="{% url 'robust:userRegistration_view' %}">
@@ -125,137 +150,530 @@
                         </p>
                       </div>
 -->
-                    </form>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</header>
+												</form>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
 
-<!-- Nav Bar: About Us Modal -->
-<div style="background-color: #2c353c; border-bottom-color: #a83332; border-bottom-style: solid">
-  <button type="button" class="btn btn1" data-toggle="modal" data-target="#about" style="color: white; position: relative; left: 130px">
-    About Us
-  </button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav2" style="background-color: #2c353c; padding-top: 3px; padding-bottom: 3px; border-bottom-color: #a83332; border-bottom-style: solid">
+			<div class="container" style="width: 1005px">
+				<ul class="nav navbar-nav">
+					<li><a class="nav-link" href="#home" style="color: white; font-weight: 400; width: 60px; padding-top: 3px; padding-bottom: 3px">Home</a><a class="nav-link" href="#events" data-offset="80" style="color: white; font-weight: 400; width: 60px; padding-left: 10px; padding-top: 3px; padding-bottom: 3px">Team</a>
+						<a class="nav-link" href="#faq" data-offset="40" style="color: white; font-weight: 400; width: 60px; padding-top: 3px; padding-bottom: 3px">Faq</a>
+					</li>
 
+				</ul>
+			</div>
+		</div>
 
-  <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content" style="background-color:beige">
-        <div class="modal-header">
-          <h5 class="modal-title" id="aboutLongTitle"><b>About Us</b></h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p class="text-black" style="text-align:justify"> &nbsp;&nbsp;&nbsp;&nbsp; HatudTeknoy is a web application that allows CIT – U passengers to select and reserve a bus seat by themselves. With this, the CIT – U passengers could reserve a seat without physically going to the IMDC office to check its availability. Aside from that, the application allows these passengers to check the latest update on scheduled time departure of the bus, information and tickets in a particular day and time, allowing them to experience a convenient bus seat reservation ahead of time. The goal of this system is to reduce the conventional paper ticketing method and to provide a new way for bus ticketing via virtual process. However, this system is not limited to over-the-counter walk-in passengers.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn default" data-dismiss="modal" style="background-color: #a83332; color: white">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+		<!-- Intro Section -->
+		<div id="home" class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url({% static 'media/RoBustBG.jpg' %});">
+			<div class="mask">
+				<div class="container h-100 d-flex justify-content-center align-items-center mt-5">
+					<div class="row smooth-scroll">
+						<div class="col-md-12 text-center white-text">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
+	</header>
+	<!-- Navigation & Intro -->
 
-{% block footerinclude %}
-<!-- Footer -->
-<!--
-<footer class="page-footer font-small mdb-color pt-15">
-  <div class="container text-center text-md-left">
-    <div class="row text-center text-md-left mt-5">
-      <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold text-white">Vision</h6>
-        <p class="text-white">To cultivate an environment that promotes the safe, efficient and cost-effective use of medications.</p>
-      </div>
+	<!-- Main content -->
+	<main>
+		<br><br><br><br><br><br><br>
+		<div class="container">
 
-      <hr class="w-100 clearfix d-md-none">
+			<hr class="">
 
-      <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold text-white">Mission</h6>
-        <p class="text-white">We dedicate ourselves to serving the nation by undertaking sustainable health and education-focused programs.</p>
-      </div>
+			<!-- Section: Details -->
+			<section id="events" class="my-1">
 
-      <hr class="w-100 clearfix d-md-none">
 
-      <div class="col-md-3 col-lg-0 col-xl-0 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold text-white">Social Media</h6>
-        <p class="text-white">
-          <i class="fa fa-facebook" aria-hidden="true"></i> Wellocity Pharmacy</p>
-        <p class="text-white">
-          <i class="fa fa-instagram" aria-hidden="true"></i> @wellocitypahrmacy </p>
-        <p class="text-white">
-          <i class="fa fa-twitter" aria-hidden="true"></i> @thewellocitypharmacy </p>
-        <p class="text-white">
-          <i class="fa fa-youtube" aria-hidden="true"></i> Wellocity Pharmacy </p>
-      </div>
+				<!-- Timeline Wrapper -->
+				<ul class="stepper stepper-vertical timeline timeline-simple pl-0">
 
-      <hr class="w-100 clearfix d-md-none">
+					<strong>
+						<h3 class="text-center dark-grey-text font-weight-bold wow fadeIn" data-wow-delay="0.2s" style="font-weight: 600"><strong>The Team</strong></h3>
+						<p class="text-center w-responsive mx-auto my-5 grey-text">
+							A strong team is the foundation of a high-performing business and a good team ethic can be held largely accountable for the success and smooth running of the organization. This is the Team behind this beautiful website!</p>
+					</strong>
 
-      <div class="col-md-3 col-lg-0 col-xl-3 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold text-white">Contact Us</h6>
-        <p class="text-white">
-          <i class="fa fa-map-marker text-white" aria-hidden="true"></i> Diaz Bldg. Cor. Avila St., Cebu City</p>
-        <p class="text-white">
-          <i class="fa fa-envelope text-white" aria-hidden="true"></i> wellocity@gmail.com</p>
-        <p class="text-white">
-          <i class="fa fa-mobile" aria-hidden="true"></i> +639 651 984 052</p>
-        <p class="text-white">
-          <i class="fa fa-phone" aria-hidden="true"></i> 323 255 2746</p>
-      </div>
-    </div>
 
-    <hr>
+					<li>
+						<!--Section Title -->
+						<a href="#!">
+							<span class="circle grey"></span>
+						</a>
 
-    <div class="row d-flex align-items-center ">
-      <div class="col-md-7 col-lg-8 ">
-        <p class="text-center text-md-left text-white">© EST 2020 Copyright: Wellocity Pharmacy</p>
-      </div>
-      <div class="col-md-5 col-lg-4 ml-lg-0">
+						<!-- Section Description -->
+						<div class="step-content z-depth-1 ml-3 p-4 hoverable">
+							<h4 class="font-weight-bold">Mary Anne R. Labasan</h4>
+							<p class="text-muted mt-3">
+								<i class="far fa-clock-o" aria-hidden="true"></i> 8.00 - 10.00 |
+								<strong class="dark-grey-text font-weight-bold">Mary Labasan - Team Lead</strong>
+							</p>
 
-        <div class="text-center text-md-right ">
-          <ul class="list-unstyled list-inline ">
-            <li class="list-inline-item ">
-              <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                <i class="fa fa-facebook-official text-white" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                <i class="fa fa-instagram text-white" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                <i class="fa fa-twitter text-white" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                <i class="fa fa-youtube text-white" aria-hidden="true"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
--->
-<!-- Footer -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+							<!--Grid row-->
+							<div class="row pt-2">
 
-<script src="{% static 'js/landing.js' %}"></script>
-<script src="{% static 'js/registration.js' %}"></script>
-{% endblock footerinclude %}
-{% endblock content %}
+								<!--Grid column-->
+								<div class="col-md-3 col-3">
+
+									<div class="avatar mx-auto">
+										<img src="{% static 'user/img/ID_burned.jpg' %}" class="rounded img-fluid" alt="First sample avatar image">
+									</div>
+
+								</div>
+								<!--Grid column-->
+
+								<!--Grid column-->
+								<div class="col-md-9 col-9">
+
+									<p class="mb-0">Labasan opens the line of communication between clients, customers, and businesses to get projects done. With over 8 years in both public and private sectors, has experience in management consultation, team building, professional development, strategic implementation, and company collaboration. </p>
+									<br>
+									<p class="mb-0">Labasan provides help in management, including hiring and training, and keeps management updated on team performance. Communicates concerns and policies among management and team members.</p>
+								</div>
+
+							</div>
+							<!--Grid column-->
+
+						</div>
+						<!--Grid row-->
+					</li>
+					<li>
+						<!--Section Title -->
+						<a href="#!">
+							<span class="circle grey"></span>
+						</a>
+
+						<!-- Section Description -->
+						<div class="step-content z-depth-1 ml-3 p-4 hoverable">
+							<h4 class="font-weight-bold">Julieta M. Palma</h4>
+							<p class="text-muted mt-3">
+								<i class="far fa-clock-o" aria-hidden="true"></i> 12.30 - 14.00 |
+								<strong class="dark-grey-text font-weight-bold">Julie Palma - Developer and Analyst </strong>
+							</p>
+
+							<!--Grid row-->
+							<div class="row pt-2">
+
+								<!--Grid column-->
+								<div class="col-md-3 col-3">
+
+									<div class="avatar mx-auto">
+										<img src="{% static 'media/Palma.jpg' %}" class="rounded img-fluid" alt="First sample avatar image">
+									</div>
+
+								</div>
+								<!--Grid column-->
+
+								<!--Grid column-->
+								<div class="col-md-9 col-9">
+
+									<p class="mb-0">Palam a Web Developer and Analyst with a vast array of knowledge in many different front and back end languages, responsive frameworks, databses, and best code practices. Tackled projects that involve databases, building user-facing websites, or even work with clients during the planning phase of projects.</p>
+									<br>
+									<p class="mb-0">An innovative optimized solution seeker.</p>
+								</div>
+
+							</div>
+							<!--Grid column-->
+
+						</div>
+						<!--Grid row-->
+					</li>
+					<li>
+						<!--Section Title -->
+						<a href="#!">
+							<span class="circle grey"></span>
+						</a>
+
+						<!-- Section Description -->
+						<div class="step-content z-depth-1 ml-3 p-4 hoverable">
+							<h4 class="font-weight-bold">Angelica U. Sullano</h4>
+							<p class="text-muted mt-3">
+								<i class="far fa-clock-o" aria-hidden="true"></i> 12.30 - 14.00 |
+								<strong class="dark-grey-text font-weight-bold">Gel Sullano - Developer and Tester </strong>
+							</p>
+
+							<!--Grid row-->
+							<div class="row pt-2">
+
+								<!--Grid column-->
+								<div class="col-md-3 col-3">
+
+									<div class="avatar mx-auto">
+										<img src="{% static 'media/Sullano.jpg' %}" class="rounded img-fluid" alt="First sample avatar image">
+									</div>
+
+								</div>
+								<!--Grid column-->
+
+								<!--Grid column-->
+								<div class="col-md-9 col-9">
+
+									<p class="mb-0">Have a good experience in writing and executing test cases, reporting and verifying bugs. She said that its desirable to have automation experience in scripting and executing the test scenarios preferably using PTF or any other automation scripting tool. She asseses coverage of existing tests with the objective of eliminating gaps in coverage of Developing new tests or test suitesand debug system and correct issues.</p>
+									<br>
+									<p class="mb-0">An excellent team player.</p>
+								</div>
+
+							</div>
+							<!--Grid column-->
+
+						</div>
+						<!--Grid row-->
+					</li>
+					<li>
+						<!--Section Title -->
+						<a href="#!">
+							<span class="circle grey"></span>
+						</a>
+
+						<!-- Section Description -->
+						<div class="step-content z-depth-1 ml-3 p-4 hoverable">
+							<h4 class="font-weight-bold">Kenneth Mae G. Verdida</h4>
+							<p class="text-muted mt-3">
+								<i class="far fa-clock-o" aria-hidden="true"></i> 16.30 - 20.00 |
+								<strong class="dark-grey-text font-weight-bold">Kenneth Verdida - Developer and UI/UX Designer </strong>
+							</p>
+
+							<!--Grid row-->
+							<div class="row pt-2">
+
+								<!--Grid column-->
+								<div class="col-md-3 col-3">
+
+									<div class="avatar mx-auto">
+										<img src="{% static 'media/Verdida.jpg' %}" class="rounded img-fluid" alt="First sample avatar image">
+									</div>
+
+								</div>
+								<!--Grid column-->
+
+								<!--Grid column-->
+								<div class="col-md-9 col-9">
+
+									<p class="mb-0">A creative innovator, branding strategist, and design expert with more than 7 years of expertise creating impactual visual brand soluctions for high-profile clients across numerous industry verticals.</p>
+									<br>
+									<p class="mb-0">Exceptional collaborative and interpersonal skills; dynamic team player with well-developed written and verbal communication abilities. Highly skilled in client and vendor relations and negotiations; talented at building and maintaining “win-win” partnerships. Passionate and inventive creator of innovative marketing strategies and campaigns; accustomed to performing in deadline-driven environments with an emphasis on working within budget requirements.</p>
+								</div>
+
+							</div>
+							<!--Grid column-->
+
+						</div>
+						<!--Grid row-->
+
+					</li>
+					<li>
+						<!--Section Title -->
+						<a href="#!">
+							<span class="circle grey"></span>
+						</a>
+
+						<!-- Section Description -->
+						<div class="step-content z-depth-1 ml-3 p-4 hoverable">
+							<h4 class="font-weight-bold">Erwin Villarojo</h4>
+							<p class="text-muted mt-3">
+								<i class="far fa-clock-o" aria-hidden="true"></i> 12.30 - 14.00 |
+								<strong class="dark-grey-text font-weight-bold">Erwin Villarojo - Developer and Debugger</strong>
+							</p>
+
+							<!--Grid row-->
+							<div class="row pt-2">
+
+								<!--Grid column-->
+								<div class="col-md-3 col-3">
+
+									<div class="avatar mx-auto">
+										<img src="{% static 'media/Villarojo.jpg' %}" class="rounded img-fluid" alt="First sample avatar image">
+									</div>
+
+								</div>
+								<!--Grid column-->
+
+								<!--Grid column-->
+								<div class="col-md-9 col-9">
+
+									<p class="mb-0">Provide hands-on development and mentoring as necessary for other members of the development team. Instructs, assigns, directs, and checks the work of other software developers on development team. Develop and deliver technical training and assistance. Plus provides in-depth technical training at customer sites worldwide, providing an opportunity to travel several times a year.</p>
+									<br>
+									<p class="mb-0">A certified hardworker.</p>
+								</div>
+
+							</div>
+							<!--Grid column-->
+
+						</div>
+						<!--Grid row-->
+					</li>
+				</ul>
+				<!-- Timeline Wrapper -->
+
+			</section>
+			<!-- Section: Details -->
+
+		</div>
+
+
+		<div class="container">
+
+			<!--Section: FAQ v.5-->
+			<section id="faq" class="pt-1">
+
+				<!-- Section heading -->
+				<h3 class="text-center my-5 pt-3 dark-grey-text font-weight-bold wow fadeIn" data-wow-delay="0.2s">
+					<strong>Frequently Asked Question</strong>
+				</h3>
+				<!-- Section description -->
+				<p class="text-center w-responsive mx-auto my-5 grey-text">We would like to address and relieve some of your burdens in our website by creatively answering your questions. We hope this helps. </p>
+
+				<!-- Grid row -->
+				<div class="row gradient-background d-flex justify-content-center">
+
+					<!-- Grid column -->
+					<div class="col-md-10 col-xl-10 pb-5 pt-3">
+
+						<!--Accordion wrapper-->
+						<div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+							<!-- Accordion card -->
+							<div class="card border-0">
+
+								<!-- Card header -->
+								<div class="card-header white z-depth-1 border-0 mb-1" role="tab" id="heading1">
+									<a data-toggle="collapse" data-parent="#accordionEx" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+										<h5 class="mb-0 dark-grey-text">
+											#1 What is RoBust for?
+											<i class="fas fa-angle-down rotate-icon"></i>
+										</h5>
+									</a>
+								</div>
+
+								<!-- Card body -->
+								<div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="heading1" data-parent="#accordionEx">
+									<div class="card-body mb-1 white-text" style="background-color: #a83332">
+										<p>RoBust a newly innovated bus reservation system for Technologians, It is a web
+											application that provides real user convenience in purchasing bus tickets. CIT – U
+											passengers can select and reserve a bus seat by themselves through the system's seat
+											selector. Generally, this system allows Technologians to experience a convenient bus seat
+											reservation ahead of time. Another goal of this system is to reduce the conventional paper
+											ticketing method and to provide a new way for bus ticketing in the IMDC Office. Wildcats
+											Bus indeed provides comfort and safety for all Technologians when going home especially
+											during rush hours. With RoBust system, this adds value to CIT – U passengers’
+											satisfaction in terms of their convenience.</p>
+									</div>
+								</div>
+							</div>
+							<!-- Accordion card -->
+
+							<!-- Accordion card -->
+							<div class="card border-0">
+
+								<!-- Card header -->
+								<div class="card-header White z-depth-1 border-0 mb-1" role="tab" id="heading2">
+									<a class="collapsed" data-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+										<h5 class="mb-0 dark-grey-text">
+											#2 How does it works?
+											<i class="fas fa-angle-down rotate-icon"></i>
+										</h5>
+									</a>
+								</div>
+
+								<!-- Card body -->
+								<div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordionEx">
+									<div class="card-body mb-1 white-text" style="background-color: #a83332">
+										<p>The system has features that allows users to login and logout of their account. This
+											allows the passengers to check the latest update on scheduled time departure of the
+											buses, trip details and available seats in a particular time and date. Confirmed bookings
+											will be redirected to the Booking Review where the user can view or reschedule the
+											booking prior to departure time. Furthermore, it prompts the machine to display the
+											electronic ticket of the passenger, showing ticket details that will act as proof of
+											reservation. All reservations are counted and shown on the dashboard, where users can
+											view the overview of the analytics of the booking history and the number of purchased
+											tickets. Each consumer has an electronic wallet that serves this system's payment method
+											and this can be loaded at the IMDC Office by purchasing a load. This system would use
+											artificial intelligence, a voice command that allows easier and quicker to access in provide
+											general customer service needs and experience.</p>
+									</div>
+								</div>
+							</div>
+							<!-- Accordion card -->
+
+							<!-- Accordion card -->
+							<div class="card border-0">
+
+								<!-- Card header -->
+								<div class="card-header white z-depth-1 border-0 mb-1" role="tab" id="heading3">
+									<a class="collapsed" data-toggle="collapse" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+										<h5 class="mb-0 dark-grey-text">
+											#3 What are the advanteges in using RoBust?
+											<i class="fas fa-angle-down rotate-icon"></i>
+										</h5>
+									</a>
+								</div>
+
+								<!-- Card body -->
+								<div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3" data-parent="#accordionEx">
+									<div class="card-body mb-1 white-text" style="background-color: #a83332">
+										<p>It is a realtime and easy process in which it takes two or less than a minute to reserve a certain
+											product/item anytime and anywhere. In addition, some systems would link payment
+											channels to allow users to instantly pay the reservation with less worries. There will be no
+											more longer queues, since users can manage to reserve on their own.
+										</p>
+									</div>
+								</div>
+							</div>
+							<!-- Accordion card -->
+						</div>
+						<!--/.Accordion wrapper-->
+
+					</div>
+					<!-- Grid column -->
+
+				</div>
+				<!-- Grid row -->
+
+			</section>
+		</div>
+
+	</main>
+	<!-- Main content -->
+
+	<!--Footer-->
+	<footer class="page-footer  text-center text-md-left pt-0" style="background-color: #2c353c">
+
+		<!--Footer Links-->
+		<div class="container">
+
+
+			<hr class="rgba-white-light" style="margin: 0 15%;">
+
+			<!--Grid row-->
+			<div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+				<!--Grid column-->
+				<div class="col-md-8 col-12 mt-4">
+					<p style="line-height: 1.7rem">Expect the best. Prepare for the worst. Capitalize on what comes.</p>
+				</div>
+				<!--Grid column-->
+
+			</div>
+			<!--Grid row-->
+
+			<hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+			<!--Grid row-->
+			<div class="row pb-3">
+
+				<!--Grid column-->
+				<div class="col-md-12">
+
+					<div class="footer-socials mb-3 flex-center" style="color: #e7c51d">
+						<!--Facebook-->
+						<a class="p-2 m-2 fa-lg fb-ic">
+							<i class="fab fa-facebook-f fa-lg text mr-md-4" style="color: #e7c51d"> </i>
+						</a>
+						<!--Twitter-->
+						<a class="p-2 m-2 fa-lg tw-ic">
+							<i class="fab fa-twitter fa-lg text mr-md-4" style="color: #e7c51d"> </i>
+						</a>
+						<!--Google +-->
+						<a class="p-2 m-2 fa-lg gplus-ic">
+							<i class="fab fa-google-plus-g fa-lg text mr-md-4" style="color: #e7c51d"> </i>
+						</a>
+						<!--Linkedin-->
+						<a class="p-2 m-2 fa-lg li-ic">
+							<i class="fab fa-linkedin-in fa-lg text mr-md-4" style="color: #e7c51d"> </i>
+						</a>
+						<!--Instagram-->
+						<a class="p-2 m-2 fa-lg ins-ic">
+							<i class="fab fa-instagram fa-lg text mr-md-4" style="color: #e7c51d"> </i>
+						</a>
+						<!--Pinterest-->
+						<a class="p-2 m-2 fa-lg pin-ic">
+							<i class="fab fa-pinterest fa-lg text" style="color: #e7c51d"> </i>
+						</a>
+					</div>
+				</div>
+				<!--Grid column-->
+			</div>
+			<!--Grid row-->
+
+		</div>
+		<!--/Footer Links-->
+
+		<!--Copyright-->
+		<div class="footer-copyright py-3 text-center">
+			<div class="container-fluid">
+				© 2021 Copyright <p style="font-weight: 600">RoBust</p>
+			</div>
+		</div>
+		<!--/Copyright-->
+
+	</footer>
+	<!--/Footer-->
+
+	<!-- Footer -->
+
+	<!-- SCRIPTS -->
+	<!-- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="{% static 'js/bootstrap.js' %}"></script>
+	<!-- Bootstrap tooltips -->
+	<script src="{% static 'js/popper.min.js'%}"></script>
+	<!-- MDB core JavaScript -->
+	<script src="{% static 'js/mdb.min.js' %}"></script>
+
+	<script src="{% static 'js/Home.js' %}"></script>
+
+
+	<script>
+		$.ajaxSetup({
+			beforeSend: function(xhr, settings) {
+				function getCookie(name) {
+					var cookieValue = null;
+					if (document.cookie && document.cookie != '') {
+						var cookies = document.cookie.split(';');
+						for (var i = 0; i < cookies.length; i++) {
+							var cookie = jQuery.trim(cookies[i]);
+							// Does this cookie string begin with the name we want?
+							if (cookie.substring(0, name.length + 1) == (name + '=')) {
+								cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+								break;
+							}
+						}
+					}
+					return cookieValue;
+				}
+				if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+					// Only send the token to relative URLs i.e. locally.
+					xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+				}
+			}
+		});
+
+
+		// Animation init
+		new WOW().init();
+
+	</script>
+
+
+
+</body>
+
+</html>
